@@ -1,0 +1,70 @@
+Site Components
+===============
+
+Step 1
+------
+https://symfony.com/doc/current/setup.html
+composer create-project symfony/skeleton Symfony_StockManager
+
+Change "symfony/framework-bundle": "dev-master" for Symfony 4.1
+
+composer require server --dev
+composer require sec-checker --dev
+
+Step 2
+------
+https://symfony.com/doc/current/page_creation.html
+composer require annotations
+composer require twig
+composer require --dev profiler
+
+Step 3
+------
+https://symfony.com/doc/current/routing.html
+https://symfony.com/doc/current/controller.html
+https://symfony.com/doc/current/templating.html
+
+https://symfony.com/doc/current/configuration.html
+
+Step 4
+------
+https://symfony.com/doc/current/forms.html
+composer require form
+
+https://symfony.com/doc/current/doctrine.html
+composer require doctrine maker
+
+https://symfony.com/doc/current/service_container.html
+
+https://symfony.com/doc/current/security.html
+composer require security
+
+https://symfony.com/doc/current/email.html
+composer require mailer
+
+https://symfony.com/doc/current/logging.html
+composer require logger
+
+Step 5 (not guided)
+-------------------
+https://symfony.com/doc/current/translation.html
+composer require translator
+
+https://symfony.com/doc/current/components/workflow.html
+composer require symfony/workflow (NOT ADDED ATM)
+
+
+STEP¨Bonus
+----------
+composer require --dev symfony/thanks
+
+
+Why 4.1 ?
+https://symfony.com/blog/new-in-symfony-4-1-inlined-routing-configuration
+https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
+https://symfony.com/blog/new-and-improved-generators-for-makerbundle
+
+
+
+
+

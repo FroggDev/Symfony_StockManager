@@ -1,0 +1,15 @@
+Logo
+https://editor.freelogodesign.org/?lang=FR
+
+bg #b2dfdb
+text #004d40
+
+Materialize
+http://materializecss.com/icons.html
+http://materializecss.com/color.html
+
+Flags
+http://flag-icon-css.lip.is
+
+C:\dev\bin\ruby\bin\scss.bat --no-cache --update C:\Users\Remy\Downloads\parallax-template\public\inc\css\materialize.scss
+uglifycss C:\Users\Remy\Downloads\parallax-template\public\inc\css\materialize.css --output C:\Users\Remy\Downloads\parallax-template\public\inc\css\materialize.min.css
