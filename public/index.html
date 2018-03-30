@@ -24,7 +24,8 @@
   <meta name="google-site-verification" content=""/-->
 
   <!-- CSS  -->
-  <link href="inc/css/icon.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+  <link href="inc/css/icon.min.css" rel="stylesheet">
   <link href="inc/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="inc/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
@@ -37,24 +38,27 @@
   <li><a href="#!"><span class="flag-icon flag-icon-en"></span> En</a></li>
 </ul>
 
-  <nav role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="login.html" class="icon-white"><i class="material-icons left">account_circle</i>Login</a></li>
-		<li><a class="dropdown-trigger icon-white" href="#!" data-target="dropdown1"><span class="flag-icon flag-icon-fr"></span><i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
+<nav role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
+    <ul>
+      <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#!" data-target="dropdownlang"><span class="flag-icon flag-icon-fr"></span><i class="material-icons right">arrow_drop_down</i></a></li>
+      <li class="right hide-on-med-and-down"><a href="login.html"><i class="material-icons left">account_circle</i>Login</a></li>
+      <li class="right hide-on-med-and-down"><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
+      <li class="hide-on-large-only"><a href="index.html"><i class="material-icons">home</i></a></li>
+    </ul>
 
-	  <!-- Mobile navigation -->
-      <ul id="nav-mobile" class="sidenav">
-			<li><a href="login.html"><i class="material-icons left">account_circle</i>Login</a></li>
-			<li class="divider"></li>
-			<li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-			<li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>    
+    <!-- Mobile navigation -->
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
+      <li><a href="login.html"><i class="material-icons left">account_circle</i>Login</a></li>
+      <li class="divider"></li>
+      <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+      <li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
 
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
@@ -65,7 +69,7 @@
           <h5 class="header col s12 light">Scan your food & drink bar code to store it in the StockManager</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="register-button" class="btn-large waves-effect waves-light">Register now</a>
+          <a href="register.html" id="register-button" class="pulse btn-large waves-effect waves-light">Register now</a>
         </div>
         <br><br>
 
@@ -193,10 +197,10 @@
         <div class="col l3 s12 center">
           <h5>Informations</h5>
           <ul>
-            <li><a class="white-text" href="#!">Policy of confidentiality</a></li>
-            <li><a class="white-text" href="#!">terms of use</a></li>
-            <li><a class="white-text" href="#!">Contact</a></li>
-            <li><a class="white-text" href="#!">Extra credits</a></li>
+            <li><a class="yellow-text" href="#!">Policy of confidentiality</a></li>
+            <li><a class="yellow-text" href="#!">terms of use</a></li>
+            <li><a class="yellow-text" href="#!">Contact</a></li>
+            <li><a class="yellow-text" href="#!">Extra credits</a></li>
           </ul>
         </div>
         <div class="col l3 s12 center">

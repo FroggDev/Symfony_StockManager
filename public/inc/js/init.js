@@ -1,7 +1,7 @@
 (function($){
   $(function(){
 
-    $('.sidenav').sidenav();
+    $('.sidenav').sidenav({ edge:'right'});
     $('.parallax').parallax();
 	$(".dropdown-trigger").dropdown();
 	

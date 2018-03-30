@@ -2251,6 +2251,9 @@ ul.staggered-list li {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(51, 51, 51, 0.08); }
 
+.page-footer.mini {
+  padding-top: 0px; }
+
 table, th, td {
   border: none; }
 
@@ -3413,10 +3416,18 @@ small {
 
 .card-panel {
   transition: box-shadow .25s;
-  padding: 24px;
-  margin: 0.5rem 0 1rem 0;
+  padding: 13px 30px;
+  /*margin: $element-top-margin 0 $element-bottom-margin 0;*/
   border-radius: 2px;
   background-color: #fff; }
+  .card-panel.warning {
+    background-color: #f4511e; }
+  .card-panel.error {
+    background-color: #E53935; }
+  .card-panel.check {
+    background-color: #43A047; }
+  .card-panel I {
+    vertical-align: -25%; }
 
 .card {
   position: relative;
@@ -3493,9 +3504,9 @@ small {
       bottom: 0;
       left: 0;
       max-width: 100%;
-      padding: 24px; }
+      padding: 13px 30px; }
   .card .card-content {
-    padding: 24px;
+    padding: 13px 30px;
     border-radius: 0 0 2px 2px; }
     .card .card-content p {
       margin: 0; }
@@ -3509,18 +3520,18 @@ small {
     background-color: inherit;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     position: relative;
-    padding: 16px 24px; }
+    padding: 16px 13px 30px; }
     .card .card-action:last-child {
       border-radius: 0 0 2px 2px; }
     .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
       color: #ffab40;
-      margin-right: 24px;
+      margin-right: 13px 30px;
       transition: color .3s ease;
       text-transform: uppercase; }
       .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
         color: #ffd8a6; }
   .card .card-reveal {
-    padding: 24px;
+    padding: 13px 30px;
     position: absolute;
     background-color: #fff;
     width: 100%;

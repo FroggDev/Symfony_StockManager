@@ -6,6 +6,12 @@
  * Made By MaterializeCSS.com
  */
 
+/* ============== FONTS ============== */
+
+@font-face{font-family:MavenProLight;src:url(fonts/MavenProLight-300.otf);}
+h1,h2,h3,h4,h5,h6,A,BUTTON{font-family:MavenProLight;}
+NAV A{font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+
 /* ============== NAV BAR ============== */
 #logo-container{z-index: 2;}
 
@@ -52,6 +58,12 @@ p {
   height: auto;
   color: rgba(255,255,255,.9);
 }
+
+.parallax-container.connected{
+   border-bottom: 1px solid #26a69a;
+   min-height: 80px;
+ }
+
   .parallax-container .section {
     width: 100%;
   }
