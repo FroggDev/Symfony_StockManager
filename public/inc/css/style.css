@@ -6,17 +6,44 @@
  * Made By MaterializeCSS.com
  */
 
+/* ============== NAV BAR ============== */
+#logo-container{z-index: 2;}
+
+#logo-container IMG{width: 150px;}
+
+.flag-icon{background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  line-height: 18px;
+  border: 1px solid #ccc;
+  border: radius;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2), 0px 0px 2px 0px #FFFFFF inset;
+}
+
+.flag-icon:before{content:"\00a0"}
+.flag-icon-fr{background-image:url(../img/flags/fr.svg)}
+.flag-icon-en{background-image:url(../img/flags/en.svg)}
+
+
+/* ============== SECTION ============== */
+
+.section .container{
+  background:rgba(48, 74, 69, 0.6);
+}
+
+/* ============== DEFAULT ============== */
+
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: #fff;
 }
 
 p {
   line-height: 2rem;
-}
-
-.sidenav-trigger {
-  color: #26a69a;
 }
 
 .parallax-container {
