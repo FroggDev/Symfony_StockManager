@@ -3,10 +3,27 @@
 .card-panel {
   transition: box-shadow .25s;
   padding: $card-padding;
-  margin: $element-top-margin 0 $element-bottom-margin 0;
+  /*margin: $element-top-margin 0 $element-bottom-margin 0;*/
   border-radius: 2px;
   @extend .z-depth-1;
   background-color: $card-bg-color;
+
+  &.warning{
+    background-color: $card-bg-color-warning;
+  }
+
+  &.error{
+    background-color: $card-bg-color-error;
+  }
+
+  &.check{
+    background-color: $card-bg-color-success;
+  }
+
+  I{
+    vertical-align: -25%;
+  }
+
 }
 
 .card {

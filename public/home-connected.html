@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StockManager - Home</title>
+    <meta name="language" content="EN">
+
+    <!-- DESCRIPTION -->
+    <meta name="description"
+          content="Frogg StockManager a web application that store and manage food stocks using barcode"/>
+    <meta name="keywords" content="Frogg,StockManager,stock,manage,food,barcode"/>
+    <meta name="subject" content="Food Stock Management using barcode">
+    <meta name="url" content="https://stock.frogg.fr">
+    <!-- AUTHOR -->
+    <meta name="copyright" content="Frogg.fr">
+    <meta name="author" content="Frogg, admin@frogg.fr">
+    <!-- CONTENT -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- TODO -->
+    <!--meta name="revisit-after" content="7 days">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="robots" content="index,follow" />
+    <meta name="google-site-verification" content=""/-->
+
+    <!-- CSS  -->
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <link href="inc/css/icon.min.css" rel="stylesheet">
+    <link href="inc/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="inc/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<!-- Dropdown Structure -->
+<ul id="dropdownlang" class="dropdown-content">
+    <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li class="divider"></li>
+    <li><a href="#!"><span class="flag-icon flag-icon-en"></span> En</a></li>
+</ul>
+<ul id="dropdownprofile" class="dropdown-content">
+    <li><a href="#!">Account</a></li>
+    <li><a href="#!">Stock Option</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">Log out</a></li>
+</ul>
+
+
+<nav role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="home-connected.html" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
+
+        <ul>
+            <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#!"
+                                                      data-target="dropdownlang"><span
+                    class="flag-icon flag-icon-fr"></span><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#!"
+                                                      data-target="dropdownprofile"><i class="material-icons left">account_circle</i>
+                My profile</a></li>
+            <li class="right hide-on-med-and-down"><a href="index.html"><i class="material-icons left">home</i>Home</a>
+            </li>
+            <li class="hide-on-large-only"><a href="index.html"><i class="material-icons">home</i></a></li>
+        </ul>
+
+        <!-- Mobile navigation -->
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">My Account</a></li>
+            <li><a href="#!">My Stock Option</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Log out</a></li>
+            <li class="divider"></li>
+            <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+            <li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+        <!--form>
+            <div class="input-field">
+                <input id="search" placeholder="Type your seach here.." type="search" required>
+                <i class="material-icons">close</i>
+            </div>
+        </form-->
+
+    </div>
+</nav>
+
+<div class="parallax-container connected">
+    <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <h1 class="teal-text text-lighten-2 center">My Stock manager</h1>
+
+        <div class="row">
+
+            <div>
+                <div><img src="inc/img/icons/product_add.png" height="300" width="300"/></div>
+                <span class="">Add a product</span>
+            </div>
+            <img src="inc/img/icons/product_del.png" height="300" width="300"/>
+            <img src="inc/img/icons/product_list.png" height="300" width="300"/>
+            <img src="inc/img/icons/product_stats.png" height="300" width="300"/>
+
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer mini">
+    <div class="footer-copyright">
+        <div class="container">
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018 - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a>
+        </div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="inc/js/jquery-2.1.1.min.js"></script>
+<script src="inc/js/materialize.min.js"></script>
+<script src="inc/js/init.js"></script>
+
+</body>
+</html>

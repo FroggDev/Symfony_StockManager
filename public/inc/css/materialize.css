@@ -2061,7 +2061,7 @@ a {
 blockquote {
   margin: 20px 0;
   padding-left: 1.5rem;
-  border-left: 5px solid #ee6e73; }
+  border-left: 5px solid #26a69a; }
 
 i {
   line-height: inherit; }
@@ -2100,7 +2100,7 @@ video.responsive-video {
   .pagination li.active a {
     color: #fff; }
   .pagination li.active {
-    background-color: #ee6e73; }
+    background-color: #26a69a; }
   .pagination li.disabled a {
     cursor: default;
     color: #999; }
@@ -2240,7 +2240,7 @@ ul.staggered-list li {
 .page-footer {
   padding-top: 20px;
   color: #fff;
-  background-color: #ee6e73; }
+  background-color: #26a69a; }
   .page-footer .footer-copyright {
     overflow: hidden;
     min-height: 50px;
@@ -2250,6 +2250,9 @@ ul.staggered-list li {
     padding: 10px 0px;
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(51, 51, 51, 0.08); }
+
+.page-footer.mini {
+  padding-top: 0px; }
 
 table, th, td {
   border: none; }
@@ -3132,7 +3135,7 @@ table span.badge {
 
 nav {
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #26a69a;
   width: 100%;
   height: 56px;
   line-height: 56px; }
@@ -3314,7 +3317,7 @@ h4 {
 h5 {
   font-size: 1.64rem;
   line-height: 110%;
-  margin: 1.09333rem 0 0.656rem 0; }
+  margin: 1.09333rem 0; }
 
 h6 {
   font-size: 1.15rem;
@@ -3413,10 +3416,18 @@ small {
 
 .card-panel {
   transition: box-shadow .25s;
-  padding: 24px;
-  margin: 0.5rem 0 1rem 0;
+  padding: 13px 30px;
+  /*margin: $element-top-margin 0 $element-bottom-margin 0;*/
   border-radius: 2px;
   background-color: #fff; }
+  .card-panel.warning {
+    background-color: #f4511e; }
+  .card-panel.error {
+    background-color: #E53935; }
+  .card-panel.check {
+    background-color: #43A047; }
+  .card-panel I {
+    vertical-align: -25%; }
 
 .card {
   position: relative;
@@ -3493,9 +3504,9 @@ small {
       bottom: 0;
       left: 0;
       max-width: 100%;
-      padding: 24px; }
+      padding: 13px 30px; }
   .card .card-content {
-    padding: 24px;
+    padding: 13px 30px;
     border-radius: 0 0 2px 2px; }
     .card .card-content p {
       margin: 0; }
@@ -3509,18 +3520,18 @@ small {
     background-color: inherit;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     position: relative;
-    padding: 16px 24px; }
+    padding: 16px 13px 30px; }
     .card .card-action:last-child {
       border-radius: 0 0 2px 2px; }
     .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
       color: #ffab40;
-      margin-right: 24px;
+      margin-right: 13px 30px;
       transition: color .3s ease;
       text-transform: uppercase; }
       .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
         color: #ffd8a6; }
   .card .card-reveal {
-    padding: 24px;
+    padding: 13px 30px;
     position: absolute;
     background-color: #fff;
     width: 100%;
@@ -3618,7 +3629,7 @@ small {
     margin: 0;
     text-transform: uppercase; }
     .tabs .tab a {
-      color: rgba(238, 110, 115, 0.7);
+      color: rgba(38, 166, 154, 0.7);
       display: block;
       width: 100%;
       height: 100%;
@@ -3628,19 +3639,19 @@ small {
       overflow: hidden;
       transition: color .28s ease, background-color .28s ease; }
       .tabs .tab a:focus, .tabs .tab a:focus.active {
-        background-color: rgba(246, 178, 181, 0.2);
+        background-color: rgba(68, 212, 199, 0.2);
         outline: none; }
       .tabs .tab a:hover, .tabs .tab a.active {
         background-color: transparent;
-        color: #ee6e73; }
+        color: #26a69a; }
     .tabs .tab.disabled a, .tabs .tab.disabled a:hover {
-      color: rgba(238, 110, 115, 0.4);
+      color: rgba(38, 166, 154, 0.4);
       cursor: default; }
   .tabs .indicator {
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #f6b2b5;
+    background-color: #44d4c7;
     will-change: left, right; }
 
 @media only screen and (max-width: 992px) {
@@ -5407,11 +5418,11 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
   .table-of-contents a:hover {
     color: #a8a8a8;
     padding-left: 15px;
-    border-left: 1px solid #ee6e73; }
+    border-left: 1px solid #26a69a; }
   .table-of-contents a.active {
     font-weight: 500;
     padding-left: 14px;
-    border-left: 2px solid #ee6e73; }
+    border-left: 2px solid #26a69a; }
 
 .sidenav {
   position: fixed;
@@ -5541,7 +5552,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
     padding: 16px 16px 0; } }
 .sidenav .collapsible-body > ul:not(.collapsible) > li.active,
 .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active {
-  background-color: #ee6e73; }
+  background-color: #26a69a; }
   .sidenav .collapsible-body > ul:not(.collapsible) > li.active a,
   .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a {
     color: #fff; }
@@ -6074,7 +6085,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
   position: absolute;
   font-size: 1rem;
   border-radius: 50%;
-  background-color: #ee6e73;
+  background-color: #26a69a;
   box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100%;
