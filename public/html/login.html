@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>StockManager - Home</title>
+    <title>StockManager - Login</title>
     <meta name="language" content="EN">
 
     <!-- DESCRIPTION -->
@@ -46,6 +46,7 @@
             <li class="right hide-on-med-and-down"><a href="login.html"><i class="material-icons left">account_circle</i>Login</a></li>
             <li class="right hide-on-med-and-down"><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="hide-on-large-only"><a href="index.html"><i class="material-icons">home</i></a></li>
+            <li class="hide-on-large-only"><a href="login.html"><i class="material-icons">account_circle</i></a></li>
         </ul>
 
         <!-- Mobile navigation -->
@@ -64,28 +65,39 @@
     <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
 </div>
 
-<div class="container">
+<div class="container main">
+
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2">Register</h1>
+        <h1 class="teal-text text-lighten-2">Login</h1>
 
         <div class="row">
-
-            <form class="col s12">
-
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
-                    </div>
-
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
-                    </div>
+            <div class="m12 s12 col">
+                <div class="card-panel warning">
+                      <h6 class="white-text"><i class="material-icons left">warning</i>This is a sample of warning flash bag.</h6>
                 </div>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="m12 s12 col">
+                <div class="card-panel check">
+                    <h6 class="white-text"><i class="material-icons left">check</i>This is a sample of check flash bag.</h6>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="m12 s12 col">
+                <div class="card-panel error">
+                    <h6 class="white-text"><i class="material-icons left">error</i>This is a sample of error flash bag.</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <form class="col s12" action="home-connected.html">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
@@ -104,12 +116,30 @@
 
                 <div class="row">
                     <div class="input-field col s12 right-align">
-                        <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Register
+                        <div class="switch">
+                            <span>Remember me</span>
+                            <label>
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 right-align">
+                        <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Connexion
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
                 </div>
             </form>
+
+
+            <div class="left"><a href="register.html"><i class="material-icons left">account_circle</i>Register</a></div>
+            <div class="right"><a href="lostpassword.html"><i class="material-icons right">lock_open</i>Password forgotten</a></div>
+
+
         </div>
 
     </div>
@@ -119,14 +149,13 @@
 <footer class="page-footer mini">
     <div class="footer-copyright">
         <div class="container">
-            Frogg StockManager - Copyright Frogg.fr &copy; 2018 - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a>
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a></span>
         </div>
     </div>
 </footer>
 
 
 <!--  Scripts-->
-<script src="inc/js/jquery-2.1.1.min.js"></script>
 <script src="inc/js/materialize.min.js"></script>
 <script src="inc/js/init.js"></script>
 

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StockManager - Add product</title>
+    <meta name="language" content="EN">
+
+    <!-- DESCRIPTION -->
+    <meta name="description"
+          content="Frogg StockManager a web application that store and manage food stocks using barcode"/>
+    <meta name="keywords" content="Frogg,StockManager,stock,manage,food,barcode"/>
+    <meta name="subject" content="Food Stock Management using barcode">
+    <meta name="url" content="https://stock.frogg.fr">
+    <!-- AUTHOR -->
+    <meta name="copyright" content="Frogg.fr">
+    <meta name="author" content="Frogg, admin@frogg.fr">
+    <!-- CONTENT -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- TODO -->
+    <!--meta name="revisit-after" content="7 days">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="robots" content="index,follow" />
+    <meta name="google-site-verification" content=""/-->
+
+    <!-- CSS  -->
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <link href="inc/css/icon.min.css" rel="stylesheet">
+    <link href="inc/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="inc/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<!-- Dropdown Structure -->
+<ul id="dropdownlang" class="dropdown-content">
+    <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li class="divider"></li>
+    <li><a href="#!"><span class="flag-icon flag-icon-en"></span> En</a></li>
+</ul>
+<ul id="dropdownprofile" class="dropdown-content">
+    <li><a href="#!">Account</a></li>
+    <li><a href="#!">Stock Option</a></li>
+    <li class="divider"></li>
+    <li><a href="index.html">Log out</a></li>
+</ul>
+
+
+<nav role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="home-connected.html" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
+
+        <ul>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#!" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#!" data-target="dropdownprofile">
+                    <i class="material-icons left">account_circle</i> My profile</a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a href="home-connected.html"><i class="material-icons left">home</i>Home</a>
+            </li>
+            <li class="hide-on-large-only"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
+        </ul>
+
+        <!-- Mobile navigation -->
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">My Account</a></li>
+            <li><a href="#!">My Stock Option</a></li>
+            <li class="divider"></li>
+            <li><a href="index.html">Log out</a></li>
+            <li class="divider"></li>
+            <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+            <li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+        <!--form>
+            <div class="input-field">
+                <input id="search" placeholder="Type your seach here.." type="search" required>
+                <i class="material-icons">close</i>
+            </div>
+        </form-->
+
+    </div>
+</nav>
+
+<div class="parallax-container connected">
+    <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
+</div>
+
+<div class="container main">
+
+    <div class="section">
+
+        <h1 class="teal-text text-lighten-2 center">Add a product</h1>
+
+        <div class="controls toHideWhenOff">
+            <form>
+
+                <a href="home-connected.html" class="waves-effect waves-light btn-large red"><i class="material-icons left">backspace</i>Back</a>
+
+                <a id="cameraTorch" class="waves-effect waves-light btn-large right "><i class="material-icons left">wb_incandescent</i>Torch</a>
+
+                <a onclick="document.app.Scan.closeScan();document.app.Scan.doAjax('getProduct.html',{ barcode: 11111111 },document.app.Scan.displayResult);" class="waves-effect waves-light btn-large right orange accent-2">FakeScan</a>
+
+                <input type="checkbox" name="settings_torch" id="settings_torch" class="hidden" />
+
+                <!--section id="container" class="container"-->
+                <section id="container">
+
+                    <div id="interactive" class="viewport"></div>
+
+                    <div id="result_strip">
+                        <ul class="thumbnails"></ul>
+                        <ul class="collector"></ul>
+                    </div>
+
+                </section>
+
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">aspect_ratio</i>
+                    <select name="input-stream_constraints" id="deviceSelection"></select>
+                    <label>Camera</label>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- Display result from bar code -->
+        <div id="result">
+
+            <a href="home-connected.html" class="waves-effect waves-light btn-large red"><i class="material-icons left">backspace</i>Back</a>
+
+            <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large right orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
+
+            <div class="list" style="margin-top:2em;"></div>
+
+            <div style="clear:both;"></div>
+
+            <div class="right">
+                <a class="btn-floating green" id="addproduct"><i class="material-icons">add</i></a>
+                <a class="btn-floating red" id="removeproduct"><i class="material-icons">remove</i></a>
+            </div>
+
+            <div style="clear:both;"></div>
+
+            <form id="addProductForm">
+
+            <div class="input-field">
+                <i class="material-icons prefix">today</i>
+                <label for="expire" class="">Expire date</label>
+                <input type="text" class="datepicker" id="expire" name="expire">
+            </div>
+
+            <input type="hidden" id="nbproductfield" name="nbproductfield" value="1">
+
+                <input type="hidden" id="barcode" name="barcode">
+
+            <div class="center">
+                <a onclick="document.app.Scan.doAjax('addtostock.html',$('#addProductForm').serialize(),document.app.Scan.addToStock)" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add to stock</a>
+            </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- Display if no product found -->
+        <div id="notfound">
+
+            <a href="home-connected.html" class="waves-effect waves-light btn-large red"><i class="material-icons left">backspace</i>Back</a>
+
+            <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large right orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
+
+            <h2 class="center">Not product found for the barcode : <span id="notfoundbarcode" class="text-accent-2 orange-text"></span></h2>
+
+            <br><br>
+
+            <div class="center">
+                <a class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Manually Add to stock</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-loader" class="modal" style="padding:0 20px;">
+
+    <h5>Please wait while getting datas</h5>
+
+    <div class="center" style="margin:10px;">
+        <!-- loader -->
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- btn -->
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+
+<footer class="page-footer mini">
+    <div class="footer-copyright">
+        <div class="container">
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a></span>
+        </div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="inc/js/materialize.min.js"></script>
+<script src="inc/js/init.js"></script>
+
+<!-- CAMERA SCRIPTS -->
+<script src="inc/js/scan/jquery-2.1.1.min.js"></script>
+<script src="inc/js/scan/quagga.min.js" type="text/javascript"></script>
+<script src="inc/js/scan/scan.js" type="text/javascript"></script>
+<link href="inc/css/scan.min.css" rel="stylesheet">
+
+
+</body>
+</html>

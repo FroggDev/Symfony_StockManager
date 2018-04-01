@@ -1,0 +1,1 @@
+#container{position:relative;margin:10px auto;width:auto}video{margin-top:0;width:100%;height:auto}.drawingBuffer{position:absolute;z-index:2;top:0;left:0;width:100%}#interactive.viewport{width:auto;height:auto}#interactive.viewport canvas.drawingBuffer,video.drawingBuffer{margin-left:0}#interactive.viewport canvas,video{margin-top:0;width:100%;height:auto;max-height:500px}

@@ -42,7 +42,7 @@
     <li><a href="#!">Account</a></li>
     <li><a href="#!">Stock Option</a></li>
     <li class="divider"></li>
-    <li><a href="#!">Log out</a></li>
+    <li><a href="index.html">Log out</a></li>
 </ul>
 
 
@@ -57,19 +57,19 @@
             <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#!"
                                                       data-target="dropdownprofile"><i class="material-icons left">account_circle</i>
                 My profile</a></li>
-            <li class="right hide-on-med-and-down"><a href="index.html"><i class="material-icons left">home</i>Home</a>
+            <li class="right hide-on-med-and-down"><a href="home-connected.html"><i class="material-icons left">home</i>Home</a>
             </li>
-            <li class="hide-on-large-only"><a href="index.html"><i class="material-icons">home</i></a></li>
+            <li class="hide-on-large-only"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
         </ul>
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
-            <li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
+            <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
             <li><a href="#!">My Account</a></li>
             <li><a href="#!">My Stock Option</a></li>
             <li class="divider"></li>
-            <li><a href="#!">Log out</a></li>
+            <li><a href="index.html">Log out</a></li>
             <li class="divider"></li>
             <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
             <li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
@@ -90,37 +90,42 @@
     <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
 </div>
 
-<div class="container">
+<div class="container main connected">
+
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2 center">My Stock manager</h1>
+        <h1 class="teal-text text-lighten-2 center">My Stock</h1>
 
-        <div class="row">
-
-            <div>
-                <div><img src="inc/img/icons/product_add.png" height="300" width="300"/></div>
-                <span class="">Add a product</span>
+        <div class="homeIconContainer">
+            <div class="homeIcon">
+                <a href="addproduct.html"><img class="tooltipped" data-position="bottom" data-tooltip="Add products to the stock" src="inc/img/icons/product_add.png" height="300" width="300"/></a>
             </div>
-            <img src="inc/img/icons/product_del.png" height="300" width="300"/>
-            <img src="inc/img/icons/product_list.png" height="300" width="300"/>
-            <img src="inc/img/icons/product_stats.png" height="300" width="300"/>
-
+            <div class="homeIcon">
+                <a href="#"><img class="tooltipped" data-position="bottom" data-tooltip="Remove products to the stock" src="inc/img/icons/product_del.png" height="300" width="300"/></a>
+            </div>
+            <div class="homeIcon">
+                <a href="#"><img class="tooltipped" data-position="bottom" data-tooltip="View products in the stock" src="inc/img/icons/product_list.png" height="300" width="300"/></a>
+            </div>
+            <div class="homeIcon">
+                <a href="#"><img class="tooltipped" data-position="bottom" data-tooltip="View stock stats" src="inc/img/icons/product_stats.png" height="300" width="300"/></a>
+            </div>
         </div>
+
     </div>
 </div>
 
 <footer class="page-footer mini">
     <div class="footer-copyright">
         <div class="container">
-            Frogg StockManager - Copyright Frogg.fr &copy; 2018 - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a>
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a></span>
         </div>
     </div>
 </footer>
 
 <!--  Scripts-->
-<script src="inc/js/jquery-2.1.1.min.js"></script>
 <script src="inc/js/materialize.min.js"></script>
 <script src="inc/js/init.js"></script>
+
 
 </body>
 </html>
