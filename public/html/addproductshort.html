@@ -101,48 +101,20 @@
 
         <h1 class="teal-text text-lighten-2 center">Add a product</h1>
 
-        <!-- Display bar code scanner -->
-        <div class="card toHideWhenOff bgItems">
-            <div class="card-image waves-effect waves-block waves-light">
-                <div class="controls">
-                    <form>
-                        <input type="checkbox" name="settings_torch" id="settings_torch" class="hidden" />
-                        <section id="container">
-                            <div id="interactive" class="viewport"></div>
-                            <div id="result_strip">
-                                <ul class="thumbnails"></ul>
-                                <ul class="collector"></ul>
-                            </div>
-                        </section>
-                    </form>
-                </div>
-            </div>
-
-            <div class="scanBtn">
-                <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
-                <a id="cameraTorch" class="btn-floating btn-large waves-effect waves-light right "><i class="material-icons left">wb_incandescent</i></a>
-                <a onclick="document.app.Scan.closeScan();document.app.doAjax('getProduct.html',{ barcode: 11111111 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
-            </div>
-
-            <div class="card-content">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">aspect_ratio</i>
-                    <select name="input-stream_constraints" id="deviceSelection"></select>
-                    <label>Camera</label>
-                </div>
-            </div>
-        </div>
-
-
         <!-- Display result from bar code -->
         <div  id="result">
-            <div class="card bgItems">
+            <div class="card">
                 <div class="teal lighten-1">
-                     <div class="list"></div>
+                    <div class="list">
+
+                        <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="upload/products/3057640234163.jpg"/></div>
+                        <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x Eau minérale - Volvic - 1.5 l</h4></div>
+                        <div>code bar : 3057640234163</div></div>
+                    </div>
                 </div>
 
                 <div class="scanBtn">
-                    <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                    <a href="productlist.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
                     <a class="btn-floating btn-large green right" id="addproduct"><i class="material-icons">add</i></a>
                     <a class="btn-floating btn-large red right" id="removeproduct"><i class="material-icons">remove</i></a>
                 </div>
@@ -160,6 +132,7 @@
                             <div style="display: inline-block;float: right;"><img src="inc/img/nutriscore/a.svg" style="width: 100px;"></div>
                         </div>
 
+
                         <input type="hidden" id="nbproductfield" name="nbproductfield" value="1">
 
                         <input type="hidden" id="barcode" name="barcode">
@@ -168,36 +141,9 @@
             </div>
 
             <div class="center mainBtn">
-                <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
-                <a onclick="document.app.doAjax('addtostock.html',$('#addProductForm').serialize(),document.app.product.addToStock)" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
-            </div>
-
-        </div>
-
-        <!-- Display if no product found -->
-        <div  id="notfound">
-            <div class="card bgItems">
-                <div class="teal lighten-1">
-                    <div class="list">
-                        <h4>No product found for the barcode : <span id="notfoundbarcode" class="text-accent-2 orange-text right"></span></h4>
-                    </div>
-                </div>
-
-                <div class="scanBtn">
-                    <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
-                </div>
-
-                <div class="card-content">
-                    No product has been found matching the bar code, maybe it is just an error while scanning, you can retry to scan another time or you can add the product manually.
-                </div>
-            </div>
-
-            <div class="center mainBtn">
-                <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
-                <a href="createproduct.html" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+                <a onclick="resetDisplay();document.app.doAjax('addtostock.html',$('#addProductForm').serialize(),document.app.product.addToStock)" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
             </div>
         </div>
-
 
     </div>
 </div>
@@ -247,6 +193,15 @@
 <script src="inc/js/scan/scan.js" type="text/javascript"></script>
 <link href="inc/css/scan.min.css" rel="stylesheet">
 
+
+<script>
+function resetDisplay(){
+    document.querySelector('#nbproduct').innerHTML=1;
+    document.querySelector('#expire').value="";
+}
+
+
+</script>
 
 </body>
 </html>

@@ -5,6 +5,13 @@ document.app.Scan = {
 
 		this.initElements();
 
+        this.attachListeners();
+
+        /**
+		 * If camera anvas not found
+         */
+		if(this.objControlsForm.length==0){return;}
+
         this.objResult.hide();
 
         this.objNotfound.hide();
@@ -12,9 +19,11 @@ document.app.Scan = {
         this.objToHideWhenOff.show();
 
 		Quagga.init(this.defaultValues, function(err) {
+
+			console.log('here ?');
+
 			if (err) return self.handleError(err);
 			self.initCameraSelection();
-			document.app.Scan.attachListeners();
 			document.app.Scan.checkCapabilities();				
 			Quagga.start();	
 		});
@@ -46,7 +55,7 @@ document.app.Scan = {
         Quagga.onDetected(function(result) {
             //var canvas = Quagga.canvas.dom.image;
             document.app.Scan.closeScan();
-            document.app.Scan.doAjax("getProduct.html",{ barcode: result.codeResult.code },document.app.Scan.displayResult);
+            document.app.doAjax("getProduct.html",{ barcode: result.codeResult.code },document.app.Scan.displayResult);
         });
 
 	},
@@ -55,8 +64,8 @@ document.app.Scan = {
 		inputStream: {			
 			type : "LiveStream",
 			constraints: {
-				width		: {min: parseInt(document.querySelector('select[name="input-stream_constraints"]').value.split('x')[0])},
-				height		: {min: parseInt(document.querySelector('select[name="input-stream_constraints"]').value.split('x')[1])},
+				width		: {min: parseInt(document.querySelector('select[name="input-stream_constraints"]') ? document.querySelector('select[name="input-stream_constraints"]').value.split('x')[0] : 0)},
+				height		: {min: parseInt(document.querySelector('select[name="input-stream_constraints"]') ? document.querySelector('select[name="input-stream_constraints"]').value.split('x')[1] : 0)},
 				facingMode	: "environment",
 				aspectRatio	: {min: 1, max: 2}
 			}
@@ -337,40 +346,6 @@ document.app.Scan = {
 	
 	state: this.defaultValues,
 
-	doAjax:function(url, data , callback){
-
-        M.Toast.dismissAll();
-
-        document.app.loader.open();
-
-        $.ajax({
-            method: "POST",
-            url: url,
-            data: data
-        })
-            .done(function(data) {
-
-                console.log("TODO : MANAGE ERROR HERE");
-
-            	console.log(data);
-
-                try {
-                    data = JSON.parse(data);
-
-                    if (data.result === "ok") {
-                        callback(data);
-                    }
-                    else {alert( "error : else" );}
-                    }
-                catch(e) {
-                        alert("error : catch");
-                        console.log(e);
-                    }
-            })
-            .fail(function() {alert( "error : fail" );})
-            .always(function() {document.app.loader.close();});
-	},
-
 	displayResult:function(data){
 
         $('#barcode').val(data.barcode);
@@ -395,32 +370,14 @@ document.app.Scan = {
             $('#result .list')
                 .html("")
                 .append(
-                    "<div style=\"float:left;margin:1.52rem 1rem .912rem 0;\"><img style=\"height:100px;\" src=\"upload/products/" + data.barcode + ".jpg\"/></div>"
+                    "<div style=\"float:left;margin: 1.52rem 1rem 0 0;\"><img style=\"height:100px; border-radius: 12px;border:1px solid #fff;\" src=\"upload/products/" + data.barcode + ".jpg\"/></div>"
                     + "<div style=\"overflow: hidden;\"><div><h4><b id=\"nbproduct\">1</b> x " + data.name + "</h4></div>"
-                    + "<div>dénomination générique : " + data.generic + "</div>"
                     + "<div>code bar : " + data.barcode + "</div></div>"
                 );
 
             $('#result').show();
         }
-	},
-
-	addToStock:function(data){
-        document.app.Scan.init();
-        document.app.Scan.toastResult = M.toast({
-                html: data.qte+' x '+ data.name + '<button class="btn-flat toast-action" onclick="document.app.Scan.doAjax(\'canceladdtostock.html\',{ id: '+data.id+' },document.app.Scan.cancelAddToStock);">CANCEL</button>',
-                displayLength : 7000,
-                classes:'green'
-            });
-	},
-
-    cancelAddToStock:function(data) {
-        document.app.Scan.toastResult = M.toast({
-                html: data.qte + ' x ' + data.name + ' <br> has been canceled',
-                displayLength: 7000,
-                classes: 'orange accent-2'
-            });
-    }
+	}
 
 };
 

@@ -8,8 +8,9 @@
 
 /* ============== BASICS ============== */
 
-HTML,BODY{height:100%;}
+HTML,BODY{height:100%;min-width: 360px;}
 *{outline:none;}
+A{user-select: none;}
 
 /* ============== FONTS ============== */
 
@@ -98,9 +99,35 @@ footer.page-footer {
   margin: 0;
 }
 
+/* ============== PRODUCT LIST COLLAPSIBLE ============== */
+.productList .collapsible-header{display:block;min-height: 90px;padding-bottom: 0;background: transparent;border-bottom: 1px solid #fff;}
+.productList .active .collapsible-header{border-bottom: 0;}
+.productList .collapsible-body {padding: 0 2rem 1rem 2rem;overflow: hidden;width: 100%;border-bottom: 1px solid #fff;}
+.productList .collapsible .imgproduct{width: 50px;}
+.productList .collapsible .imgproduct IMG{height:60px;border-radius:7px;border:1px solid #fff;}
+.productList .collapsible h4 {font-size: 1rem;margin:0;font-weight: bold;}
+.productList .collapsible h5 {font-size: 1rem;margin:0;margin-top: 1em;text-decoration: underline;}
+.productList .actionbtn i.material-icons{width:inherit;}
+.productList .actionbtn {text-align: right;}
+
+.btn-floating.mini{width: 15px;height: 15px;line-height: 15px;margin-right: 0.5em;}
+
+.productdetail h2{font-size: 1.56rem;}
+.productdetail h3{font-size: 1.14rem;}
+.productdetail I IMG {height: 300px;}
+
 /* ============== ADDED TO CLEAN ============== */
 
- .hidden{display:none;}
+BODY{
+  background: url(../img/background-body.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.bgItems{
+background: url('../img/background-items.jpg') no-repeat center center fixed;
+background-size: cover;}
+
+.hidden{display:none;}
 
 .home.container{
 padding: 3em 0.5em 0.5em 0.5em;
@@ -145,6 +172,9 @@ padding: 3em 0.5em 0.5em 0.5em;
   .homeIconContainer {padding: 0px;text-align: center;}
 
   .connected.container { min-height: calc(100% - 106px)}
+
+  /* PRODUCT DETAIL */
+  .productdetail I{    display: block;   float: none !important;    text-align: center;  }
 
   /* FORM */
   /*.row {margin-bottom:0px;}*/
