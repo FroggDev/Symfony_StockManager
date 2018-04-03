@@ -34,13 +34,13 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdownlang" class="dropdown-content">
-    <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
     <li class="divider"></li>
-    <li><a href="#!"><span class="flag-icon flag-icon-en"></span> En</a></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> En</a></li>
 </ul>
 <ul id="dropdownprofile" class="dropdown-content">
-    <li><a href="#!">Account</a></li>
-    <li><a href="#!">Stock Option</a></li>
+    <li><a href="#">Account</a></li>
+    <li><a href="#">Stock Option</a></li>
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
@@ -52,13 +52,13 @@
 
         <ul>
             <li class="right hide-on-med-and-down">
-                <a class="dropdown-trigger" href="#!" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                 </a>
             </li>
             <li class="right hide-on-med-and-down">
-                <a class="dropdown-trigger" href="#!" data-target="dropdownprofile">
+                <a class="dropdown-trigger" href="#" data-target="dropdownprofile">
                     <i class="material-icons left">account_circle</i> My profile</a>
             </li>
             <li class="right hide-on-med-and-down">
@@ -71,13 +71,13 @@
         <ul id="nav-mobile" class="sidenav">
             <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
-            <li><a href="#!">My Account</a></li>
-            <li><a href="#!">My Stock Option</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">My Stock Option</a></li>
             <li class="divider"></li>
             <li><a href="index.html">Log out</a></li>
             <li class="divider"></li>
-            <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-            <li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
+            <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+            <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
@@ -105,13 +105,27 @@
 
             <ul class="collapsible bgItems">
 
+                <!-- si liste vient de addproduct short alors afficher data d ajout-->
+
                 <li>
                     <div class="collapsible-header">
                         <input type="hidden" value="3057640234163" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
                         <h4><span class="nbProduct">3</span> x Eau minérale - Volvic - 1.5 l</h4>
-                        <div>Nearest Expire : 10/02/2025</div>
+                        <div>
+                            <select multiple>
+                                <option value="11/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="no expire data set">no expire data set</option>
+                                <option value="no expire data set">no expire data set</option>
+                                <option value="no expire data set">no expire data set</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
                         <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
                             <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
@@ -131,8 +145,17 @@
                         <input type="hidden" value="3057640234163" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3017620421006.jpg"></i>
                         <h4><span class="nbProduct">2</span> x Nutella - Ferrero - 750 g</h4>
-                        <div>Nearest Expire : 15/07/2019</div>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
                         <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/e.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
                             <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
@@ -152,8 +175,17 @@
                         <input type="hidden" value="3057640234163" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/8076809529433.jpg"></i>
                         <h4><span class="nbProduct">7</span> x Pennette Rigate Integrale Blé Complet - Barilla - 500 g</h4>
-                        <div>Nearest Expire : 24/09/2021</div>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
                         <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
                             <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
@@ -173,8 +205,17 @@
                         <input type="hidden" value="3057640234163" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
                         <h4><span class="nbProduct">3</span> x Eau minérale - Volvic - 1.5 l</h4>
-                        <div>Nearest Expire : 10/02/2025</div>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
                         <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
                             <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
@@ -194,8 +235,17 @@
                         <input type="hidden" value="3057640234163" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3017620421006.jpg"></i>
                         <h4><span class="nbProduct">2</span> x Nutella - Ferrero - 750 g</h4>
-                        <div>Nearest Expire : 15/07/2019</div>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
                         <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/e.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
                             <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
@@ -215,8 +265,17 @@
                         <input type="hidden" value="3057640234163" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/8076809529433.jpg"></i>
                         <h4><span class="nbProduct">7</span> x Pennette Rigate Integrale Blé Complet - Barilla - 500 g</h4>
-                        <div>Nearest Expire : 24/09/2021</div>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
                         <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
                             <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
@@ -236,13 +295,13 @@
 
             <div class="center">
                 <ul class="pagination">
-                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                    <li class="active"><a href="#!">1</a></li>
-                    <li class="waves-effect"><a href="#!">2</a></li>
-                    <li class="waves-effect"><a href="#!">3</a></li>
-                    <li class="waves-effect"><a href="#!">4</a></li>
-                    <li class="waves-effect"><a href="#!">5</a></li>
-                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="waves-effect"><a href="#">2</a></li>
+                    <li class="waves-effect"><a href="#">3</a></li>
+                    <li class="waves-effect"><a href="#">4</a></li>
+                    <li class="waves-effect"><a href="#">5</a></li>
+                    <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
                 </ul>
             </div>
 
@@ -261,27 +320,17 @@
 <!--  Scripts-->
 <script src="inc/js/materialize.min.js"></script>
 <script src="inc/js/init.js"></script>
-<script src="inc/js/scan/jquery-2.1.1.min.js"></script>
+<script src="inc/js/ajax.class.js"></script>
+<script src="inc/js/product.js"></script>
+
+
 
 <script>
-    document.app.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating'), 'click', document.app.preventPropagation);
+document.app.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating'), 'click', document.app.preventPropagation);
 
-    document.app.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating.btnRemove'), 'click', removeFromStock);
+document.app.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating.btnRemove'), 'click', document.app.product.removeProduct);
 
-    function removeFromStock(evt){
-
-        // Prevent collapse to trigger
-        document.app.preventPropagation(evt);
-
-        var nbProductObj = this.parentNode.parentNode.querySelector('.nbProduct')
-        var nbProduct = parseInt(nbProductObj.innerHTML);
-
-        if(nbProduct>0){
-            document.app.product.cancelCurrent.set(nbProductObj,nbProduct);
-            nbProductObj.innerHTML = nbProduct-1;
-            document.app.doAjax("removefromstock.html",{ barcode: this.parentNode.parentNode.querySelector('.barcode').value },document.app.product.removeFromStock);
-        }
-    }
+document.app.product.list.init();
 </script>
 
 

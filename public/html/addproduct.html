@@ -34,13 +34,13 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdownlang" class="dropdown-content">
-    <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
     <li class="divider"></li>
-    <li><a href="#!"><span class="flag-icon flag-icon-en"></span> En</a></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> En</a></li>
 </ul>
 <ul id="dropdownprofile" class="dropdown-content">
-    <li><a href="#!">Account</a></li>
-    <li><a href="#!">Stock Option</a></li>
+    <li><a href="#">Account</a></li>
+    <li><a href="#">Stock Option</a></li>
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
@@ -52,13 +52,13 @@
 
         <ul>
             <li class="right hide-on-med-and-down">
-                <a class="dropdown-trigger" href="#!" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                 </a>
             </li>
             <li class="right hide-on-med-and-down">
-                <a class="dropdown-trigger" href="#!" data-target="dropdownprofile">
+                <a class="dropdown-trigger" href="#" data-target="dropdownprofile">
                     <i class="material-icons left">account_circle</i> My profile</a>
             </li>
             <li class="right hide-on-med-and-down">
@@ -71,13 +71,13 @@
         <ul id="nav-mobile" class="sidenav">
             <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
-            <li><a href="#!">My Account</a></li>
-            <li><a href="#!">My Stock Option</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">My Stock Option</a></li>
             <li class="divider"></li>
             <li><a href="index.html">Log out</a></li>
             <li class="divider"></li>
-            <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-            <li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
+            <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+            <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
@@ -106,6 +106,7 @@
             <div class="card-image waves-effect waves-block waves-light">
                 <div class="controls">
                     <form>
+                        <label class="hidden" for="settings_torch">Torch</label>
                         <input type="checkbox" name="settings_torch" id="settings_torch" class="hidden" />
                         <section id="container">
                             <div id="interactive" class="viewport"></div>
@@ -128,7 +129,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">aspect_ratio</i>
                     <select name="input-stream_constraints" id="deviceSelection"></select>
-                    <label>Camera</label>
+                    <label for="deviceSelection">Camera</label>
                 </div>
             </div>
         </div>
@@ -151,13 +152,13 @@
                     <form id="addProductForm">
 
                         <div>
-                            <div class="input-field" style="display: inline-block;width: calc(97% - 100px);">
+                            <div class="input-field">
                                 <i class="material-icons prefix">today</i>
                                 <label for="expire" class="">Expire date</label>
                                 <input type="text" class="datepicker" id="expire" name="expire">
                             </div>
 
-                            <div style="display: inline-block;float: right;"><img src="inc/img/nutriscore/a.svg" style="width: 100px;"></div>
+                            <div class="right"><img src="inc/img/nutriscore/a.svg" style="width: 100px;"></div>
                         </div>
 
                         <input type="hidden" id="nbproductfield" name="nbproductfield" value="1">
@@ -203,11 +204,11 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal-loader" class="modal" style="padding:0 20px;">
+<div id="modal-loader" class="modal">
 
     <h5>Please wait while getting datas</h5>
 
-    <div class="center" style="margin:10px;">
+    <div class="center loadercontainer">
         <!-- loader -->
         <div class="preloader-wrapper big active">
             <div class="spinner-layer spinner-blue-only">
@@ -224,7 +225,7 @@
 
     <!-- btn -->
     <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
 </div>
 
@@ -240,12 +241,14 @@
 <!--  Scripts-->
 <script src="inc/js/materialize.min.js"></script>
 <script src="inc/js/init.js"></script>
+<script src="inc/js/ajax.class.js"></script>
+<script src="inc/js/product.js"></script>
 
 <!-- CAMERA SCRIPTS -->
-<script src="inc/js/scan/jquery-2.1.1.min.js"></script>
-<script src="inc/js/scan/quagga.min.js" type="text/javascript"></script>
-<script src="inc/js/scan/scan.js" type="text/javascript"></script>
-<link href="inc/css/scan.min.css" rel="stylesheet">
+<script src="inc/lib/jquery-2.1.1.min.js"></script>
+<script src="inc/lib/scan/quagga.min.js" type="text/javascript"></script>
+<script src="inc/lib/scan/scan.js" type="text/javascript"></script>
+<link href="inc/lib/scan/scan.min.css" rel="stylesheet">
 
 
 </body>
