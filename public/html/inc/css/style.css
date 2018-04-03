@@ -99,6 +99,10 @@ footer.page-footer {
   margin: 0;
 }
 
+/* ============== LOADER ============== */
+#modal-loader{padding:0 20px;}
+#modal-loader .loadercontainer{margin:10px;}
+
 /* ============== PRODUCT LIST COLLAPSIBLE ============== */
 .productList .collapsible-header{display:block;min-height: 90px;padding-bottom: 0;background: transparent;border-bottom: 1px solid #fff;}
 .productList .active .collapsible-header{border-bottom: 0;}
@@ -129,6 +133,10 @@ background-size: cover;}
 
 .hidden{display:none;}
 
+#addProductForm .input-field{display: inline-block;width: calc(97% - 100px);}
+
+/* ============== ADDED TO CLEAN HOME CONNECTED ============== */
+
 .home.container{
 padding: 3em 0.5em 0.5em 0.5em;
 }
@@ -146,6 +154,40 @@ padding: 3em 0.5em 0.5em 0.5em;
 .homeIcon{text-align:center;/*margin:3rem;width:300px;*/}
 
 .homeIcon a:hover IMG{box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);background:#039be5;}
+
+
+/* ============== ADDED TO CLEAN PRODUCT LIST ============== */
+.productList .select-wrapper{
+  display: inline-block;
+  width: calc( 100% - 90px);
+}
+.productList .select-wrapper input.select-dropdown{
+  margin: 0;
+  padding: 0;
+  height: 1em;
+  line-height: 1em;
+  font-size: 12px;
+}
+
+.dropdown-content li>span{padding: 5px 16px;}
+.dropdown-content li.disabled>span label{color:#fff;}
+.dropdown-content li {min-height: auto;}
+/*.dropdown-content li.disabled{background: #f44336 !important;}*/
+
+.collapsible .nutriscore{height:40px;}
+
+.dropdown-content li.disabled>SPAN
+{
+  background: #f59898;
+  background-image: url("../img/icons/close_option.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px 30px;
+}
+
+.dropdown-content [type="checkbox"]:not(:checked):disabled+span:not(.lever):before{background-color: transparent;}
+
+
 
 /* ==========MOBILE RESPONSIVE================= */
 

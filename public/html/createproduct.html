@@ -105,7 +105,6 @@
 
         <a class="waves-effect waves-light btn-large right green" href="#" style="margin-right: 10px;"><i class="material-icons left">check</i>Save</a>
 
-
         <!--i class="material-icons right"><img src="upload/products/3057640234163.jpg"></i-->
 
         <p><b>Code-barres :</b> 3057640234163</p>
@@ -118,6 +117,10 @@
                 <div class="input-field">
                     <input id="name" type="text">
                     <label for="name">Name</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="image" class="dropify" type="file">
                 </div>
 
                 <div class="input-field">
@@ -140,12 +143,12 @@
 
                 <div class="chips chips-autocomplete allergy chips-placeholder"></div>
 
-                <h2>Informations nutritionnelles</h2>
+                <h2>Nutritional information</h2>
 
                 <p class="caption">Nutriscore (A=1 ; E=5)</p>
                 <p class="range-field"><input type="range" id="nutriscore" min="1" max="5" /></p>
 
-                <h3>Repères nutritionnels pour 100 g
+                <h3>Nutritional benchmarks for pour 100 g
                     <div class="input-field inline">
                         <input id="kcal" type="number" class="validate">
                         <label for="kcal">kcal for 100g</label>
@@ -156,56 +159,114 @@
                         <input id="m1" type="number" class="validate">
                         <label for="m1">for 100g</label>
                     </div>
-                    g Matières grasses / Lipides en quantité élevée
+                    g High fat / fat content
                 </div>
                 <div>
                     <div class="input-field inline">
                         <input id="m2" type="number" class="validate">
                         <label for="m2">for 100g</label>
                     </div>
-                    g Acides gras saturés en quantité élevée
+                    g Saturated fatty acids in high quantity
                 </div>
                 <div>
                     <div class="input-field inline">
                         <input id="m3" type="number" class="validate">
                      <label for="m3">for 100g</label>
                     </div>
-                    g Sucres en quantité élevée
+                    g Sugar in high quantity
                 </div>
                 <div>
                     <div class="input-field inline">
                         <input id="m4" type="number" class="validate">
                         <label for="m4">for 100g</label>
                     </div>
-                    g Sel en faible quantité
+                    g Salt in small quantities
                 </div>
 
             </div>
 
         </form>
 
-        <br><br>
 
-        <table class="highlight">
+        <style>
+            TABLE.productinfo .input-field.inline input{margin-bottom: 0;}
+            TABLE.productinfo .input-field{margin:0;}
+            TABLE.productinfo TD{padding:0;}
+
+            TABLE.productinfo .btn-floating i{
+                font-size: 1rem;
+                line-height: 25px;
+            }
+
+            TABLE.productinfo A {
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                margin: 3px;
+            }
+
+            TABLE.productinfo input[type=text]:not(.browser-default) {
+                border-bottom:0;
+            }
+
+        </style>
+
+        <table class="highlight productinfo">
             <thead>
-            <tr><th>Info. nutritionnelles</th><th>Pour 100 g / 100 ml</th><th>Par portion (85 g)</th><th></th></tr>
+            <tr>
+                <th>Nutritional info.</th>
+                <th>For 100</th>
+                <th>
+                    <div class="input-field inline">
+                    <input type="text" class="validate">
+                    <label>Per serving (in g/l)</label>
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-            <tr><td>Énergie</td><td>1464 kj (350 kcal)</td><td>1240 kj (296 kcal)</td><td>-1%</td></tr>
-            <tr><td>Matières grasses / Lipides</td><td>2.5 g</td><td>2.12 g</td><td>+15%</td></tr>
-            <tr><td>dont Acides gras saturés</td><td>0.5 g</td><td>0.425 g</td><td>+10%</td></tr>
-            <tr><td>Glucides</td><td>65.7 g</td><td>55.8 g</td><td>-1%</td></tr>
-            <tr><td>dont Sucres</td><td>3.5 g</td><td>2.98 g</td><td>+8%</td></tr>
-            <tr><td>Fibres alimentaires</td><td>6.5 g</td><td>5.53 g</td><td>-13%</td></tr>
-            <tr><td>Protéines</td><td>13 g</td><td>11.1 g</td><td>+2%</td></tr>
-            <tr><td>Sel</td><td>0.03 g</td><td>0.0255 g</td><td>+94%</td></tr>
-            <tr><td>Sodium</td><td>0.0118 g</td><td>0.01 g</td><td>+94%</td></tr>
-            <tr><td>Phosphore</td><td>280 mg</td><td>238 mg</td><td>?</td></tr>
-            <tr><td>Fer</td><td>3 mg</td><td>2.55 mg</td><td>?</td></tr>
-            <tr><td>Magnésium</td><td>85 mg</td><td>72.3 mg</td><td>?</td></tr>
-            <tr><td>Zinc</td><td>2 mg</td><td>1.7 mg</td><td>?</td></tr>
+
+            <tr>
+                <td>
+                 <div class="input-field inline">
+                    <input type="text" class="validate">
+                    <label>title</label>
+                </div>
+                </td>
+                <td>
+                    <div class="input-field inline">
+                        <input type="text" class="validate">
+                        <label>value per 100g</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-field inline">
+                        <input type="text" class="validate">
+                        <label>value per serving</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-field inline">
+                        <input type="text" class="validate">
+                        <label>%</label>
+                    </div>
+                </td>
+
+                <td><a class="removeLine btn-floating btn waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
+                <td><a class="addLine btn-floating btn waves-effect waves-light green"><i class="material-icons">add</i></a></td>
+
+            </tr>
+
             </tbody>
         </table>
+
+        <div class="row center">
+            <br><br>
+            <a class="waves-effect waves-light btn-large green" href="#" style="margin-right: 10px;"><i class="material-icons left">check</i>Save</a>
+        </div>
 
     </div>
 
@@ -222,9 +283,39 @@
 <!--  Scripts-->
 <script src="inc/js/materialize.min.js"></script>
 <script src="inc/js/init.js"></script>
-<script src="inc/js/scan/jquery-2.1.1.min.js"></script>
+
+<link href="inc/lib/dropify/css/dropify.min.css" rel="stylesheet"/>
+<script src="inc/lib/jquery-2.1.1.min.js"></script>
+<script src="inc/lib/dropify/js/dropify.min.js"></script>
 
 <script>
+
+    /**
+     * TABLE !!
+     */
+
+    document.app.addListenerAll(document.querySelectorAll('.addLine'), 'click', addTableLine);
+    document.app.addListenerAll(document.querySelectorAll('.removeLine'), 'click', removeTableLine);
+
+    function addTableLine(){
+
+    }
+
+    function removeTableLine(){
+        if(getTableInfoLine()>0){
+            console.log(this.parentNode.index);
+        }
+    }
+
+    var tableinfo = document.querySelector('.productinfo');
+
+    function getTableInfoLine(){
+        return tableinfo.document.querySelectorAll('TBODY TR').length;
+    }
+
+    /**
+     * CHIPS !!
+     */
 
 
     var packageChips = M.Chips.init(document.querySelector('.package'),{
@@ -297,7 +388,21 @@
         }
     });
 
+    /**
+     * UPLOAD !!
+     */
 
+
+    $('.dropify').dropify(/*{
+        messages: {
+            'default': '{% trans %}dropify.default{% endtrans %}',
+            'replace': '{% trans %}dropify.replace{% endtrans %}',
+            'remove': '{% trans %}dropify.remove{% endtrans %}',
+            'error': '{% trans %}dropify.error{% endtrans %}',
+            'fileSize': '{% trans %}dropify.fileSize{% endtrans %}',
+            'imageFormat': '{% trans %}dropify.imageFormat{% endtrans %}'
+        }
+    }*/);
 </script>
 
 
