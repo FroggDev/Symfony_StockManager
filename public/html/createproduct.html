@@ -107,12 +107,12 @@
 
         <!--i class="material-icons right"><img src="upload/products/3057640234163.jpg"></i-->
 
-        <p><b>Code-barres :</b> 3057640234163</p>
+        <p><b>Bar code :</b> 3057640234163</p>
 
         <form class="col s12">
             <div class="row">
 
-                <h2>Caractéristiques du produit</h2>
+                <h2>Product Features</h2>
 
                 <div class="input-field">
                     <input id="name" type="text">
@@ -302,15 +302,15 @@
     }
 
     function removeTableLine(){
-        if(getTableInfoLine()>0){
-            console.log(this.parentNode.index);
+        if(getTableInfoLine()>1){
+            this.parentNode.parentNode.remove();
         }
     }
 
     var tableinfo = document.querySelector('.productinfo');
 
     function getTableInfoLine(){
-        return tableinfo.document.querySelectorAll('TBODY TR').length;
+        return tableinfo.querySelectorAll('TBODY TR').length;
     }
 
     /**
