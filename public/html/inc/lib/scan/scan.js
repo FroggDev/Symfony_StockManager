@@ -12,8 +12,6 @@ document.app.Scan = {
          */
 		if(this.objControlsForm.length==0){return;}
 
-        this.objResult.hide();
-
         this.objNotfound.hide();
 
         this.objToHideWhenOff.show();
@@ -55,7 +53,7 @@ document.app.Scan = {
         Quagga.onDetected(function(result) {
             //var canvas = Quagga.canvas.dom.image;
             document.app.Scan.closeScan();
-            document.app.doAjax("getProduct.html",{ barcode: result.codeResult.code },document.app.Scan.displayResult);
+            document.app.Util.doAjax("getProduct.html",{ barcode: result.codeResult.code },document.app.Scan.displayResult);
         });
 
 	},
@@ -86,16 +84,10 @@ document.app.Scan = {
 		console.log('TODO : If cannot torch hide button');
 
         this.objControlsForm = $(".controls FORM");
-        this.objExpire = $('#expire');
         this.objToHideWhenOff = $('.toHideWhenOff');
-        this.objBarcode = $('#barcode');
-        this.objResult = $('#result');
         this.objNotfound = $('#notfound');
         this.objCameraTorch = $("#cameraTorch");
         this.objControls = $(".controls .reader-config-group");
-        this.objAddproduct = $('#addproduct');
-        this.objRemoveproduct = $('#removeproduct');
-        this.objNbproductfield = $('#nbproductfield');
 	},
 
 	attachListeners: function() {
@@ -125,43 +117,12 @@ document.app.Scan = {
 			//console.log("Value of "+ state + " changed to " + value);
 			self.setState(state, value);
 		});
-
-        /**
-		 * +1 to product
-         */
-        this.objAddproduct.off('click').on('click',function(){
-            var  objNbproduct = $('#nbproduct');
-            self.objNbproductfield.val(parseInt(self.objNbproductfield.val())+1);
-            objNbproduct.html(self.objNbproductfield.val());
-        });
-
-        /**
-         * -1 to product
-         */
-        this.objRemoveproduct.off('click').on('click',function(){
-            var objNbproduct = $('#nbproduct');
-            if(self.objNbproductfield.val()>1){
-                self.objNbproductfield.val(self.objNbproductfield.val()-1);
-                objNbproduct.html(self.objNbproductfield.val());
-            }
-        });
-
-        /**
-		 * date picker
-         */
-        document.app.Scan.expireDatePicker= M.Datepicker.init(document.querySelector('.datepicker'),{format: 'dd/mm/yyyy'});
-
-        console.log('TODO : CALENDAR TRANSLATION');
-
-	},		
+	},
 	
 	closeScan:function(){
 		Quagga.stop();
         this.objToHideWhenOff.hide();
 		this.objControlsForm[0].reset();
-        this.objNbproductfield.val(1);
-        this.objBarcode.val('');
-        this.objExpire.val('');
         document.app.Scan.detachListeners();
 	},
 	
@@ -366,7 +327,7 @@ document.app.Scan = {
             /**
              * CASE PRODUCT FOUND
              */
-
+			/*
             $('#result .list')
                 .html("")
                 .append(
@@ -375,7 +336,8 @@ document.app.Scan = {
                     + "<div>code bar : " + data.barcode + "</div></div>"
                 );
 
-            $('#result').show();
+            $('#result').show();*/
+			document.location="addproductshort.html";
         }
 	}
 

@@ -69,15 +69,24 @@
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
-            <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
-            <li><a href="#">My Account</a></li>
-            <li><a href="#">My Stock Option</a></li>
+            <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
+            <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
+            <li><a href="#"><i class="material-icons left">assignment</i>Product list</a></li>
             <li class="divider"></li>
-            <li><a href="index.html">Log out</a></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a href="#"><i class="material-icons left">settings</i>My Stock Option</a></li>
             <li class="divider"></li>
-            <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-            <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+            <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+            <li class="divider"></li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                    French
+                </a>
+            </li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
@@ -99,13 +108,15 @@
 <div class="container main">
     <div class="section productdetail">
 
-        <h1 class="teal-text text-lighten-2 center">My Stock products</h1>
+        <h1 class="teal-text text-lighten-2 center">Product details</h1>
 
-        <a class="waves-effect waves-light btn-large right red" href="productlist.html"><i class="material-icons left">backspace</i>Back</a>
+        <a class="waves-effect waves-light btn-large right red" href="productlistdetail.html"><i class="material-icons left">backspace</i>Back</a>
 
-        <h2>Caractéristiques du produit</h2>
+        <h2>Product Features</h2>
 
         <i class="material-icons right"><img src="upload/products/3057640234163.jpg" class="materialboxed"></i>
+
+        <p><b>Code-barres :</b> 3057640234163</p>
 
         <p><b>Code-barres :</b> 3057640234163</p>
 

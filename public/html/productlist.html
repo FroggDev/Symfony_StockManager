@@ -69,15 +69,24 @@
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
-            <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
-            <li><a href="#">My Account</a></li>
-            <li><a href="#">My Stock Option</a></li>
+            <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
+            <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
+            <li><a href="#"><i class="material-icons left">assignment</i>Product list</a></li>
             <li class="divider"></li>
-            <li><a href="index.html">Log out</a></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a href="#"><i class="material-icons left">settings</i>My Stock Option</a></li>
             <li class="divider"></li>
-            <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-            <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+            <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+            <li class="divider"></li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                    French
+                </a>
+            </li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
@@ -105,11 +114,11 @@
 
             <ul class="collapsible bgItems">
 
-                <!-- si liste vient de addproduct short alors afficher data d ajout-->
+                <!-- si liste vient de addproduct short alors afficher data d ajout remove_red_eye-->
 
                 <li>
                     <div class="collapsible-header">
-                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
                         <h4><span class="nbProduct">3</span> x Eau minérale - Volvic - 1.5 l</h4>
                         <div>
@@ -128,7 +137,7 @@
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
-                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
                         </div>
                     </div>
                     <div class="collapsible-body">
@@ -142,7 +151,7 @@
 
                 <li>
                     <div class="collapsible-header">
-                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3017620421006.jpg"></i>
                         <h4><span class="nbProduct">2</span> x Nutella - Ferrero - 750 g</h4>
                         <div>
@@ -158,7 +167,7 @@
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/e.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
-                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
                         </div>
                     </div>
                     <div class="collapsible-body">
@@ -172,7 +181,7 @@
 
                 <li>
                     <div class="collapsible-header">
-                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/8076809529433.jpg"></i>
                         <h4><span class="nbProduct">7</span> x Pennette Rigate Integrale Blé Complet - Barilla - 500 g</h4>
                         <div>
@@ -188,7 +197,7 @@
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
-                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
                         </div>
                     </div>
                     <div class="collapsible-body">
@@ -202,7 +211,7 @@
 
                 <li>
                     <div class="collapsible-header">
-                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
                         <h4><span class="nbProduct">3</span> x Eau minérale - Volvic - 1.5 l</h4>
                         <div>
@@ -218,7 +227,7 @@
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
-                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
                         </div>
                     </div>
                     <div class="collapsible-body">
@@ -232,7 +241,7 @@
 
                 <li>
                     <div class="collapsible-header">
-                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3017620421006.jpg"></i>
                         <h4><span class="nbProduct">2</span> x Nutella - Ferrero - 750 g</h4>
                         <div>
@@ -248,7 +257,7 @@
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/e.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
-                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
                         </div>
                     </div>
                     <div class="collapsible-body">
@@ -262,7 +271,7 @@
 
                 <li>
                     <div class="collapsible-header">
-                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/8076809529433.jpg"></i>
                         <h4><span class="nbProduct">7</span> x Pennette Rigate Integrale Blé Complet - Barilla - 500 g</h4>
                         <div>
@@ -278,7 +287,7 @@
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                             <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
-                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
                         </div>
                     </div>
                     <div class="collapsible-body">
@@ -322,16 +331,6 @@
 <script src="inc/js/init.js"></script>
 <script src="inc/js/ajax.class.js"></script>
 <script src="inc/js/product.js"></script>
-
-
-
-<script>
-document.app.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating'), 'click', document.app.preventPropagation);
-
-document.app.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating.btnRemove'), 'click', document.app.product.removeProduct);
-
-document.app.product.list.init();
-</script>
 
 
 </body>

@@ -69,15 +69,24 @@
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
-            <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
-            <li><a href="#!">My Account</a></li>
-            <li><a href="#!">My Stock Option</a></li>
+            <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
+            <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
+            <li><a href="#"><i class="material-icons left">assignment</i>Product list</a></li>
             <li class="divider"></li>
-            <li><a href="index.html">Log out</a></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a href="#"><i class="material-icons left">settings</i>My Stock Option</a></li>
             <li class="divider"></li>
-            <li><a href="#!"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-            <li><a href="#!"><span class="flag-icon flag-icon-en"></span> English</a></li>
+            <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+            <li class="divider"></li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                    French
+                </a>
+            </li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
@@ -99,7 +108,7 @@
 <div class="container main">
     <div class="section productdetail">
 
-        <h1 class="teal-text text-lighten-2 center">My Stock products</h1>
+        <h1 class="teal-text text-lighten-2 center">Product details</h1>
 
         <a class="waves-effect waves-light btn-large right red" href="productlist.html"><i class="material-icons left">backspace</i>Back</a>
 
@@ -255,8 +264,8 @@
                     </div>
                 </td>
 
-                <td><a class="removeLine btn-floating btn waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-                <td><a class="addLine btn-floating btn waves-effect waves-light green"><i class="material-icons">add</i></a></td>
+                <td><a class="removeLine btn-floating btn waves-effect waves-light red" onclick="removeTableLine(this)"><i class="material-icons">remove</i></a></td>
+                <td><a class="addLine btn-floating btn waves-effect waves-light green" onclick="addTableLine(this)"><i class="material-icons">add</i></a></td>
 
             </tr>
 
@@ -294,20 +303,20 @@
      * TABLE !!
      */
 
-    document.app.addListenerAll(document.querySelectorAll('.addLine'), 'click', addTableLine);
-    document.app.addListenerAll(document.querySelectorAll('.removeLine'), 'click', removeTableLine);
+    var tableinfo = document.querySelector('.productinfo');
 
-    function addTableLine(){
+    function addTableLine(obj){
 
+        console.log(obj);
+        tableinfo.querySelector('TBODY').appendChild(obj.parentNode.parentNode.cloneNode(true));
     }
 
-    function removeTableLine(){
+    function removeTableLine(obj){
+        console.log(obj);
         if(getTableInfoLine()>1){
-            this.parentNode.parentNode.remove();
+            obj.parentNode.parentNode.remove();
         }
     }
-
-    var tableinfo = document.querySelector('.productinfo');
 
     function getTableInfoLine(){
         return tableinfo.querySelectorAll('TBODY TR').length;

@@ -120,6 +120,44 @@ footer.page-footer {
 .productdetail h3{font-size: 1.14rem;}
 .productdetail I IMG {height: 300px;}
 
+/* ============== ADD PRODUCT FORM============== */
+#result .list,#notfound .list{
+  margin: 1em;
+  color: white;
+  padding-bottom: 2.5em;
+}
+
+#result .list{min-height: 160px;}
+
+#result h4,#notfound h4{
+  font-size: 2rem;
+}
+
+#result .input-field { margin-top:0; }
+
+#result .mainBtn A,#notfound .mainBtn A {width: 160px;}
+
+/* TODO CLEAN THIS DUPLICATED FROM scan.css*/
+.scanBtn{margin-top: -45px;}
+
+.scanBtn A {margin: 0 10px;}
+
+
+/* ============== TAG ============== */
+
+.tag{
+ padding: 2px 4px;
+  color: #fff;
+  margin-left: 37px;
+  font-weight: 300;
+  font-size: 0.8rem;
+  border-radius: 2px;
+  background-clip: padding-box;
+  background-color: #039be5 !important;
+}
+.tag.spaced{margin-top: 20px;}
+
+
 /* ============== ADDED TO CLEAN ============== */
 
 BODY{
@@ -187,7 +225,10 @@ padding: 3em 0.5em 0.5em 0.5em;
 
 .dropdown-content [type="checkbox"]:not(:checked):disabled+span:not(.lever):before{background-color: transparent;}
 
-
+/* ============== SEARCH PRODUCT INPUT ============== */
+#searchProduct .input-field{margin: 0 10px;width: calc(100% - 75px);display: inline-block;}
+#searchProduct input{border-bottom: 0;margin: 0;margin-left: 40px;}
+#searchProduct A {height: 50px;line-height: 50px;}
 
 /* ==========MOBILE RESPONSIVE================= */
 
@@ -238,6 +279,8 @@ padding: 3em 0.5em 0.5em 0.5em;
   .homeIcon {
     break-inside: avoid;
   }
+
+  .tag{font-size: 1.2rem;}
 }
 
 @media only screen and (max-width : 992px) {

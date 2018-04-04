@@ -44,18 +44,23 @@
       <ul>
           <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownlang"><span class="flag-icon flag-icon-fr"></span><i class="material-icons right">arrow_drop_down</i></a></li>
           <li class="right hide-on-med-and-down"><a href="login.html"><i class="material-icons left">account_circle</i>Login</a></li>
-          <li class="right hide-on-med-and-down"><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
-          <li class="hide-on-large-only"><a href="index.html"><i class="material-icons">home</i></a></li>
+          <li class="active right hide-on-med-and-down"><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
+          <li class="active hide-on-large-only"><a href="index.html"><i class="material-icons">home</i></a></li>
           <li class="hide-on-large-only"><a href="login.html"><i class="material-icons">account_circle</i></a></li>
       </ul>
 
     <!-- Mobile navigation -->
     <ul id="nav-mobile" class="sidenav">
-      <li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
+      <li><a class="active" href="index.html"><i class="material-icons left">home</i>Home</a></li>
       <li><a href="login.html"><i class="material-icons left">account_circle</i>Login</a></li>
       <li class="divider"></li>
-      <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-      <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+      <li>
+        <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+          <span class="flag-icon flag-icon-fr"></span>
+          <i class="material-icons right">arrow_drop_down</i>
+          French
+        </a>
+      </li>
     </ul>
     <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
   </div>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StockManager - Add product</title>
+    <meta name="language" content="EN">
+
+    <!-- DESCRIPTION -->
+    <meta name="description"
+          content="Frogg StockManager a web application that store and manage food stocks using barcode"/>
+    <meta name="keywords" content="Frogg,StockManager,stock,manage,food,barcode"/>
+    <meta name="subject" content="Food Stock Management using barcode">
+    <meta name="url" content="https://stock.frogg.fr">
+    <!-- AUTHOR -->
+    <meta name="copyright" content="Frogg.fr">
+    <meta name="author" content="Frogg, admin@frogg.fr">
+    <!-- CONTENT -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- TODO -->
+    <!--meta name="revisit-after" content="7 days">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="robots" content="index,follow" />
+    <meta name="google-site-verification" content=""/-->
+
+    <!-- CSS  -->
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <link href="inc/css/icon.min.css" rel="stylesheet">
+    <link href="inc/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="inc/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<!-- Dropdown Structure -->
+<ul id="dropdownlang" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> En</a></li>
+</ul>
+<ul id="dropdownprofile" class="dropdown-content">
+    <li><a href="#">Account</a></li>
+    <li><a href="#">Stock Option</a></li>
+    <li class="divider"></li>
+    <li><a href="index.html">Log out</a></li>
+</ul>
+
+
+<nav role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="home-connected.html" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
+
+        <ul>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#" data-target="dropdownprofile">
+                    <i class="material-icons left">account_circle</i> My profile</a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a href="home-connected.html"><i class="material-icons left">home</i>Home</a>
+            </li>
+            <li class="hide-on-large-only"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
+        </ul>
+
+        <!-- Mobile navigation -->
+        <ul id="nav-mobile" class="sidenav">
+            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
+            <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
+            <li><a href="#"><i class="material-icons left">assignment</i>Product list</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a href="#"><i class="material-icons left">settings</i>My Stock Option</a></li>
+            <li class="divider"></li>
+            <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+            <li class="divider"></li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                    French
+                </a>
+            </li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+        <!--form>
+            <div class="input-field">
+                <input id="search" placeholder="Type your seach here.." type="search" required>
+                <i class="material-icons">close</i>
+            </div>
+        </form-->
+
+    </div>
+</nav>
+
+<div class="parallax-container connected">
+    <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
+</div>
+
+
+<div class="container main">
+    <div class="section">
+
+        <a class="waves-effect waves-light btn-large right red" href="productlist.html"><i class="material-icons left">backspace</i>Back</a>
+
+        <h1 class="teal-text text-lighten-2 center">My Stock products</h1>
+
+        <div class="productList">
+
+            <ul class="collapsible bgItems">
+
+                <li>
+                    <div class="collapsible-header">
+
+                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
+
+                        <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
+                        <h4><span class="nbProduct">1</span> x Eau minérale - Volvic - 1.5 l</h4>
+                        <div>Added : 12/02/2018</div>
+                        <div>Expire : 12/02/2025</div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (539 kcal)</h5>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>10.6 g Acides gras saturés en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>56.3 g Sucres en quantité élevée</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.107 g Sel en faible quantité</div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="collapsible-header">
+
+                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
+
+                        <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
+                        <h4><span class="nbProduct">1</span> x Eau minérale - Volvic - 1.5 l</h4>
+                        <div>Added : 12/02/2018</div>
+                        <div>Expire : 12/02/2025</div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (539 kcal)</h5>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>10.6 g Acides gras saturés en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>56.3 g Sucres en quantité élevée</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.107 g Sel en faible quantité</div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header">
+
+                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
+
+                        <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
+                        <h4><span class="nbProduct">1</span> x Eau minérale - Volvic - 1.5 l</h4>
+                        <div>Added : 12/02/2018</div>
+                        <div>Expire : 13/02/2025</div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productdetail.html"><i class="material-icons">remove_red_eye</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (350 kcal)</h5>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>10.6 g Acides gras saturés en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>56.3 g Sucres en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.03 g Sel en faible quantité</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div style="clear: both;"></div>
+
+            <div class="center">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="waves-effect"><a href="#">2</a></li>
+                    <li class="waves-effect"><a href="#">3</a></li>
+                    <li class="waves-effect"><a href="#">4</a></li>
+                    <li class="waves-effect"><a href="#">5</a></li>
+                    <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer mini">
+    <div class="footer-copyright">
+        <div class="container">
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a></span>
+        </div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="inc/js/materialize.min.js"></script>
+<script src="inc/js/init.js"></script>
+<script src="inc/js/ajax.class.js"></script>
+<script src="inc/js/product.js"></script>
+
+
+
+<script>
+document.app.Util.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating'), 'click', document.app.Util.preventPropagation);
+
+document.app.Util.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating.btnRemove'), 'click', document.app.Product.removeProduct);
+
+document.app.Product.list.init();
+</script>
+
+
+</body>
+</html>

@@ -37,20 +37,4 @@ video {
 
 .scanBtn A {margin: 0 10px;}
 
-#result .list,#notfound .list{
-margin: 1em;
-color: white;
-padding-bottom: 2.5em;
-}
-
-#result .list{min-height: 160px;}
-
-#result h4,#notfound h4{
-font-size: 2rem;
-}
-
 #notfound h4{padding-top: 0.5em;}
-
-#result .input-field { margin-top:0; }
-
-#result .mainBtn A,#notfound .mainBtn A {width: 160px;}

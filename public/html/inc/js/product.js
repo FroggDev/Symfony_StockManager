@@ -2,12 +2,49 @@
  * PRODUCT MANAGER
  */
 
-document.app.product = {
+document.app.Product = {
+
+    addToStockEvent:function(){
+
+        var addProductObj = document.querySelector('#addproduct');
+        var removeProductObj = document.querySelector('#removeproduct');
+        var objNbproductfield = document.querySelector('#nbproductfield');
+
+        if(addProductObj){
+            /**
+             * +1 to product
+             */
+            document.app.Util.addListener(addProductObj,'click',function(){
+            var  objNbproduct = document.querySelector('#nbproduct');
+            objNbproductfield.value = parseInt(objNbproductfield.value)+1;
+            objNbproduct.innerHTML = objNbproductfield.value;
+            });
+        }
+
+        if(removeProductObj){
+            /**
+             * -1 to product
+             */
+            document.app.Util.addListener(removeProductObj,'click',function(){
+                var objNbproduct = document.querySelector('#nbproduct');
+                if(objNbproductfield.value>1){
+                    objNbproductfield.value=objNbproductfield.value-1;
+                    objNbproduct.innerHTML = objNbproductfield.value;
+                }
+            });
+        }
+    },
 
     addToStock: function (data) {
-        document.app.Scan.init();
+         //document.app.Scan.init();
+
+        //Reset form
+        document.querySelector('#expire').value="";
+        document.querySelector('#nbproduct').innerHTML=1;
+        document.querySelector('#nbproductfield').value=1;
+
         document.app.toastResult = M.toast({
-            html: data.qte + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.doAjax(\'canceladdtostock.html\',{ id: ' + data.id + ' },document.app.product.cancelAddToStock);">CANCEL</button>',
+            html: data.qte + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(\'canceladdtostock.html\',{ id: ' + data.id + ' },document.app.Product.cancelAddToStock);">CANCEL</button>',
             displayLength: 7000,
             classes: 'green'
         });
@@ -23,18 +60,18 @@ document.app.product = {
 
     removeFromStock: function (data) {
         document.app.toastResult = M.toast({
-            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.doAjax(\'canceladdtostock.html\',{ id: ' + data.id + ' },document.app.product.cancelRemoveFormStock);">CANCEL</button>',
+            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(\'canceladdtostock.html\',{ id: ' + data.id + ' },document.app.Product.cancelRemoveFormStock);">CANCEL</button>',
             displayLength: 7000,
             classes: 'green',
             completeCallback: function () {
-                document.app.product.cancelCurrent.remove(data.qte)
+                document.app.Product.cancelCurrent.remove()
             }
         });
     },
 
     cancelRemoveFormStock: function (data) {
 
-        document.app.product.cancelCurrent.cancel();
+        document.app.Product.cancelCurrent.cancel();
 
         document.app.toastResult = M.toast({
             html: 'Removed ' + data.name + ' <br> has been canceled',
@@ -64,14 +101,15 @@ document.app.product = {
             //restore datas
             this.obj.innerHTML = this.nbProduct;
 
-
             //restore date
+            if(this.selectExpire) {
             for (expire in this.expires) {
-                this.selectExpire.insertAdjacentHTML('afterbegin', '<option value="' + this.expires[expire] + '">' + this.expires[expire] + '</option>');
+                    this.selectExpire.insertAdjacentHTML('afterbegin', '<option value="' + this.expires[expire] + '">' + this.expires[expire] + '</option>');
+                }
             }
 
             //refresh display
-            document.app.product.list.init();
+            document.app.Product.list.init();
 
             //reset current obj
             this.obj = null;
@@ -79,9 +117,9 @@ document.app.product = {
             this.expires = null;
         },
 
-        remove: function (qte) {
+        remove: function () {
             //if no more product left, remove the li product after cancel toast time
-            if (qte === 0 && this.obj) {
+            if (this.obj && parseInt(this.obj.innerHTML)<=0) {
                 this.obj.parentNode.parentNode.parentNode.parentNode.removeChild(this.obj.parentNode.parentNode.parentNode);
             }
         }
@@ -91,36 +129,39 @@ document.app.product = {
     removeProduct: function (evt) {
 
         // Prevent collapse to trigger
-        document.app.preventPropagation(evt);
+        document.app.Util.preventPropagation(evt);
 
         var nbProductObj = this.parentNode.parentNode.querySelector('.nbProduct');
         var nbProduct = parseInt(nbProductObj.innerHTML);
         var inputExpire = this.parentNode.parentNode.querySelector('.select-dropdown');
         var selectExpire = this.parentNode.parentNode.querySelector('select');
+
         var expireDates = inputExpire.value.split(", ").filter(function (val) {
             return val !== ""
         });
 
         if (nbProduct > 0 && expireDates.length > 0) {
 
-            for (date in expireDates) {
-                selectExpire.remove(selectExpire.querySelector('option[value="' + expireDates[date] + '"]').index);
+            if(selectExpire){
+                for (date in expireDates) {
+                    selectExpire.remove(selectExpire.querySelector('option[value="' + expireDates[date] + '"]').index);
+                }
+
+                //set selected
+                selectExpire.querySelector('option').selected = true;
             }
 
-            //set selected
-            selectExpire.querySelector('option').selected = "selected";
+            document.app.Product.cancelCurrent.set(nbProductObj, nbProduct, expireDates, selectExpire);
 
-            document.app.product.cancelCurrent.set(nbProductObj, nbProduct, expireDates, selectExpire);
-
-            nbProductObj.innerHTML = parseInt(nbProduct) + (expireDates.length * -1);
+            nbProductObj.innerHTML = (parseInt(nbProduct) + (expireDates.length * -1));
 
             //refresh display
-            document.app.product.list.init();
+            document.app.Product.list.init();
 
-            document.app.doAjax("removefromstock.html", {
+            document.app.Util.doAjax("removefromstock.html", {
                 barcode: this.parentNode.parentNode.querySelector('.barcode').value,
                 expire: expireDates
-            }, document.app.product.removeFromStock);
+            }, document.app.Product.removeFromStock);
         }
     },
 
@@ -128,6 +169,12 @@ document.app.product = {
     list: {
 
         init: function () {
+            this.initEvents();
+        },
+
+        initEvents: function(){
+            document.app.Util.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating'), 'click', document.app.Util.preventPropagation);
+            document.app.Util.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating.btnRemove'), 'click', document.app.Product.removeProduct);
             this.initSelects();
         },
 
@@ -139,18 +186,20 @@ document.app.product = {
             /**
              * prevent slidown
              */
-            document.app.addListenerAll(document.querySelectorAll('.select-dropdown'), 'click', document.app.preventPropagation);
+            document.app.Util.addListenerAll(document.querySelectorAll('.select-dropdown'), 'click', document.app.Util.preventPropagation);
             /**
              * close option by click
              */
             var closeOptions = document.querySelectorAll('.dropdown-content LI.disabled');
-            document.app.addListenerAll(closeOptions, 'click', this.closeSelect);
+            document.app.Util.addListenerAll(closeOptions, 'click', this.closeSelect);
         },
 
 
         closeSelect: function (evt) {
-            console.log('TODO : FIND BETTER AND CLEANER WAY HERE');
-            document.app.product.list.init();
+            document.app.Product.list.init();
         }
     }
-}
+};
+
+document.app.Product.list.init();
+document.app.Product.addToStockEvent();
