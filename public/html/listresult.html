@@ -44,11 +44,7 @@
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
-<ul id="dropdownlangmobile" class="dropdown-content">
-    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-    <li class="divider"></li>
-    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
-</ul>
+
 
 <nav role="navigation">
     <div class="nav-wrapper container">
@@ -85,7 +81,7 @@
             <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
             <li class="divider"></li>
             <li>
-                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                     French
@@ -108,85 +104,80 @@
     <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
 </div>
 
-<main class="container main">
 
+<main class="container main">
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2">Add a product</h1>
+        <a class="waves-effect waves-light btn-large right red" href="productlist.html"><i class="material-icons left">backspace</i>Back</a>
 
-        <!-- Display result from bar code -->
-        <div  id="result">
-            <div class="card">
-                <div class="teal lighten-1">
-                    <div class="list">
+        <h1 class="teal-text text-lighten-2">Product result</h1>
 
-                        <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="upload/products/3057640234163.jpg"/></div>
-                        <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x Eau minérale - Volvic - 1.5 l</h4></div>
-                        <div>code bar : 3057640234163</div></div>
-                    </div>
-                </div>
+        <div class="productList">
 
-                <div class="scanBtn">
-                    <a href="productlist.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
-                    <a class="btn-floating btn-large green right" id="addproduct"><i class="material-icons">add</i></a>
-                    <a class="btn-floating btn-large red right" id="removeproduct"><i class="material-icons">remove</i></a>
-                    <span class="tag right spaced">Quantity : </span>
-                </div>
+            <ul class="collapsible bgItems">
 
-                <div class="card-content">
-                    <form id="addProductForm" method="post">
+                <li>
+                    <div class="collapsible-header">
 
-                        <div>
-                            <div class="input-field" style="display: inline-block;width: calc(97% - 100px);">
-                                <i class="material-icons prefix">today</i>
-                                <label for="expire" class="">Expire date</label>
-                                <input type="text" class="datepicker" id="expire" name="expire">
-                            </div>
+                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
 
-                            <div class="right"><img src="inc/img/nutriscore/a.svg" style="width: 100px;"></div>
+                        <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
+                        <h4><span class="nbProduct">1</span> x Eau minérale - Volvic - 1.5 l</h4>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btn-floating green darken-1 waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
                         </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (539 kcal)</h5>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>10.6 g Acides gras saturés en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>56.3 g Sucres en quantité élevée</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.107 g Sel en faible quantité</div>
+                    </div>
+                </li>
 
-                        <input type="hidden" id="nbproductfield" name="nbproductfield" value="1">
-                        <input type="hidden" id="barcode" name="barcode" value="3057640234163">
-                    </form>
-                </div>
+                <li>
+                    <div class="collapsible-header">
+
+                        <input type="hidden" value="3057640234163" class="barcode">
+                        <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
+
+                        <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
+                        <h4><span class="nbProduct">1</span> x Eau minérale - Volvic - 1 l</h4>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btn-floating green darken-1 waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (539 kcal)</h5>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>10.6 g Acides gras saturés en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>56.3 g Sucres en quantité élevée</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.107 g Sel en faible quantité</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div style="clear: both;"></div>
+
+            <div class="center">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="waves-effect"><a href="#">2</a></li>
+                    <li class="waves-effect"><a href="#">3</a></li>
+                    <li class="waves-effect"><a href="#">4</a></li>
+                    <li class="waves-effect"><a href="#">5</a></li>
+                    <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
             </div>
 
-            <div class="center mainBtn">
-                <a href="addproduct.html" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
-                <a onclick="console.log('TODO HERE SERIALIZE DATA');console.log(document.querySelector('#addProductForm'));console.log(new FormData(document.querySelector('#addProductForm')));document.app.Util.doAjax('ajax/addtostock.html',new FormData(document.querySelector('#addProductForm')),document.app.Product.addToStock)" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
-            </div>
         </div>
-
     </div>
 </main>
-
-<!-- Modal Structure -->
-<div id="modal-loader" class="modal" style="padding:0 20px;">
-
-    <h5>Please wait while getting datas</h5>
-
-    <div class="center" style="margin:10px;">
-        <!-- loader -->
-        <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- btn -->
-    <div class="modal-footer">
-        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-</div>
-
 
 <footer class="page-footer mini">
     <div class="footer-copyright">
@@ -201,6 +192,17 @@
 <script src="inc/js/init.js"></script>
 <script src="inc/js/ajax.class.js"></script>
 <script src="inc/js/product.js"></script>
+
+
+
+<script>
+    document.app.Util.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating'), 'click', document.app.Util.preventPropagation);
+
+    document.app.Util.addListenerAll(document.querySelectorAll('.collapsible .actionbtn .btn-floating.btnRemove'), 'click', document.app.Product.removeProduct);
+
+    document.app.Product.list.init();
+</script>
+
 
 </body>
 </html>

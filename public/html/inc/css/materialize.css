@@ -1417,14 +1417,14 @@ table span.badge {
 
 .container {
   margin: 0 auto;
-  width: 90%; }
+  width: 95%; }
 
 @media only screen and (min-width: 601px) {
   .container {
     width: 85%; } }
 @media only screen and (min-width: 993px) {
   .container {
-    width: 70%; }
+    width: 80%; }
     .container.connected {
       width: 100%; } }
 .col .row {

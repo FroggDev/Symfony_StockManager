@@ -38,17 +38,28 @@
     <li class="divider"></li>
     <li><a href="#"><span class="flag-icon flag-icon-en"></span> En</a></li>
 </ul>
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+</ul>
 <ul id="dropdownprofile" class="dropdown-content">
     <li><a href="#">Account</a></li>
     <li><a href="#">Stock Option</a></li>
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
-
+<ul id="dropdownsort" class="dropdown-content" >
+    <li><a href="#">Sort by date expire</a></li>
+    <li><a href="#">Sort by date added</a></li>
+    <li><a href="#">Sort by name</a></li>
+</ul>
 
 <nav role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="home-connected.html" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
+
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
         <ul>
             <li class="right hide-on-med-and-down">
@@ -57,13 +68,22 @@
                     <i class="material-icons right">arrow_drop_down</i>
                 </a>
             </li>
-            <li class="right hide-on-med-and-down">
-                <a class="dropdown-trigger" href="#" data-target="dropdownprofile">
-                    <i class="material-icons left">account_circle</i> My profile</a>
+
+            <li class="right">
+                <a class="dropdown-trigger" href="#" data-target="dropdownsort">
+                    <span class="hide-on-med-and-down">Sort by date expire</span>
+                    <i class="material-icons left">sort</i>
+                </a>
             </li>
+
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#" data-target="dropdownprofile"><i class="material-icons left">account_circle</i> My profile</a>
+            </li>
+
             <li class="right hide-on-med-and-down">
                 <a href="home-connected.html"><i class="material-icons left">home</i>Home</a>
             </li>
+
             <li class="hide-on-large-only"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
         </ul>
 
@@ -81,14 +101,15 @@
             <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
             <li class="divider"></li>
             <li>
-                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                     French
                 </a>
             </li>
         </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+
 
         <!--form>
             <div class="input-field">
@@ -104,11 +125,10 @@
     <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
 </div>
 
-
-<div class="container main">
+<main class="container main">
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2 center">My Stock products</h1>
+        <h1 class="teal-text text-lighten-2">My Stock products</h1>
 
         <div class="productList">
 
@@ -116,7 +136,7 @@
 
                 <!-- si liste vient de addproduct short alors afficher data d ajout remove_red_eye-->
 
-                <li>
+                <li class="expiresoon">
                     <div class="collapsible-header">
                         <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
@@ -149,7 +169,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="expiresoon">
                     <div class="collapsible-header">
                         <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3017620421006.jpg"></i>
@@ -179,7 +199,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="expirewarn">
                     <div class="collapsible-header">
                         <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/8076809529433.jpg"></i>
@@ -209,7 +229,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="expirewarn">
                     <div class="collapsible-header">
                         <input type="hidden" value="3057640234163" name="barcode" class="barcode">
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
@@ -316,7 +336,7 @@
 
         </div>
     </div>
-</div>
+</main>
 
 <footer class="page-footer mini">
     <div class="footer-copyright">

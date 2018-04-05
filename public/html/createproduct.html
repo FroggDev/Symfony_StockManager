@@ -44,7 +44,11 @@
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
-
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+</ul>
 
 <nav role="navigation">
     <div class="nav-wrapper container">
@@ -81,7 +85,7 @@
             <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
             <li class="divider"></li>
             <li>
-                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                     French
@@ -108,7 +112,7 @@
 <div class="container main">
     <div class="section productdetail">
 
-        <h1 class="teal-text text-lighten-2 center">Product details</h1>
+        <h1 class="teal-text text-lighten-2">Product details</h1>
 
         <a class="waves-effect waves-light btn-large right red" href="productlist.html"><i class="material-icons left">backspace</i>Back</a>
 
@@ -195,30 +199,6 @@
             </div>
 
         </form>
-
-
-        <style>
-            TABLE.productinfo .input-field.inline input{margin-bottom: 0;}
-            TABLE.productinfo .input-field{margin:0;}
-            TABLE.productinfo TD{padding:0;}
-
-            TABLE.productinfo .btn-floating i{
-                font-size: 1rem;
-                line-height: 25px;
-            }
-
-            TABLE.productinfo A {
-                width: 25px;
-                height: 25px;
-                line-height: 25px;
-                margin: 3px;
-            }
-
-            TABLE.productinfo input[type=text]:not(.browser-default) {
-                border-bottom:0;
-            }
-
-        </style>
 
         <table class="highlight productinfo">
             <thead>
@@ -413,7 +393,28 @@
         }
     }*/);
 </script>
+<style>
+    TABLE.productinfo .input-field.inline input{margin-bottom: 0;}
+    TABLE.productinfo .input-field{margin:0;}
+    TABLE.productinfo TD{padding:0;}
 
+    TABLE.productinfo .btn-floating i{
+        font-size: 1rem;
+        line-height: 25px;
+    }
+
+    TABLE.productinfo A {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        margin: 3px;
+    }
+
+    TABLE.productinfo input[type=text]:not(.browser-default) {
+        border-bottom:0;
+    }
+
+</style>
 
 </body>
 </html>

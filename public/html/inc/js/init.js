@@ -11,10 +11,11 @@ document.app.tooltips       = M.Tooltip.init(document.querySelectorAll('.tooltip
 document.app.parallax       = M.Parallax.init(document.querySelectorAll('.parallax'));
 document.app.sidenav        = M.Sidenav.init(document.querySelector('.sidenav'),{ edge:'right'});
 document.app.loader         = M.Modal.init(document.querySelector('#modal-loader'));
-document.app.dropdowns      = M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'));
+document.app.dropdowns      = M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'),{constrainWidth: false});
 document.app.collapsibles   = M.Collapsible.init(document.querySelectorAll('.collapsible'));
 document.app.imagebox       = M.Materialbox.init(document.querySelectorAll('.materialboxed'));
 document.app.datepicker     = M.Datepicker.init(document.querySelector('.datepicker'));
+document.app.formselect     = M.FormSelect.init(document.querySelectorAll('select'));
 
 document.app.toastResult    = null;
 

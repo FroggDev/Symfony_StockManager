@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>StockManager - Add product</title>
+    <title>StockManager - Home</title>
     <meta name="language" content="EN">
 
     <!-- DESCRIPTION -->
@@ -40,7 +40,7 @@
 </ul>
 <ul id="dropdownprofile" class="dropdown-content">
     <li><a href="#">Account</a></li>
-    <li><a href="#">Stock Option</a></li>
+    <li class="active"><a href="stockoption.html">Stock Option</a></li>
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
@@ -56,13 +56,13 @@
 
         <ul>
             <li class="right hide-on-med-and-down">
-                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#!" data-target="dropdownlang">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                 </a>
             </li>
             <li class="right hide-on-med-and-down">
-                <a class="dropdown-trigger" href="#" data-target="dropdownprofile">
+                <a class="dropdown-trigger" href="#!" data-target="dropdownprofile">
                     <i class="material-icons left">account_circle</i> My profile</a>
             </li>
             <li class="right hide-on-med-and-down">
@@ -73,7 +73,7 @@
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
-            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
             <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
             <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
@@ -109,89 +109,127 @@
 </div>
 
 <main class="container main">
-
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2">Add a product</h1>
+        <h1 class="teal-text text-lighten-2">My Stock Options</h1>
 
-        <!-- Display result from bar code -->
-        <div  id="result">
-            <div class="card">
-                <div class="teal lighten-1">
-                    <div class="list">
+        <div class="row">
 
-                        <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="upload/products/3057640234163.jpg"/></div>
-                        <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x Eau minérale - Volvic - 1.5 l</h4></div>
-                        <div>code bar : 3057640234163</div></div>
+            <div class="col s12 m6">
+
+                <h5 class="teal-text text-lighten-2">Product list option</h5>
+
+                <div class="row">
+                    <div class="input-field col s8">
+                        Default list sort
+                    </div>
+
+                    <div class="col s4">
+                        <select>
+                            <option value="1">Date expire</option>
+                            <option value="2">Date added</option>
+                            <option value="3">Name</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="scanBtn">
-                    <a href="productlist.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
-                    <a class="btn-floating btn-large green right" id="addproduct"><i class="material-icons">add</i></a>
-                    <a class="btn-floating btn-large red right" id="removeproduct"><i class="material-icons">remove</i></a>
-                    <span class="tag right spaced">Quantity : </span>
+                <div class="row">
+                    <div class="input-field col s8">
+                        Number of product per page
+                    </div>
+
+                    <div class="range-field col s4">
+                        <input type="range" id="test5" min="10" max="100"/>
+                    </div>
                 </div>
 
-                <div class="card-content">
-                    <form id="addProductForm" method="post">
+                <div class="row">
+                    <div class="input-field col s8">
+                        Display the product list minified
+                    </div>
 
-                        <div>
-                            <div class="input-field" style="display: inline-block;width: calc(97% - 100px);">
-                                <i class="material-icons prefix">today</i>
-                                <label for="expire" class="">Expire date</label>
-                                <input type="text" class="datepicker" id="expire" name="expire">
-                            </div>
-
-                            <div class="right"><img src="inc/img/nutriscore/a.svg" style="width: 100px;"></div>
-                        </div>
-
-                        <input type="hidden" id="nbproductfield" name="nbproductfield" value="1">
-                        <input type="hidden" id="barcode" name="barcode" value="3057640234163">
-                    </form>
+                    <div class="switch">
+                        <label>
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
                 </div>
+
             </div>
 
-            <div class="center mainBtn">
-                <a href="addproduct.html" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
-                <a onclick="console.log('TODO HERE SERIALIZE DATA');console.log(document.querySelector('#addProductForm'));console.log(new FormData(document.querySelector('#addProductForm')));document.app.Util.doAjax('ajax/addtostock.html',new FormData(document.querySelector('#addProductForm')),document.app.Product.addToStock)" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+            <div class="col s12 m6">
+
+                <h5 class="teal-text text-lighten-2">Expire Alerts options</h5>
+
+                <div class="row">
+                    <div class="input-field col s8">
+                        Recieve alert by mail
+                    </div>
+
+                    <div class="switch">
+                        <label>
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s8">
+                        Warn frequency
+                    </div>
+
+                    <div class="col s4">
+                        <select>
+                            <option value="1">1 day</option>
+                            <option value="2">2 days</option>
+                            <option value="3">3 days</option>
+                            <option value="3">4 days</option>
+                            <option value="3">5 days</option>
+                            <option value="3">6 days</option>
+                            <option value="3">1 week</option>
+                            <option value="3">2 week</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s8">
+                        Alert frequency
+                    </div>
+
+                    <div class="col s4">
+                        <select>
+                            <option value="1">1 day</option>
+                            <option value="2">2 days</option>
+                            <option value="3">3 days</option>
+                            <option value="3">4 days</option>
+                            <option value="3">5 days</option>
+                            <option value="3">6 days</option>
+                            <option value="3">1 week</option>
+                            <option value="3">2 week</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
         </div>
+
+        <div class="row center">
+            <br><br>
+            <a class="waves-effect waves-light btn-large green" href="#" style="margin-right: 10px;"><i class="material-icons left">check</i>Save</a>
+        </div>
+
 
     </div>
 </main>
 
-<!-- Modal Structure -->
-<div id="modal-loader" class="modal" style="padding:0 20px;">
-
-    <h5>Please wait while getting datas</h5>
-
-    <div class="center" style="margin:10px;">
-        <!-- loader -->
-        <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- btn -->
-    <div class="modal-footer">
-        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-</div>
-
-
 <footer class="page-footer mini">
     <div class="footer-copyright">
         <div class="container">
-            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a></span>
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a
+                class="yellow-text" href="http://materializecss.com">Materialize</a></span>
         </div>
     </div>
 </footer>
@@ -199,8 +237,13 @@
 <!--  Scripts-->
 <script src="inc/js/materialize.min.js"></script>
 <script src="inc/js/init.js"></script>
-<script src="inc/js/ajax.class.js"></script>
-<script src="inc/js/product.js"></script>
+
+<style>
+    .row {
+        margin-bottom: 0
+    }
+
+</style>
 
 </body>
 </html>

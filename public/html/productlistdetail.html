@@ -44,7 +44,11 @@
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
-
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+</ul>
 
 <nav role="navigation">
     <div class="nav-wrapper container">
@@ -81,7 +85,7 @@
             <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
             <li class="divider"></li>
             <li>
-                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                     French
@@ -105,12 +109,12 @@
 </div>
 
 
-<div class="container main">
+<main class="container main">
     <div class="section">
 
         <a class="waves-effect waves-light btn-large right red" href="productlist.html"><i class="material-icons left">backspace</i>Back</a>
 
-        <h1 class="teal-text text-lighten-2 center">My Stock products</h1>
+        <h1 class="teal-text text-lighten-2">My Stock products</h1>
 
         <div class="productList">
 
@@ -125,7 +129,7 @@
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
                         <h4><span class="nbProduct">1</span> x Eau minérale - Volvic - 1.5 l</h4>
                         <div>Added : 12/02/2018</div>
-                        <div>Expire : 12/02/2025</div>
+                        <div class="expiredatesoon">Expire : 12/02/2025</div>
                         <div class="actionbtn">
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
@@ -141,7 +145,6 @@
                     </div>
                 </li>
 
-
                 <li>
                     <div class="collapsible-header">
 
@@ -151,7 +154,7 @@
                         <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
                         <h4><span class="nbProduct">1</span> x Eau minérale - Volvic - 1.5 l</h4>
                         <div>Added : 12/02/2018</div>
-                        <div>Expire : 12/02/2025</div>
+                        <div class="expiredatewarn">Expire : 12/02/2025</div>
                         <div class="actionbtn">
                             <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
                             <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
@@ -209,7 +212,7 @@
 
         </div>
     </div>
-</div>
+</main>
 
 <footer class="page-footer mini">
     <div class="footer-copyright">
