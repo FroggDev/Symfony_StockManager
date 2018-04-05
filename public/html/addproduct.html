@@ -44,7 +44,11 @@
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
-
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+</ul>
 
 <nav role="navigation">
     <div class="nav-wrapper container">
@@ -81,7 +85,7 @@
             <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
             <li class="divider"></li>
             <li>
-                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                     French
@@ -104,22 +108,24 @@
     <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
 </div>
 
-<div class="container main">
+<main class="container main">
 
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2 center">Add a product</h1>
+        <h1 class="teal-text text-lighten-2">Add a product</h1>
 
         <!-- Display bar code scanner -->
         <div class="card toHideWhenOff bgItems">
 
-            <form id="searchProduct">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">search</i>
-                <input type="text" id="autocomplete-input" class="autocomplete" x-webkit-speech>
-                <label for="autocomplete-input">Search by name</label>
-            </div>
-                <a class="waves-effect waves-light btn">ok</a>
+
+
+            <form id="searchProduct" action="listresult.html">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input required="required" type="text" id="autocomplete-input" class="autocomplete speech-input" autocomplete="off" lang="fr" data-instant-submit>
+                    <label for="autocomplete-input"></label>
+                </div>
+                <input type="submit" class="waves-effect waves-light btn" value="ok">
             </form>
 
             <div class="card-image waves-effect waves-block waves-light">
@@ -141,7 +147,7 @@
             <div class="scanBtn">
                 <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
                 <a id="cameraTorch" class="btn-floating btn-large waves-effect waves-light right "><i class="material-icons left">wb_incandescent</i></a>
-                <a onclick="document.app.Scan.closeScan();document.app.Util.doAjax('getProduct.html',{ barcode: 11111111 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
+                <a onclick="document.app.Scan.closeScan();document.app.Util.doAjax('ajax/getProduct.html',{ barcode: 11111111 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
             </div>
 
             <div class="card-content" style="padding: 0 30px 5px 30px;margin-top: -20px;">
@@ -179,7 +185,7 @@
 
 
     </div>
-</div>
+</main>
 
 <!-- Modal Structure -->
 <div id="modal-loader" class="modal">
@@ -227,6 +233,9 @@
 <script src="inc/lib/scan/quagga.min.js" type="text/javascript"></script>
 <script src="inc/lib/scan/scan.js" type="text/javascript"></script>
 <link href="inc/lib/scan/scan.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="inc/lib/mic/speech-input.css">
+<script src="inc/lib/mic/speech-input.js"></script>
 
 <script>
     var instance = M.Autocomplete.init(document.querySelector('.autocomplete'), {

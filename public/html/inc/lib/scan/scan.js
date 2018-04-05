@@ -53,7 +53,7 @@ document.app.Scan = {
         Quagga.onDetected(function(result) {
             //var canvas = Quagga.canvas.dom.image;
             document.app.Scan.closeScan();
-            document.app.Util.doAjax("getProduct.html",{ barcode: result.codeResult.code },document.app.Scan.displayResult);
+            document.app.Util.doAjax("ajax/getProduct.html",{ barcode: result.codeResult.code },document.app.Scan.displayResult);
         });
 
 	},
@@ -337,7 +337,12 @@ document.app.Scan = {
                 );
 
             $('#result').show();*/
-			document.location="addproductshort.html";
+			if(data.remove){
+                document.location="productlistdetail.html";
+            }
+			else{
+				document.location="addproductshort.html";
+            }
         }
 	}
 

@@ -1,5 +1,5 @@
 /*
-Errno::ENOENT: No such file or directory @ rb_sysopen - C:\symfony\Symfony_StockManager\public\inc\css\materialize.scss
+Errno::ENOENT: No such file or directory @ rb_sysopen - C:\Users\Etudiant\Desktop\Symfony_StockManager\public\inc\css\materialize.scss
 
 Backtrace:
 C:/dev/bin/ruby/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:484:in `read'
@@ -19,4 +19,4 @@ C:/dev/bin/ruby/bin/scss:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - C:\symfony\Symfony_StockManager\public\inc\css\materialize.scss"; }
+  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - C:\Users\Etudiant\Desktop\Symfony_StockManager\public\inc\css\materialize.scss"; }

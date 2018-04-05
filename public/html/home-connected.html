@@ -40,26 +40,40 @@
 </ul>
 <ul id="dropdownprofile" class="dropdown-content">
     <li><a href="#">Account</a></li>
-    <li><a href="#">Stock Option</a></li>
+    <li class="active"><a href="stockoption.html">Stock Option</a></li>
     <li class="divider"></li>
     <li><a href="index.html">Log out</a></li>
 </ul>
-
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+</ul>
 
 <nav role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="home-connected.html" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
 
         <ul>
-            <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownlang"><span class="flag-icon flag-icon-fr"></span><i class="material-icons right">arrow_drop_down</i></a></li>
-            <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownprofile"><i class="material-icons left">account_circle</i> My profile</a></li>
-            <li class="right hide-on-med-and-down active"><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
-            <li class="hide-on-large-only active"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#!" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#!" data-target="dropdownprofile">
+                    <i class="material-icons left">account_circle</i> My profile</a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a href="home-connected.html"><i class="material-icons left">home</i>Home</a>
+            </li>
+            <li class="hide-on-large-only"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
         </ul>
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
-            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li><a href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
             <li class="divider"></li>
             <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
             <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
@@ -71,7 +85,7 @@
             <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
             <li class="divider"></li>
             <li>
-                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
                     <span class="flag-icon flag-icon-fr"></span>
                     <i class="material-icons right">arrow_drop_down</i>
                     French
@@ -94,29 +108,29 @@
     <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
 </div>
 
-<div class="container main connected">
-
+<main class="container main">
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2 center">My Stock</h1>
+        <div class="right hide-on-large-only"><a href="productlistdetail.html"><span class="new badge red" data-badge-caption="expire soon">(7)</span></a></div>
 
-        <div class="homeIconContainer">
-            <div class="homeIcon">
-                <a href="addproduct.html"><img class="tooltipped" data-position="bottom" data-tooltip="Add products to the stock" src="inc/img/icons/product_add.png" height="300" width="300"/></a>
+        <h1 class="teal-text text-lighten-2">My Stock</h1>
+
+        <div class="row homeIcon">
+            <div class="col s6 l3">
+                <a href="addproduct.html"><img class="tooltipped" data-position="bottom" data-tooltip="Add products to the stock" src="inc/img/icons/product_add.png" width="100%"/></a>
             </div>
-            <div class="homeIcon">
-                <a href="#"><img class="tooltipped" data-position="bottom" data-tooltip="Remove products to the stock" src="inc/img/icons/product_del.png" height="300" width="300"/></a>
+            <div class="col s6 l3">
+                <a href="removeproduct.html"><img class="tooltipped" data-position="bottom" data-tooltip="Remove products to the stock" src="inc/img/icons/product_del.png" width="100%"/></a>
             </div>
-            <div class="homeIcon">
-                <a href="productlist.html"><img class="tooltipped" data-position="bottom" data-tooltip="View products in the stock" src="inc/img/icons/product_list.png" height="300" width="300"/></a>
+            <div class="col s6 l3">
+                <a href="productlist.html"><img class="tooltipped" data-position="bottom" data-tooltip="View products in the stock" src="inc/img/icons/product_list.png" width="100%"/></a>
             </div>
-            <div class="homeIcon">
-                <a href="#"><img class="tooltipped" data-position="bottom" data-tooltip="View stock stats" src="inc/img/icons/product_stats.png" height="300" width="300"/></a>
+            <div class="col s6 l3">
+                <a href="#"><img class="tooltipped" data-position="bottom" data-tooltip="View stock stats" src="inc/img/icons/product_stats.png" width="100%"/></a>
             </div>
         </div>
-
     </div>
-</div>
+</main>
 
 <footer class="page-footer mini">
     <div class="footer-copyright">

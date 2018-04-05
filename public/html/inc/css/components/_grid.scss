@@ -1,6 +1,6 @@
 .container {
   margin: 0 auto;
-  width: 90%;
+  width: 95%;
 }
 @media #{$medium-and-up} {
   .container {
@@ -9,7 +9,7 @@
 }
 @media #{$large-and-up} {
   .container {
-    width: 70%;
+    width: 80%;
 
     &.connected {
       width: 100%;

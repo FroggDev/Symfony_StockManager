@@ -112,61 +112,85 @@
 
     <div class="section">
 
-        <h1 class="teal-text text-lighten-2">Add a product</h1>
+        <h1 class="teal-text text-lighten-2">Remove a product</h1>
 
-        <!-- Display result from bar code -->
-        <div  id="result">
-            <div class="card">
-                <div class="teal lighten-1">
-                    <div class="list">
+        <!-- Display bar code scanner -->
+        <div class="card toHideWhenOff bgItems">
 
-                        <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="upload/products/3057640234163.jpg"/></div>
-                        <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x Eau minérale - Volvic - 1.5 l</h4></div>
-                        <div>code bar : 3057640234163</div></div>
-                    </div>
+            <form id="searchProduct" action="productlistdetail.html">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input required="required" type="text" id="autocomplete-input" class="autocomplete speech-input" autocomplete="off" lang="fr" data-instant-submit>
+                    <label for="autocomplete-input"></label>
                 </div>
+                <input type="submit" class="waves-effect waves-light btn" value="ok">
+            </form>
 
-                <div class="scanBtn">
-                    <a href="productlist.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
-                    <a class="btn-floating btn-large green right" id="addproduct"><i class="material-icons">add</i></a>
-                    <a class="btn-floating btn-large red right" id="removeproduct"><i class="material-icons">remove</i></a>
-                    <span class="tag right spaced">Quantity : </span>
-                </div>
-
-                <div class="card-content">
-                    <form id="addProductForm" method="post">
-
-                        <div>
-                            <div class="input-field" style="display: inline-block;width: calc(97% - 100px);">
-                                <i class="material-icons prefix">today</i>
-                                <label for="expire" class="">Expire date</label>
-                                <input type="text" class="datepicker" id="expire" name="expire">
+            <div class="card-image waves-effect waves-block waves-light">
+                <div class="controls">
+                    <form>
+                        <label class="hidden" for="settings_torch">Torch</label>
+                        <input type="checkbox" name="settings_torch" id="settings_torch" class="hidden" />
+                        <section id="container">
+                            <div id="interactive" class="viewport"></div>
+                            <div id="result_strip">
+                                <ul class="thumbnails"></ul>
+                                <ul class="collector"></ul>
                             </div>
-
-                            <div class="right"><img src="inc/img/nutriscore/a.svg" style="width: 100px;"></div>
-                        </div>
-
-                        <input type="hidden" id="nbproductfield" name="nbproductfield" value="1">
-                        <input type="hidden" id="barcode" name="barcode" value="3057640234163">
+                        </section>
                     </form>
                 </div>
             </div>
 
-            <div class="center mainBtn">
-                <a href="addproduct.html" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
-                <a onclick="console.log('TODO HERE SERIALIZE DATA');console.log(document.querySelector('#addProductForm'));console.log(new FormData(document.querySelector('#addProductForm')));document.app.Util.doAjax('ajax/addtostock.html',new FormData(document.querySelector('#addProductForm')),document.app.Product.addToStock)" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+            <div class="scanBtn">
+                <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                <a id="cameraTorch" class="btn-floating btn-large waves-effect waves-light right "><i class="material-icons left">wb_incandescent</i></a>
+                <a onclick="document.app.Scan.closeScan();document.app.Util.doAjax('ajax/removeProduct.html',{ barcode: 11111111 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
+            </div>
+
+            <div class="card-content" style="padding: 0 30px 5px 30px;margin-top: -20px;">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">aspect_ratio</i>
+                    <select name="input-stream_constraints" id="deviceSelection"></select>
+                    <label for="deviceSelection">Camera</label>
+                </div>
             </div>
         </div>
+
+        <!-- Display if no product found -->
+        <div  id="notfound" style="display: none;">
+            <div class="card bgItems">
+                <div class="teal lighten-1">
+                    <div class="list">
+                        <h4>No product found for the barcode : <span id="notfoundbarcode" class="text-accent-2 orange-text right"></span></h4>
+                    </div>
+                </div>
+
+                <div class="scanBtn">
+                    <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                </div>
+
+                <div class="card-content">
+                    No product has been found matching the bar code, maybe it is just an error while scanning, you can retry to scan another time or you can add the product manually.
+                </div>
+            </div>
+
+            <div class="center mainBtn">
+                <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
+                <a href="createproduct.html" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+            </div>
+        </div>
+
 
     </div>
 </main>
 
 <!-- Modal Structure -->
-<div id="modal-loader" class="modal" style="padding:0 20px;">
+<div id="modal-loader" class="modal">
 
     <h5>Please wait while getting datas</h5>
 
-    <div class="center" style="margin:10px;">
+    <div class="center loadercontainer">
         <!-- loader -->
         <div class="preloader-wrapper big active">
             <div class="spinner-layer spinner-blue-only">
@@ -201,6 +225,22 @@
 <script src="inc/js/init.js"></script>
 <script src="inc/js/ajax.class.js"></script>
 <script src="inc/js/product.js"></script>
+
+<!-- CAMERA SCRIPTS -->
+<script src="inc/lib/jquery-2.1.1.min.js"></script>
+<script src="inc/lib/scan/quagga.min.js" type="text/javascript"></script>
+<script src="inc/lib/scan/scan.js" type="text/javascript"></script>
+<link href="inc/lib/scan/scan.min.css" rel="stylesheet">
+
+<script>
+    var instance = M.Autocomplete.init(document.querySelector('.autocomplete'), {
+        data: {
+            "Volvic": null,
+            "Nutella": null,
+            "Barilla": null
+        }
+    });
+</script>
 
 </body>
 </html>
