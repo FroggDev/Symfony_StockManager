@@ -26,3 +26,45 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    ####################
+    # CONSOLE COMMANDS #
+    ####################
+
+    # create a new database entry
+    app.command_create_db_entry:
+        class: App\Command\CreateDatabaseEntry
+        arguments: [doctrine.orm.entity_manager]
+
+    # creating alias for RoleHierarchyInterface used in App\Command\UserManagerComplex
+    Symfony\Component\Security\Core\Role\RoleHierarchy: '@security.role_hierarchy'
+
+    ################
+    # Swift Mailer #
+    ################
+
+    app.mail.register:
+        class: App\Controller\Security\SecurityController
+        arguments:
+            - "@swiftmailer.mailer"
+
+    ############
+    # LISTNERS #
+    ############
+    App\EventSubscriber\UserSubscriber:
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }
+
+    ###################
+    # TWIG EXTENSIONS #
+    ###################
+    #app.twig.extension_custom:
+    #    class: App\Service\Twig\AbstractTwigExtension
+    #    arguments:
+    #        - "@router"
+    #        - "@assets.packages"
+
+    _instanceof:
+        App\Service\Twig\AbstractTwigExtension:
+            tags:
+                - { name: twig.runtime }

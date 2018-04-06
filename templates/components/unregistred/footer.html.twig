@@ -1,0 +1,35 @@
+{% trans_default_domain 'unregistred_footer' %}
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5>{{ constant('App\\SiteConfig::SITENAME') }}</h5>
+                <p class="grey-text text-lighten-4">{{ "site information" | trans }} <a class="yellow-text" href="https://github.com/FroggDev/Symfony_StockManager/">{{ "source on github" | trans }}</a></p>
+
+            </div>
+            <div class="col l3 s12 center">
+                <h5>{{ "informations" | trans }}</h5>
+                <ul>
+                    <li><a class="yellow-text" href="#">{{ "policy of confidentiality" | trans }}</a></li>
+                    <li><a class="yellow-text" href="#">{{ "terms of use" | trans }}</a></li>
+                    <li><a class="yellow-text" href="#">{{ "contact" | trans }}</a></li>
+                    <li><a class="yellow-text" href="#">{{ "extra credits" | trans }}</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12 center">
+                <h5>{{ "frogg network" | trans }}</h5>
+                <ul>
+                    <li><a class="yellow-text" href="https://cv.frogg.fr">cv.frogg.fr</a></li>
+                    <li><a class="yellow-text" href="https://tool.frogg.fr">tool.frogg.fr</a></li>
+                    <li><a class="yellow-text" href="https://wiki.frogg.fr">wiki.frogg.fr</a></li>
+                    <li><a class="yellow-text" href="https://github.frogg.fr">github.frogg.fr</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright teal darken-2">
+        <div class="container">
+            {{ constant('App\\SiteConfig::SITENAME') }} - Copyright {{ constant('App\\SiteConfig::SITECOPYRIGHT') }} &copy; {{ constant('App\\SiteConfig::SITEDATE') }} - {{ "using" | trans }} <a class="yellow-text" href="http://materializecss.com">Materialize</a>
+        </div>
+    </div>
+</footer>

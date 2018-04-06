@@ -28,3 +28,13 @@ framework:
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
+
+    # ########################## #
+    # ASSETS WITH WEBPACK ENCORE #
+    # ############################
+
+    # Asset link to manifest.json
+    # can retrieve file name when versionned for prevent browser cache
+    assets:
+        # feature is supported in Symfony 3.3 and higher
+        json_manifest_path: '%kernel.project_dir%/public/inc/manifest.json'
