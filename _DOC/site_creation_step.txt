@@ -38,12 +38,15 @@ https://symfony.com/doc/current/service_container.html
 
 https://symfony.com/doc/current/security.html
 composer require security
+(require asset)
 
 https://symfony.com/doc/current/email.html
 composer require mailer
 
 https://symfony.com/doc/current/logging.html
 composer require logger
+
+
 
 Step 5 (not guided)
 -------------------
@@ -54,7 +57,7 @@ https://symfony.com/doc/current/components/workflow.html
 composer require symfony/workflow (NOT ADDED ATM)
 
 
-STEP¨Bonus
+STEP Bonus
 ----------
 composer require --dev symfony/thanks
 
@@ -63,6 +66,21 @@ Why 4.1 ?
 https://symfony.com/blog/new-in-symfony-4-1-inlined-routing-configuration
 https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
 https://symfony.com/blog/new-and-improved-generators-for-makerbundle
+
+Command to manage user
+php bin/console app:userManager
+
+FRONT Encore
+------------
+npm install @symfony/webpack-encore --save-dev
+encore dev
+
+
+VISUALISATION
+-------------
+
+routes :
+php bin/console debug:router
 
 
 

@@ -1,0 +1,128 @@
+{% trans_default_domain 'unregistred_index' %}
+<main>
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container home">
+                <h1 class="center teal-text text-lighten-2">{{ "main title " | trans }}</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">{{ "catch phrase" | trans }}</h5>
+                </div>
+                <div class="row center">
+                    <a href="{{ path('security_register') }}" id="register-button" class="pulse btn-large waves-effect waves-light">Register
+                        now</a>
+                </div>
+                <br><br>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="{{ asset('img/home/background1.jpg') }}" alt="paralax background image"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">phone_iphone</i></h2>
+                        <h5 class="center">{{ "block title1" | trans }}</h5>
+                        <p class="light">{{ "block content1" | trans }}</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">check</i></h2>
+                        <h5 class="center">{{ "block title2" | trans }}</h5>
+                        <p class="light">{{ "block content2" | trans }}</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">alarm_on</i></h2>
+                        <h5 class="center">{{ "block title3" | trans }}</h5>
+                        <p class="light">{{ "block content3" | trans }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">{{ "catch phrase2" | trans }}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="{{ asset('img/home/background2.jpg') }}" alt="paralax background image"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">portable_wifi_off</i></h2>
+                        <h5 class="center">{{ "block title4" | trans }}</h5>
+                        <p class="light">{{ "block content4" | trans }}</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">public</i></h2>
+                        <h5 class="center">{{ "block title5" | trans }}</h5>
+                        <p class="light">{{ "block content5" | trans }}</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">equalizer</i></h2>
+                        <h5 class="center">{{ "block title6" | trans }}</h5>
+                        <p class="light">{{ "block content6" | trans }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">{{ "catch phrase3" | trans }}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="{{ asset('img/home/background3.jpg') }}" alt="paralax background image"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>{{ "contact us" | trans }}</h4>
+                    <p class="left-align light">{{ "contact phrase" | trans }}</p>
+                    <div class="row center">
+                        <a href="http://materializecss.com/getting-started.html" id="contact-button" class="btn-large waves-effect waves-light">{{ "contact us" | trans }}</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

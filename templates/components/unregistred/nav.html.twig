@@ -1,0 +1,41 @@
+{% trans_default_domain 'unregistred_nav' %}
+<!-- Dropdown Structure -->
+<ul id="dropdownlang" class="dropdown-content">
+    <li><a href="{{ path('change_locale', { 'locale' :  'fr' }) }}"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('change_locale', { 'locale' :  'en' }) }}"><span class="flag-icon flag-icon-en"></span> En</a></li>
+</ul>
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="{{ path('change_locale', { 'locale' :  'fr' }) }}"><span class="flag-icon flag-icon-fr"></span> {{ "langfr" | trans }}</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('change_locale', { 'locale' :  'en' }) }}"><span class="flag-icon flag-icon-en"></span> {{ "langen" | trans }}</a></li>
+</ul>
+
+<nav role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="{{ path('index') }}" class="brand-logo"><img src="{{ asset('img/stock-manager_logo.png') }}"></a>
+        <ul>
+            <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownlang"><span class="flag-icon flag-icon-{{ app.request.locale }}"></span><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li class="{{ getActiveMenu('security_login') }}right hide-on-med-and-down"><a href="{{ path('security_login') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
+            <li class="{{ getActiveMenu('index') }}right hide-on-med-and-down"><a href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a>
+            </li>
+            <li class="{{ getActiveMenu('index') }}hide-on-large-only"><a href="{{ path('index') }}"><i class="material-icons">home</i></a></li>
+            <li class="{{ getActiveMenu('security_login') }}hide-on-large-only"><a href="{{ path('security_login') }}"><i class="material-icons">account_circle</i></a></li>
+        </ul>
+
+        <!-- Mobile navigation -->
+        <ul id="nav-mobile" class="sidenav">
+            <li><a class="{{ getActiveMenu('index') }}" href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
+            <li><a class="{{ getActiveMenu('security_login') }}" href="{{ path('security_login') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
+            <li class="divider"></li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
+                    <span class="flag-icon flag-icon-{{ app.request.locale }}"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                    {{ "lang " ~ app.request.locale | trans }}
+                </a>
+            </li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+    </div>
+</nav>

@@ -1,0 +1,19 @@
+{% trans_default_domain 'index' %}
+{% extends "base.html.twig" %}
+
+{% block page_title 'page title' | trans %}
+
+{# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
+
+{% block html %}
+
+    {# Menu #}
+    {% include 'components/unregistred/nav.html.twig' %}
+
+    {# Content #}
+    {% include 'components/unregistred/index.html.twig' %}
+
+    {# Footer #}
+    {% include 'components/unregistred/footer.html.twig' %}
+
+{%  endblock %}
