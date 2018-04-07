@@ -1,4 +1,13 @@
 <?php
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Form\Security;
 
 use App\Entity\User;
@@ -11,61 +20,23 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class UserType
+ * @author Frogg <admin@frogg.fr>
  */
 class UserType extends AbstractType
 {
-
     /**
-     * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add(
-            'firstname',
-            TextType::class,
-            [
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Set your firstname.'
-                ]
-            ]
-        )->add(
-            'lastname',
-            TextType::class,
-            [
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Set your lastname.'
-                ]
-            ]
-        )->add(
-            'email',
-            EmailType::class,
-            [
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Set your email.'
-                ]
-            ]
-        )->add(
-            'password',
-            PasswordType::class,
-            [
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Set your password.'
-                ]
-            ]
-        )->add(
-            'submit',
-            SubmitType::class,
-            [
-                'label' => 'Create account',
-                'attr' => array('class' => 'btn btn-block btn-primary')
-            ]
-        )->getForm();
+        $builder
+            ->add('firstname')
+            ->add('lastname')
+            ->add('email')
+            ->add('password')
+            ->getForm();
     }
 
     /**
@@ -74,7 +45,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class
+            'data_class' => User::class,
         ]);
     }
 }

@@ -284,6 +284,9 @@
             "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
         }
     },
+    "symfony/validator": {
+        "version": "4.1-dev"
+    },
     "symfony/var-dumper": {
         "version": "4.1-dev"
     },

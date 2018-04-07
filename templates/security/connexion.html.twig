@@ -1,5 +1,8 @@
-{% trans_default_domain 'security_login' %}
 {% extends "base.html.twig" %}
+
+{% trans_default_domain 'security_form' %}
+
+{% block page_title "login title" | trans %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
@@ -12,7 +15,7 @@
     {% include 'components/common/parallax_mini.html.twig' %}
 
     {# Content #}
-    {% include 'components/form/security/login.html.twig' %}
+    {% include 'components/form/security/connexion.html.twig' %}
 
     {# Footer #}
     {% include 'components/common/footer_mini.html.twig' %}

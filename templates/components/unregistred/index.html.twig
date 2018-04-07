@@ -4,16 +4,14 @@
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container home">
-                <h1 class="center teal-text text-lighten-2">{{ "main title " | trans }}</h1>
+                <h1 class="center teal-text text-lighten-2">{{ "main title" | trans }}</h1>
                 <div class="row center">
                     <h5 class="header col s12 light">{{ "catch phrase" | trans }}</h5>
                 </div>
                 <div class="row center">
-                    <a href="{{ path('security_register') }}" id="register-button" class="pulse btn-large waves-effect waves-light">Register
-                        now</a>
+                    <a href="{{ path('security_register') }}" id="register-button" class="pulse btn-large waves-effect waves-light">{{ "register now" | trans }}</a>
                 </div>
                 <br><br>
-
             </div>
         </div>
         <div class="parallax"><img src="{{ asset('img/home/background1.jpg') }}" alt="paralax background image"></div>

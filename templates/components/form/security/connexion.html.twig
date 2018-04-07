@@ -1,0 +1,57 @@
+{% trans_default_domain 'security_form' %}
+
+<main class="container main">
+    <div class="section">
+
+        <h1 class="teal-text text-lighten-2">{{ "login title" | trans }}</h1>
+
+        {# Flash bags #}
+        {% include 'components/flashbags.html.twig' %}
+
+        <div class="row">
+            <form name="connexion" method="POST">
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input required="required" name="_username" id="_username" type="email" class="validate" value="{{ last_email }}">
+                        <label for="_username">{{ "label email" | trans }}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input required="required" name="_password" id="_password" type="password" class="validate">
+                        <label for="_password">{{ "label password" | trans }}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 right-align">
+                        <div class="switch">
+                            <span>{{ "remember me" | trans }}</span>
+                            <label for="_remember_me">
+                                <input type="checkbox" name="_remember_me" id="_remember_me">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <input {% if app.request.query.get('go') is defined %}value="{{ app.request.query.get('go') }}"{% endif %} type="hidden" name="_target_path"/>
+
+                <div class="input-field col s12 right-align">
+                    <button class="btn waves-effect waves-light btn-large" type="submit">{{ "connexion button" | trans }}
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+
+                <div class="left"><a href="{{ path("security_register") }}"><i class="material-icons left">account_circle</i>{{ "account register" | trans }}</a></div>
+                <div class="right"><a href="{{ path("security_recover") }}"><i class="material-icons right">lock_open</i>{{ "password forgotten" | trans }}</a></div>
+
+            </form>
+        </div>
+    </div>
+</main>

@@ -1,16 +1,20 @@
 <?php
 /**
  * Main page : IndexController
- * Date: 02/03/2018
- * Time: 22:21
+ * Date: 06/04/2018
+ * Time: 09:30
  *
  * PHP Version 7.2
  *
- * @category Educational
- * @package  FroggDev/Symfony_TestProject
+ * @category Food
+ *
+ * @package  FroggDev/Symfony_StockManager
+ *
  * @author   Frogg <admin@frogg.fr>
- * @license  proprietary WebForce3
- * @link     https://github.com/FroggDev/Symfony_TestProject
+ *
+ * @license  MIT
+ *
+ * @link     https://github.com/FroggDev/Symfony_StockManager
  *
  * @Requirement for PHP
  * extension=php_fileinfo.dll for guessExtension()
@@ -35,6 +39,7 @@
 
 namespace App\Controller;
 
+use App\Common\Traits\Client\ResponseTrait;
 use App\Service\LocaleService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -42,23 +47,35 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * TODO :
+ * https://symfony.com/doc/current/security/remember_me.html
+ * add functionnality : force to login/password when edit content
+ *
+ * TODO bug security yaml secret remember me ?
+ * TODO how to login with csr ? https://symfony.com/doc/master/security/form_login_setup.html
+ * (connexion.html.twig)
+ */
 
 /**
- * Class IndexController
- * @package App\Controller
+ * @author Frogg <admin@frogg.fr>
  */
 class IndexController extends Controller
 {
+
+    use ResponseTrait;
+
     /**
      * Redirect to main route with locale
      *
      * @Route(
      *     "/",
-     *     name="default"
+     *     name="default",
+     *     methods={"GET"}
      * )
      * @return Response
      */
-    public function index(): Response
+    public function default(): Response
     {
         return $this->redirect($this->generateUrl('index'), Response::HTTP_MOVED_PERMANENTLY);
     }
@@ -70,12 +87,12 @@ class IndexController extends Controller
      *     "/{_locale}",
      *     name="index",
      *     requirements={"_locale"="fr|en"}
-     *     )
+     * )
      * @return Response
      */
-    public function indexLocale(): Response
+    public function index(): Response
     {
-        # display page from twig template
+        // display page from twig template
         return $this->render('index.html.twig', []);
     }
 
@@ -84,14 +101,40 @@ class IndexController extends Controller
      *
      * @Route(
      *     "/{_locale}/locale.html",
-     *     name="change_locale"
+     *     name="change_locale",
+     *     requirements={"_locale"="fr|en"},
+     *     methods={"GET"}
      * )
+     * @param Request $request
+     *
      * @return Response
      */
     public function changeLocale(Request $request)
     {
         $localService = new LocaleService($request, null);
-        # Return current route changed to other lang
-        return $this->redirect($localService->changeSelectedLocale(),Response::HTTP_MOVED_PERMANENTLY);
+        // Return current route changed to other lang
+        return $this->removeCacheFromResponse(
+            $this->redirect(
+                $localService->changeSelectedLocale(),
+                Response::HTTP_MOVED_PERMANENTLY
+            )
+        );
+    }
+
+    /**
+     * Main page route
+     *
+     * @Route(
+     *     "/{_locale}/TEMP.html",
+     *     name="index_logged",
+     *     requirements={"_locale"="fr|en"},
+     *     methods={"GET"}
+     * )
+     * @return Response
+     */
+    public function TEMP(): Response
+    {
+        // display page from twig template
+        return $this->render('index.html.twig', []);
     }
 }

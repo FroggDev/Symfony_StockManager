@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ok4Q.ec" resname="using">
+        <source>using</source>
+        <target>using</target>
+      </trans-unit>
+      <trans-unit id="C2AO9yT" resname="site information">
+        <source>site information</source>
+        <target>Site information</target>
+      </trans-unit>
+      <trans-unit id="WuaZNLX" resname="source on github">
+        <source>source on github</source>
+        <target>Source on github</target>
+      </trans-unit>
+      <trans-unit id="ULhCsyk" resname="informations">
+        <source>informations</source>
+        <target>Informations</target>
+      </trans-unit>
+      <trans-unit id=".ix815t" resname="policy of confidentiality">
+        <source>policy of confidentiality</source>
+        <target>Policy of confidentiality</target>
+      </trans-unit>
+      <trans-unit id="60O5sEu" resname="terms of use">
+        <source>terms of use</source>
+        <target>Terms of use</target>
+      </trans-unit>
+      <trans-unit id="CT59X9u" resname="contact">
+        <source>contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id=".IujA9t" resname="extra credits">
+        <source>extra credits</source>
+        <target>Extra credits</target>
+      </trans-unit>
+      <trans-unit id="YXqmSIb" resname="frogg network">
+        <source>frogg network</source>
+        <target>Frogg network</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

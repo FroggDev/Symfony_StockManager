@@ -1,0 +1,40 @@
+User Manager
+------------
+php bin/console app:userManager
+
+Css/js Compilation
+------------------
+encore dev
+encore dev --watch
+encore production
+
+Routes
+------
+- view al routes
+php bin/console debug:router
+
+Database
+--------
+- create database
+php bin/console doctrine:database:create
+
+- check if ok
+php bin/console doctrine:schema:validate
+
+- get database diff
+php bin/console doctrine:migrations:diff
+
+- apply diff to database
+php bin/console doctrine:migrations:migrate
+
+
+Translation
+-----------
+- check missing translation
+php bin/console debug:translation fr
+
+- adding missing translation
+php bin/console translation:update --dump-messages fr
+
+- adding missing translation and overwrite existing with specific format
+php bin/console translation:update --dump-messages --force fr --output-format xlf

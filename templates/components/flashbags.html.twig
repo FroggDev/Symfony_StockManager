@@ -1,0 +1,11 @@
+{% for key,flashes in app.flashes %}
+    {% for flash in flashes %}
+        <div class="row flash-notice">
+            <div class="m12 s12 col">
+                <div class="card-panel {{ key }}">
+                    <h6 class="white-text"><i class="material-icons left" style="line-height: unset;">{{ key }}</i>{{ flash }}</h6>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %}

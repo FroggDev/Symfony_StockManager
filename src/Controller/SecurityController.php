@@ -1,7 +1,17 @@
 <?php
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Controller;
 
 use App\Common\Traits\Comm\MailerTrait;
+use App\Common\Traits\Controller\DatabaseTrait;
 use App\Entity\User;
 use App\Form\Security\UserPasswordType;
 use App\Form\Security\UserRecoverType;
@@ -13,57 +23,78 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
- * Class LoginController
- * @package App\Controller
+ * @author Frogg <admin@frogg.fr>
  *
  * Prefix all routes
  * @see https://symfony.com/blog/new-in-symfony-3-4-prefix-all-controller-route-names
- * @Route("{_locale}/user", name="security_")
+ *
+ * @Route(
+ *     "{_locale}/user",
+ *      name="security_",
+ *     requirements={"_locale"="fr|en"}
+ * )
  */
 class SecurityController extends Controller
 {
 
     use MailerTrait;
 
+    use DatabaseTrait;
+
+    /** @var \Swift_Mailer */
+    private $mailer;
+    /** @var TranslatorInterface */
+    private $translator;
+
+    /** @var Request $request */
+    private $request;
+
     /**
      * SecurityController constructor.
-     * @param \Swift_Mailer $mailer
+     * @param \Swift_Mailer       $mailer
+     * @param TranslatorInterface $translator
      */
-    public function __construct(\Swift_Mailer $mailer)
+    public function __construct(\Swift_Mailer $mailer, TranslatorInterface $translator)
     {
         $this->mailer = $mailer;
+        $this->translator = $translator;
     }
 
     /**
      * User login
      *
      * @Route(
-     *     "/login.html",
-     *      name="login"
+     *     "/connexion.html",
+     *     name="connexion",
+     *     methods={"GET","POST"}
      * )
      * @param AuthenticationUtils $authenticationUtils
-     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @return Response
      */
     public function connexion(AuthenticationUtils $authenticationUtils)
     {
-        # Check if user is logged in
+        // Check if user is logged in
         if ($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             return $this->redirectToRoute('index_logged');
         }
 
-        # Get error message if exist
+        // Get error message if exist
         $error = $authenticationUtils->getLastAuthenticationError();
 
-        # Get last user email set by user
-        $lastEmail = $authenticationUtils->getLastUsername();
+        // create a flash bag if an authentication error occured
+        if ($error) {
+            $this->addFlash('error', $error->getMessage());
+        }
 
-        # Display form
-        return $this->render('security/login.html.twig', array(
-            'last_email' => $lastEmail,
-            'error' => $error
-        ));
+        // Display form & Get last user email set by user
+        return $this->render(
+            'security/connexion.html.twig',
+            ['last_email' => $authenticationUtils->getLastUsername()]
+        );
     }
 
     /**
@@ -71,52 +102,69 @@ class SecurityController extends Controller
      *
      * @Route (
      *     "/register/request.html",
-     *      name="register",
+     *     name="register",
      *     methods={"GET","POST"}
      *     )
-     * @param Request $request
+     * @param Request                      $request
      * @param UserPasswordEncoderInterface $passwordEncoder
+     *
      * @return Response
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        # New user registration
+        // New user registration
         $user = new User();
 
-        # Symfony automatically serialize it
-        $user->setRoles('ROLE_MEMBER');
-
-        # create the user form
+        // create the user form
         $form = $this->createForm(UserType::class, $user);
 
-        # post data manager
+        // post data manager
         $form->handleRequest($request);
 
-        # check form datas
+        // check form datas
         if ($form->isSubmitted() && $form->isValid()) {
-            # password encryption
+            // Symfony automatically serialize it
+            $user->setRoles('ROLE_MEMBER');
+
+            // password encryption
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user
                 ->setPassword($password)
                 ->setInactive()
                 ->setToken();
 
-            # insert into database
-            $eManager = $this->getDoctrine()->getManager();
-            $eManager->persist($user);
-            $eManager->flush();
+            // insert into database
+            $this->save($user);
 
-            # send the mail
-            $this->send(SiteConfig::SECURITYMAIL, $user->getEmail(), 'mail/registration.html.twig', SiteConfig::SITENAME . ' - Validation mail', $user);
+            // send the mail
+            $this->send(
+                SiteConfig::SECURITYMAIL,
+                $user->getEmail(),
+                'mail/security/register.html.twig',
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security'),
+                $user
+            );
 
-            # redirect user
-            return $this->redirectToRoute('security_login', ['register' => 'success']);
+            //Add success message
+            $this->addFlash('check', $this->translator->trans('validation register sent confirmation', [], 'security'));
+
+            /**
+             * TEST PURPOSE
+             */
+            //exit("/fr/user/register/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
+
+            // redirect user
+            return $this->redirectToRoute('security_connexion');
         }
 
-        # Display form view
-        return $this->render('security/register.html.twig', [
-            'form' => $form->createView()
-        ]);
+        // Display form view
+        return $this->render(
+            'security/register.html.twig',
+            [
+                'form' => $form->createView(),
+                'last_email' => $user->getEmail(),
+            ]
+        );
     }
 
     /**
@@ -124,58 +172,33 @@ class SecurityController extends Controller
      *
      * @Route(
      *     "/register/validation.html",
-     *      name="register_validation"
+     *     name="register_validation",
+     *     methods={"GET"}
      * )
      *
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * @return Response
      */
     public function registerValidation(Request $request)
     {
-        # get request infos
-        $email = $request->query->get('email');
-        $token = $request->query->get('token');
+        // recover user from request
+        $user = $this->getUserFromRequest($request);
 
-        # getUserFromEmail
-        $reposirotyAuthor = $this->getDoctrine()->getRepository(User::class);
-        $user = $reposirotyAuthor->findOneBy(
-            [
-                'email' => $email,
-                'token' => $token
-            ]
-        );
+        $this->checkAccountStatus($user, ['checkAlreadyValidated']);
 
-        # author not found
-        if (!$user) {
-            return $this->redirectToRoute('security_login', ['register' => 'notfound']);
-        }
-
-        # account already registered
-        if ($user->isEnabled()) {
-            return $this->redirectToRoute('security_login', ['register' => 'actived']);
-        }
-
-        # checkif author is banned
-        if ($user->isBanned()) {
-            return $this->redirectToRoute('security_login', ['register' => 'banned']);
-        }
-
-        # checkif author is banned
-        if ($user->isClosed()) {
-            return $this->redirectToRoute('security_login', ['register' => 'closed']);
-        }
-
-        # remove token and enable account
+        // remove token and enable account
         $user->removeToken()
             ->setActive();
 
-        # update database
-        $eManager = $this->getDoctrine()->getManager();
-        $eManager->persist($user);
-        $eManager->flush();
+        // insert into database
+        $this->save($user);
 
-        # redirect user
-        return $this->redirectToRoute('security_login', ['register' => 'validated']);
+        // set register validation ok message
+        $this->addFlash('check', $this->translator->trans('validation register confirmation', [], 'security'));
+
+        // redirect user
+        return $this->redirectToRoute('security_connexion');
     }
 
 
@@ -184,58 +207,76 @@ class SecurityController extends Controller
      *
      * @Route(
      *     "/password/request.html",
-     *      name="recover"
+     *     name="recover",
+     *     methods={"GET","POST"}
      * )
      *
-     * @param Request $request
+     * @param Request             $request
+     * @param AuthenticationUtils $authenticationUtils
+     *
      * @return Response
      */
-    public function recoverRequest(Request $request)
+    public function recoverRequest(Request $request, AuthenticationUtils $authenticationUtils)
     {
-        # New user registration
+        // New user registration
         $user = new User();
 
-        # create the user form
+        // create the user form
         $form = $this->createForm(UserRecoverType::class, $user);
 
-        # post data manager
+        // post data manager
         $form->handleRequest($request);
 
-        # check form datas
+        // check form data
         if ($form->isSubmitted()) {
-            # get repo author
+            // get repo author
             $repositoryArticle = $this->getDoctrine()->getRepository(User::class);
 
-            #get posted email
+            // get posted email
             $email = $form->getData()->getEmail();
 
-            #get author from email
+            // get author from email
             $user = $repositoryArticle->findOneBy(['email' => $email]);
 
-            # author not found
+            // author not found
             if (!$user) {
-                # redirect user
-                return $this->redirectToRoute('security_recover', ['register' => 'notfound', 'last_email' => $email]);
+                //set error message
+                $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
+                // redirect user
+                return $this->redirectToRoute('security_recover', ['last_email' => $email]);
             }
 
-            # create a token
+            // create a token
             $user->setToken();
 
-            # insert into database
-            $eManager = $this->getDoctrine()->getManager();
-            $eManager->persist($user);
-            $eManager->flush();
+            // insert into database
+            $this->save($user);
 
-            # send the mail
-            $this->send(SiteConfig::SECURITYMAIL, $user->getEmail(), 'mail/recover.html.twig', SiteConfig::SITENAME . ' - Password recovery', $user);
+            // send the mail
+            $this->send(
+                SiteConfig::SECURITYMAIL,
+                $email,
+                'mail/security/recover.html.twig',
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security'),
+                $user
+            );
 
-            # redirect user
-            return $this->redirectToRoute('security_login', ['register' => 'recovered']);
+            // set register validation ok message
+            $this->addFlash('check', $this->translator->trans('validation recover sent confirmation', [], 'security'));
+
+            /**
+             * TEST PURPOSE
+             */
+            //exit("/fr/user/password/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
+
+            // redirect user
+            return $this->redirectToRoute('security_connexion');
         }
 
-        # Display form view
+        // Display form view
         return $this->render('security/recover.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'last_email' => $authenticationUtils->getLastUsername(),
         ]);
     }
 
@@ -244,78 +285,173 @@ class SecurityController extends Controller
      *
      * @Route(
      *     "/password/validation.html",
-     *      name="recover_validation"
+     *     name="recover_validation",
+     *     methods={"GET","POST"}
      * )
      *
-     * @param Request $request
+     * @param Request                      $request
      * @param UserPasswordEncoderInterface $passwordEncoder
+     *
      * @return Response
      */
     public function recoverValidation(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        # get request infos
-        $email = $request->query->get('email');
-        $token = $request->query->get('token');
+        //init request for test
+        $this->request = $request;
 
-        # getUserFromEmail
-        $repositoryArticle = $this->getDoctrine()->getRepository(User::class);
-        $user = $repositoryArticle->findOneBy(
-            [
-                'email' => $email,
-                'token' => $token
-            ]
-        );
+        // recover user from request
+        $user = $this->getUserFromRequest();
 
-        # author not found
-        if (!$user) {
-            return $this->redirectToRoute('security_login', ['register' => 'notfound']);
+        if (!$this->checkAccountStatus($user, ['checkIfTokenExpired'])) {
+            return $this->redirectToRoute('security_connexion');
         }
 
-        # checkif token has expired
-        if ($user->isTokenExpired()) {
-            return $this->redirectToRoute('security_login', ['register' => 'expired']);
-        }
-
-        # checkif author is banned
-        if ($user->isBanned()) {
-            return $this->redirectToRoute('security_login', ['register' => 'banned']);
-        }
-
-        # checkif author is banned
-        if ($user->isClosed()) {
-            return $this->redirectToRoute('security_login', ['register' => 'closed']);
-        }
-
-
-        # create the user form
+        // create the user form
         $form = $this->createForm(UserPasswordType::class, $user);
 
-        # post data manager
+        // post data manager
         $form->handleRequest($request);
 
-        # check form datas
+        // check form datas
         if ($form->isSubmitted()) {
-            # password encryption
+            // password encryption
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
 
-            # change password into database
+            // change password into database
             $user
                 ->setPassword($password)
                 ->removeToken()
                 ->setActive();
 
-            # update database
-            $eManager = $this->getDoctrine()->getManager();
-            $eManager->persist($user);
-            $eManager->flush();
+            // insert into database
+            $this->save($user);
 
-            # redirect user
-            return $this->redirectToRoute('security_login', ['register' => 'passechanged']);
+            // set register validation ok message
+            $this->addFlash('check', $this->translator->trans('validation password changed', [], 'security'));
+
+
+            // redirect user
+            return $this->redirectToRoute('security_connexion');
         }
 
-        # Display form view
-        return $this->render('security/changepassword.html.twig', [
-            'form' => $form->createView()
+        // Display form view
+        return $this->render('security/password.html.twig', [
+            'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @param null|User $user
+     * @param array     $extraCheck
+     *
+     * @return bool
+     */
+    private function checkAccountStatus(?User $user, array $extraCheck = []): bool
+    {
+        // user not found
+        if (!$user) {
+            $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
+
+            return false;
+        }
+
+        // checkif user is banned
+        if ($user->isBanned()) {
+            $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
+
+            return false;
+        }
+
+        // checkif user is closed
+        if ($user->isClosed()) {
+            $this->addFlash('error', $this->translator->trans('account is closed', [], 'security'));
+
+            return false;
+        }
+
+        // Extra custom check
+        foreach ($extraCheck as $check) {
+            if (!$this->$check($user)) {
+                return false;
+            }
+        }
+
+        // else it is ok
+        return true;
+    }
+
+
+    /**
+     * @param User $user
+     *
+     * @return bool
+     */
+    private function checkAlreadyValidated(User $user): bool
+    {
+        // check if account already registered
+        if ($user->isEnabled()) {
+            $this->addFlash('warning', $this->translator->trans('account is already activated', [], 'security'));
+
+            return false;
+        }
+
+        // else check token
+        return $this->checkToken($user);
+    }
+
+    /**
+     * @param User $user
+     *
+     * @return bool
+     */
+    private function checkIfTokenExpired(User $user): bool
+    {
+        // check if account already registered
+        if ($user->isTokenExpired()) {
+            $this->addFlash('warning', $this->translator->trans('account is expired token', [], 'security'));
+
+            return false;
+        }
+
+        // else check token
+        return $this->checkToken($user);
+    }
+
+    /**
+     * @param Request $request
+     * @param User    $user
+     *
+     * @return bool
+     */
+    private function checkToken(User $user): bool
+    {
+
+        $isValid = $user->getToken() === $this->request->query->get('token');
+
+        // check if is valid token
+        if (!$isValid) {
+            $this->addFlash('error', $this->translator->trans('account token is not valid', [], 'security'));
+        }
+
+        return $isValid;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return null|User
+     */
+    private function getUserFromRequest(): ?User
+    {
+        // get request info
+        $email = $this->request->query->get('email');
+
+        // getUserFromEmail
+        $reposirotyUser = $this->getDoctrine()->getRepository(User::class);
+
+        /** @var User $user */
+        $user = $reposirotyUser->findOneByEmail($email);
+
+        return $user;
     }
 }

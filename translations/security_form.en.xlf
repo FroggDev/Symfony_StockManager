@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="HwflWJ3" resname="login title">
+        <source>login title</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="ywRGf7q" resname="label email">
+        <source>label email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="YWWg2TL" resname="label password">
+        <source>label password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="XmxG0pB" resname="remember me">
+        <source>remember me</source>
+        <target>Remember me</target>
+      </trans-unit>
+      <trans-unit id="YSqKweL" resname="connexion button">
+        <source>connexion button</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="UfkLRyW" resname="account register">
+        <source>account register</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="g6eJ7mb" resname="password forgotten">
+        <source>password forgotten</source>
+        <target>Forgotten password</target>
+      </trans-unit>
+      <trans-unit id="6k7uR9M" resname="changepassword title">
+        <source>changepassword title</source>
+        <target>Password change</target>
+      </trans-unit>
+      <trans-unit id="dczWwOv" resname="recover title">
+        <source>recover title</source>
+        <target>Password recovery</target>
+      </trans-unit>
+      <trans-unit id="qiRom9U" resname="recover button">
+        <source>recover button</source>
+        <target>Recover</target>
+      </trans-unit>
+      <trans-unit id="AI1.w0y" resname="register title">
+        <source>register title</source>
+        <target>Register an account</target>
+      </trans-unit>
+      <trans-unit id="4Em87HC" resname="label firstname">
+        <source>label firstname</source>
+        <target>Firstname</target>
+      </trans-unit>
+      <trans-unit id="A76gPjq" resname="label lastname">
+        <source>label lastname</source>
+        <target>Lastname</target>
+      </trans-unit>
+      <trans-unit id="DsWIJZK" resname="register button">
+        <source>register button</source>
+        <target>Register</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

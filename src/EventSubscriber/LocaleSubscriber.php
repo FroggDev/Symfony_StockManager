@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace App\EventSubscriber;
 
 use App\Service\LocaleService;
@@ -7,27 +15,23 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * Class LocaleSubscriber
- * @package App\EventSubscriber
+ * @author Frogg <admin@frogg.fr>
  */
 class LocaleSubscriber implements EventSubscriberInterface
 {
 
     /**
+     * Redirect user to his favorite language
      * @param GetResponseEvent $event
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
+        $request = $event->getRequest();
 
-        //var_dump($event);
-        //exit();
-
-        /*
-        if("change_locale" !== $event->getRequest()->get('_route')){
-            $localService = new LocaleService($event->getRequest(), $event );
+        if ("change_locale" !== $request->get('_route')) {
+            $localService = new LocaleService($request, $event);
             $localService->changeDefaultLocale();
         }
-        */
     }
 
     /**
@@ -50,8 +54,6 @@ class LocaleSubscriber implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return [
-            KernelEvents::REQUEST => 'onKernelRequest'
-        ];
+        return [KernelEvents::REQUEST => 'onKernelRequest'];
     }
 }

@@ -30,15 +30,15 @@ class UserPasswordType extends AbstractType
             [
             'required' => true,
             'attr' => [
-                'placeholder' => 'Set your password.'
-            ]
+                'placeholder' => 'Set your password.',
+            ],
             ]
         )->add(
             'submit',
             SubmitType::class,
             [
                 'label' => 'Change password',
-                'attr' => array('class' => 'btn btn-block btn-primary')
+                'attr' => array('class' => 'btn btn-block btn-primary'),
                 ]
         )
         ->getForm();
@@ -50,7 +50,7 @@ class UserPasswordType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class
+            'data_class' => User::class,
         ]);
     }
 }

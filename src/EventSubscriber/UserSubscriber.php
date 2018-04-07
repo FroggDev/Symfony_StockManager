@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace App\EventSubscriber;
 
 use App\Entity\User;
@@ -8,12 +16,10 @@ use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
 /**
- * Class UserSubscriber
- * @package App\Subscriber
+ * @author Frogg <admin@frogg.fr>
  */
 class UserSubscriber implements EventSubscriberInterface
 {
-
     /**
      * @var EntityManagerInterface
      */
@@ -34,13 +40,13 @@ class UserSubscriber implements EventSubscriberInterface
      */
     public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
     {
-        # Get the User entity.
+        // Get the User entity.
         $user = $event->getAuthenticationToken()->getUser();
 
         if ($user instanceof User) {
-            # set last connexion
+            // set last connexion
             $user->setLastConnexion();
-            # save to database
+            //save to database
             $this->eManager->flush();
         }
     }
@@ -65,8 +71,6 @@ class UserSubscriber implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return [
-            SecurityEvents::INTERACTIVE_LOGIN => 'onSecurityInteractiveLogin'
-        ];
+        return [SecurityEvents::INTERACTIVE_LOGIN => 'onSecurityInteractiveLogin'];
     }
 }

@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -6,41 +14,35 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
+ * @author Frogg <admin@frogg.fr>
+ *
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ *
  * @UniqueEntity(fields={"email"},errorPath="email",message="This email is already in use")
+ *
  * @see https://symfony.com/doc/current/reference/constraints/UniqueEntity.html
  */
 class User implements AdvancedUserInterface
 {
 
-    #####################
-    # Account constants #
-    #####################
+    /*################
+    # User constants #
+    #################*/
 
-    /**
-     * Constant for inactive Author, register but didn't validate email confirmation
-     */
+    /** @const INACTIVE Constant for inactive Author, register but didn't validate email confirmation */
     const INACTIVE = 0;
-    /**
-     * Constant for registerd Author
-     */
+    /** @const ACTIVE Constant for registerd Author */
     const ACTIVE = 1;
-    /**
-     * Constant for Author closed account
-     */
+    /** @const CLOSED Constant for Author closed account */
     const CLOSED = 2;
-    /**
-     * Constant for Author banned account
-     */
+    /** @const BANNED Constant for Author banned account */
     const BANNED = 3;
-    /**
-     * Constant for Token validity time in day
-     */
-    const TOKENVALIDITYTIME = 1; #day
+    /** @const TOKENVALIDITYTIME Constant for Token validity time in day */
+    const TOKENVALIDITYTIME = 1;
 
-    ##########
+    /*########
     # Entity #
-    ##########
+    #########*/
 
     /**
      * @ORM\Id
@@ -50,17 +52,17 @@ class User implements AdvancedUserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private $firstName;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private $lastName;
 
     /**
-     * @ORM\Column(type="string", length=100, unique=true)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $email;
 
@@ -98,7 +100,8 @@ class User implements AdvancedUserInterface
     /**
      * User account state ( 0 = inactive ; 1 = active ; 2 = closed ; 3 = banned ...other state for later )
      * @ORM\Column(type="integer")
-     * @see User contants
+     *
+     * @see User contants (top of this file)
      */
     private $status;
 
@@ -114,18 +117,16 @@ class User implements AdvancedUserInterface
      */
     private $hasSubscribe;
 
-
-    ###########
+    /*#########
     # Methods #
-    ###########
-
+    ##########*/
 
     /**
      * User constructor.
      */
     public function __construct()
     {
-        # initialize date creation on User creation
+        // initialize date creation on User creation
         $this->dateInscription = new \DateTime();
     }
 
@@ -140,11 +141,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param int $id
+     *
      * @return User
      */
     public function setId(int $id): User
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -160,11 +163,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param string $firstName
+     *
      * @return $this
      */
     public function setFirstName(string $firstName): User
     {
         $this->firstName = $firstName;
+
         return $this;
     }
 
@@ -179,11 +184,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param string $lastName
+     *
      * @return User
      */
     public function setLastName(string $lastName): User
     {
         $this->lastName = $lastName;
+
         return $this;
     }
 
@@ -198,11 +205,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param string $email
+     *
      * @return User
      */
     public function setEmail(string $email): User
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -218,11 +227,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param string $password
+     *
      * @return User
      */
     public function setPassword(string $password): User
     {
         $this->password = $password;
+
         return $this;
     }
 
@@ -238,11 +249,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param \DateTime $dateInscription
+     *
      * @return User
      */
     public function setDateInscription(\DateTime $dateInscription): User
     {
         $this->dateInscription = $dateInscription;
+
         return $this;
     }
 
@@ -256,27 +269,32 @@ class User implements AdvancedUserInterface
 
     /**
      * @param string $role
+     *
      * @return User
      */
     public function setRoles(string $role): User
     {
         $this->roles[] = $role;
+
         return $this;
     }
 
     /**
      * @param array $roles
+     *
      * @return User
      */
     public function setAllRoles(array $roles): User
     {
         $this->roles = $roles;
+
         return $this;
     }
 
 
     /**
      * @param string $role
+     *
      * @return bool
      */
     public function hasRole(string $role): bool
@@ -298,7 +316,8 @@ class User implements AdvancedUserInterface
      */
     public function setLastConnexion()
     {
-        $this->lastConnexion = new \DateTime;
+        $this->lastConnexion = new \DateTime();
+
         return $this;
     }
 
@@ -329,16 +348,20 @@ class User implements AdvancedUserInterface
      *
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
+     *
+
      */
     public function eraseCredentials()
     {
-        return null;
+        /**
+         * @TODO : maybe something to do there ?
+         */
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->token;
     }
@@ -348,13 +371,23 @@ class User implements AdvancedUserInterface
      */
     public function setToken(): User
     {
-        //User->setToken(bin2hex(random_bytes(100)));
-        $this->token = uniqid('', true) . uniqid('', true);
-        #set token validity only if account has been validated
-        # case if user didnt validated email, can validate later
+        /*
+         * Another way to create the unique token could be
+         * User->setToken(bin2hex(random_bytes(100)));
+         *
+         * If token already exist dosnt reset it to be able to register/recover if both asked at the same time
+         */
+        if (!$this->token) {
+            $this->token = uniqid('', true).uniqid('', true);
+        }
+        /*
+         * set token validity only if account has been validated
+         * case if user didnt validated email, can validate later
+         */
         if ($this->status !== $this::INACTIVE) {
             $this->tokenValidity = new \DateTime();
         }
+
         return $this;
     }
 
@@ -371,10 +404,11 @@ class User implements AdvancedUserInterface
      */
     public function isTokenExpired(): bool
     {
-        if ($this->tokenValidity==null) {
+        if (null === $this->tokenValidity) {
             return false;
         }
         $now = new \DateTime();
+
         return $now->diff($this->getTokenValidity())->days > $this::TOKENVALIDITYTIME;
     }
 
@@ -385,6 +419,7 @@ class User implements AdvancedUserInterface
     {
         $this->tokenValidity = null;
         $this->token = null;
+
         return $this;
     }
 
@@ -399,11 +434,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param integer $status
+     *
      * @return User
      */
-    public function setStatus($status) : User
+    public function setStatus($status): User
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -414,6 +451,7 @@ class User implements AdvancedUserInterface
     public function setInactive(): User
     {
         $this->status = $this::INACTIVE;
+
         return $this;
     }
 
@@ -423,6 +461,7 @@ class User implements AdvancedUserInterface
     public function setActive(): User
     {
         $this->status = $this::ACTIVE;
+
         return $this;
     }
 
@@ -433,6 +472,7 @@ class User implements AdvancedUserInterface
     {
         $this->status = $this::CLOSED;
         $this->setDateClosed();
+
         return $this;
     }
 
@@ -443,23 +483,24 @@ class User implements AdvancedUserInterface
     {
         $this->status = $this::BANNED;
         $this->setDateClosed();
+
         return $this;
     }
 
     /**
      * @return bool
      */
-    public function isBanned() : bool
+    public function isBanned(): bool
     {
-        return $this->status == $this::BANNED;
+        return $this->status === $this::BANNED;
     }
 
     /**
      * @return bool
      */
-    public function isClosed() : bool
+    public function isClosed(): bool
     {
-        return $this->status == $this::CLOSED;
+        return $this->status === $this::CLOSED;
     }
 
     /**
@@ -472,15 +513,15 @@ class User implements AdvancedUserInterface
      *
      * @see DisabledException
      */
-    public function isEnabled() : bool
+    public function isEnabled(): bool
     {
-        return $this->status == $this::ACTIVE;
+        return $this->status === $this::ACTIVE;
     }
 
     /**
      * @return void
      */
-    private function setDateClosed(): void
+    public function setDateClosed(): void
     {
         $this->dateClosed = new \DateTime();
     }
@@ -494,7 +535,6 @@ class User implements AdvancedUserInterface
         return $this->dateClosed;
     }
 
-
     /**
      * Checks whether the user's account has expired.
      *
@@ -505,7 +545,7 @@ class User implements AdvancedUserInterface
      *
      * @see AccountExpiredException
      */
-    public function isAccountNonExpired() : bool
+    public function isAccountNonExpired(): bool
     {
         return true;
     }
@@ -520,7 +560,7 @@ class User implements AdvancedUserInterface
      *
      * @see LockedException
      */
-    public function isAccountNonLocked() : bool
+    public function isAccountNonLocked(): bool
     {
         return true;
     }
@@ -535,7 +575,7 @@ class User implements AdvancedUserInterface
      *
      * @see CredentialsExpiredException
      */
-    public function isCredentialsNonExpired() : bool
+    public function isCredentialsNonExpired(): bool
     {
         return true;
     }
@@ -550,11 +590,13 @@ class User implements AdvancedUserInterface
 
     /**
      * @param bool $hasSubscribe
+     *
      * @return User
      */
     public function setHasSubscribe($hasSubscribe)
     {
         $this->hasSubscribe = $hasSubscribe;
+
         return $this;
     }
 }

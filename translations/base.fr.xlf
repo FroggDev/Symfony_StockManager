@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="0tp4TX2" resname="site description">
+        <source>site description</source>
+        <target>Frogg StockManager une application web de gestion de stock de nourriture utilisant leur code bar</target>
+      </trans-unit>
+      <trans-unit id="S7I8U2D" resname="site keywords">
+        <source>site keywords</source>
+        <target>Frogg,StockManager,stock,nourriture,gestion,code bar</target>
+      </trans-unit>
+      <trans-unit id="F97gHr_" resname="site subject">
+        <source>site subject</source>
+        <target>Gestion des stock de nourriture</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

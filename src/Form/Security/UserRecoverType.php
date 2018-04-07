@@ -29,15 +29,15 @@ class UserRecoverType extends AbstractType
                 'required' => true,
                 'label' => false,
                     'attr' => [
-                    'placeholder' => 'Set your email.'
-                    ]
+                    'placeholder' => 'Set your email.',
+                    ],
             ]
         )->add(
             'submit',
             SubmitType::class,
             [
                 'label' => 'Recover my password ',
-                'attr' => array('class' => 'btn btn-block btn-primary')
+                'attr' => array('class' => 'btn btn-block btn-primary'),
                 ]
         )->getForm();
     }
@@ -48,7 +48,7 @@ class UserRecoverType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class
+            'data_class' => User::class,
         ]);
     }
 }

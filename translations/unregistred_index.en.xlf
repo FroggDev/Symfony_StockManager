@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="jxOgOEj" resname="main title">
+        <source>main title</source>
+        <target>Online Stock Manager</target>
+      </trans-unit>
+      <trans-unit id=".tGmzZ1" resname="catch phrase">
+        <source>catch phrase</source>
+        <target><![CDATA[Scan your food & drink bar code to store it in the StockManager]]></target>
+      </trans-unit>
+      <trans-unit id="zoN1vHP" resname="block title1">
+        <source>block title1</source>
+        <target>Scan with your phone</target>
+      </trans-unit>
+      <trans-unit id="SNY1psS" resname="block content1">
+        <source>block content1</source>
+        <target>Purrrrrr. Mewl for food at 4am litter kitter kitty litty little kitten big roar roar feed me but sit on the laptop. Run outside as soon as door open loved it, hated it, loved it, hated it behind the couch, but chase mice refuse to leave cardboard box so i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?! leap into the air in greatest offense!.</target>
+      </trans-unit>
+      <trans-unit id="A0c6GTI" resname="block title2">
+        <source>block title2</source>
+        <target>Almost all products</target>
+      </trans-unit>
+      <trans-unit id="YS4v48b" resname="block content2">
+        <source>block content2</source>
+        <target>Eat and than sleep on your face milk the cow lay on arms while you're using the keyboard. Sniff other cat's butt and hang jaw half open thereafter claw drapes, or kitty loves pigs or spot something, big eyes, big eyes, crouch, shake butt, prepare to pounce but prance along on top of the garden fence, annoy the neighbor's dog and make it bark so attack dog, run away and pretend to be victim.</target>
+      </trans-unit>
+      <trans-unit id="whM4PrE" resname="block title3">
+        <source>block title3</source>
+        <target>Alarms before expiration</target>
+      </trans-unit>
+      <trans-unit id="jRmlJ5w" resname="block content3">
+        <source>block content3</source>
+        <target>If it smells like fish eat as much as you wish kitty poochy kitty kitty but meowwww run around the house at 4 in the morning or jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed dead stare with ears cocked. Refuse to drink water except out of someone's glass human is washing you why halp oh the horror flee scratch hiss bite. Hiding behind the couch until lured out by a feathery toy.</target>
+      </trans-unit>
+      <trans-unit id="ZfVlVUQ" resname="catch phrase2">
+        <source>catch phrase2</source>
+        <target>Designed for maximum accessibility</target>
+      </trans-unit>
+      <trans-unit id="0EEyQau" resname="block title4">
+        <source>block title4</source>
+        <target>Stock available offline</target>
+      </trans-unit>
+      <trans-unit id="ypHtDz_" resname="block content4">
+        <source>block content4</source>
+        <target>If it smells like fish eat as much as you wish kitty poochy kitty kitty but meowwww run around the house at 4 in the morning or jump launch to pounce upon little yarn mouse.</target>
+      </trans-unit>
+      <trans-unit id="3WrbY0." resname="block title5">
+        <source>block title5</source>
+        <target>If it smells like fish eat as much as you wish kitty poochy kitty kitty but meowwww run around the house at 4 in the morning or jump launch to pounce upon little yarn mouse.</target>
+      </trans-unit>
+      <trans-unit id="1g_NqIg" resname="block content5">
+        <source>block content5</source>
+        <target>If it smells like fish eat as much as you wish kitty poochy kitty kitty but meowwww run around the house at 4 in the morning or jump launch to pounce upon little yarn mouse.</target>
+      </trans-unit>
+      <trans-unit id="HIE6t1Y" resname="block title6">
+        <source>block title6</source>
+        <target>Amazing Stats</target>
+      </trans-unit>
+      <trans-unit id="GV6W.6w" resname="block content6">
+        <source>block content6</source>
+        <target>If it smells like fish eat as much as you wish kitty poochy kitty kitty but meowwww run around the house at 4 in the morning or jump launch to pounce upon little yarn mouse.</target>
+      </trans-unit>
+      <trans-unit id="7xQupSV" resname="catch phrase3">
+        <source>catch phrase3</source>
+        <target>A support at your disposal</target>
+      </trans-unit>
+      <trans-unit id="S9GeOjE" resname="contact us">
+        <source>contact us</source>
+        <target>Contact Us</target>
+      </trans-unit>
+      <trans-unit id="0utfReJ" resname="contact phrase">
+        <source>contact phrase</source>
+        <target>My left donut is missing, as is my right. Allways wanting food put toy mouse in food bowl run out of litter box at full speed flex claws on the human's belly and purr like a lawnmower stand in front of the computer screen, and wack the mini furry mouse. Stand in front of the computer screen bleghbleghvomit my furball really tie the room together. Scratch leg; meow for can opener to feed me lick left leg for ninety minutes, still dirty lick plastic bags and hack up furballs and run outside as soon as door open fall asleep on the washing machine. When in doubt, wash sit on human so open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow! spill litter box, scratch at owner, destroy all furniture, especially couch so immediately regret falling into bathtub or i shredded your linens for you.</target>
+      </trans-unit>
+      <trans-unit id="rFgZO1Z" resname="page title">
+        <source>page title</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="oz0QNZ_" resname="register now">
+        <source>register now</source>
+        <target>Register now</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

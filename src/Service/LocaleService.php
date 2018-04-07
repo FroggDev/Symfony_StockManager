@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace App\Service;
 
 use App\Common\Traits\Client\BrowserTrait;
@@ -8,25 +16,28 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
-
 /**
- * Class LocaleService
- * @package App\Service
+ * @author Frogg <admin@frogg.fr>
  */
 class LocaleService
 {
     use BrowserTrait;
 
+    /** @var null|Request  */
     private $request;
+    /** @var null|GetResponseEvent  */
     private $event;
 
+    /** @var string */
     private $locale;
+    /** @var string */
     private $currentLocale;
+    /** @var string */
     private $uri;
 
     /**
      * LocaleService constructor.
-     * @param null|Request $request
+     * @param null|Request          $request
      * @param null|GetResponseEvent $event
      */
     public function __construct(Request $request, ?GetResponseEvent $event)
@@ -57,15 +68,14 @@ class LocaleService
     {
         $this->getUriFromRequest();
 
-        # do stuff only for the master request & not a /_ request (symfony debug stuff)
+        // do stuff only for the master request & not a /_ request (symfony debug stuff)
         if ($this->event->isMasterRequest() && substr($this->uri, 0, 2) !== "/_") {
-
             $this
                 ->getUserLocale()
                 ->setLocale();
 
-            # Check locale
-            if ($this->currentLocale != $this->locale) {
+            // Check locale
+            if ($this->currentLocale !== $this->locale) {
                 $this
                     ->setCookie()
                     ->setSystemLocale()
@@ -89,11 +99,11 @@ class LocaleService
      */
     private function setUriFromReferer()
     {
-        # get the uri to redirect
+        // get the uri to redirect
         preg_match("/^http[s]?:\/\/[^\/]+\/(.*)/", $this->request->headers->get('referer'), $matches);
         $this->uri = "/".$matches[1];
 
-        # fluent
+        // fluent
         return  $this->setUri();
     }
 
@@ -103,15 +113,15 @@ class LocaleService
      */
     private function setUri()
     {
-        # if start with /en for example then replace $uri for new $locale
+        // if start with /en for example then replace $uri for new $locale
         if (substr($this->uri, 0, 3) === "/$this->currentLocale") {
             $this->uri = preg_replace("/^\/$this->currentLocale/", "/$this->locale", $this->uri);
         } else {
-            #else add $newlocale to url
+            //else add $newlocale to url
             $this->uri = preg_replace("/^\//", "/$this->locale", $this->uri);
         }
 
-        # fluent
+        // fluent
         return $this;
     }
 
@@ -121,10 +131,10 @@ class LocaleService
      */
     private function getUriFromRequest()
     {
-        # get current uri
+        // get current uri
         $this->uri = $this->request->getRequestUri();
 
-        # fluent
+        // fluent
         return $this;
     }
 
@@ -134,10 +144,10 @@ class LocaleService
      */
     private function setLocale(): LocaleService
     {
-        # get current local
+        // get current local
         $this->currentLocale = $this->request->getLocale();
 
-        # fluent
+        // fluent
         return $this;
     }
 
@@ -147,10 +157,10 @@ class LocaleService
      */
     private function getUserLocale(): LocaleService
     {
-        # check if lang are set as arguments, then check in cookies
+        // check if lang are set as arguments, then check in cookies
         $this->locale = $_COOKIE[SiteConfig::COOKIELOCALENAME] ?? $this->getUserBrowserLangs() ?? $this->request->getDefaultLocale();
 
-        # fluent
+        // fluent
         return $this;
     }
 
@@ -160,10 +170,10 @@ class LocaleService
      */
     private function setRequestedLocale(): LocaleService
     {
-        # get selected locale from user choice
+        // get selected locale from user choice
         $this->locale = $this->request->get(SiteConfig::COOKIELOCALENAME);
 
-        # fluent
+        // fluent
         return $this;
     }
 
@@ -173,10 +183,10 @@ class LocaleService
      */
     private function setCookie(): LocaleService
     {
-        # Update cookiez
+        // Update cookiez
         setcookie(SiteConfig::COOKIELOCALENAME, $this->locale, time() + (SiteConfig::COOKIELOCALEVALIDITY * 24 * 60 * 60), "/"); // 24 * 60 * 60 = 86400 = 1 day
 
-        # fluent
+        // fluent
         return $this;
     }
 
@@ -186,10 +196,13 @@ class LocaleService
      */
     private function setSystemLocale(): LocaleService
     {
-        # some logic to determine the $locale
+        // some logic to determine the $locale
         $this->request->setLocale($this->locale);
 
-        # fluent
+        // Update session
+        //$this->request->getSession()->set('_locale', $this->locale);
+
+        // fluent
         return $this;
     }
 

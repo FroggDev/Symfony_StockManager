@@ -1,0 +1,33 @@
+{% trans_default_domain 'security_form' %}
+
+<main class="container main">
+    <div class="section">
+
+        <h1 class="teal-text text-lighten-2">{{ "recover title" | trans }}</h1>
+
+        <div class="row">
+
+        {{ form_start(form) }}
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input value="{{ last_email }}" id="user_recover_email" type="email" name="user_recover[email]" required="required" class="validate">
+                    <label for="user_recover_email">{{ "label email" | trans }}</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12 right-align">
+                    <button class="btn waves-effect waves-light btn-large" name="user_recover[submit]" type="submit">
+                        {{ "recover button" | trans }}
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+
+        {{ form_end(form) }}
+
+        </div>
+    </div>
+</main>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="dczWwOv" resname="recover title">
+        <source>recover title</source>
+        <target>Récupération du mot de passe</target>
+      </trans-unit>
+      <trans-unit id="vTaTVzC" resname="recover message">
+        <source>recover message</source>
+        <target>__recover message</target>
+      </trans-unit>
+      <trans-unit id="qHtAVOR" resname="recover button validation">
+        <source>recover button validation</source>
+        <target>Récuperer</target>
+      </trans-unit>
+      <trans-unit id="AI1.w0y" resname="register title">
+        <source>register title</source>
+        <target>Validation de la création du compte</target>
+      </trans-unit>
+      <trans-unit id="v6MO5iN" resname="register message">
+        <source>register message</source>
+        <target>__register message</target>
+      </trans-unit>
+      <trans-unit id="nJahiSs" resname="register button validation">
+        <source>register button validation</source>
+        <target>Valider</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

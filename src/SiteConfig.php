@@ -1,21 +1,35 @@
 <?php
-
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace App;
 
 /**
- * Class SiteConfig
- * @package App
+ * @author Frogg <admin@frogg.fr>
  */
 class SiteConfig
 {
-    ##########
+    /*########
     # GLOBAL #
-    ##########
+    #########*/
+
     /**
      * website name
      * @const string
      */
     const SITENAME = 'StockManager';
+
+    /**
+     * website url
+     * @const string
+     */
+    const SITEURL = 'https://stock.frogg.fr';
+
     /**
      * website copyright
      * @const string
@@ -37,9 +51,9 @@ class SiteConfig
      */
     const SITECHARSET = "UTF-8";
 
-    ############
+    /*##########
     # SECURITY #
-    ############
+    ###########*/
 
     /**
      * name of security mail from
@@ -53,9 +67,16 @@ class SiteConfig
      */
     const USERENTITY = "\App\Entity\User";
 
-    ###########
+
+    /**
+     * liste of the application roles
+     * @const array
+     */
+    const SECURITYROLES = ["ROLE_MEMBER", "ROLE_EDITOR", "ROLE_ADMIN"];
+
+    /*#########
     # PRODUCT #
-    ###########
+    ##########*/
 
     /**
      * nb product to display per page
@@ -63,9 +84,9 @@ class SiteConfig
      */
     const NBPERPAGE = 10;
 
-    ##########
+    /*########
     # LOCALE #
-    ##########
+    #########*/
 
     /**
      * Cookie validity in days
@@ -78,5 +99,4 @@ class SiteConfig
      * @const string
      */
     const COOKIELOCALENAME = "locale";
-
 }

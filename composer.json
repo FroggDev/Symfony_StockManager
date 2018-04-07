@@ -33,6 +33,7 @@
         "symfony/swiftmailer-bundle": "^3.2@dev",
         "symfony/translation": "dev-master",
         "symfony/twig-bundle": "dev-master",
+        "symfony/validator": "dev-master",
         "symfony/webpack-encore-pack": "dev-master",
         "symfony/yaml": "^4.0"
     },

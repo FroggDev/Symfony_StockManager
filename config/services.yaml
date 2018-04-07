@@ -44,7 +44,7 @@ services:
     ################
 
     app.mail.register:
-        class: App\Controller\Security\SecurityController
+        class: App\Controller\SecurityController
         arguments:
             - "@swiftmailer.mailer"
 
