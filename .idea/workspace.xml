@@ -2,75 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/composerJson.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_SOURCE/mail_sample.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Common/Traits/Client/ResponseTrait.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Common/Traits/Controller/DatabaseTrait.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/components/flashbags.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/components/form/security/connexion.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/components/form/security/password.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/components/form/security/recover.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/components/form/security/register.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/mail/base.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/mail/security/recover.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/mail/security/register.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/security/connexion.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/security/recover.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/translations/base.fr.xlf" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/Symfony_StockManager.iml" afterPath="$PROJECT_DIR$/.idea/Symfony_StockManager.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_DOC/site_creation_step.txt" afterPath="$PROJECT_DIR$/_DOC/site_creation_step.txt" />
-      <change beforePath="$PROJECT_DIR$/assets/scan.js" afterPath="$PROJECT_DIR$/assets/scan.js" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" afterPath="$PROJECT_DIR$/config/packages/security.yaml" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" afterPath="$PROJECT_DIR$/config/services.yaml" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/public/inc/css/main.007d45752596257ca18387b8e7c8ec64.css" afterPath="$PROJECT_DIR$/public/inc/css/main.007d45752596257ca18387b8e7c8ec64.css" />
-      <change beforePath="$PROJECT_DIR$/public/inc/js/dropify.63d779d7958ffc0dff46.js" afterPath="$PROJECT_DIR$/public/inc/js/dropify.63d779d7958ffc0dff46.js" />
-      <change beforePath="$PROJECT_DIR$/public/inc/js/main.ec4d0eb885dc8cc5be26.js" afterPath="$PROJECT_DIR$/public/inc/js/main.ec4d0eb885dc8cc5be26.js" />
-      <change beforePath="$PROJECT_DIR$/public/inc/js/scan.2871662e18a5d79637c1.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/_DOC/site_commands.txt" afterPath="$PROJECT_DIR$/_DOC/site_commands.txt" />
+      <change beforePath="$PROJECT_DIR$/assets/inc/css/style.css" afterPath="$PROJECT_DIR$/assets/inc/css/style.css" />
+      <change beforePath="$PROJECT_DIR$/public/inc/css/main.007d45752596257ca18387b8e7c8ec64.css" afterPath="" />
       <change beforePath="$PROJECT_DIR$/public/inc/manifest.json" afterPath="$PROJECT_DIR$/public/inc/manifest.json" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserManager.php" afterPath="$PROJECT_DIR$/src/Command/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Comm/MailerTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Comm/MailerTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Database/DatabaseTrait.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Html/ATagGeneratorTrait.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Html/ImgTagGeneratorTrait.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/String/MaxLengthTrait.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/String/SlugifyTrait.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/LocaleSubscriber.php" afterPath="$PROJECT_DIR$/src/EventSubscriber/LocaleSubscriber.php" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" afterPath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Security/UserPasswordType.php" afterPath="$PROJECT_DIR$/src/Form/Security/UserPasswordType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Security/UserRecoverType.php" afterPath="$PROJECT_DIR$/src/Form/Security/UserRecoverType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Security/UserType.php" afterPath="$PROJECT_DIR$/src/Form/Security/UserType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LocaleService.php" afterPath="$PROJECT_DIR$/src/Service/LocaleService.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/AbstractTwigExtension.php" afterPath="$PROJECT_DIR$/src/Service/Twig/AbstractTwigExtension.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" afterPath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Menu.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Menu.php" />
-      <change beforePath="$PROJECT_DIR$/src/SiteConfig.php" afterPath="$PROJECT_DIR$/src/SiteConfig.php" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/components/common/footer_mini.html.twig" afterPath="$PROJECT_DIR$/templates/components/common/footer_mini.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/components/form/security/login.html.twig" afterPath="$PROJECT_DIR$/_DOC/site_commands.txt" />
-      <change beforePath="$PROJECT_DIR$/templates/components/unregistred/index.html.twig" afterPath="$PROJECT_DIR$/templates/components/unregistred/index.html.twig" />
       <change beforePath="$PROJECT_DIR$/templates/components/unregistred/nav.html.twig" afterPath="$PROJECT_DIR$/templates/components/unregistred/nav.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html.twig" afterPath="$PROJECT_DIR$/templates/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" afterPath="$PROJECT_DIR$/templates/security/password.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -107,10 +44,10 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4160948">
+    <splitter split-orientation="horizontal" split-proportion="0.4566438">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="AccessDeniedHandler.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="AccessDeniedHandler.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Security/AccessDeniedHandler.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="221">
@@ -122,35 +59,15 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="nav.html.twig" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/components/unregistred/nav.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="113" lean-forward="false" selection-start-line="5" selection-start-column="113" selection-end-line="5" selection-end-column="113" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="site_commands.txt" pinned="false" current-in-tab="false">
+          <file leaf-file-name="site_commands.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/_SOURCE/html/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="550">
-                  <caret line="102" column="43" lean-forward="false" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="63" />
+                <state relative-caret-position="34">
+                  <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -222,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error.html.twig" />
         <option value="$PROJECT_DIR$/templates/components/form/security/login.html.twig" />
         <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
         <option value="$PROJECT_DIR$/_DOC/site_creation_step.txt" />
@@ -243,7 +159,6 @@
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/EventSubscriber/LocaleSubscriber.php" />
         <option value="$PROJECT_DIR$/src/Service/LocaleService.php" />
-        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/IndexController.php" />
         <option value="$PROJECT_DIR$/templates/components/form/security/password.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
@@ -251,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" />
         <option value="$PROJECT_DIR$/templates/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/components/common/footer_mini.html.twig" />
-        <option value="$PROJECT_DIR$/_DOC/site_commands.txt" />
         <option value="$PROJECT_DIR$/translations/unregistred_footer.fr.xlf" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/SiteConfig.php" />
@@ -269,10 +183,13 @@
         <option value="$PROJECT_DIR$/translations/unregistred_footer.en.xlf" />
         <option value="$PROJECT_DIR$/translations/unregistred_index.fr.xlf" />
         <option value="$PROJECT_DIR$/translations/unregistred_index.en.xlf" />
+        <option value="$PROJECT_DIR$/templates/components/unregistred/index.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/translations/unregistred_nav.en.xlf" />
         <option value="$PROJECT_DIR$/translations/unregistred_nav.fr.xlf" />
-        <option value="$PROJECT_DIR$/templates/components/unregistred/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/components/unregistred/nav.html.twig" />
+        <option value="$PROJECT_DIR$/assets/inc/css/style.css" />
+        <option value="$PROJECT_DIR$/_DOC/site_commands.txt" />
       </list>
     </option>
   </component>
@@ -375,7 +292,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="51" />
     <option name="y" value="23" />
     <option name="width" value="1592" />
@@ -442,6 +359,43 @@
             <path>
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="inc" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="inc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="inc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="style.css" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="packages" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -461,6 +415,11 @@
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="unregistred" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="translations" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -526,15 +485,15 @@
       <workItem from="1522748266208" duration="19027000" />
       <workItem from="1522839578644" duration="15961000" />
       <workItem from="1523000894253" duration="29963000" />
-      <workItem from="1523087831847" duration="42008000" />
+      <workItem from="1523087831847" duration="44411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246575000" />
+    <option name="totallyTimeSpent" value="248978000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16510417" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -616,14 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/inc/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="227" column="52" lean-forward="false" selection-start-line="227" selection-start-column="52" selection-end-line="227" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/swiftmailer.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -673,14 +624,6 @@
           <folding>
             <marker date="1523125339955" expanded="true" signature="222:1315" ph="services: &lt;3 keys&gt;" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="40" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,22 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_SOURCE/html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="102" column="43" lean-forward="false" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/translations/unregistred_index.fr.xlf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
@@ -961,22 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translations/unregistred_nav.en.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/unregistred_nav.fr.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/translations/unregistred_index.en.xlf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
@@ -993,6 +904,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/translations/unregistred_nav.fr.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/unregistred_nav.en.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/inc/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_SOURCE/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="102" column="43" lean-forward="false" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/components/unregistred/nav.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Security/AccessDeniedHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1003,10 +962,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/components/unregistred/nav.html.twig">
+    <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="113" lean-forward="false" selection-start-line="5" selection-start-column="113" selection-end-line="5" selection-end-column="113" />
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="31" />
           <folding />
         </state>
       </provider>

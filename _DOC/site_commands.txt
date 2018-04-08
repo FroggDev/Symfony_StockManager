@@ -10,7 +10,7 @@ encore production
 
 Routes
 ------
-- view al routes
+- view all routes
 php bin/console debug:router
 
 Database
