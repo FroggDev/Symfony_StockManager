@@ -3,7 +3,7 @@
 {% extends "base.html.twig" %}
 
 {% block page_title %}
-    {{ "error" | trans }} {{ status_code }}
+    {{ "access denied title" | trans }}
 {% endblock %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
@@ -18,8 +18,8 @@
         <div class="section center">
             <br/>
             <br/>
-            <h1 class="teal-text text-lighten-2">{{ "error" | trans }} {{ status_code }}</h1>
-            <h4>{{ status_text }}</h4>
+            <h1 class="teal-text text-lighten-2">{{ "access denied title" | trans }}</h1>
+            <h4>{{ 'access denied message' | trans }}</h4>
             <a class="btn waves-effect waves-light btn-large orange darken-1" href="{{ url('index') }}">
                 <i class="material-icons left">backspace</i>
                 {{ 'back to index' | trans }}

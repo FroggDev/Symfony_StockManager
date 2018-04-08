@@ -31,10 +31,17 @@ use Symfony\Component\Translation\TranslatorInterface;
  * Prefix all routes
  * @see https://symfony.com/blog/new-in-symfony-3-4-prefix-all-controller-route-names
  *
+ * Inline configuration
+ * https://symfony.com/blog/new-in-symfony-4-1-inlined-routing-configuration
+ *
+ *
+ *
  * @Route(
- *     "{_locale}/user",
- *      name="security_",
- *     requirements={"_locale"="fr|en"}
+ *     {
+ *     "fr": "/{_locale<fr|en>?fr}/compte",
+ *     "en": "/{_locale<fr|en>?en}/account"
+ *     },
+ *     name="security_"
  * )
  */
 class SecurityController extends Controller
@@ -67,7 +74,10 @@ class SecurityController extends Controller
      * User login
      *
      * @Route(
-     *     "/connexion.html",
+     *     {
+     *     "fr": "/connexion.html",
+     *     "en": "/login.html"
+     *     },
      *     name="connexion",
      *     methods={"GET","POST"}
      * )
@@ -101,7 +111,10 @@ class SecurityController extends Controller
      * User register
      *
      * @Route (
-     *     "/register/request.html",
+     *     {
+     *     "fr": "/creation.html",
+     *     "en": "/register.html"
+     *     },
      *     name="register",
      *     methods={"GET","POST"}
      *     )
@@ -122,39 +135,46 @@ class SecurityController extends Controller
         $form->handleRequest($request);
 
         // check form datas
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Symfony automatically serialize it
-            $user->setRoles('ROLE_MEMBER');
+        if ($form->isSubmitted()) {
+            $error = $form->getErrors();
 
-            // password encryption
-            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-            $user
-                ->setPassword($password)
-                ->setInactive()
-                ->setToken();
+            if (count($error) === 0) {
+                // Symfony automatically serialize it
+                $user->setRoles('ROLE_MEMBER');
 
-            // insert into database
-            $this->save($user);
-
-            // send the mail
-            $this->send(
-                SiteConfig::SECURITYMAIL,
-                $user->getEmail(),
-                'mail/security/register.html.twig',
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security'),
+                // password encryption
+                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
                 $user
-            );
+                    ->setPassword($password)
+                    ->setInactive()
+                    ->setToken();
 
-            //Add success message
-            $this->addFlash('check', $this->translator->trans('validation register sent confirmation', [], 'security'));
+                // insert into database
+                $this->save($user);
 
-            /**
-             * TEST PURPOSE
-             */
-            //exit("/fr/user/register/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
+                // send the mail
+                $this->send(
+                    SiteConfig::SECURITYMAIL,
+                    $user->getEmail(),
+                    'mail/security/register.html.twig',
+                    SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security'),
+                    $user
+                );
 
-            // redirect user
-            return $this->redirectToRoute('security_connexion');
+                //Add success message
+                $this->addFlash('check', $this->translator->trans('validation register sent confirmation', [], 'security'));
+
+                /**
+                 * TEST PURPOSE
+                 */
+                //exit("/fr/user/register/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
+
+                // redirect user
+                return $this->redirectToRoute('security_connexion');
+            } else {
+                //Add error message
+                $this->addFlash('error', $error[0]->getMessage());
+            }
         }
 
         // Display form view
@@ -171,19 +191,20 @@ class SecurityController extends Controller
      * User registration validation
      *
      * @Route(
-     *     "/register/validation.html",
+     *     {
+     *     "fr": "/confirmation.html",
+     *     "en": "/validation.html"
+     *     },
      *     name="register_validation",
      *     methods={"GET"}
      * )
      *
-     * @param Request $request
-     *
      * @return Response
      */
-    public function registerValidation(Request $request)
+    public function registerValidation()
     {
         // recover user from request
-        $user = $this->getUserFromRequest($request);
+        $user = $this->getUserFromRequest();
 
         $this->checkAccountStatus($user, ['checkAlreadyValidated']);
 
@@ -206,7 +227,10 @@ class SecurityController extends Controller
      * User password recover form
      *
      * @Route(
-     *     "/password/request.html",
+     *     {
+     *     "fr": "/mot-de-passe/requete.html",
+     *     "en": "/password/request.html"
+     *     },
      *     name="recover",
      *     methods={"GET","POST"}
      * )
@@ -221,6 +245,12 @@ class SecurityController extends Controller
         // New user registration
         $user = new User();
 
+        //set fake data to prevent validator trouble
+        $user
+            ->setLastName("FakeForValidator")
+            ->setFirstName("FakeForValidator")
+            ->setPassword("FakeForValidator");
+
         // create the user form
         $form = $this->createForm(UserRecoverType::class, $user);
 
@@ -229,48 +259,62 @@ class SecurityController extends Controller
 
         // check form data
         if ($form->isSubmitted()) {
-            // get repo author
-            $repositoryArticle = $this->getDoctrine()->getRepository(User::class);
+            $error = $form->getErrors();
 
-            // get posted email
-            $email = $form->getData()->getEmail();
+            /*
+            echo "FORM IS VALID ? ".$form->isValid();
+            var_dump($form);
+            exit();
+            */
 
-            // get author from email
-            $user = $repositoryArticle->findOneBy(['email' => $email]);
 
-            // author not found
-            if (!$user) {
-                //set error message
-                $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
+            if (count($error) === 0) {
+                // get repo author
+                $repositoryArticle = $this->getDoctrine()->getRepository(User::class);
+
+                // get posted email
+                $email = $form->getData()->getEmail();
+
+                // get author from email
+                $user = $repositoryArticle->findOneBy(['email' => $email]);
+
+                // author not found
+                if (!$user) {
+                    //set error message
+                    $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
+                    // redirect user
+                    return $this->redirectToRoute('security_recover', ['last_email' => $email]);
+                }
+
+                // create a token
+                $user->setToken();
+
+                // insert into database
+                $this->save($user);
+
+                // send the mail
+                $this->send(
+                    SiteConfig::SECURITYMAIL,
+                    $email,
+                    'mail/security/recover.html.twig',
+                    SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security'),
+                    $user
+                );
+
+                // set register validation ok message
+                $this->addFlash('check', $this->translator->trans('validation recover sent confirmation', [], 'security'));
+
+                /**
+                 * TEST PURPOSE
+                 */
+                //exit("/fr/user/password/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
+
                 // redirect user
-                return $this->redirectToRoute('security_recover', ['last_email' => $email]);
+                return $this->redirectToRoute('security_connexion');
+            } else {
+                //Add error message
+                $this->addFlash('error', $error[0]->getMessage());
             }
-
-            // create a token
-            $user->setToken();
-
-            // insert into database
-            $this->save($user);
-
-            // send the mail
-            $this->send(
-                SiteConfig::SECURITYMAIL,
-                $email,
-                'mail/security/recover.html.twig',
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security'),
-                $user
-            );
-
-            // set register validation ok message
-            $this->addFlash('check', $this->translator->trans('validation recover sent confirmation', [], 'security'));
-
-            /**
-             * TEST PURPOSE
-             */
-            //exit("/fr/user/password/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
-
-            // redirect user
-            return $this->redirectToRoute('security_connexion');
         }
 
         // Display form view
@@ -284,7 +328,10 @@ class SecurityController extends Controller
      * User password recover
      *
      * @Route(
-     *     "/password/validation.html",
+     *     {
+     *     "fr": "/mot-de-passe/confirmation.html",
+     *     "en": "/password/validation.html"
+     *     },
      *     name="recover_validation",
      *     methods={"GET","POST"}
      * )
@@ -314,24 +361,37 @@ class SecurityController extends Controller
 
         // check form datas
         if ($form->isSubmitted()) {
-            // password encryption
-            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $error = $form->getErrors();
 
-            // change password into database
-            $user
-                ->setPassword($password)
-                ->removeToken()
-                ->setActive();
+            /*
+            echo "FORM IS VALID ? ".$form->isValid();
+            var_dump($form);
+            exit();
+            */
 
-            // insert into database
-            $this->save($user);
+            if (count($error) === 0) {
+                // password encryption
+                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
 
-            // set register validation ok message
-            $this->addFlash('check', $this->translator->trans('validation password changed', [], 'security'));
+                // change password into database
+                $user
+                    ->setPassword($password)
+                    ->removeToken()
+                    ->setActive();
+
+                // insert into database
+                $this->save($user);
+
+                // set register validation ok message
+                $this->addFlash('check', $this->translator->trans('validation password changed', [], 'security'));
 
 
-            // redirect user
-            return $this->redirectToRoute('security_connexion');
+                // redirect user
+                return $this->redirectToRoute('security_connexion');
+            } else {
+                //Add error message
+                $this->addFlash('error', $error[0]->getMessage());
+            }
         }
 
         // Display form view
@@ -418,8 +478,7 @@ class SecurityController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @param User    $user
+     * @param User $user
      *
      * @return bool
      */
@@ -437,8 +496,6 @@ class SecurityController extends Controller
     }
 
     /**
-     * @param Request $request
-     *
      * @return null|User
      */
     private function getUserFromRequest(): ?User

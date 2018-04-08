@@ -39,7 +39,6 @@
                     </div>
                 </div>
 
-
                 <input {% if app.request.query.get('go') is defined %}value="{{ app.request.query.get('go') }}"{% endif %} type="hidden" name="_target_path"/>
 
                 <div class="input-field col s12 right-align">
@@ -50,6 +49,9 @@
 
                 <div class="left"><a href="{{ path("security_register") }}"><i class="material-icons left">account_circle</i>{{ "account register" | trans }}</a></div>
                 <div class="right"><a href="{{ path("security_recover") }}"><i class="material-icons right">lock_open</i>{{ "password forgotten" | trans }}</a></div>
+
+                <!-- manual csrf https://symfony.com/doc/current/security/csrf.html -->
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
             </form>
         </div>

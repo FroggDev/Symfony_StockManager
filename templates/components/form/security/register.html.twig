@@ -5,55 +5,62 @@
 
         <h1 class="teal-text text-lighten-2">{{ "register title" | trans }}</h1>
 
+        {# Flash bags #}
+        {% include 'components/flashbags.html.twig' %}
+
         <div class="row">
 
-        {{ form_start(form) }}
+            <!--form name="register" method="POST"-->
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input required="required" id="user_firstname" name="user[firstname]" type="text" class="validate" maxlength="100">
+                        <label for="user_firstname">{{ "label firstname" | trans }}</label>
+                    </div>
 
-            <div class="row">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input required="required" id="user_firstname" name="user[firstname]" type="text" class="validate" maxlength="100">
-                    <label for="user_firstname">{{ "label firstname" | trans }}</label>
+                    <div class="input-field col s6">
+                        <input required="required" id="user_lastname" name="user[lastname]" type="text" class="validate" maxlength="100">
+                        <label for="user_lastname">{{ "label lastname" | trans }}</label>
+                    </div>
                 </div>
 
-                <div class="input-field col s6">
-                    <input required="required" id="user_lastname" name="user[lastname]" type="text" class="validate" maxlength="100">
-                    <label for="user_lastname">{{ "label lastname" | trans }}</label>
-                </div>
-            </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input value="{{ last_email }}" required="required" id="user_email" name="user[email]" type="email" class="validate" maxlength="255">
+                        <label for="user_email">{{ "label email" | trans }}</label>
+                    </div>
 
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">email</i>
-                    <input value="{{ last_email }}" required="required" id="user_email" name="user[email]" type="email" class="validate" maxlength="255">
-                    <label for="user_email">{{ "label email" | trans }}</label>
-                </div>
+                    <div class="securityerror red-text" style="margin-left: 3.5rem;">
+                        {{ form_errors(form.email) }}
+                    </div>
 
-                <div class="securityerror red-text" style="margin-left: 3.5rem;">
-                    {{ form_errors(form.email) }}
                 </div>
 
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">lock_outline</i>
-                    <input required="required" id="user_password" name="user[password]" type="password" class="validate" maxlength="64">
-                    <label for="user_password">{{ "label password" | trans }}</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input required="required" id="user_password" name="user[password]" type="password" class="validate" maxlength="64">
+                        <label for="user_password">{{ "label password" | trans }}</label>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="input-field col s12 right-align">
-                    <button class="btn waves-effect waves-light btn-large" type="submit" name="action">
-                        {{ "register button" | trans }}
-                        <i class="material-icons right">send</i>
-                    </button>
+                <div class="row">
+                    <div class="input-field col s12 right-align">
+                        <button class="btn waves-effect waves-light btn-large" type="submit" name="action">
+                            {{ "register button" | trans }}
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-        {{ form_end(form) }}
+                <!-- manual csrf https://symfony.com/doc/current/security/csrf.html -->
+                <!--input type="hidden" name="token" value="{{ csrf_token('register') }}">
 
+            </form-->
+
+            {{ form_end(form) }}
         </div>
 
     </div>

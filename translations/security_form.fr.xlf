@@ -61,6 +61,14 @@
         <source>register button</source>
         <target>S'enregistrer</target>
       </trans-unit>
+      <trans-unit id="ygD8z7Q" resname="error">
+        <source>error</source>
+        <target>__error</target>
+      </trans-unit>
+      <trans-unit id="FnnSDc4" resname="back to index">
+        <source>back to index</source>
+        <target>__back to index</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

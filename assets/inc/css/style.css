@@ -16,6 +16,18 @@ body {
 
 main {
   flex: 1 0 auto;
+  /* CENTER CONTENT vertical & horizontal !*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* + display centered */
+main .section{width: 100%}
+
+/* special home*/
+main.home {
+  display: block;
 }
 
 /* ============== BASICS ============== */

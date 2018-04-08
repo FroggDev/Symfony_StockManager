@@ -5,6 +5,9 @@
 
         <h1 class="teal-text text-lighten-2">{{ "recover title" | trans }}</h1>
 
+        {# Flash bags #}
+        {% include 'components/flashbags.html.twig' %}
+
         <div class="row">
 
         {{ form_start(form) }}
@@ -27,7 +30,7 @@
             </div>
 
         {{ form_end(form) }}
-
+        {#{ form_end(form, {'render_rest': false}) }#}
         </div>
     </div>
 </main>

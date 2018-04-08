@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="V4dEey8" resname="email account validation subject">
+        <source>email account validation subject</source>
+        <target>Confirmation de création de compte</target>
+      </trans-unit>
+      <trans-unit id="fmui2JV" resname="validation register sent confirmation">
+        <source>validation register sent confirmation</source>
+        <target>Un mail de validation de création de compte vous a été envoyé, vous trouverez un lien dans ce
+                    mail pour valider votre compte.
+                </target>
+      </trans-unit>
+      <trans-unit id="i.V8Mvt" resname="validation register confirmation">
+        <source>validation register confirmation</source>
+        <target>Votre compte a été validé, vous pouvez maintenant vous connecter à l'application.</target>
+      </trans-unit>
+      <trans-unit id="t_O473y" resname="email password recovery subject">
+        <source>email password recovery subject</source>
+        <target>Votre requête de récupération de mot de passe</target>
+      </trans-unit>
+      <trans-unit id="RRHoI0f" resname="validation recover sent confirmation">
+        <source>validation recover sent confirmation</source>
+        <target>Un mail a été envoyé à votre adresse dans lequel vous trouverez les informations pour
+                    récupération votre mot de passe.
+                </target>
+      </trans-unit>
+      <trans-unit id="MOon0fQ" resname="validation password changed">
+        <source>validation password changed</source>
+        <target>Votre mot de passe a été changé avec succès.</target>
+      </trans-unit>
+      <trans-unit id="Tar6eoe" resname="account is unfindable">
+        <source>account is unfindable</source>
+        <target>Compte introuvable.</target>
+      </trans-unit>
+      <trans-unit id="S68w52R" resname="account is closed">
+        <source>account is closed</source>
+        <target>Ce compte est fermé.</target>
+      </trans-unit>
+      <trans-unit id="PkcEFXr" resname="account is expired token">
+        <source>account is expired token</source>
+        <target>Votre requête a expiré.</target>
+      </trans-unit>
+      <trans-unit id="WhuKcUx" resname="account is already activated">
+        <source>account is already activated</source>
+        <target>Votre compte est déjà activé.</target>
+      </trans-unit>
+      <trans-unit id="qrsYVdf" resname="account token is not valid">
+        <source>account token is not valid</source>
+        <target>Requête invalide.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

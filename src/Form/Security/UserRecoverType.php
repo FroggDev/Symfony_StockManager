@@ -1,4 +1,13 @@
 <?php
+/*
+ * This file is part of the StockManager.
+ *
+ * (c) Frogg <admin@frogg.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Form\Security;
 
 use App\Entity\Author;
@@ -12,38 +21,24 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class UserRecoverType
- * @package App\Form
+ * @author Frogg <admin@frogg.fr>
  */
 class UserRecoverType extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(
-            'email',
-            EmailType::class,
-            [
-                'required' => true,
-                'label' => false,
-                    'attr' => [
-                    'placeholder' => 'Set your email.',
-                    ],
-            ]
-        )->add(
-            'submit',
-            SubmitType::class,
-            [
-                'label' => 'Recover my password ',
-                'attr' => array('class' => 'btn btn-block btn-primary'),
-                ]
-        )->getForm();
+        $builder
+            ->add('email', EmailType::class)
+            ->add('submit', SubmitType::class)
+            ->getForm();
     }
 
     /**
-     * {@inheritdoc}
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {

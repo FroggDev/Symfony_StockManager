@@ -17,6 +17,8 @@
  * @link     https://github.com/FroggDev/Symfony_StockManager
  *
  * @Requirement for PHP
+ * apt-get install php7.2-xml (Extension DOM is required.)
+ *
  * extension=php_fileinfo.dll for guessExtension()
  * extension=mysqli for Doctrine
  * extension=pdo_mysql for Doctrine
@@ -84,14 +86,18 @@ class IndexController extends Controller
      * Main page route
      *
      * @Route(
-     *     "/{_locale}",
-     *     name="index",
-     *     requirements={"_locale"="fr|en"}
+     *     "/{_locale<fr|en>}",
+     *     name="index"
      * )
      * @return Response
      */
     public function index(): Response
     {
+        //displayed logged home if logged
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+             return $this->redirect($this->generateUrl('index_logged'), Response::HTTP_MOVED_PERMANENTLY);
+        }
+
         // display page from twig template
         return $this->render('index.html.twig', []);
     }
@@ -100,41 +106,43 @@ class IndexController extends Controller
      * Change locale
      *
      * @Route(
-     *     "/{_locale}/locale.html",
+     *     {
+     *     "fr": "/{_locale<fr|en>?fr}/langue.html",
+     *     "en": "/{_locale<fr|en>?en}/locale.html"
+     *     },
      *     name="change_locale",
-     *     requirements={"_locale"="fr|en"},
      *     methods={"GET"}
      * )
-     * @param Request $request
+     * @param Request       $request
+     * @param LocaleService $localeService
      *
      * @return Response
      */
-    public function changeLocale(Request $request)
+    public function changeLocale(Request $request, LocaleService $localeService)
     {
-        $localService = new LocaleService($request, null);
         // Return current route changed to other lang
-        return $this->removeCacheFromResponse(
-            $this->redirect(
-                $localService->changeSelectedLocale(),
-                Response::HTTP_MOVED_PERMANENTLY
-            )
-        );
+        return $localeService->changeSelectedLocale();
     }
 
     /**
      * Main page route
      *
      * @Route(
-     *     "/{_locale}/TEMP.html",
+     *     "/{_locale<fr|en>?en}/TEMP/TEMP.html",
      *     name="index_logged",
-     *     requirements={"_locale"="fr|en"},
      *     methods={"GET"}
      * )
      * @return Response
      */
     public function TEMP(): Response
     {
+        //Security !
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         // display page from twig template
-        return $this->render('index.html.twig', []);
+        //return $this->render('TEMP.html.twig', []);
+
+        //test access denied
+        return $this->render('security/access_denied.html.twig');
     }
 }

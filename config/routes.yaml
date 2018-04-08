@@ -1,3 +1,24 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+
+# @TODO :
+# static redirection
+#privacy:
+#    path:         /privacy
+#    controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+#    defaults:
+#        template: static/privacy.html.twig
+
+# route logout (used in security.yaml)
+security_logout:
+    path: /logout.html
+
+# Testing error pages :
+# http://127.0.0.1:8001/fr/_error/500
+# http://127.0.0.1:8001/fr/_error/404
+# http://127.0.0.1:8001/fr/_error/403
+_errors:
+    resource: "@TwigBundle/Resources/config/routing/errors.xml"
+    prefix:   /{_locale<fr|en>?fr}/_error

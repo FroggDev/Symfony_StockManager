@@ -1,0 +1,51 @@
+HTML5 Email validation
+----------------------
+https://symfony.com/blog/new-in-symfony-4-1-html5-email-validation
+
+framework:
+    validation:
+        # possible values: 'loose', 'strict', 'html5'
+        email_validation_mode: 'strict'
+
+composer require egulias/email-validator
+
+
+CONSOLE SECTION
+---------------
+https://symfony.com/blog/new-in-symfony-4-1-advanced-console-output
+
+Usermanager :
+$section = $output->section();
+
+
+INLINED ROUTING CONFIGURATION
+-----------------------------
+https://symfony.com/blog/new-in-symfony-4-1-inlined-routing-configuration
+
+Security route :
+/**
+ * @Route(
+ *     "{_locale<fr|en>?en}/account",
+ *      name="security_"
+ * )
+ */
+
+INTERNATIONALIZED ROUTING
+-------------------------
+https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
+
+/**
+ * @Route(
+ *     {
+ *     "fr": "/{_locale<fr|en>?fr}/compte",
+ *     "en": "/{_locale<fr|en>?en}/account"
+ *     },
+ *     name="security_"
+ * )
+ */
+
+CUSTOM USER ABSTRACT CLASS
+--------------------------
+https://symfony.com/blog/new-in-symfony-4-1-deprecated-the-advanceduserinterface
+
+manage account status like validation by mail

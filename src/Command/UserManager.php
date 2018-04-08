@@ -51,13 +51,36 @@ $io->progressStart(100);
 $io->progressAdvance();
 $io->progressAdvance(10);
 $io->progressFinish();
+
+ * News in 4.1 :
+ * -------------
+https://symfony.com/blog/new-in-symfony-4-1-advanced-console-output
+
+// Creating section
+$section = $output->section();
+$section->writeln('Downloading the file...');
+$section->overwrite('Uncompressing the file...');
+$section->overwrite('Copying the contents...');
+
+// Cleaning section last line
+$section->clear(1);
+//cleaning all section
+$section->clear();
+
+// Dynamic table management
+$table = new Table($section2);
+$table->addRow(['Row 1']);
+$table->render();
  */
 
 namespace App\Command;
 
+use App\Entity\User;
 use App\SiteConfig;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -72,6 +95,9 @@ class UserManager extends Command
 
     /** @var SymfonyStyle */
     private $output;
+
+    /** @var OutputInterface */
+    private $defaultOutput;
 
     /** @var array */
     private $roles;
@@ -144,6 +170,9 @@ class UserManager extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
+        // Use to test 4.1 stuff
+        $this->defaultOutput = $output;
+
         // INIT STYLES
         $this->output = new SymfonyStyle($input, $output);
 
@@ -161,12 +190,14 @@ class UserManager extends Command
      */
     private function displayMainMenu(): void
     {
+
         while (true) {
             // Ask user for a choice
             $input = $this->output->choice(
                 'Select an action',
                 [
                     'Display user list',
+                    'Display user list (Version 4.1)',
                     'Enable user account (require user id)',
                     'Add user role (require user id)',
                     'Remove user role (require user id)',
@@ -179,6 +210,9 @@ class UserManager extends Command
             switch ($input) {
                 case 'Display user list':
                     $this->displayUserList();
+                    break;
+                case 'Display user list (Version 4.1)':
+                    $this->displayUserListNew();
                     break;
                 case 'Enable user account (require user id)':
                     $this->enableUser();
@@ -211,21 +245,111 @@ class UserManager extends Command
 
         // GET USER INFOS
         $entity = SiteConfig::USERENTITY;
-        $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll();
+        $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll(true);
 
+        // GET NB USER
+        $nbUser = count($userList);
+
+        // Display range information
+        $nbLoop = 0;
+        $range = 5;
+
+        // As long there is user and answer Yes to the choice
+        while (true) {
+            //set ranges
+            $start = $nbLoop * $range;
+            $end = $start + $range;
+
+            //display current range
+            $this->displayUserListRange($userList, $start, $end > $nbUser ? $nbUser : $end);
+
+            // Exit if all user was displayed
+            if ($end >= $nbUser) {
+                break;
+            }
+
+            // Ask user to continue
+            $input = $this->output->choice('Continue displaying user list ?', ['Yes', 'No'], 'Yes');
+            if ("No" === $input) {
+                break;
+            }
+            //set next loop value
+            $nbLoop++;
+        }
+    }
+
+    /**
+     * @param $userList
+     * @param $start
+     * @param $end
+     */
+    private function displayUserListRange($userList, $start, $end): void
+    {
         // PREPARE USERS INFOS
-        foreach ($userList as $user) {
+        for ($i = $start; $i < $end; $i++) {
             $display[] = [
-                $user->getId(),
-                $user->getEmail(),
-                $user->isEnabled(),
-                join("+", $user->getRoles() ?? []),
+                $userList[$i]->getId(),
+                $userList[$i]->getEmail(),
+                $userList[$i]->isEnabled(),
+                join("+", $userList[$i]->getRoles() ?? []),
             ];
         }
 
         // DISPLAY USER LIST AS TABLE
         $this->output->table(['ID', 'EMAIL', 'ACTIVATED', 'ROLES'], $display);
     }
+
+
+    /**
+     * Display the user list (version 4.1)
+     *
+     * @return void
+     */
+    private function displayUserListNew(): void
+    {
+
+        // Create a 4.1 section block
+        $section = $this->defaultOutput->section();
+        $sectionTable = $this->defaultOutput->section();
+
+        // Display stuff
+        $section->writeln('Displaying user list using 4.1 feature !');
+        $section->writeln('');
+        $section->writeln('Loading user list...');
+
+        // GET USER INFOS
+        $entity = SiteConfig::USERENTITY;
+        $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll(true);
+
+        // Dynamic table from 4.1
+        $table = new Table($sectionTable);
+
+        //Table headers
+        $table->addRow(['ID', 'EMAIL', 'ACTIVATED', 'ROLES']);
+
+        // set max value to progress bar
+        $progress = new ProgressBar($section);
+        $progress->start(count($userList));
+
+        // Add User info
+        foreach ($userList as $user) {
+
+            /** @var User $user */
+            $table->appendRow(
+                [
+                    $user->getId(),
+                    $user->getEmail(),
+                    $user->isEnabled(),
+                    join("+", $user->getRoles() ?? []),
+                ]
+            );
+
+            $progress->advance();
+            sleep(1);
+        }
+        $section->clear();
+    }
+
 
     /**
      * Enable an user

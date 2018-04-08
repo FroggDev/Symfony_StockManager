@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="MBCzUgS" resname="lastname should not be blank">
+        <source>lastname should not be blank</source>
+        <target>Please enter a lastname.</target>
+      </trans-unit>
+      <trans-unit id="XdKSNgm" resname="firstname should not be blank">
+        <source>firstname should not be blank</source>
+        <target>Please enter a firstname.</target>
+      </trans-unit>
+      <trans-unit id="PnVzXHj" resname="password should not be blank">
+        <source>password should not be blank</source>
+        <target>Please enter a password.</target>
+      </trans-unit>
+      <trans-unit id="fu4uM9r" resname="email is not valid">
+        <source>email is not valid</source>
+        <target>This email is not valid.</target>
+      </trans-unit>
+      <trans-unit id="dJeMHTI" resname="email already in use">
+        <source>email already in use</source>
+        <target>This email is already in use.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

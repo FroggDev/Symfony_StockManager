@@ -30,8 +30,11 @@ php bin/console doctrine:migrations:migrate
 
 Translation
 -----------
-- check missing translation
+- check translation
 php bin/console debug:translation fr
+
+- check missing translation
+php bin/console debug:translation fr --only-missing
 
 - adding missing translation
 php bin/console translation:update --dump-messages fr

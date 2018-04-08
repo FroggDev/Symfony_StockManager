@@ -31,10 +31,17 @@ framework:
 
     # ########################## #
     # ASSETS WITH WEBPACK ENCORE #
-    # ############################
+    # ########################## #
 
     # Asset link to manifest.json
     # can retrieve file name when versionned for prevent browser cache
     assets:
         # feature is supported in Symfony 3.3 and higher
         json_manifest_path: '%kernel.project_dir%/public/inc/manifest.json'
+
+    # ###################### #
+    # 4.1 NEWS : VALIDATIONS #
+    # ###################### #
+    validation:
+        # possible values: 'loose', 'strict', 'html5'
+        email_validation_mode: 'strict'

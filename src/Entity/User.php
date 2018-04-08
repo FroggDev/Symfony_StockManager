@@ -7,36 +7,37 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace App\Entity;
 
+use App\Security\AbstractAdvancedUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author Frogg <admin@frogg.fr>
  *
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  *
- * @UniqueEntity(fields={"email"},errorPath="email",message="This email is already in use")
+ * @UniqueEntity(fields={"email"},errorPath="email",message="email already in use")
  *
+ * Unique entity:
  * @see https://symfony.com/doc/current/reference/constraints/UniqueEntity.html
+ *
+ * Validator translation:
+ * @see https://symfony.com/doc/current/validation/translations.html
+ *
+ * Test format des mail
+ * @see https://symfony.com/blog/new-in-symfony-4-1-html5-email-validation
  */
-class User implements AdvancedUserInterface
+class User extends AbstractAdvancedUser
 {
 
     /*################
     # User constants #
     #################*/
 
-    /** @const INACTIVE Constant for inactive Author, register but didn't validate email confirmation */
-    const INACTIVE = 0;
-    /** @const ACTIVE Constant for registerd Author */
-    const ACTIVE = 1;
-    /** @const CLOSED Constant for Author closed account */
-    const CLOSED = 2;
-    /** @const BANNED Constant for Author banned account */
-    const BANNED = 3;
     /** @const TOKENVALIDITYTIME Constant for Token validity time in day */
     const TOKENVALIDITYTIME = 1;
 
@@ -53,16 +54,19 @@ class User implements AdvancedUserInterface
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="firstname should not be blank")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="lastname should not be blank")
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Email(message="email is not valid",checkMX = true,checkHost = true)
      */
     private $email;
 
@@ -79,6 +83,7 @@ class User implements AdvancedUserInterface
     /**
      * For base64 encode
      * @ORM\Column(type="string",length=64)
+     * @Assert\NotBlank(message="password should not be blank")
      */
     private $password;
 
@@ -103,19 +108,18 @@ class User implements AdvancedUserInterface
      *
      * @see User contants (top of this file)
      */
-    private $status;
+    protected $status;
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
 
     /**
      * When User account is closed or banned
      * @ORM\Column(type="datetime",nullable=true)
      */
-    private $dateClosed;
-
-    /**
-     * User has subscribe to the box
-     * @ORM\Column(type="boolean",nullable=true)
-     */
-    private $hasSubscribe;
+    protected $dateClosed;
 
     /*#########
     # Methods #
@@ -128,6 +132,8 @@ class User implements AdvancedUserInterface
     {
         // initialize date creation on User creation
         $this->dateInscription = new \DateTime();
+        //by default account is not active and has to be validated by email
+        $this->setInactive();
     }
 
 
@@ -419,183 +425,6 @@ class User implements AdvancedUserInterface
     {
         $this->tokenValidity = null;
         $this->token = null;
-
-        return $this;
-    }
-
-
-    /**
-     * @return integer
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param integer $status
-     *
-     * @return User
-     */
-    public function setStatus($status): User
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-
-    /**
-     * @return User
-     */
-    public function setInactive(): User
-    {
-        $this->status = $this::INACTIVE;
-
-        return $this;
-    }
-
-    /**
-     * @return User
-     */
-    public function setActive(): User
-    {
-        $this->status = $this::ACTIVE;
-
-        return $this;
-    }
-
-    /**
-     * @return User
-     */
-    public function setClosed(): User
-    {
-        $this->status = $this::CLOSED;
-        $this->setDateClosed();
-
-        return $this;
-    }
-
-    /**
-     * @return User
-     */
-    public function setBanned(): User
-    {
-        $this->status = $this::BANNED;
-        $this->setDateClosed();
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isBanned(): bool
-    {
-        return $this->status === $this::BANNED;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isClosed(): bool
-    {
-        return $this->status === $this::CLOSED;
-    }
-
-    /**
-     * Checks whether the user is enabled.
-     *
-     * Internally, if this method returns false, the authentication system
-     * will throw a DisabledException and prevent login.
-     *
-     * @return bool true if the user is enabled, false otherwise
-     *
-     * @see DisabledException
-     */
-    public function isEnabled(): bool
-    {
-        return $this->status === $this::ACTIVE;
-    }
-
-    /**
-     * @return void
-     */
-    public function setDateClosed(): void
-    {
-        $this->dateClosed = new \DateTime();
-    }
-
-
-    /**
-     * @return \DateTime()
-     */
-    public function getDateClosed(): \DateTime
-    {
-        return $this->dateClosed;
-    }
-
-    /**
-     * Checks whether the user's account has expired.
-     *
-     * Internally, if this method returns false, the authentication system
-     * will throw an AccountExpiredException and prevent login.
-     *
-     * @return bool true if the user's account is non expired, false otherwise
-     *
-     * @see AccountExpiredException
-     */
-    public function isAccountNonExpired(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Checks whether the user is locked.
-     *
-     * Internally, if this method returns false, the authentication system
-     * will throw a LockedException and prevent login.
-     *
-     * @return bool true if the user is not locked, false otherwise
-     *
-     * @see LockedException
-     */
-    public function isAccountNonLocked(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Checks whether the user's credentials (password) has expired.
-     *
-     * Internally, if this method returns false, the authentication system
-     * will throw a CredentialsExpiredException and prevent login.
-     *
-     * @return bool true if the user's credentials are non expired, false otherwise
-     *
-     * @see CredentialsExpiredException
-     */
-    public function isCredentialsNonExpired(): bool
-    {
-        return true;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getHasSubscribe()
-    {
-        return $this->hasSubscribe;
-    }
-
-    /**
-     * @param bool $hasSubscribe
-     *
-     * @return User
-     */
-    public function setHasSubscribe($hasSubscribe)
-    {
-        $this->hasSubscribe = $hasSubscribe;
 
         return $this;
     }

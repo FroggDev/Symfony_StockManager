@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ygD8z7Q" resname="error">
+        <source>error</source>
+        <target>Erreur</target>
+      </trans-unit>
+      <trans-unit id="FnnSDc4" resname="back to index">
+        <source>back to index</source>
+        <target>Retour à l'accueil</target>
+      </trans-unit>
+      <trans-unit id="TgUgfhD" resname="access denied title">
+        <source>access denied title</source>
+        <target>Accès refusé</target>
+      </trans-unit>
+      <trans-unit id="BYBS0J5" resname="access denied message">
+        <source>access denied message</source>
+        <target>Cette ressource n'est accessible que pour les comptes avec certains privilèges.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

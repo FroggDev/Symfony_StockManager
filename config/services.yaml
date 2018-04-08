@@ -48,13 +48,6 @@ services:
         arguments:
             - "@swiftmailer.mailer"
 
-    ############
-    # LISTNERS #
-    ############
-    App\EventSubscriber\UserSubscriber:
-        tags:
-            - { name: 'kernel.event_listener', event: 'security.interactive_login' }
-
     ###################
     # TWIG EXTENSIONS #
     ###################
@@ -68,3 +61,21 @@ services:
         App\Service\Twig\AbstractTwigExtension:
             tags:
                 - { name: twig.runtime }
+
+
+    ############
+    # LISTNERS #
+    ############
+    App\EventSubscriber\UserSubscriber:
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }
+
+
+    ############
+    # SERVICES #
+    ############
+    app.service.locale:
+       class: App\Service\LocaleService
+       arguments:
+           - "@router"
+           - "@request"

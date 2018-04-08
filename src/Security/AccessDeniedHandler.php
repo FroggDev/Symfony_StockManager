@@ -31,9 +31,7 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface
     {
         /**
          * @ TODO : LOG HERE
-         * @ TODO TWIG TEMPLATE
          */
-
-        return new Response("TODO A TWIG TEMPLATE ! THIS ERROR HAS BEEN CATCHED BY THE HANDLER (ACCESS DENIED) !");
+        return $request->get('router')->render('security/access_denied.html.twig');
     }
 }

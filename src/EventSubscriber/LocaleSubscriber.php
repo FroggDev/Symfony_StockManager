@@ -7,10 +7,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace App\EventSubscriber;
 
 use App\Service\LocaleService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -20,17 +22,37 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class LocaleSubscriber implements EventSubscriberInterface
 {
 
+    /** @var LocaleService */
+    private $localeService;
+
     /**
-     * Redirect user to his favorite language
+     * LocaleSubscriber constructor.
+     * @param LocaleService $localeService
+     */
+    public function __construct(LocaleService $localeService)
+    {
+        $this->localeService = $localeService;
+    }
+
+
+    /**
+     * @param FilterControllerEvent $event
+     */
+    public function onKernelController(FilterControllerEvent $event)
+    {
+        //TEST PURPOSE
+        //exit("onKernelController");
+    }
+
+    /**
+     * Redirect user to his favorite language if
      * @param GetResponseEvent $event
      */
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(GetResponseEvent  $event)
     {
-        $request = $event->getRequest();
-
-        if ("change_locale" !== $request->get('_route')) {
-            $localService = new LocaleService($request, $event);
-            $localService->changeDefaultLocale();
+        $currentRoute = $event->getRequest()->get('_route');
+        if ($event->isMasterRequest() && ( "index" === $currentRoute || "default" === $currentRoute)) {
+            $this->localeService->changeDefaultLocale();
         }
     }
 
@@ -54,6 +76,9 @@ class LocaleSubscriber implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return [KernelEvents::REQUEST => 'onKernelRequest'];
+        return [
+            KernelEvents::CONTROLLER  => 'onKernelController',
+            KernelEvents::REQUEST  => 'onKernelRequest',
+        ];
     }
 }
