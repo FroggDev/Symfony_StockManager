@@ -13,12 +13,14 @@
 
 # route logout (used in security.yaml)
 security_logout:
-    path: /logout.html
+    path:
+        fr: /compte/deconnexion.html
+        en: /account/logout.html
 
 # Testing error pages :
-# http://127.0.0.1:8001/fr/_error/500
-# http://127.0.0.1:8001/fr/_error/404
-# http://127.0.0.1:8001/fr/_error/403
+# http://127.0.0.1:8000/_error/500
+# http://127.0.0.1:8000/_error/404
+# http://127.0.0.1:8000/_error/403
 _errors:
     resource: "@TwigBundle/Resources/config/routing/errors.xml"
-    prefix:   /{_locale<fr|en>?fr}/_error
+    prefix:   /_error

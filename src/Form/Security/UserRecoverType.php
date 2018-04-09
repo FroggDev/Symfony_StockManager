@@ -27,14 +27,22 @@ class UserRecoverType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('submit', SubmitType::class)
-            ->getForm();
+            ->add(
+                'email',
+                EmailType::class,
+                [
+                    'attr' => [
+                        'class'=>'validate',
+                        'value' => $options['last_email'],
+                    ],
+
+                ]
+            );
     }
 
     /**
@@ -43,7 +51,7 @@ class UserRecoverType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'last_email' => null,
         ]);
     }
 }

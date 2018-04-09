@@ -10,18 +10,17 @@
 
 namespace App\Controller;
 
-use App\Common\Traits\Comm\MailerTrait;
-use App\Common\Traits\Controller\DatabaseTrait;
+use App\Common\Traits\Controller\FormCheckTrait;
 use App\Entity\User;
 use App\Form\Security\UserPasswordType;
 use App\Form\Security\UserRecoverType;
 use App\Form\Security\UserType;
+use App\Service\UserManager;
 use App\SiteConfig;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -32,14 +31,22 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @see https://symfony.com/blog/new-in-symfony-3-4-prefix-all-controller-route-names
  *
  * Inline configuration
- * https://symfony.com/blog/new-in-symfony-4-1-inlined-routing-configuration
+ * @see https://symfony.com/blog/new-in-symfony-4-1-inlined-routing-configuration
  *
+ * Manual crsf login form
+ * @see https://symfony.com/doc/master/security/form_login_setup.html
+ *
+ * Remeber me on login screen
+ * @see https://symfony.com/doc/current/security/remember_me.html
+ *
+ * Internationalized Routing
+ * @see https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
  *
  *
  * @Route(
  *     {
- *     "fr": "/{_locale<fr|en>?fr}/compte",
- *     "en": "/{_locale<fr|en>?en}/account"
+ *     "fr": "/compte",
+ *     "en": "/account"
  *     },
  *     name="security_"
  * )
@@ -47,28 +54,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 class SecurityController extends Controller
 {
 
-    use MailerTrait;
-
-    use DatabaseTrait;
-
-    /** @var \Swift_Mailer */
-    private $mailer;
-    /** @var TranslatorInterface */
-    private $translator;
-
-    /** @var Request $request */
-    private $request;
-
-    /**
-     * SecurityController constructor.
-     * @param \Swift_Mailer       $mailer
-     * @param TranslatorInterface $translator
-     */
-    public function __construct(\Swift_Mailer $mailer, TranslatorInterface $translator)
-    {
-        $this->mailer = $mailer;
-        $this->translator = $translator;
-    }
+    use FormCheckTrait;
 
     /**
      * User login
@@ -82,10 +68,11 @@ class SecurityController extends Controller
      *     methods={"GET","POST"}
      * )
      * @param AuthenticationUtils $authenticationUtils
+     * @param TranslatorInterface $translator
      *
      * @return Response
      */
-    public function connexion(AuthenticationUtils $authenticationUtils)
+    public function connexion(AuthenticationUtils $authenticationUtils, TranslatorInterface $translator)
     {
         // Check if user is logged in
         if ($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -97,14 +84,16 @@ class SecurityController extends Controller
 
         // create a flash bag if an authentication error occured
         if ($error) {
-            $this->addFlash('error', $error->getMessage());
+            $this->addFlash('error', $translator->trans($error->getMessageKey(), [], "security"));
         }
 
         // Display form & Get last user email set by user
-        return $this->render(
+        $response = $this->render(
             'security/connexion.html.twig',
             ['last_email' => $authenticationUtils->getLastUsername()]
         );
+
+        return $response;
     }
 
     /**
@@ -118,12 +107,13 @@ class SecurityController extends Controller
      *     name="register",
      *     methods={"GET","POST"}
      *     )
-     * @param Request                      $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
+     *
+     * @param UserManager $userManager
+     * @param Request     $request
      *
      * @return Response
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function register(UserManager $userManager, Request $request)
     {
         // New user registration
         $user = new User();
@@ -134,56 +124,16 @@ class SecurityController extends Controller
         // post data manager
         $form->handleRequest($request);
 
-        // check form datas
-        if ($form->isSubmitted()) {
-            $error = $form->getErrors();
-
-            if (count($error) === 0) {
-                // Symfony automatically serialize it
-                $user->setRoles('ROLE_MEMBER');
-
-                // password encryption
-                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-                $user
-                    ->setPassword($password)
-                    ->setInactive()
-                    ->setToken();
-
-                // insert into database
-                $this->save($user);
-
-                // send the mail
-                $this->send(
-                    SiteConfig::SECURITYMAIL,
-                    $user->getEmail(),
-                    'mail/security/register.html.twig',
-                    SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security'),
-                    $user
-                );
-
-                //Add success message
-                $this->addFlash('check', $this->translator->trans('validation register sent confirmation', [], 'security'));
-
-                /**
-                 * TEST PURPOSE
-                 */
-                //exit("/fr/user/register/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
-
-                // redirect user
-                return $this->redirectToRoute('security_connexion');
-            } else {
-                //Add error message
-                $this->addFlash('error', $error[0]->getMessage());
-            }
+        // check form data
+        if ($form->isSubmitted() && $this->isOk($form->getErrors()) && $form->isValid() && $userManager->register($user)) {
+            // redirect user
+            return $this->redirectToRoute('security_connexion');
         }
 
         // Display form view
         return $this->render(
             'security/register.html.twig',
-            [
-                'form' => $form->createView(),
-                'last_email' => $user->getEmail(),
-            ]
+            ['form' => $form->createView()]
         );
     }
 
@@ -199,24 +149,14 @@ class SecurityController extends Controller
      *     methods={"GET"}
      * )
      *
+     * @param UserManager $userManager
+     *
      * @return Response
      */
-    public function registerValidation()
+    public function registerValidation(UserManager $userManager)
     {
-        // recover user from request
-        $user = $this->getUserFromRequest();
-
-        $this->checkAccountStatus($user, ['checkAlreadyValidated']);
-
-        // remove token and enable account
-        $user->removeToken()
-            ->setActive();
-
-        // insert into database
-        $this->save($user);
-
-        // set register validation ok message
-        $this->addFlash('check', $this->translator->trans('validation register confirmation', [], 'security'));
+        //validate the registration
+        $userManager->registerValidation();
 
         // redirect user
         return $this->redirectToRoute('security_connexion');
@@ -235,92 +175,34 @@ class SecurityController extends Controller
      *     methods={"GET","POST"}
      * )
      *
-     * @param Request             $request
      * @param AuthenticationUtils $authenticationUtils
+     * @param Request             $request
+     * @param UserManager         $userManager
      *
      * @return Response
      */
-    public function recoverRequest(Request $request, AuthenticationUtils $authenticationUtils)
+    public function recoverRequest(AuthenticationUtils $authenticationUtils, Request $request, UserManager $userManager)
     {
-        // New user registration
-        $user = new User();
-
-        //set fake data to prevent validator trouble
-        $user
-            ->setLastName("FakeForValidator")
-            ->setFirstName("FakeForValidator")
-            ->setPassword("FakeForValidator");
+        $email = $this
+                ->request->cookies
+                ->get(SiteConfig::COOKIEUSERNAME) ?? $authenticationUtils->getLastUsername();
 
         // create the user form
-        $form = $this->createForm(UserRecoverType::class, $user);
+        $form = $this->createForm(UserRecoverType::class, null, ['last_email' => $email]);
 
         // post data manager
         $form->handleRequest($request);
 
         // check form data
-        if ($form->isSubmitted()) {
-            $error = $form->getErrors();
-
-            /*
-            echo "FORM IS VALID ? ".$form->isValid();
-            var_dump($form);
-            exit();
-            */
-
-
-            if (count($error) === 0) {
-                // get repo author
-                $repositoryArticle = $this->getDoctrine()->getRepository(User::class);
-
-                // get posted email
-                $email = $form->getData()->getEmail();
-
-                // get author from email
-                $user = $repositoryArticle->findOneBy(['email' => $email]);
-
-                // author not found
-                if (!$user) {
-                    //set error message
-                    $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
-                    // redirect user
-                    return $this->redirectToRoute('security_recover', ['last_email' => $email]);
-                }
-
-                // create a token
-                $user->setToken();
-
-                // insert into database
-                $this->save($user);
-
-                // send the mail
-                $this->send(
-                    SiteConfig::SECURITYMAIL,
-                    $email,
-                    'mail/security/recover.html.twig',
-                    SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security'),
-                    $user
-                );
-
-                // set register validation ok message
-                $this->addFlash('check', $this->translator->trans('validation recover sent confirmation', [], 'security'));
-
-                /**
-                 * TEST PURPOSE
-                 */
-                //exit("/fr/user/password/validation.html?email=" . $user->getEmail() . "&token=" . $user->getToken());
-
-                // redirect user
-                return $this->redirectToRoute('security_connexion');
-            } else {
-                //Add error message
-                $this->addFlash('error', $error[0]->getMessage());
-            }
+        if ($form->isSubmitted() && $this->isOk($form->getErrors()) && $form->isValid() && $userManager->recover($form->get('email')->getData())) {
+            // redirect user
+            return $this->redirectToRoute('security_connexion');
         }
 
         // Display form view
         return $this->render('security/recover.html.twig', [
             'form' => $form->createView(),
-            'last_email' => $authenticationUtils->getLastUsername(),
+            'last_email' => $email,
         ]);
     }
 
@@ -336,20 +218,18 @@ class SecurityController extends Controller
      *     methods={"GET","POST"}
      * )
      *
-     * @param Request                      $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param UserManager $userManager
+     * @param Request     $request
      *
      * @return Response
      */
-    public function recoverValidation(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function recoverValidation(UserManager $userManager, Request $request)
     {
-        //init request for test
-        $this->request = $request;
+        // check user token
+        $user = $userManager->checkValidation();
 
-        // recover user from request
-        $user = $this->getUserFromRequest();
-
-        if (!$this->checkAccountStatus($user, ['checkIfTokenExpired'])) {
+        //redirct if user not valid
+        if (!$user) {
             return $this->redirectToRoute('security_connexion');
         }
 
@@ -359,156 +239,15 @@ class SecurityController extends Controller
         // post data manager
         $form->handleRequest($request);
 
-        // check form datas
-        if ($form->isSubmitted()) {
-            $error = $form->getErrors();
-
-            /*
-            echo "FORM IS VALID ? ".$form->isValid();
-            var_dump($form);
-            exit();
-            */
-
-            if (count($error) === 0) {
-                // password encryption
-                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-
-                // change password into database
-                $user
-                    ->setPassword($password)
-                    ->removeToken()
-                    ->setActive();
-
-                // insert into database
-                $this->save($user);
-
-                // set register validation ok message
-                $this->addFlash('check', $this->translator->trans('validation password changed', [], 'security'));
-
-
-                // redirect user
-                return $this->redirectToRoute('security_connexion');
-            } else {
-                //Add error message
-                $this->addFlash('error', $error[0]->getMessage());
-            }
+        // check form data
+        if ($form->isSubmitted() && $this->isOk($form->getErrors()) && $form->isValid() && $userManager->recoverValidation($user)) {
+            // redirect user
+            return $this->redirectToRoute('security_connexion');
         }
 
         // Display form view
         return $this->render('security/password.html.twig', [
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @param null|User $user
-     * @param array     $extraCheck
-     *
-     * @return bool
-     */
-    private function checkAccountStatus(?User $user, array $extraCheck = []): bool
-    {
-        // user not found
-        if (!$user) {
-            $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
-
-            return false;
-        }
-
-        // checkif user is banned
-        if ($user->isBanned()) {
-            $this->addFlash('error', $this->translator->trans('account is unfindable', [], 'security'));
-
-            return false;
-        }
-
-        // checkif user is closed
-        if ($user->isClosed()) {
-            $this->addFlash('error', $this->translator->trans('account is closed', [], 'security'));
-
-            return false;
-        }
-
-        // Extra custom check
-        foreach ($extraCheck as $check) {
-            if (!$this->$check($user)) {
-                return false;
-            }
-        }
-
-        // else it is ok
-        return true;
-    }
-
-
-    /**
-     * @param User $user
-     *
-     * @return bool
-     */
-    private function checkAlreadyValidated(User $user): bool
-    {
-        // check if account already registered
-        if ($user->isEnabled()) {
-            $this->addFlash('warning', $this->translator->trans('account is already activated', [], 'security'));
-
-            return false;
-        }
-
-        // else check token
-        return $this->checkToken($user);
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return bool
-     */
-    private function checkIfTokenExpired(User $user): bool
-    {
-        // check if account already registered
-        if ($user->isTokenExpired()) {
-            $this->addFlash('warning', $this->translator->trans('account is expired token', [], 'security'));
-
-            return false;
-        }
-
-        // else check token
-        return $this->checkToken($user);
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return bool
-     */
-    private function checkToken(User $user): bool
-    {
-
-        $isValid = $user->getToken() === $this->request->query->get('token');
-
-        // check if is valid token
-        if (!$isValid) {
-            $this->addFlash('error', $this->translator->trans('account token is not valid', [], 'security'));
-        }
-
-        return $isValid;
-    }
-
-    /**
-     * @return null|User
-     */
-    private function getUserFromRequest(): ?User
-    {
-        // get request info
-        $email = $this->request->query->get('email');
-
-        // getUserFromEmail
-        $reposirotyUser = $this->getDoctrine()->getRepository(User::class);
-
-        /** @var User $user */
-        $user = $reposirotyUser->findOneByEmail($email);
-
-        return $user;
     }
 }

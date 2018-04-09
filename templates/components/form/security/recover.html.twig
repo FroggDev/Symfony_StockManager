@@ -9,20 +9,24 @@
         {% include 'components/flashbags.html.twig' %}
 
         <div class="row">
-
         {{ form_start(form) }}
 
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                    <input value="{{ last_email }}" id="user_recover_email" type="email" name="user_recover[email]" required="required" class="validate">
+                    {{ form_widget(form.email) }}
                     <label for="user_recover_email">{{ "label email" | trans }}</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12 right-align">
-                    <button class="btn waves-effect waves-light btn-large" name="user_recover[submit]" type="submit">
+
+                    <!--
+                    /!\ DO NOT SET THE NAME ELSE IT CONSIDER AS NEW FIELD INJECTED AFTER SUBMIT /!\
+                    button class="btn waves-effect waves-light btn-large" name="user_recover[submit]" type="submit"
+                    -->
+                    <button class="btn waves-effect waves-light btn-large" type="submit">
                         {{ "recover button" | trans }}
                         <i class="material-icons right">send</i>
                     </button>
@@ -30,7 +34,6 @@
             </div>
 
         {{ form_end(form) }}
-        {#{ form_end(form, {'render_rest': false}) }#}
         </div>
     </div>
 </main>

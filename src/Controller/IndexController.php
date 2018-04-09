@@ -22,6 +22,7 @@
  * extension=php_fileinfo.dll for guessExtension()
  * extension=mysqli for Doctrine
  * extension=pdo_mysql for Doctrine
+ * extension=intl for swift mailer
  */
 
 /**
@@ -42,7 +43,7 @@
 namespace App\Controller;
 
 use App\Common\Traits\Client\ResponseTrait;
-use App\Service\LocaleService;
+use App\Service\LocaleManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -50,13 +51,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * TODO :
- * https://symfony.com/doc/current/security/remember_me.html
- * add functionnality : force to login/password when edit content
- *
- * TODO bug security yaml secret remember me ?
- * TODO how to login with csr ? https://symfony.com/doc/master/security/form_login_setup.html
- * (connexion.html.twig)
+ * TODO : add functionnality : force to login/password when edit content
  */
 
 /**
@@ -77,16 +72,19 @@ class IndexController extends Controller
      * )
      * @return Response
      */
-    public function default(): Response
+    public function default(LocaleManager $localeService)
     {
-        return $this->redirect($this->generateUrl('index'), Response::HTTP_MOVED_PERMANENTLY);
+        return $localeService->changeDefaultLocale();
     }
 
     /**
      * Main page route
      *
      * @Route(
-     *     "/{_locale<fr|en>}",
+     *     {
+     *     "fr": "/accueil.html",
+     *     "en": "/home.html"
+     *     },
      *     name="index"
      * )
      * @return Response
@@ -107,18 +105,17 @@ class IndexController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/{_locale<fr|en>?fr}/langue.html",
-     *     "en": "/{_locale<fr|en>?en}/locale.html"
+     *     "fr": "/langue.html",
+     *     "en": "/locale.html"
      *     },
      *     name="change_locale",
      *     methods={"GET"}
      * )
-     * @param Request       $request
-     * @param LocaleService $localeService
+     * @param LocaleManager $localeService
      *
      * @return Response
      */
-    public function changeLocale(Request $request, LocaleService $localeService)
+    public function changeLocale(LocaleManager $localeService)
     {
         // Return current route changed to other lang
         return $localeService->changeSelectedLocale();

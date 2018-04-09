@@ -27,14 +27,20 @@ class UserPasswordType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('password', PasswordType::class)
-            ->add('submit', SubmitType::class)
-            ->getForm();
+            ->add(
+                'password',
+                PasswordType::class,
+                [
+                    'attr' => [
+                        'class' => 'validate',
+                    ],
+                ]
+            );
     }
 
     /**

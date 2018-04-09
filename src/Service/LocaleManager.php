@@ -12,6 +12,7 @@ namespace App\Service;
 
 use App\Common\Traits\Client\BrowserTrait;
 use App\SiteConfig;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -21,7 +22,7 @@ use Symfony\Component\Routing\RouterInterface;
 /**
  * @author Frogg <admin@frogg.fr>
  */
-class LocaleService
+class LocaleManager
 {
     use BrowserTrait;
 
@@ -36,6 +37,8 @@ class LocaleService
     private $currentLocale;
     /** @var string */
     private $uri;
+    /** @var bool  */
+    private $addCookie=false;
 
     /**
      * LocaleService constructor.
@@ -55,39 +58,30 @@ class LocaleService
      */
     public function changeSelectedLocale(): Response
     {
-        var_dump("changeSelectedLocale");
-        //exit();
+        //As requested by user, set cookie for it
+        $this->addCookie = true;
 
         return $this
             ->setRequestedLocale()
-            ->setLocale()
-            ->doRedirectResponse($this->request->headers->get('referer'));
+            ->setCurrentLocale()
+            ->setSystemLocale()
+            ->setRedirectUri($this->request->headers->get('referer'))
+            ->setResponse();
     }
 
     /**
      * Restore default locale to user when coming back on the website
+     *
+     * @return Response
      */
-    public function changeDefaultLocale(): void
+    public function changeDefaultLocale()
     {
-        var_dump("changeDefaultLocale");
-        //exit();
+        //init locales
+        $this->setUserLocale();
 
-        $uri = $this->request->getRequestUri();
+        $this->uri = $this->router->generate('index', ['_locale' => $this->newLocale]);
 
-        // do stuff only for the master request & not a /_ request (symfony debug stuff)
-        if (substr($uri, 0, 2) !== "/_") {
-            $this
-                ->setUserLocale()
-                ->setLocale();
-
-            var_dump("TEST !".$this->currentLocale." VS ".$this->newLocale);
-            //exit();
-
-            // Check locale
-            if ($this->currentLocale !== $this->newLocale) {
-                $this->doRedirectResponse($uri);
-            }
-        }
+        return $this->setResponse();
     }
 
     /**
@@ -97,38 +91,30 @@ class LocaleService
      */
     private function setResponse(): Response
     {
-        var_dump("SET RESPONSE TO ");
-        var_dump($this->uri);
+        $response = new RedirectResponse($this->uri, Response::HTTP_MOVED_PERMANENTLY);
 
-        return new RedirectResponse($this->uri, Response::HTTP_MOVED_PERMANENTLY);
-    }
+        if ($this->addCookie) {
+            $response->headers->setCookie(
+                new Cookie(
+                    SiteConfig::COOKIELOCALENAME,
+                    $this->newLocale,
+                    // 24 * 60 * 60 = 86400 = 1 day
+                    time() + (SiteConfig::COOKIELOCALEVALIDITY * 24 * 60 * 60)
+                )
+            );
+        }
 
-    /**
-     * do the redirect based on the uri
-     * @param string $uri
-     *
-     * @return Response
-     */
-    private function doRedirectResponse(string $uri): Response
-    {
-        return $this
-            ->setCookie()
-            ->setSystemLocale()
-            ->setRedirectUri($uri)
-            ->setResponse();
+        return $response;
     }
 
     /**
      * Set Uri from referer
      * @param string $originalUri
      *
-     * @return LocaleService
+     * @return LocaleManager
      */
-    private function setRedirectUri(string $originalUri): LocaleService
+    private function setRedirectUri(string $originalUri): LocaleManager
     {
-
-        var_dump("ORIGINAL URI");
-        var_dump($originalUri);
 
         //get route from uri
         $route = $this->router->match(
@@ -140,25 +126,8 @@ class LocaleService
         )['_route'];
 
 
-        var_dump("BEFORE GENERATION");
-        var_dump($route);
-        var_dump($this->newLocale);
-
         //set uri from route (as lang has been set the new route will be the same but translated
         $this->uri = $this->router->generate($route, ['_locale' => $this->newLocale]);
-
-        var_dump("AFTER GENERATION");
-        var_dump($this->uri);
-
-        var_dump("LOCALE FROM REQUEST");
-        var_dump($this->request->getLocale());
-
-        /* BIDOUILLE !!! */
-        var_dump("SEARCH "."/".$this->currentLocale."/");
-        var_dump("REPLACE "."/".$this->newLocale."/");
-        var_dump("IN ".$this->uri);
-        $this->uri = str_replace("/".$this->currentLocale."/", "/".$this->newLocale."/", $this->uri);
-        var_dump("RESULT ".$this->uri);
 
         // fluent
         return $this;
@@ -167,16 +136,12 @@ class LocaleService
     /**
      * set current locale
      *
-     * @return LocaleService
+     * @return LocaleManager
      */
-    private function setLocale(): LocaleService
+    private function setCurrentLocale(): LocaleManager
     {
         // get current local
         $this->currentLocale = $this->request->getLocale();
-
-        var_dump("Current locale");
-        var_dump($this->currentLocale);
-
 
         // fluent
         return $this;
@@ -185,12 +150,12 @@ class LocaleService
     /**
      * get user locale from cookie or browser or default
      *
-     * @return LocaleService
+     * @return LocaleManager
      */
-    private function setUserLocale(): LocaleService
+    private function setUserLocale(): LocaleManager
     {
         // check if lang are set as arguments, then check in cookies
-        $this->newLocale = $_COOKIE[SiteConfig::COOKIELOCALENAME] ?? $this->getUserBrowserLangs() ?? $this->request->getDefaultLocale();
+        $this->newLocale = $this->request->cookies->get(SiteConfig::COOKIELOCALENAME) ?? $this->getUserBrowserLangs() ?? $this->request->getDefaultLocale();
 
         // fluent
         return $this;
@@ -199,29 +164,12 @@ class LocaleService
     /**
      * set user locale
      *
-     * @return LocaleService
+     * @return LocaleManager
      */
-    private function setRequestedLocale(): LocaleService
+    private function setRequestedLocale(): LocaleManager
     {
         // get selected locale from user choice
         $this->newLocale = $this->request->get(SiteConfig::COOKIELOCALENAME);
-
-        var_dump("newLocale");
-        var_dump($this->newLocale);
-
-        // fluent
-        return $this;
-    }
-
-    /**
-     * set user cookie with locale
-     *
-     * @return LocaleService
-     */
-    private function setCookie(): LocaleService
-    {
-        // Update cookiez
-        setcookie(SiteConfig::COOKIELOCALENAME, $this->newLocale, time() + (SiteConfig::COOKIELOCALEVALIDITY * 24 * 60 * 60), "/"); // 24 * 60 * 60 = 86400 = 1 day
 
         // fluent
         return $this;
@@ -230,9 +178,9 @@ class LocaleService
     /**
      * set system locale
      *
-     * @return LocaleService
+     * @return LocaleManager
      */
-    private function setSystemLocale(): LocaleService
+    private function setSystemLocale(): LocaleManager
     {
         // some logic to determine the $locale
         $this->request->setLocale($this->newLocale);

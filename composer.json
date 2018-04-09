@@ -27,6 +27,7 @@
         "symfony/flex": "^1.0",
         "symfony/form": "dev-master",
         "symfony/framework-bundle": "dev-master",
+        "symfony/intl": "dev-master",
         "symfony/maker-bundle": "^1.0@dev",
         "symfony/monolog-bundle": "^3.0@dev",
         "symfony/orm-pack": "dev-master",

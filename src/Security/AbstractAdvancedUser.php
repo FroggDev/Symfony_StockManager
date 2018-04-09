@@ -44,6 +44,16 @@ abstract class AbstractAdvancedUser implements UserInterface
     /** @var int $status */
     protected $status;
 
+    /*###########
+    # Abstracts #
+    ###########*/
+
+    /**
+     * @return AbstractAdvancedUser
+     */
+    abstract public function setToken() : AbstractAdvancedUser;
+
+
     /*###############
     # Getter/Setter #
     ################*/
