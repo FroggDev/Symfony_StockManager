@@ -1,0 +1,38 @@
+{% extends "template.html.twig" %}
+
+{% trans_default_domain 'stock_home' %}
+
+{% block page_title "stock home title" | trans %}
+
+{# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
+
+{% block main %}
+    {{ parent() }}
+    {# Content #}
+    <main class="container main">
+        <div class="section">
+
+            {# TODO !!#}
+            <div class="right hide-on-large-only"><a href="productlistdetail.html"><span class="new badge red" data-badge-caption="expire soon">(7)</span></a></div>
+
+            <h1 class="teal-text text-lighten-2">{{ "stock home title" | trans }}</h1>
+
+            <div class="row homeIcon">
+                <div class="col s6 l3">
+                    <a href="{{ path("stock_add") }}"><img class="tooltipped" data-position="bottom" data-tooltip="{{ "add to stock" | trans }}" src="{{ asset('img/icons/product_add.png') }}" width="100%"/></a>
+                </div>
+                <div class="col s6 l3">
+                    <a href="{{ path("stock_del") }}"><img class="tooltipped" data-position="bottom" data-tooltip="{{ "del from stock" | trans }}" src="{{ asset('img/icons/product_del.png') }}" width="100%"/></a>
+                </div>
+                <div class="col s6 l3">
+                    <a href="{{ path("stock_list") }}"><img class="tooltipped" data-position="bottom" data-tooltip="{{ "stock list" | trans }}" src="{{ asset('img/icons/product_list.png') }}" width="100%"/></a>
+                </div>
+                <div class="col s6 l3">
+                    {# TODO !!#}
+                    <a href="#"><img class="tooltipped" data-position="bottom" data-tooltip="View stock stats" src="{{ asset('img/icons/product_stats.png') }}" width="100%"/></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{%  endblock %}

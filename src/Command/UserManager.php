@@ -241,8 +241,6 @@ class UserManager extends Command
      */
     private function displayUserList(): void
     {
-        $display = [];
-
         // GET USER INFOS
         $entity = SiteConfig::USERENTITY;
         $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll(true);

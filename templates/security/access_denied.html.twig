@@ -1,18 +1,13 @@
+{% extends "template.html.twig" %}
+
 {% trans_default_domain 'error_page' %}
 
-{% extends "base.html.twig" %}
-
-{% block page_title %}
-    {{ "access denied title" | trans }}
-{% endblock %}
+{% block page_title "access denied title" | trans %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
-{% block html %}
-
-    {# Menu #}
-    {% include 'components/common/nav.html.twig' %}
-
+{% block main %}
+    {{ parent() }}
     {# Content #}
     <main class="container main">
         <div class="section center">
@@ -29,8 +24,4 @@
 
         </div>
     </main>
-
-    {# Footer #}
-    {% include 'components/common/footer_mini.html.twig' %}
-
 {%  endblock %}

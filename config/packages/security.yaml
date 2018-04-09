@@ -74,7 +74,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # require ROLES for /admin
-        - { path: /product/, roles: [ ROLE_MEMBER ] }
+        - { path: /mon-stock/, roles: [ ROLE_MEMBER ] }
+        - { path: /my-stock/, roles: [ ROLE_MEMBER ] }
         - { path: /admin/,   roles: [ ROLE_ADMIN ] }
 
     role_hierarchy:

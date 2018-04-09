@@ -1,0 +1,7 @@
+{% trans_default_domain 'security_mail' %}
+
+{{ 'recover title' | trans  }}
+
+{{ 'recover message' | trans  }}
+
+{{ url('security_recover_validation') }}?email={{ data.email }}&token={{ data.token }}

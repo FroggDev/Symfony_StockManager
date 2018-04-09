@@ -93,11 +93,11 @@ class IndexController extends Controller
     {
         //displayed logged home if logged
         if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
-             return $this->redirect($this->generateUrl('index_logged'), Response::HTTP_MOVED_PERMANENTLY);
+             return $this->redirect($this->generateUrl('stock_home'), Response::HTTP_MOVED_PERMANENTLY);
         }
 
         // display page from twig template
-        return $this->render('index.html.twig', []);
+        return $this->render('index.html.twig');
     }
 
     /**

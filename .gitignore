@@ -15,3 +15,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-pack ###
+
+###> Stats export ###
+/public/output
+###< Stats export ###

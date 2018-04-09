@@ -32,27 +32,17 @@ class MailerManager
      * @param string $to       mail to
      * @param string $template twig template to display in the mail
      * @param string $subject  mail subject
-     * @param object $data     mail extra data to send to the twig template
      *
      * @see https://symfony.com/doc/current/email/dev_environment.html
      * @see  Controller & injection __construct(\Swift_Mailer $mailer)
      */
-    public function send(string $from, string $to, string $bodyhtml, string $bodytxt, string $subject, $data): void
+    public function send(string $from, string $to, string $bodyhtml, string $bodytxt, string $subject): void
     {
         $message = (new \Swift_Message($subject))
             ->setFrom($from)
             ->setTo($to)
-            ->setBody($bodyhtml, 'text/html')/*
-             * If you also want to include a plaintext version of the message
-            ->addPart(
-                $this->renderView(
-                    'emails/registration.txt.twig',
-                    array('name' => $name)
-                ),
-                'text/plain'
-            )
-            */
-        ;
+            ->setBody($bodyhtml, 'text/html')
+            ->addPart($bodytxt, 'text/plain');
 
         $this->mailer->send($message);
     }

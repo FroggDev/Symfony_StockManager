@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "template.html.twig" %}
 
 {% trans_default_domain 'security_form' %}
 
@@ -6,18 +6,45 @@
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
-{% block html %}
-
-    {# Menu #}
-    {% include 'components/common/nav.html.twig' %}
-
-    {# Parallax #}
-    {% include 'components/common/parallax_mini.html.twig' %}
-
+{% block main %}
+    {{ parent() }}
     {# Content #}
-    {% include 'components/form/security/recover.html.twig' %}
+    <main class="container main">
+        <div class="section">
 
-    {# Footer #}
-    {% include 'components/common/footer_mini.html.twig' %}
+            <h1 class="teal-text text-lighten-2">{{ "recover title" | trans }}</h1>
+
+            {# Flash bags #}
+            {% include 'components/flashbags.html.twig' %}
+
+            <div class="row">
+                {{ form_start(form) }}
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        {{ form_widget(form.email) }}
+                        <label for="user_recover_email">{{ "label email" | trans }}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 right-align">
+
+                        <!--
+                        /!\ DO NOT SET THE NAME ELSE IT CONSIDER AS NEW FIELD INJECTED AFTER SUBMIT /!\
+                        button class="btn waves-effect waves-light btn-large" name="user_recover[submit]" type="submit"
+                        -->
+                        <button class="btn waves-effect waves-light btn-large" type="submit">
+                            {{ "recover button" | trans }}
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </main>
 
 {%  endblock %}

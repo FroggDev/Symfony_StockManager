@@ -19,7 +19,7 @@
       </trans-unit>
       <trans-unit id="vTaTVzC" resname="recover message">
         <source>recover message</source>
-        <target>__recover message</target>
+        <target>Une demande déinitialisation de mot de passe a été effectuée.\nSi vous n'êtes pas à l'origine de cette demande merci d'ignorer ce mail.\n\nFrogg.fr prend très au sérieux la sécurité de votre compte. Frogg.fr ne vous adressera jamais d'e-mail pour vous demander d'indiquer ou pour vérifier votre mot de passe Amazon, votre numéro de carte de crédit ou de compte bancaire. Si vous recevez un e-mail suspect comportant un lien pour mettre à jour les informations de votre compte, ne cliquez pas sur le lien—. Au lieu de cela, signalez cet e-mail à Amazon afin que nous puissions l'examiner.\n\nVous trouverez ci dessous le lien pour reinitialiser votre mot de passe :</target>
       </trans-unit>
       <trans-unit id="qHtAVOR" resname="recover button validation">
         <source>recover button validation</source>
@@ -31,7 +31,7 @@
       </trans-unit>
       <trans-unit id="v6MO5iN" resname="register message">
         <source>register message</source>
-        <target>__register message</target>
+        <target>Ce mail vous a été adressé car vous avez effectué une demande de creation de compte.\nAfin de terminer votre inscription, vous trouverez un lien ci dessous pour valider votre email et finaliser votre inscription :</target>
       </trans-unit>
       <trans-unit id="nJahiSs" resname="register button validation">
         <source>register button validation</source>

@@ -1,0 +1,7 @@
+{% trans_default_domain 'security_mail' %}
+
+{{ 'register title' | trans }}
+
+{{ 'register message' | trans }}
+
+{{ url('security_register_validation') }}?email={{ data.email }}&token={{ data.token }}

@@ -10,6 +10,7 @@
 
 namespace App\Controller;
 
+use App\Common\Traits\Client\UserTrait;
 use App\Common\Traits\Controller\FormCheckTrait;
 use App\Entity\User;
 use App\Form\Security\UserPasswordType;
@@ -33,14 +34,15 @@ use Symfony\Component\Translation\TranslatorInterface;
  * Inline configuration
  * @see https://symfony.com/blog/new-in-symfony-4-1-inlined-routing-configuration
  *
- * Manual crsf login form
- * @see https://symfony.com/doc/master/security/form_login_setup.html
- *
- * Remeber me on login screen
- * @see https://symfony.com/doc/current/security/remember_me.html
- *
  * Internationalized Routing
  * @see https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
+ *
+ * Manual crsf login form
+ * @see https://symfony.com/doc/master/security/form_login_setup.html
+ * @see https://symfony.com/doc/current/security/csrf.html
+ *
+ * Remember me on login screen
+ * @see https://symfony.com/doc/current/security/remember_me.html
  *
  *
  * @Route(
@@ -55,6 +57,8 @@ class SecurityController extends Controller
 {
 
     use FormCheckTrait;
+
+    use UserTrait;
 
     /**
      * User login
@@ -127,7 +131,7 @@ class SecurityController extends Controller
         // check form data
         if ($form->isSubmitted() && $this->isOk($form->getErrors()) && $form->isValid() && $userManager->register($user)) {
             // redirect user
-            return $this->redirectToRoute('security_connexion');
+            return $this->setCookieResponse($user->getEmail());
         }
 
         // Display form view
@@ -183,9 +187,7 @@ class SecurityController extends Controller
      */
     public function recoverRequest(AuthenticationUtils $authenticationUtils, Request $request, UserManager $userManager)
     {
-        $email = $this
-                ->request->cookies
-                ->get(SiteConfig::COOKIEUSERNAME) ?? $authenticationUtils->getLastUsername();
+        $email = $request->cookies->get(SiteConfig::COOKIEUSERNAME) ?? $authenticationUtils->getLastUsername();
 
         // create the user form
         $form = $this->createForm(UserRecoverType::class, null, ['last_email' => $email]);
@@ -196,7 +198,7 @@ class SecurityController extends Controller
         // check form data
         if ($form->isSubmitted() && $this->isOk($form->getErrors()) && $form->isValid() && $userManager->recover($form->get('email')->getData())) {
             // redirect user
-            return $this->redirectToRoute('security_connexion');
+            return $this->setCookieResponse($form->get('email')->getData());
         }
 
         // Display form view
@@ -228,7 +230,7 @@ class SecurityController extends Controller
         // check user token
         $user = $userManager->checkValidation();
 
-        //redirct if user not valid
+        //redirect if user not valid
         if (!$user) {
             return $this->redirectToRoute('security_connexion');
         }
@@ -242,12 +244,29 @@ class SecurityController extends Controller
         // check form data
         if ($form->isSubmitted() && $this->isOk($form->getErrors()) && $form->isValid() && $userManager->recoverValidation($user)) {
             // redirect user
-            return $this->redirectToRoute('security_connexion');
+            return $this->setCookieResponse($user->getEmail());
         }
 
         // Display form view
         return $this->render('security/password.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /*########
+     # Utils #
+     ########*/
+
+    /**
+     * @param string $email
+     *
+     * @return Response
+     */
+    private function setCookieResponse(string $email) : response
+    {
+        $response = $this->redirectToRoute('security_connexion');
+        $response->headers->setCookie($this->getUserCookie($email));
+
+        return $response;
     }
 }

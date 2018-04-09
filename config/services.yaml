@@ -39,14 +39,6 @@ services:
     # creating alias for RoleHierarchyInterface used in App\Command\UserManagerComplex
     Symfony\Component\Security\Core\Role\RoleHierarchy: '@security.role_hierarchy'
 
-    ################
-    # Swift Mailer #
-    ################
-
-    app.mail.register:
-        class: App\Controller\SecurityController
-        arguments:
-            - "@swiftmailer.mailer"
 
     ###################
     # TWIG EXTENSIONS #
@@ -70,12 +62,31 @@ services:
         tags:
             - { name: 'kernel.event_listener', event: 'security.interactive_login' }
 
-
+    # =======================================
+    # ! NO MORE NEEDED WITH 4.1 !
+    #========================================
+    #
+    #
     ############
     # SERVICES #
     ############
-    app.service.locale:
-       class: App\Service\LocaleService
-       arguments:
-           - "@router"
-           - "@request"
+    #
+    # NO MORE NEEDED WITH 4.1 !
+    #app.service.locale:
+    #   class: App\Service\LocaleManager
+    #   arguments:
+    #       - "@router"
+    #       - "@request"
+    #
+    #app.service.user:
+    #   class: App\Service\UserManager
+    #   arguments:
+    #       - "@twig"
+    ###############
+    #Swift Mailer #
+    ###############
+    #
+    #app.mail.register:
+    #    class: App\Controller\SecurityController
+    #    arguments:
+    #    - "@swiftmailer.mailer"

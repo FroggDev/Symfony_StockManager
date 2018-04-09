@@ -1,8 +1,4 @@
-{% trans_default_domain 'unregistred_index' %}
-
 {% extends "base.html.twig" %}
-
-{% block page_title 'page title' | trans %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
@@ -12,11 +8,11 @@
 {% endblock %}
 
 {% block main %}
-    {# Content #}
-    {% include 'components/home/index.html.twig' %}
+    {# Parallaxe top #}
+    {% include 'components/common/parallax_mini.html.twig' %}
 {%  endblock %}
 
 {% block footer %}
     {# Footer #}
-    {% include 'components/common/footer.html.twig' %}
+    {% include 'components/common/footer_mini.html.twig' %}
 {%  endblock %}

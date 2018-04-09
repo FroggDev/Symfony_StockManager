@@ -110,20 +110,15 @@ class User extends AbstractAdvancedUser
      */
     protected $status;
 
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
     /**
      * When User account is closed or banned
      * @ORM\Column(type="datetime",nullable=true)
      */
     protected $dateClosed;
 
-    /*#########
-    # Methods #
-    ##########*/
+    /*#############
+    # Constructor #
+    ##############*/
 
     /**
      * User constructor.
@@ -136,6 +131,18 @@ class User extends AbstractAdvancedUser
         $this->dateInscription = new \DateTime();
         //by default account is not active and has to be validated by email
         $this->setInactive();
+    }
+
+    /*#########
+    # Methods #
+    ##########*/
+
+    /**
+     * @return int
+     */
+    public function getStatus() : int
+    {
+        return $this->status;
     }
 
 
@@ -377,7 +384,7 @@ class User extends AbstractAdvancedUser
     /**
      * @return User
      */
-    public function setToken(): User
+    public function setToken(): AbstractAdvancedUser
     {
         /*
          * Another way to create the unique token could be

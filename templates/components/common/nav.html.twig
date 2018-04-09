@@ -1,4 +1,4 @@
-{% trans_default_domain 'unregistred_nav' %}
+{% trans_default_domain 'nav' %}
 <!-- Dropdown Structure -->
 <ul id="dropdownlang" class="dropdown-content">
     <li><a href="{{ path('change_locale', { '_locale' :'fr','locale' :  'fr' }) }}"><span class="flag-icon flag-icon-fr"></span> {{ "fr" | trans }}</a></li>
@@ -10,31 +10,52 @@
     <li class="divider"></li>
     <li><a href="{{ path('change_locale', { '_locale' :'en','locale' :  'en' }) }}"><span class="flag-icon flag-icon-en"></span> {{ "langen" | trans }}</a></li>
 </ul>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<ul id="dropdownprofile" class="dropdown-content">
+    <li><a href="#">{{ "account" | trans }}</a></li>
+    <li class="{{ getActiveMenu('account_option') }}"><a href="{{path('account_option') }}">{{ "stock option" | trans }}</a></li>
+    <li class="divider"></li>
+    <li><a href="{{path('security_logout') }}">{{ "log out" | trans }}</a></li>
+</ul>
+{% endif %}
 
 <nav role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="{{ path('index') }}" class="brand-logo"><img src="{{ asset('img/stock-manager_logo.png') }}"></a>
         <ul>
             <li class="right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownlang"><span class="flag-icon flag-icon-{{ app.request.locale }}"></span><i class="material-icons right">arrow_drop_down</i></a></li>
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {# getActiveMenu for each in dropdownprofile #}
+            <li class="{{ getActiveMenu('account_option') }}right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownprofile"><i class="material-icons left">account_circle</i> My profile</a></li>
+            {% else %}
             <li class="{{ getActiveMenu('security_connexion') }}right hide-on-med-and-down"><a href="{{ path('security_connexion') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
-            <li class="{{ getActiveMenu('index') }}right hide-on-med-and-down"><a href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a>
-            </li>
+            {% endif %}
+
+            <li class="{{ getActiveMenu('index') }}right hide-on-med-and-down"><a href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
             <li class="{{ getActiveMenu('index') }}hide-on-large-only"><a href="{{ path('index') }}"><i class="material-icons">home</i></a></li>
+
+            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="{{ getActiveMenu('security_connexion') }}hide-on-large-only"><a href="{{ path('security_connexion') }}"><i class="material-icons">account_circle</i></a></li>
+            {% endif %}
         </ul>
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
             <li><a class="{{ getActiveMenu('index') }}" href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
-            <li><a class="{{ getActiveMenu('security_connexion') }}" href="{{ path('security_connexion') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
             <li class="divider"></li>
-            <li>
-                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
-                    <span class="flag-icon flag-icon-{{ app.request.locale }}"></span>
-                    <i class="material-icons right">arrow_drop_down</i>
-                    {{ ("lang" ~ app.request.locale) | lower | trans }}
-                </a>
-            </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li><a class="{{ getActiveMenu('stock_add') }}" href="{{ path('stock_add') }}"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
+            <li><a class="{{ getActiveMenu('stock_del') }}" href="{{ path('stock_del') }}"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
+            <li><a class="{{ getActiveMenu('stock_list') }}" href="{{ path('stock_list') }}"><i class="material-icons left">assignment</i>Product list</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a class="{{ getActiveMenu('account_option') }}" href="{{ path('account_option') }}"><i class="material-icons left">settings</i>My Stock Option</a></li>
+            {% else %}
+            <li><a class="{{ getActiveMenu('security_connexion') }}" href="{{ path('security_connexion') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
+            {% endif %}
+            <li class="divider"></li>
+            <li><a class="dropdown-trigger" href="#" data-target="dropdownlangmobile"><span class="flag-icon flag-icon-{{ app.request.locale }}"></span><i class="material-icons right">arrow_drop_down</i> {{ ("lang" ~ app.request.locale) | lower | trans }}</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
     </div>

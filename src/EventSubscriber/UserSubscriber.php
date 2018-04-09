@@ -10,12 +10,11 @@
 
 namespace App\EventSubscriber;
 
+use App\Common\Traits\Client\UserTrait;
 use App\Entity\User;
-use App\SiteConfig;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
@@ -26,6 +25,9 @@ use Symfony\Component\Security\Http\SecurityEvents;
  */
 class UserSubscriber implements EventSubscriberInterface
 {
+
+    use UserTrait;
+
     /** @var EntityManagerInterface */
     private $eManager;
 
@@ -38,7 +40,7 @@ class UserSubscriber implements EventSubscriberInterface
     /**
      * LoginSubscriber constructor.
      * @param EntityManagerInterface   $eManager
-     * @param EventDispatcherInterface $dispatche
+     * @param EventDispatcherInterface $dispatcher
      */
     public function __construct(EntityManagerInterface $eManager, EventDispatcherInterface $dispatcher)
     {
@@ -70,7 +72,7 @@ class UserSubscriber implements EventSubscriberInterface
      */
     public function onKernelResponse(FilterResponseEvent $event)
     {
-        $event->getResponse()->headers->setCookie($this->getUserCookie());
+        $event->getResponse()->headers->setCookie($this->getUserCookie($this->user->getEmail()));
     }
 
     /**
@@ -94,19 +96,5 @@ class UserSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [SecurityEvents::INTERACTIVE_LOGIN => 'onSecurityInteractiveLogin'];
-    }
-
-    /**
-     * Create and return a user cookie to store his email
-     * @return Cookie
-     */
-    private function getUserCookie()
-    {
-        return new Cookie(
-            SiteConfig::COOKIEUSERNAME,
-            $this->user->getEmail(),
-            // 24 * 60 * 60 = 86400 = 1 day
-            time() + (SiteConfig::COOKIEUSERVALIDITY * 24 * 60 * 60)
-        );
     }
 }

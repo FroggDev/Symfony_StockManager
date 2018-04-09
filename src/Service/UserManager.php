@@ -12,20 +12,19 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\SiteConfig;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\ORMException;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Twig\Environment;
 
 /**
  * @author Frogg <admin@frogg.fr>
- *
- * TODO BODY TEXT !!!
  */
 class UserManager
 {
@@ -35,37 +34,32 @@ class UserManager
     private $translator;
     /** @var MailerManager */
     private $mailer;
-    /** @var EngineInterface */
-    private $templating;
-    /** @var EntityManager */
+    /** @var Environment */
+    private $twig;
+    /** @var EntityManagerInterface */
     private $entityManager;
     /** @var FlashBagInterface */
     private $flash;
     /** @var Request */
     private $request;
 
+
     /**
      * UserManager constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param EntityManagerInterface       $entityManager
      * @param TranslatorInterface          $translator
+     * @param Environment                  $twig
+     * @param RequestStack                 $requestStack
      * @param MailerManager                $mailer
-     * @param EngineInterface              $templating
-     * @param EntityManager                $entityManager
-     * @param Session                      $session
+     * @param SessionInterface             $session
      */
-    public function __construct(
-        UserPasswordEncoderInterface $passwordEncoder,
-        TranslatorInterface $translator,
-        EntityManager $entityManager,
-        EngineInterface $templating,
-        RequestStack $requestStack,
-        MailerManager $mailer,
-        Session $session
-    ) {
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, SessionInterface $session)
+    {
         $this->passwordEncoder = $passwordEncoder;
         $this->translator = $translator;
         $this->mailer = $mailer;
-        $this->templating = $templating;
+        $this->twig = $twig;
         $this->entityManager = $entityManager;
         $this->flash = $session->getFlashBag();
         $this->request = $requestStack->getMasterRequest();
@@ -98,15 +92,14 @@ class UserManager
             $this->mailer->send(
                 SiteConfig::SECURITYMAIL,
                 $user->getEmail(),
-                $this->templating->renderResponse('mail/security/register.html.twig', array('data' => $user)),
-                '',
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security_mail'),
-                $user
+                $this->twig->render('mail/security/register.html.twig', array('data' => $user)),
+                $this->twig->render('mail/security/register.txt.twig', array('data' => $user)),
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security_mail')
             );
 
             // set confirm message
             $this->flash->add('check', 'validation register sent confirmation');
-        } catch (ORMException $exception) {
+        } catch (\Exception $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
 
@@ -186,15 +179,14 @@ class UserManager
             $this->mailer->send(
                 SiteConfig::SECURITYMAIL,
                 $email,
-                $this->templating->renderResponse('mail/security/recover.html.twig', array('data' => $user)),
-                '',
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security_mail'),
-                $user
+                $this->twig->render('mail/security/recover.html.twig', array('data' => $user)),
+                $this->twig->render('mail/security/recover.txt.twig', array('data' => $user)),
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security_mail')
             );
 
             // set register validation ok message
             $this->flash->add('check', 'validation recover sent confirmation');
-        } catch (ORMException $exception) {
+        } catch (\Exception $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
 
@@ -212,7 +204,7 @@ class UserManager
      *
      * @return bool
      */
-    public function recoverValidation(user $user) : bool
+    public function recoverValidation(user $user): bool
     {
         try {
             // password encryption
@@ -230,7 +222,7 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', $this->translator->trans('validation password changed', [], 'security'));
-        } catch (ORMException $exception) {
+        } catch (\Exception $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
 

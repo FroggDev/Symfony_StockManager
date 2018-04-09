@@ -19,7 +19,7 @@
       </trans-unit>
       <trans-unit id="vTaTVzC" resname="recover message">
         <source>recover message</source>
-        <target>__recover message</target>
+        <target>A password reset request has been made.\nIf you are not the origin of this request, please ignore this email.\n\nFrogg.fr takes the security of your account very seriously. Frogg.com will never send you an e-mail asking you to indicate or verify your Amazon password, your credit card number or your bank account. If you receive a suspicious e-mail with a link to update your account information, do not click on the link. Instead, report this email to Amazon so we can review it.\nYou can find below the link to reset your password :\n</target>
       </trans-unit>
       <trans-unit id="qHtAVOR" resname="recover button validation">
         <source>recover button validation</source>
@@ -31,7 +31,7 @@
       </trans-unit>
       <trans-unit id="v6MO5iN" resname="register message">
         <source>register message</source>
-        <target>__register message</target>
+        <target>This email was sent to you because you made a request to create an account.\nIn order to complete your registration, you will find a link below to validate your email and finalize your registration:</target>
       </trans-unit>
       <trans-unit id="nJahiSs" resname="register button validation">
         <source>register button validation</source>
