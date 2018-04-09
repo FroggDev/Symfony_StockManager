@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "41866ed9e86e3c5222671d501f2a6d9e",
+    "content-hash": "17afaffa0d9601681b7f3e40c4917e40",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -4677,6 +4677,7 @@
         "symfony/asset": 20,
         "symfony/form": 20,
         "symfony/framework-bundle": 20,
+        "symfony/intl": 20,
         "symfony/maker-bundle": 20,
         "symfony/monolog-bundle": 20,
         "symfony/orm-pack": 20,

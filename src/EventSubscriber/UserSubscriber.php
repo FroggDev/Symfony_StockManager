@@ -7,11 +7,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace App\EventSubscriber;
 
 use App\Entity\User;
+use App\SiteConfig;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
@@ -20,18 +26,24 @@ use Symfony\Component\Security\Http\SecurityEvents;
  */
 class UserSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var EntityManagerInterface
-     */
+    /** @var EntityManagerInterface */
     private $eManager;
+
+    /** @var EventDispatcherInterface */
+    private $dispatcher;
+
+    /** @var User */
+    private $user;
 
     /**
      * LoginSubscriber constructor.
-     * @param EntityManagerInterface $eManager
+     * @param EntityManagerInterface   $eManager
+     * @param EventDispatcherInterface $dispatche
      */
-    public function __construct(EntityManagerInterface $eManager)
+    public function __construct(EntityManagerInterface $eManager, EventDispatcherInterface $dispatcher)
     {
         $this->eManager = $eManager;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -41,14 +53,24 @@ class UserSubscriber implements EventSubscriberInterface
     public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
     {
         // Get the User entity.
-        $user = $event->getAuthenticationToken()->getUser();
+        $this->user = $event->getAuthenticationToken()->getUser();
 
-        if ($user instanceof User) {
+        if ($this->user instanceof User) {
             // set last connexion
-            $user->setLastConnexion();
+            $this->user->setLastConnexion();
             //save to database
             $this->eManager->flush();
+            //add event for the reponse
+            $this->dispatcher->addListener(KernelEvents::RESPONSE, [$this, 'onKernelResponse']);
         }
+    }
+
+    /**
+     * @param FilterResponseEvent $event
+     */
+    public function onKernelResponse(FilterResponseEvent $event)
+    {
+        $event->getResponse()->headers->setCookie($this->getUserCookie());
     }
 
     /**
@@ -72,5 +94,19 @@ class UserSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [SecurityEvents::INTERACTIVE_LOGIN => 'onSecurityInteractiveLogin'];
+    }
+
+    /**
+     * Create and return a user cookie to store his email
+     * @return Cookie
+     */
+    private function getUserCookie()
+    {
+        return new Cookie(
+            SiteConfig::COOKIEUSERNAME,
+            $this->user->getEmail(),
+            // 24 * 60 * 60 = 86400 = 1 day
+            time() + (SiteConfig::COOKIEUSERVALIDITY * 24 * 60 * 60)
+        );
     }
 }

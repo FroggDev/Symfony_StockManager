@@ -130,6 +130,8 @@ class User extends AbstractAdvancedUser
      */
     public function __construct()
     {
+        // Symfony automatically serialize it
+        $this->setRoles('ROLE_MEMBER');
         // initialize date creation on User creation
         $this->dateInscription = new \DateTime();
         //by default account is not active and has to be validated by email

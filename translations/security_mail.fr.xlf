@@ -5,6 +5,14 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
+      <trans-unit id="V4dEey8" resname="email account validation subject">
+        <source>email account validation subject</source>
+        <target>Confirmation de création de compte</target>
+      </trans-unit>
+      <trans-unit id="t_O473y" resname="email password recovery subject">
+        <source>email password recovery subject</source>
+        <target>Votre requête de récupération de mot de passe</target>
+      </trans-unit>
       <trans-unit id="dczWwOv" resname="recover title">
         <source>recover title</source>
         <target>Récupération du mot de passe</target>

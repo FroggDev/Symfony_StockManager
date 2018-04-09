@@ -1,5 +1,11 @@
 {% trans_default_domain 'security_form' %}
 
+{% set email=app.request.cookies.get(constant('App\\SiteConfig::COOKIEUSERNAME')) %}
+
+{% if not last_email %}
+    {% set last_email=email %}
+{% endif %}
+
 <main class="container main">
     <div class="section">
 
@@ -32,7 +38,7 @@
                         <div class="switch">
                             <span>{{ "remember me" | trans }}</span>
                             <label for="_remember_me">
-                                <input type="checkbox" name="_remember_me" id="_remember_me">
+                                <input type="checkbox" name="_remember_me" id="_remember_me" {% if email %}checked="checked"{% endif %}>
                                 <span class="lever"></span>
                             </label>
                         </div>

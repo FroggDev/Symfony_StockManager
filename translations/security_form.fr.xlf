@@ -11,7 +11,7 @@
       </trans-unit>
       <trans-unit id="XmxG0pB" resname="remember me">
         <source>remember me</source>
-        <target>Maintenir ma session ouverte</target>
+        <target>Mémoriser le compte</target>
       </trans-unit>
       <trans-unit id="YSqKweL" resname="connexion button">
         <source>connexion button</source>

@@ -43,6 +43,7 @@ composer require security
 
 https://symfony.com/doc/current/email.html
 composer require mailer
+(require composer require symfony/intl)
 
 https://symfony.com/doc/current/logging.html
 composer require logger

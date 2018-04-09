@@ -1,14 +1,14 @@
 {% trans_default_domain 'unregistred_nav' %}
 <!-- Dropdown Structure -->
 <ul id="dropdownlang" class="dropdown-content">
-    <li><a href="{{ path('change_locale', { 'locale' :  'fr' }) }}"><span class="flag-icon flag-icon-fr"></span> {{ "fr" | trans }}</a></li>
+    <li><a href="{{ path('change_locale', { '_locale' :'fr','locale' :  'fr' }) }}"><span class="flag-icon flag-icon-fr"></span> {{ "fr" | trans }}</a></li>
     <li class="divider"></li>
-    <li><a href="{{ path('change_locale', { 'locale' :  'en' }) }}"><span class="flag-icon flag-icon-en"></span> {{ "en" | trans }}</a></li>
+    <li><a href="{{ path('change_locale', { '_locale' :'en','locale' :  'en' }) }}"><span class="flag-icon flag-icon-en"></span> {{ "en" | trans }}</a></li>
 </ul>
 <ul id="dropdownlangmobile" class="dropdown-content">
-    <li><a href="{{ path('change_locale', { 'locale' :  'fr' }) }}"><span class="flag-icon flag-icon-fr"></span> {{ "langfr" | trans }}</a></li>
+    <li><a href="{{ path('change_locale', { '_locale' :'fr','locale' :  'fr' }) }}"><span class="flag-icon flag-icon-fr"></span> {{ "langfr" | trans }}</a></li>
     <li class="divider"></li>
-    <li><a href="{{ path('change_locale', { 'locale' :  'en' }) }}"><span class="flag-icon flag-icon-en"></span> {{ "langen" | trans }}</a></li>
+    <li><a href="{{ path('change_locale', { '_locale' :'en','locale' :  'en' }) }}"><span class="flag-icon flag-icon-en"></span> {{ "langen" | trans }}</a></li>
 </ul>
 
 <nav role="navigation">

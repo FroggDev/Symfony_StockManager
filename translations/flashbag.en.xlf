@@ -5,10 +5,6 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="V4dEey8" resname="email account validation subject">
-        <source>email account validation subject</source>
-        <target>Confirm your registration</target>
-      </trans-unit>
       <trans-unit id="fmui2JV" resname="validation register sent confirmation">
         <source>validation register sent confirmation</source>
         <target>A validation mail as been sent, to complete your registration click on the link in the mail
@@ -19,10 +15,6 @@
         <source>validation register confirmation</source>
         <target>You registration has been validated, you can now log to the application in with your acccount.
                 </target>
-      </trans-unit>
-      <trans-unit id="t_O473y" resname="email password recovery subject">
-        <source>email password recovery subject</source>
-        <target>Your password recovery request</target>
       </trans-unit>
       <trans-unit id="RRHoI0f" resname="validation recover sent confirmation">
         <source>validation recover sent confirmation</source>

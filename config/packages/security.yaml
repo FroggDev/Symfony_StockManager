@@ -56,7 +56,7 @@ security:
             # logout (managed by symfony)
             logout_on_user_change: true
             logout:
-                path: /logout.html
+                path: security_logout
                 target: /
 
             # activate different ways to authenticate

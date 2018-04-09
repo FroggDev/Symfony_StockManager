@@ -67,12 +67,23 @@ class SiteConfig
      */
     const USERENTITY = "\App\Entity\User";
 
-
     /**
      * liste of the application roles
      * @const array
      */
     const SECURITYROLES = ["ROLE_MEMBER", "ROLE_EDITOR", "ROLE_ADMIN"];
+
+    /**
+     * Cookie validity in days
+     * @const int
+     */
+    const COOKIEUSERVALIDITY = 30;
+
+    /**
+     * Cookie name
+     * @const string
+     */
+    const COOKIEUSERNAME = "user";
 
     /*#########
     # PRODUCT #

@@ -5,10 +5,6 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="V4dEey8" resname="email account validation subject">
-        <source>email account validation subject</source>
-        <target>Confirmation de création de compte</target>
-      </trans-unit>
       <trans-unit id="fmui2JV" resname="validation register sent confirmation">
         <source>validation register sent confirmation</source>
         <target>Un mail de validation de création de compte vous a été envoyé, vous trouverez un lien dans ce
@@ -18,10 +14,6 @@
       <trans-unit id="i.V8Mvt" resname="validation register confirmation">
         <source>validation register confirmation</source>
         <target>Votre compte a été validé, vous pouvez maintenant vous connecter à l'application.</target>
-      </trans-unit>
-      <trans-unit id="t_O473y" resname="email password recovery subject">
-        <source>email password recovery subject</source>
-        <target>Votre requête de récupération de mot de passe</target>
       </trans-unit>
       <trans-unit id="RRHoI0f" resname="validation recover sent confirmation">
         <source>validation recover sent confirmation</source>
