@@ -21,6 +21,9 @@ abstract class AbstractAdvancedUser implements UserInterface
     # User constants #
     #################*/
 
+    /** @const DELETED Constant for deleted User */
+    const DELETED = -1;
+
     /** @const INACTIVE Constant for inactive User, register but didn't validate email confirmation */
     const INACTIVE = 0;
 
@@ -53,6 +56,10 @@ abstract class AbstractAdvancedUser implements UserInterface
      */
     abstract public function setToken() : AbstractAdvancedUser;
 
+    /**
+     * @return AbstractAdvancedUser
+     */
+    abstract public function removeToken() : AbstractAdvancedUser;
 
     /*###############
     # Getter/Setter #
@@ -73,9 +80,9 @@ abstract class AbstractAdvancedUser implements UserInterface
     /**
      * get closed date
      *
-     * @return \DateTime()
+     * @return null|\DateTime()
      */
-    public function getDateClosed(): \DateTime
+    public function getDateClosed(): ?\DateTime
     {
         return $this->dateClosed;
     }
@@ -101,6 +108,7 @@ abstract class AbstractAdvancedUser implements UserInterface
     public function setActive(): AbstractAdvancedUser
     {
         $this->status = $this::ACTIVE;
+        $this->removeToken();
 
         return $this;
     }
@@ -113,7 +121,9 @@ abstract class AbstractAdvancedUser implements UserInterface
     public function setClosed(): AbstractAdvancedUser
     {
         $this->status = $this::CLOSED;
-        $this->setDateClosed();
+        $this
+            ->setDateClosed()
+            ->removeToken();
 
         return $this;
     }
@@ -126,7 +136,24 @@ abstract class AbstractAdvancedUser implements UserInterface
     public function setBanned(): AbstractAdvancedUser
     {
         $this->status = $this::BANNED;
-        $this->setDateClosed();
+        $this
+            ->setDateClosed()
+            ->removeToken();
+
+        return $this;
+    }
+
+    /**
+     * set account deleted
+     *
+     * @return AbstractAdvancedUser
+     */
+    public function setDeleted(): AbstractAdvancedUser
+    {
+        $this->status = $this::DELETED;
+        $this
+            ->setDateClosed()
+            ->removeToken();
 
         return $this;
     }
@@ -163,5 +190,15 @@ abstract class AbstractAdvancedUser implements UserInterface
     public function isEnabled(): bool
     {
         return $this->status === $this::ACTIVE;
+    }
+
+    /**
+     * Check if the account is deleted.
+     *
+     * @return bool
+     */
+    public function isDeleted(): bool
+    {
+        return $this->status === $this::DELETED;
     }
 }

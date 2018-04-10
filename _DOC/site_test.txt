@@ -1,0 +1,12 @@
+UNIT TEST
+---------
+
+installation
+------------
+composer require --dev symfony/phpunit-bridge
+php bin\phpunit (will install extra stuff)
+
+
+display coverage
+----------------
+php bin\phpunit --coverage-html public/output/

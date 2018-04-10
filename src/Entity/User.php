@@ -30,6 +30,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * Test format des mail
  * @see https://symfony.com/blog/new-in-symfony-4-1-html5-email-validation
+ *
+ * AdvancedUser
+ * https://symfony.com/blog/new-in-symfony-4-1-deprecated-the-advanceduserinterface
  */
 class User extends AbstractAdvancedUser
 {
@@ -140,7 +143,7 @@ class User extends AbstractAdvancedUser
     /**
      * @return int
      */
-    public function getStatus() : int
+    public function getStatus(): int
     {
         return $this->status;
     }
@@ -364,13 +367,11 @@ class User extends AbstractAdvancedUser
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      *
-
+     * @return null
      */
     public function eraseCredentials()
     {
-        /**
-         * @TODO : maybe something to do there ?
-         */
+        return null;
     }
 
     /**
@@ -386,6 +387,12 @@ class User extends AbstractAdvancedUser
      */
     public function setToken(): AbstractAdvancedUser
     {
+
+        //nothing to do if account is banned or closed
+        if ($this->status === $this::CLOSED || $this->status === $this::BANNED || $this->status === $this::DELETED) {
+            return $this;
+        }
+
         /*
          * Another way to create the unique token could be
          * User->setToken(bin2hex(random_bytes(100)));
@@ -393,13 +400,13 @@ class User extends AbstractAdvancedUser
          * If token already exist dosnt reset it to be able to register/recover if both asked at the same time
          */
         if (!$this->token) {
-            $this->token = uniqid('', true).uniqid('', true);
+            $this->token = uniqid('', true) . uniqid('', true);
         }
         /*
          * set token validity only if account has been validated
          * case if user didnt validated email, can validate later
          */
-        if ($this->status !== $this::INACTIVE) {
+        if ($this->status === $this::ACTIVE) {
             $this->tokenValidity = new \DateTime();
         }
 
@@ -407,9 +414,9 @@ class User extends AbstractAdvancedUser
     }
 
     /**
-     * @return \DateTime
+     * @return null|\DateTime
      */
-    public function getTokenValidity(): \DateTime
+    public function getTokenValidity(): ?\DateTime
     {
         return $this->tokenValidity;
     }
@@ -430,7 +437,7 @@ class User extends AbstractAdvancedUser
     /**
      * @return User
      */
-    public function removeToken(): User
+    public function removeToken(): AbstractAdvancedUser
     {
         $this->tokenValidity = null;
         $this->token = null;

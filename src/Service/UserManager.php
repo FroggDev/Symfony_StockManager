@@ -13,11 +13,9 @@ namespace App\Service;
 use App\Entity\User;
 use App\SiteConfig;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\ORMException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -133,7 +131,7 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation register confirmation');
-        } catch (ORMException $exception) {
+        } catch (\Exception $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
 

@@ -45,8 +45,6 @@ namespace App\Controller;
 use App\Common\Traits\Client\ResponseTrait;
 use App\Service\LocaleManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -122,10 +120,10 @@ class IndexController extends Controller
     }
 
     /**
-     * Main page route
+     * Test to access denied pages
      *
      * @Route(
-     *     "/{_locale<fr|en>?en}/TEMP/TEMP.html",
+     *     "/test/test.html",
      *     name="index_logged",
      *     methods={"GET"}
      * )

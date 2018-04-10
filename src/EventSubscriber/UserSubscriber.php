@@ -72,7 +72,7 @@ class UserSubscriber implements EventSubscriberInterface
      */
     public function onKernelResponse(FilterResponseEvent $event)
     {
-        $event->getResponse()->headers->setCookie($this->getUserCookie($this->user->getEmail()));
+         $event->getResponse()->headers->setCookie($this->getUserCookie($this->user->getEmail()));
     }
 
     /**

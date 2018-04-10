@@ -48,12 +48,10 @@ services:
     #    arguments:
     #        - "@router"
     #        - "@assets.packages"
-
     _instanceof:
         App\Service\Twig\AbstractTwigExtension:
             tags:
                 - { name: twig.runtime }
-
 
     ############
     # LISTNERS #
