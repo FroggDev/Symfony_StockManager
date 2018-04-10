@@ -29,6 +29,18 @@
         <source>en</source>
         <target>En</target>
       </trans-unit>
+      <trans-unit id="mvIRMps" resname="account">
+        <source>account</source>
+        <target>Mon compte</target>
+      </trans-unit>
+      <trans-unit id="mWRdmFr" resname="stock option">
+        <source>stock option</source>
+        <target>Mes Options de stockage</target>
+      </trans-unit>
+      <trans-unit id="aoMq9J3" resname="log out">
+        <source>log out</source>
+        <target>Se déconnecter</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -44,12 +44,12 @@ class SiteConfig
      * website date (in footer)
      * @const string
      */
-    const SITEDATE = "2018";
+    const SITEDATE = '2018';
     /**
      * website charset
      * @const string
      */
-    const SITECHARSET = "UTF-8";
+    const SITECHARSET = 'UTF-8';
 
     /*##########
     # SECURITY #
@@ -65,13 +65,13 @@ class SiteConfig
      * name of security Entity
      * @const string
      */
-    const USERENTITY = "\App\Entity\User";
+    const USERENTITY = '\App\Entity\User';
 
     /**
      * liste of the application roles
      * @const array
      */
-    const SECURITYROLES = ["ROLE_MEMBER", "ROLE_EDITOR", "ROLE_ADMIN"];
+    const SECURITYROLES = ['ROLE_MEMBER', 'ROLE_EDITOR', 'ROLE_ADMIN'];
 
     /**
      * Cookie validity in days
@@ -83,7 +83,7 @@ class SiteConfig
      * Cookie name
      * @const string
      */
-    const COOKIEUSERNAME = "user";
+    const COOKIEUSERNAME = 'user';
 
     /*#########
     # PRODUCT #
@@ -109,5 +109,5 @@ class SiteConfig
      * Cookie name
      * @const string
      */
-    const COOKIELOCALENAME = "locale";
+    const COOKIELOCALENAME = 'locale';
 }

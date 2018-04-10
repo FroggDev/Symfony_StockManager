@@ -129,7 +129,7 @@ class IndexController extends Controller
      * )
      * @return Response
      */
-    public function TEMP(): Response
+    public function Temp(): Response
     {
         //Security !
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

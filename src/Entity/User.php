@@ -133,7 +133,7 @@ class User extends AbstractAdvancedUser
         // initialize date creation on User creation
         $this->dateInscription = new \DateTime();
         //by default account is not active and has to be validated by email
-        $this->setInactive();
+        $this->setDisabled();
     }
 
     /*#########
@@ -406,8 +406,9 @@ class User extends AbstractAdvancedUser
          * set token validity only if account has been validated
          * case if user didnt validated email, can validate later
          */
-        if ($this->status === $this::ACTIVE) {
+        if ($this->status === $this::ENABLED) {
             $this->tokenValidity = new \DateTime();
+            $this->tokenValidity->modify('+'.$this::TOKENVALIDITYTIME.' day');
         }
 
         return $this;
@@ -422,6 +423,19 @@ class User extends AbstractAdvancedUser
     }
 
     /**
+     * This should not be used in code, has been added only for test
+     * @param \DateTime $validity
+     *
+     * @return User
+     */
+    public function testToSetTokenValidity(\DateTime $validity): User
+    {
+        $this->tokenValidity = $validity;
+
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function isTokenExpired(): bool
@@ -429,9 +443,8 @@ class User extends AbstractAdvancedUser
         if (null === $this->tokenValidity) {
             return false;
         }
-        $now = new \DateTime();
 
-        return $now->diff($this->getTokenValidity())->days > $this::TOKENVALIDITYTIME;
+        return $this->tokenValidity<new \DateTime();
     }
 
     /**

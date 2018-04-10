@@ -16,7 +16,7 @@ use App\Entity\User;
 use App\Form\Security\UserPasswordType;
 use App\Form\Security\UserRecoverType;
 use App\Form\Security\UserType;
-use App\Service\UserManager;
+use App\Security\UserManager;
 use App\SiteConfig;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -84,7 +84,7 @@ class SecurityController extends Controller
     {
         // Check if user is logged in
         if ($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            return $this->redirectToRoute('index_logged');
+            return $this->redirectToRoute('stock_home');
         }
 
         // Get error message if exist
@@ -232,7 +232,7 @@ class SecurityController extends Controller
     public function recoverValidation(UserManager $userManager, Request $request)
     {
         // check user token
-        $user = $userManager->checkValidation();
+        $user = $userManager->getUserFromRequest();
 
         //redirect if user not valid
         if (!$user) {

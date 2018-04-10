@@ -8,9 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Service;
+namespace App\Security;
 
 use App\Entity\User;
+use App\Service\MailerManager;
 use App\SiteConfig;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +19,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Exception\AccountStatusException;
 use Symfony\Component\Translation\TranslatorInterface;
 use Twig\Environment;
 
@@ -40,19 +42,22 @@ class UserManager
     private $flash;
     /** @var Request */
     private $request;
+    /** @var UserChecker */
+    private $userChecker;
 
 
     /**
      * UserManager constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
-     * @param EntityManagerInterface       $entityManager
-     * @param TranslatorInterface          $translator
-     * @param Environment                  $twig
-     * @param RequestStack                 $requestStack
-     * @param MailerManager                $mailer
-     * @param SessionInterface             $session
+     * @param EntityManagerInterface $entityManager
+     * @param TranslatorInterface $translator
+     * @param Environment $twig
+     * @param RequestStack $requestStack
+     * @param MailerManager $mailer
+     * @param SessionInterface $session
+     * @param UserChecker $userChecker
      */
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, SessionInterface $session)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, SessionInterface $session,UserChecker $userChecker)
     {
         $this->passwordEncoder = $passwordEncoder;
         $this->translator = $translator;
@@ -61,6 +66,7 @@ class UserManager
         $this->entityManager = $entityManager;
         $this->flash = $session->getFlashBag();
         $this->request = $requestStack->getMasterRequest();
+        $this->userChecker = $userChecker;
     }
 
     /*##############
@@ -78,8 +84,7 @@ class UserManager
         $user
             // password encryption
             ->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()))
-            ->setInactive()
-            ->setToken();
+            ->setDisabled();
 
         try {
             // insert into database
@@ -97,6 +102,7 @@ class UserManager
 
             // set confirm message
             $this->flash->add('check', 'validation register sent confirmation');
+
         } catch (\Exception $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
@@ -108,7 +114,7 @@ class UserManager
     }
 
     /**
-     * Check if request is valid then validate the user account + add flah bag message
+     * Check if request is valid then validate the user account + add flash bag message
      *
      * @return bool
      */
@@ -118,12 +124,11 @@ class UserManager
             // recover user from request
             $user = $this->getUserFromRequest();
 
-            $this->checkAccountStatus($user, ['checkAlreadyValidated']);
+            // check before validation
+            $this->userChecker->checkRegisterValidation($user,$this->request->query->get('token'));
 
             // remove token and enable account
-            $user
-                ->removeToken()
-                ->setActive();
+            $user->setEnabled();
 
             // insert into database
             $this->entityManager->persist($user);
@@ -131,9 +136,10 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation register confirmation');
-        } catch (\Exception $exception) {
+
+        } catch (AccountStatusException $exception) {
             //error occured
-            $this->flash->add('error', $exception->getMessage());
+            $this->flash->add('error', $exception->getMessageKey());
 
             return false;
         }
@@ -150,21 +156,11 @@ class UserManager
     public function recover(string $email): bool
     {
         try {
-            // get author from email
+            /** @var User $user get author from email */
             $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
 
-            // author not found
-            if (!$user) {
-                // set error message
-                // $this->addFlash('error', 'account is unfindable');
-
-                // Fake message to prevent test if email exist
-                // set register validation ok message
-                $this->flash->add('check', 'validation recover sent confirmation');
-
-                // redirect user
-                return true;
-            }
+            // check before validation
+            $this->userChecker->basicTest($user);
 
             // create a token
             $user->setToken();
@@ -184,7 +180,8 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation recover sent confirmation');
-        } catch (\Exception $exception) {
+
+        } catch (AccountStatusException $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
 
@@ -196,23 +193,24 @@ class UserManager
 
 
     /**
-     * change user password + add flah bag message
-     *
-     * @param User $user
+     * change user password + add flash bag message
+      * @param User $user
      *
      * @return bool
      */
     public function recoverValidation(user $user): bool
     {
         try {
+            // check before validation
+            $this->userChecker->checkRecoverValidation($user,$this->request->query->get('token'));
+
             // password encryption
             $password = $this->passwordEncoder->encodePassword($user, $user->getPassword());
 
-            // change password into database
+            // change password into database & remove token + set enbaled if just registered
             $user
                 ->setPassword($password)
-                ->removeToken()
-                ->setActive();
+                ->setEnabled();
 
             // insert into database
             $this->entityManager->persist($user);
@@ -220,7 +218,8 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', $this->translator->trans('validation password changed', [], 'security'));
-        } catch (\Exception $exception) {
+
+        } catch (AccountStatusException $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
 
@@ -235,27 +234,9 @@ class UserManager
     ###############*/
 
     /**
-     * Check if token is valid
-     *
      * @return null|User
      */
-    public function checkValidation(): ?User
-    {
-        // recover user from request
-        $user = $this->getUserFromRequest();
-
-        //check if token has expired
-        if (!$this->checkAccountStatus($user, ['checkIfTokenExpired'])) {
-            return null;
-        }
-
-        return $user;
-    }
-
-    /**
-     * @return null|User
-     */
-    private function getUserFromRequest(): ?User
+    public function getUserFromRequest(): ?User
     {
         // get request info
         $email = $this->request->query->get('email');
@@ -267,100 +248,5 @@ class UserManager
         $user = $reposirotyUser->findOneByEmail($email);
 
         return $user;
-    }
-
-
-    /**
-     * @param null|User $user
-     * @param array     $extraCheck
-     *
-     * @return bool
-     */
-    private function checkAccountStatus(?User $user, array $extraCheck = []): bool
-    {
-        // user not found
-        if (!$user) {
-            $this->flash->add('error', $this->translator->trans('account is unfindable', [], 'security'));
-
-            return false;
-        }
-
-        // checkif user is banned
-        if ($user->isBanned()) {
-            $this->flash->add('error', $this->translator->trans('account is unfindable', [], 'security'));
-
-            return false;
-        }
-
-        // checkif user is closed
-        if ($user->isClosed()) {
-            $this->flash->add('error', $this->translator->trans('account is closed', [], 'security'));
-
-            return false;
-        }
-
-        // Extra custom check
-        foreach ($extraCheck as $check) {
-            if (!$this->$check($user)) {
-                return false;
-            }
-        }
-
-        // else it is ok
-        return true;
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return bool
-     */
-    private function checkAlreadyValidated(User $user): bool
-    {
-        // check if account already registered
-        if ($user->isEnabled()) {
-            $this->flash->add('warning', $this->translator->trans('account is already activated', [], 'security'));
-
-            return false;
-        }
-
-        // else check token
-        return $this->checkToken($user);
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return bool
-     */
-    private function checkIfTokenExpired(User $user): bool
-    {
-        // check if account already registered
-        if ($user->isTokenExpired()) {
-            $this->flash->add('warning', $this->translator->trans('account is expired token', [], 'security'));
-
-            return false;
-        }
-
-        // else check token
-        return $this->checkToken($user);
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return bool
-     */
-    private function checkToken(User $user): bool
-    {
-
-        $isValid = $user->getToken() === $this->request->query->get('token');
-
-        // check if is valid token
-        if (!$isValid) {
-            $this->flash->add('error', $this->translator->trans('account token is not valid', [], 'security'));
-        }
-
-        return $isValid;
     }
 }

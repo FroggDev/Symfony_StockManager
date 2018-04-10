@@ -32,8 +32,8 @@
             <li class="{{ getActiveMenu('security_connexion') }}right hide-on-med-and-down"><a href="{{ path('security_connexion') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
             {% endif %}
 
-            <li class="{{ getActiveMenu('index') }}right hide-on-med-and-down"><a href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
-            <li class="{{ getActiveMenu('index') }}hide-on-large-only"><a href="{{ path('index') }}"><i class="material-icons">home</i></a></li>
+            <li class="{{ getActiveMenu('index') }}{{ getActiveMenu('stock_home') }}right hide-on-med-and-down"><a href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
+            <li class="{{ getActiveMenu('index') }}{{ getActiveMenu('stock_home') }}hide-on-large-only"><a href="{{ path('index') }}"><i class="material-icons">home</i></a></li>
 
             {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="{{ getActiveMenu('security_connexion') }}hide-on-large-only"><a href="{{ path('security_connexion') }}"><i class="material-icons">account_circle</i></a></li>
@@ -42,7 +42,7 @@
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
-            <li><a class="{{ getActiveMenu('index') }}" href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
+            <li><a class="{{ getActiveMenu('index') }}{{ getActiveMenu('stock_home') }}" href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
             <li class="divider"></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li><a class="{{ getActiveMenu('stock_add') }}" href="{{ path('stock_add') }}"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
@@ -50,7 +50,9 @@
             <li><a class="{{ getActiveMenu('stock_list') }}" href="{{ path('stock_list') }}"><i class="material-icons left">assignment</i>Product list</a></li>
             <li class="divider"></li>
             <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
-            <li><a class="{{ getActiveMenu('account_option') }}" href="{{ path('account_option') }}"><i class="material-icons left">settings</i>My Stock Option</a></li>
+            <li><a class="{{ getActiveMenu('account_option') }}" href="{{ path('account_option') }}"><i class="material-icons left">settings</i>{{ "stock option" | trans }}</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ getActiveMenu('security_logout') }}"><i class="material-icons left">exit_to_app</i>{{ "log out" | trans }}</a></li>
             {% else %}
             <li><a class="{{ getActiveMenu('security_connexion') }}" href="{{ path('security_connexion') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
             {% endif %}

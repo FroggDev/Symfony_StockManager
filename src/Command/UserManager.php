@@ -365,7 +365,7 @@ class UserManager extends Command
         }
 
         // set user as active
-        $user->setActive();
+        $user->setEnabled();
         // save to database
         $this->eManager->flush();
 
@@ -427,7 +427,7 @@ class UserManager extends Command
                 // update user role
                 $user
                     ->setRoles($input)
-                    ->setActive();
+                    ->setEnabled();
                 // save to database
                 $this->eManager->flush();
 
