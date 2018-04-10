@@ -10,10 +10,21 @@
     {{ parent() }}
     {# Content #}
     <main class="container main">
+
+        <div class="row right">
+
+        </div>
+
         <div class="section">
 
-            {# TODO !!#}
-            <div class="right hide-on-large-only"><a href="productlistdetail.html"><span class="new badge red" data-badge-caption="expire soon">(7)</span></a></div>
+            {# TODO + put style in css file!!#}
+            <div class="right" style="width:100%;">
+                <p style="margin: 0;line-height: 1.5em;text-align:right;">
+                    {% trans with {'%user%': ((app.user.lastname | capitalize)~" "~(app.user.firstname | upper))}%}welcome{% endtrans %}
+                    <a href="productlistdetail.html"><span style="margin-left:4px;" class="new badge red" data-badge-caption="{{ "expire soon" | trans }}">(7)</span></a>
+                </p>
+
+            </div>
 
             <h1 class="teal-text text-lighten-2">{{ "stock home title" | trans }}</h1>
 

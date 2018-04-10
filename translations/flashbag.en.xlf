@@ -44,6 +44,18 @@
         <source>account token is not valid</source>
         <target>Invalid request.</target>
       </trans-unit>
+      <trans-unit id="account-banned-id" resname="account is banned">
+        <source>account is banned</source>
+        <target>This account is banned.</target>
+      </trans-unit>
+      <trans-unit id="account-disabled-id" resname="account is disabled">
+        <source>account is disabled</source>
+        <target>This account is not active, a mail should be available in your mail box with a link to activate your registration.\nIf you lost this mail, you can ask for a change password request to recover your account.</target>
+      </trans-unit>
+      <trans-unit id="internal-error-id" resname="internal error">
+        <source>internal error</source>
+        <target>An internal error occured, please retry then contact support if happend again.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

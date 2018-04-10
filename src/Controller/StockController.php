@@ -52,7 +52,6 @@ class StockController extends Controller
         return $this->render('stock/home.html.twig');
     }
 
-
     /**
      * Route to add to Stock
      *

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Only Src" pattern="file[Symfony_StockManager]:src//*&amp;&amp;!file:src/Kernel.php" />
+</component>

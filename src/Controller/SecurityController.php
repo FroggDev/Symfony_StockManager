@@ -44,11 +44,15 @@ use Symfony\Component\Translation\TranslatorInterface;
  * Remember me on login screen
  * @see https://symfony.com/doc/current/security/remember_me.html
  *
+ * Manual AbsractAdancedUser + user check to replace Advance user interface
+ * @see https://symfony.com/blog/new-in-symfony-4-1-deprecated-the-advanceduserinterface
+ * @see https://symfony.com/doc/current/security/user_checkers.html
+ *
  *
  * @Route(
  *     {
- *     "fr": "/compte",
- *     "en": "/account"
+ *     "fr": "/{_locale<fr|en>?fr}/compte",
+ *     "en": "/{_locale<fr|en>?en}/account"
  *     },
  *     name="security_"
  * )

@@ -1,0 +1,5 @@
+# will use a fake database loaded in memory
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        memory:   true

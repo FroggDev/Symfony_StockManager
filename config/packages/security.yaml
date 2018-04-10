@@ -23,6 +23,11 @@ security:
         main:
             anonymous: true
 
+            # Custom security check at login
+            # ##########################
+            pattern: ^/
+            user_checker: App\Security\UserChecker
+
             # Custom Access denied handler
             # ##########################
             access_denied_handler: App\Security\AccessDeniedHandler
