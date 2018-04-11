@@ -95,10 +95,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class UserManager extends Command
 {
     /** @const int EXITCODE the normal code returned when exit the command */
-    private const EXITCODE = 0;
+    public const EXITCODE = 0;
 
     /** @const int CONTINUECODE the code returned by method to tell the command to continue its job */
-    private const CONTINUECODE = -1;
+    public const CONTINUECODE = -1;
 
     /** @var EntityManagerInterface */
     private $eManager;
@@ -308,6 +308,9 @@ class UserManager extends Command
         }
 
         // DISPLAY USER LIST AS TABLE
+
+        $this->output->title('Displaying user list using SymfonyStyle !');
+
         $this->output->table(['ID', 'EMAIL', 'ENABLED', 'ROLES'], $display);
     }
 
@@ -320,12 +323,13 @@ class UserManager extends Command
     private function displayUserListNew(): int
     {
 
+        $this->output->title('Displaying user list using 4.1 feature !');
+
         // Create a 4.1 section block
         $section = $this->defaultOutput->section();
         $sectionTable = $this->defaultOutput->section();
 
         // Display stuff
-        $section->writeln('Displaying user list using 4.1 feature !');
         $section->writeln('');
         $section->writeln('Loading user list...');
 

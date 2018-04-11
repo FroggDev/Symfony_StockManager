@@ -10,15 +10,14 @@
 
 namespace App\Tests\Command;
 
+use App\Command\UserManager;
 use App\Entity\User;
 use App\Tests\Fixture\AbstractUserFixture;
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Tester\CommandTester;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -35,8 +34,8 @@ class UserManagerTest extends KernelTestCase
     /** @var Command */
     static private $command;
 
-    /** @var EntityManager */
-    static private $emanager;
+    /** @var ObjectManager */
+    static private $repository;
 
     /*#######################
      # ONCE BEFORE ALL TEST #
@@ -53,13 +52,19 @@ class UserManagerTest extends KernelTestCase
         }
 
         self::$application = new Application(self::$kernel);
-        self::$application->setAutoExit(false);
+        self::$application->setAutoExit(true);
 
         // Get the commmand
-        self::$command = self::$application->find('app:userManager');
+        self::$command = self::$application
+            ->find('app:userManager');
 
-        // Get entity manager
-        self::$emanager = self::$kernel->getContainer()->get('doctrine')->getManager();
+        // Get entity repository
+        self::$repository = self::$kernel
+            ->getContainer()
+            ->get('doctrine')
+            ->getManager()
+            ->getRepository(User::class);
+
     }
 
     /*###########
@@ -83,91 +88,234 @@ class UserManagerTest extends KernelTestCase
      #############*/
 
     /**
-     * Test the Display User
+     * Test the Main Menu
      */
-
-    /*
-    public function testDisplayUserList(): void
+    public function testDisplayMainMenu(): void
     {
+        // INIT
+        //-----
 
         // Get the command tester
         $commandTester = new CommandTester(self::$command);
+
+        // SCENARIO
+        //---------
+
+        // Set input scenario
+        $commandTester->setInputs([5]); // exit
+
+        // TEST
+        //-----
+
+        // Execute the command
+        $this->assertEquals(
+            UserManager::EXITCODE,
+            $commandTester->execute(['command' => self::$command->getName()])
+        );
+
+        $output = $commandTester->getDisplay();
+
+        //Test if content is well displayed
+        $this->assertContains('Welcome to User Role Manager', $output);
+    }
+
+    /**
+     * Test the Display User
+     */
+    public function testDisplayUserList(): void
+    {
+        // INIT
+        //-----
+
+        // Get the command tester
+        $commandTester = new CommandTester(self::$command);
+
+        // SCENARIO
+        //---------
 
         // Set input scenario
         $commandTester->setInputs([0]); // display user list
+        $commandTester->setInputs([0]); // continue to display user list ? (0=no)
+         $commandTester->setInputs([5]); // exit
+
+        // TEST
+        //-----
+
+        // Execute the command
+        $this->assertEquals(
+            UserManager::EXITCODE,
+            $commandTester->execute(['command' => self::$command->getName()])
+            );
+
+         $output = $commandTester->getDisplay();
+
+        //Test if content is well displayed
+        $this->assertContains('Displaying user list using SymfonyStyle !', $output);
+
+        //var_dump($output);
+    }
+
+    /**
+     * Test the Display User version 4.1
+     */
+    public function testDisplayUserListNew(): void
+    {
+        // INIT
+        //-----
+
+        // Get the command tester
+        $commandTester = new CommandTester(self::$command);
+
+        // SCENARIO
+        //---------
+
+        // Set input scenario
         $commandTester->setInputs([1]); // display user list 4.1
         $commandTester->setInputs([5]); // exit
 
-        // Execute the command
-        $commandTester->execute(['command' => self::$command->getName()]);
+        // TEST
+        //-----
 
-        ////$output = $commandTester->getDisplay();
-        ////$this->assertContains('Username: Wouter', $output);
+        // Execute the command
+        $this->assertEquals(
+            UserManager::EXITCODE,
+            $commandTester->execute(['command' => self::$command->getName()])
+        );
+
+        $output = $commandTester->getDisplay();
+
+        //Test if content is well displayed
+        $this->assertContains('Displaying user list using 4.1 feature !', $output);
+
+
+        //var_dump($output);
 
     }
 
-    **
+
+
+    /**
      * Test the Enable User
-     *
+     */
     public function testEnableUser(): void
     {
+        // INIT
+        //-----
+
+        $userId = 1;
+
         // Get the command tester
         $commandTester = new CommandTester(self::$command);
+
+        // SCENARIO
+        //---------
 
         // Set input scenario
         $commandTester->setInputs([2]); // enable account
-        $commandTester->setInputs([1]); // user id
+        $commandTester->setInputs([$userId]); // user id
         $commandTester->setInputs([5]); // exit
 
+        // TEST
+        //-----
+
         // Execute the command
-        $this->assertNull($commandTester->execute(['command' => self::$command->getName()]));
+        $this->assertEquals(
+            UserManager::EXITCODE,
+            $commandTester->execute(['command' => self::$command->getName()])
+        );
 
+        $output = $commandTester->getDisplay();
 
-        //TODO TEST IF USER IS ENABLED
+        $user = self::$repository->find($userId);
+
+        // check if user has been enabled in database
+        $this->assertTrue($user->isEnabled());
+
+        //var_dump($output);
     }
 
-    **
+    /**
      * Test the Add role to User
-     *
+     */
     public function testAddRoleToUser(): void
     {
+        // INIT
+        //-----
+
+        $userId = 2;
+
         // Get the command tester
         $commandTester = new CommandTester(self::$command);
 
+        // SCENARIO
+        //---------
+
         // Set input scenario
         $commandTester->setInputs([3]); // add role
-        $commandTester->setInputs([2]); // user id
+        $commandTester->setInputs([$userId]); // user id
         $commandTester->setInputs([0]); // add role EDITOR
         $commandTester->setInputs([5]); // exit
 
         // Execute the command
-        $this->assertNull($commandTester->execute(['command' => self::$command->getName()]));
+        $this->assertEquals(
+            UserManager::EXITCODE,
+            $commandTester->execute(['command' => self::$command->getName()])
+        );
 
-        //TODO TEST IF USER 2 HAS ROLE EDITOR
-        //TODO TEST IF USER 2 ENABLED
-        //TODO TEST IF USER 3 HAS NO ROLE EDITOR
+        $user = self::$repository->find($userId);
+
+        // check if user has role editor added
+        $this->assertTrue($user->hasRole('ROLE_EDITOR'));
+        // check if user is enabled
+        $this->assertTrue($user->isEnabled());
+
+        $user = self::$repository->find(3);
+
+        // check if user has not role editor added
+        $this->assertNotTrue($user->hasRole('ROLE_EDITOR'));
+        // check if user is not enabled
+        $this->assertNotTrue($user->isEnabled());
+
+        //var_dump($output);
     }
 
-    **
+    /**
      * Test the Remove role to User
-     *
+     */
     public function testDelRoleToUser(): void
     {
+        // INIT
+        //-----
+
+        $userId = 2;
+
         // Get the command tester
         $commandTester = new CommandTester(self::$command);
 
+        // SCENARIO
+        //---------
+
         // Set input scenario
         $commandTester->setInputs([4]); // remove role
-        $commandTester->setInputs([2]); // user id
+        $commandTester->setInputs([$userId]); // user id
         $commandTester->setInputs([1]); // remove role EDITOR
         $commandTester->setInputs([5]); // exit
 
         // Execute the command
-        $this->assertNull($commandTester->execute(['command' => self::$command->getName()]));
+        $this->assertEquals(
+            UserManager::EXITCODE,
+            $commandTester->execute(['command' => self::$command->getName()])
+        );
 
-        //TODO TEST IF USER 2 NO ROLE EDITOR
+        $user = self::$repository->find($userId);
+
+        // check if user has no more the role editor
+        $this->assertNotTrue($user->hasRole('ROLE_EDITOR'));
+        // check if user is still enabled
+        $this->assertTrue($user->isEnabled());
+
+        //var_dump($output);
     }
-    */
 
     /*##################
      # SPECIFICS TESTS #

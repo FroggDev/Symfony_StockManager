@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" />
       <change beforePath="$PROJECT_DIR$/src/Command/UserManager.php" afterPath="$PROJECT_DIR$/src/Command/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
+      <change beforePath="$PROJECT_DIR$/tests/Command/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,9 +22,11 @@
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -39,7 +41,7 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="stockmanager: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="stockmanagertest: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -60,21 +62,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserCheckerTest.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="UserCheckerTest.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/Security/UserCheckerTest.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="51" selection-end-column="15" />
+                <state relative-caret-position="527">
+                  <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UsermanagerTest.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UsermanagerTest.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/Security/UsermanagerTest.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="400">
-                  <caret line="118" column="15" lean-forward="true" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
+                  <caret line="118" column="15" lean-forward="false" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
                   <folding>
                     <element signature="e#250#270#0#PHP" expanded="true" />
                   </folding>
@@ -89,7 +91,7 @@
           <file leaf-file-name="UserRepository.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
+                <state relative-caret-position="0">
                   <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
                   <folding />
                 </state>
@@ -116,11 +118,35 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserManager.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UserManager.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Command/UserManager.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="270" column="19" lean-forward="false" selection-start-line="270" selection-start-column="19" selection-end-line="270" selection-end-column="19" />
+                <state relative-caret-position="205">
+                  <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#6#2031#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserManagerTest.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="34">
+                  <caret line="247" column="15" lean-forward="false" selection-start-line="247" selection-start-column="15" selection-end-line="247" selection-end-column="15" />
+                  <folding>
+                    <element signature="e#249#277#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="phpunit.xml.dist" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="43" />
                   <folding />
                 </state>
               </provider>
@@ -151,13 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dump</find>
-      <find>must be null after being re</find>
-      <find>disabled</find>
-      <find>ken must not be null for active</find>
-      <find>en must be null for deleted user</find>
-      <find>setTo</find>
-      <find>isEnabled</find>
       <find>INACTIVE</find>
       <find>ACTIVE</find>
       <find>&quot;</find>
@@ -181,6 +200,13 @@
       <find>findAll</find>
       <find>emana</find>
       <find>addUserRole</find>
+      <find>Yes</find>
+      <find>$repository</find>
+      <find>getRepository</find>
+      <find>Welcome to User Role Manager</find>
+      <find>repos</find>
+      <find>$output</find>
+      <find>4.1</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -247,7 +273,6 @@
         <option value="$PROJECT_DIR$/_DOC/site_test.txt" />
         <option value="$PROJECT_DIR$/tests/Security/UserAdvancedTest.php" />
         <option value="$PROJECT_DIR$/tests/Fixture/UserFixture.php" />
-        <option value="$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
         <option value="$PROJECT_DIR$/tests/Fixture/AbstractUserFixture.php" />
         <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/tests/Locale/LocaleManagerTest.php" />
@@ -255,6 +280,7 @@
         <option value="$PROJECT_DIR$/tests/Security/UserRepositoryTest.php" />
         <option value="$PROJECT_DIR$/tests/Security/UsermanagerTest.php" />
         <option value="$PROJECT_DIR$/src/Command/UserManager.php" />
+        <option value="$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
       </list>
     </option>
   </component>
@@ -435,6 +461,12 @@
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Command" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -518,12 +550,12 @@
       <workItem from="1523457266081" duration="1790000" />
       <workItem from="1523459118772" duration="1787000" />
       <workItem from="1523460979192" duration="869000" />
-      <workItem from="1523467175731" duration="1121000" />
+      <workItem from="1523467175731" duration="4925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="403933000" />
+    <option name="totallyTimeSpent" value="407737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -533,7 +565,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20670995" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13486141" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.134375" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20562771" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -582,13 +614,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Exception/Account/AccountNotFoundException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Exception/Account/AccountAlreadyActivatedException.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -754,14 +779,6 @@
     </entry>
     <entry file="das://table:/450b6d62/7504823d-45d6-4849-b078-f658d12abdec/stockmanagertest.user" />
     <entry file="das://table:/450b6d62/7504823d-45d6-4849-b078-f658d12abdec/stockmanager.user" />
-    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Security/UserEntityTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -801,6 +818,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -826,10 +844,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
     <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="0">
           <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
           <folding />
         </state>
@@ -889,14 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserCheckerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="51" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Security/UserManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -908,18 +917,53 @@
     <entry file="file://$PROJECT_DIR$/tests/Security/UsermanagerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="118" column="15" lean-forward="true" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
+          <caret line="118" column="15" lean-forward="false" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
           <folding>
             <element signature="e#250#270#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Security/UserCheckerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/8158f521/7504823d-45d6-4849-b078-f658d12abdec/stockmanagertest.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Command/UserManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="270" column="19" lean-forward="false" selection-start-line="270" selection-start-column="19" selection-end-line="270" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="205">
+          <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#2031#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="247" column="15" lean-forward="false" selection-start-line="247" selection-start-column="15" selection-end-line="247" selection-end-column="15" />
+          <folding>
+            <element signature="e#249#277#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
