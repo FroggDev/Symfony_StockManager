@@ -81,12 +81,13 @@ class UserManager
      */
     public function register(User $user): bool
     {
-        $user
-            // password encryption
-            ->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()))
-            ->setDisabled();
-
         try {
+            // set user data
+            $user
+                // password encryption
+                ->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
+
+
             // insert into database
             $this->entityManager->persist($user);
             $this->entityManager->flush();
@@ -97,7 +98,7 @@ class UserManager
                 $user->getEmail(),
                 $this->twig->render('mail/security/register.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/register.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security_mail')
+                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email account validation subject', [], 'security_mail')
             );
 
             // set confirm message
@@ -105,7 +106,11 @@ class UserManager
 
         } catch (\Exception $exception) {
             //error occured
-            $this->flash->add('error', $exception->getMessage());
+            $this->flash->add(
+                'error',
+                method_exists($exception, 'getMessageKey') ?
+                    $exception->getMessageKey() : $exception->getMessage()
+            );
 
             return false;
         }
@@ -136,9 +141,14 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation register confirmation');
-        } catch (AccountStatusException $exception) {
+
+        } catch (\Exception $exception) {
             //error occured
-            $this->flash->add('error', $exception->getMessageKey());
+            $this->flash->add(
+                'error',
+                method_exists($exception, 'getMessageKey') ?
+                    $exception->getMessageKey() : $exception->getMessage()
+            );
 
             return false;
         }
@@ -174,14 +184,18 @@ class UserManager
                 $email,
                 $this->twig->render('mail/security/recover.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/recover.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security_mail')
+                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email password recovery subject', [], 'security_mail')
             );
 
             // set register validation ok message
             $this->flash->add('check', 'validation recover sent confirmation');
-        } catch (AccountStatusException $exception) {
+        } catch (\Exception $exception) {
             //error occured
-            $this->flash->add('error', $exception->getMessage());
+            $this->flash->add(
+                'error',
+                method_exists($exception, 'getMessageKey') ?
+                    $exception->getMessageKey() : $exception->getMessage()
+            );
 
             return false;
         }
@@ -192,7 +206,7 @@ class UserManager
 
     /**
      * change user password + add flash bag message
-      * @param User $user
+     * @param User $user
      *
      * @return bool
      */
@@ -216,9 +230,14 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', $this->translator->trans('validation password changed', [], 'security'));
-        } catch (AccountStatusException $exception) {
+
+        } catch (\Exception $exception) {
             //error occured
-            $this->flash->add('error', $exception->getMessage());
+            $this->flash->add(
+                'error',
+                method_exists($exception, 'getMessageKey') ?
+                    $exception->getMessageKey() : $exception->getMessage()
+            );
 
             return false;
         }
