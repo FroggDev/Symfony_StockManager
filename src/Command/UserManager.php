@@ -88,9 +88,18 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * @author Frogg <admin@frogg.fr>
+ *
+ * Symfony console
+ * @see https://symfony.com/doc/current/console.html
  */
 class UserManager extends Command
 {
+    /** @const int EXITCODE the normal code returned when exit the command */
+    public const EXITCODE = 0;
+
+    /** @const int CONTINUECODE the code returned by method to tell the command to continue its job */
+    public const CONTINUECODE = -1;
+
     /** @var EntityManagerInterface */
     private $eManager;
 
@@ -163,7 +172,7 @@ class UserManager extends Command
 
     /**
      * Main function
-     * @param InputInterface  $input
+     * @param InputInterface $input
      * @param OutputInterface $output
      *
      * @return void
@@ -187,9 +196,9 @@ class UserManager extends Command
     /**
      * Display the command menu
      *
-     * @return void
+     * @return int
      */
-    private function displayMainMenu(): void
+    private function displayMainMenu(): int
     {
 
         while (true) {
@@ -210,23 +219,26 @@ class UserManager extends Command
             // Action from choice
             switch ($input) {
                 case 'Display user list':
-                    $this->displayUserList();
+                    $code = $this->displayUserList();
                     break;
                 case 'Display user list (Version 4.1)':
-                    $this->displayUserListNew();
+                    $code = $this->displayUserListNew();
                     break;
                 case 'Enable user account (require user id)':
-                    $this->enableUser();
+                    $code = $this->enableUser();
                     break;
                 case 'Add user role (require user id)':
-                    $this->addUserRole();
+                    $code = $this->addUserRole();
                     break;
                 case 'Remove user role (require user id)':
-                    $this->removeUserRole();
+                    $code = $this->removeUserRole();
                     break;
                 case 'Exit':
-                    exit();
-                    break;
+                    return self::EXITCODE;
+            }
+
+            if ($code === self::EXITCODE) {
+                return self::EXITCODE;
             }
         }
     }
@@ -234,13 +246,13 @@ class UserManager extends Command
     /**
      * Display the user list
      *
-     * @return void
+     * @return int
      */
-    private function displayUserList(): void
+    private function displayUserList(): int
     {
         // GET USER INFOS
         $entity = SiteConfig::USERENTITY;
-        $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll(true);
+        $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll();
 
         // GET NB USER
         $nbUser = count($userList);
@@ -264,13 +276,15 @@ class UserManager extends Command
             }
 
             // Ask user to continue
-            $input = $this->output->choice('Continue displaying user list ?', ['Yes', 'No'], 'Yes');
+            $input = $this->output->choice('Continue displaying user list ?', ['No', 'Yes'], 'Yes');
             if ("No" === $input) {
                 break;
             }
             //set next loop value
             $nbLoop++;
         }
+
+        return self::CONTINUECODE;
     }
 
     /**
@@ -280,6 +294,9 @@ class UserManager extends Command
      */
     private function displayUserListRange($userList, $start, $end): void
     {
+        // init display
+        $display = [];
+
         // PREPARE USERS INFOS
         for ($i = $start; $i < $end; $i++) {
             $display[] = [
@@ -291,6 +308,9 @@ class UserManager extends Command
         }
 
         // DISPLAY USER LIST AS TABLE
+
+        $this->output->title('Displaying user list using SymfonyStyle !');
+
         $this->output->table(['ID', 'EMAIL', 'ENABLED', 'ROLES'], $display);
     }
 
@@ -298,23 +318,24 @@ class UserManager extends Command
     /**
      * Display the user list (version 4.1)
      *
-     * @return void
+     * @return int
      */
-    private function displayUserListNew(): void
+    private function displayUserListNew(): int
     {
+
+        $this->output->title('Displaying user list using 4.1 feature !');
 
         // Create a 4.1 section block
         $section = $this->defaultOutput->section();
         $sectionTable = $this->defaultOutput->section();
 
         // Display stuff
-        $section->writeln('Displaying user list using 4.1 feature !');
         $section->writeln('');
         $section->writeln('Loading user list...');
 
         // GET USER INFOS
         $entity = SiteConfig::USERENTITY;
-        $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll(true);
+        $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll();
 
         // Dynamic table from 4.1
         $table = new Table($sectionTable);
@@ -343,22 +364,24 @@ class UserManager extends Command
             sleep(1);
         }
         $section->clear();
+
+        return self::CONTINUECODE;
     }
 
 
     /**
      * Enable an user
      *
-     * @return void
+     * @return int
      */
-    private function enableUser(): void
+    private function enableUser(): int
     {
         // get user id from input
         $user = $this->askUserId();
 
         // if user not found exit
         if (!$user) {
-            return;
+            return self::CONTINUECODE;
         }
 
         // set user as active
@@ -367,22 +390,24 @@ class UserManager extends Command
         $this->eManager->flush();
 
         // OK COLOR
-        $this->output->success("The user '".$user->getId()."' has been enabled");
+        $this->output->success("The user '" . $user->getId() . "' has been enabled");
+
+        return self::CONTINUECODE;
     }
 
     /**
      * Add a role to an user
      *
-     * @return void
+     * @return int
      */
-    private function addUserRole(): void
+    private function addUserRole(): int
     {
         // get user id from input
         $user = $this->askUserId();
 
         // if user not found exit
         if (!$user) {
-            return;
+            return self::CONTINUECODE;
         }
 
         // Add options
@@ -395,30 +420,33 @@ class UserManager extends Command
 
         // Check if can add role
         if (2 === count($userRolesDisplay)) {
-            $this->output->warning("No role can be added from user with id '".$user->getId());
+            $this->output->warning("No role can be added from user with id '" . $user->getId());
 
-            return;
+            return self::CONTINUECODE;
         }
 
         // Ask user for a choice
         $input = $this->output->choice('Select a role to add', $userRolesDisplay, 'Cancel');
 
         if ('Cancel' === !$input) {
-            return;
+
+            return self::CONTINUECODE;
         }
 
         switch ($input) {
             case "Cancel":
-                return;
+                return self::CONTINUECODE;
+
             case "Exit":
-                exit();
+                return self::EXITCODE;
+
             default:
                 // role already exist
                 if ($user->hasRole($input)) {
                     // ERROR COLOR
-                    $this->output->warning("The user already has the role ".$input);
+                    $this->output->warning("The user already has the role " . $input);
 
-                    return;
+                    return self::CONTINUECODE;
                 }
 
                 // update user role
@@ -429,24 +457,27 @@ class UserManager extends Command
                 $this->eManager->flush();
 
                 // OK COLOR
-                $this->output->success("The role '$input' has been added to user with id '".$user->getId()."'");
+                $this->output->success("The role '$input' has been added to user with id '" . $user->getId() . "'");
                 break;
         }
+
+
+        return self::CONTINUECODE;
     }
 
     /**
      * Remove a role to an user
      *
-     * @return void
+     * @return int
      */
-    private function removeUserRole(): void
+    private function removeUserRole(): int
     {
         // get usserid from input
         $user = $this->askUserId();
 
         // if user not found exit
         if (!$user) {
-            return;
+            return self::CONTINUECODE;
         }
 
         $userRoles = $user->getRoles() ?? [];
@@ -458,20 +489,20 @@ class UserManager extends Command
 
         // Check if can remove role
         if (2 === count($userRolesDisplay)) {
-            $this->output->warning("No role can be removed from user with id '".$user->getId()."'");
+            $this->output->warning("No role can be removed from user with id '" . $user->getId() . "'");
 
-            return;
+            return self::CONTINUECODE;
         }
 
         // Ask user for a choice
-        $input = $this->output->choice('Remove a role from the user '.$user->getId(), $userRolesDisplay);
+        $input = $this->output->choice('Remove a role from the user ' . $user->getId(), $userRolesDisplay);
 
         if ("Cancel" === $input) {
-            return;
+            return self::CONTINUECODE;
         }
 
         if ("Exit" === $input) {
-            exit();
+            return self::EXITCODE;
         }
 
         // update user info
@@ -484,7 +515,9 @@ class UserManager extends Command
         $this->eManager->flush();
 
         // OK COLOR
-        $this->output->success("The role '$input' has been removed from user with id '".$user->getId()."'");
+        $this->output->success("The role '$input' has been removed from user with id '" . $user->getId() . "'");
+
+        return self::CONTINUECODE;
     }
 
     /**
@@ -492,7 +525,7 @@ class UserManager extends Command
      *
      * @return null|object
      */
-    private function askUserId()
+    private function askUserId() : User
     {
         // Ask for user select
         $input = $this->output->ask('Select an id user');
