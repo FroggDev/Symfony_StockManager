@@ -21,6 +21,9 @@
         <testsuite name="Security Test Suite">
             <directory>tests/Security</directory>
         </testsuite>
+        <testsuite name="Command Test Suite">
+            <directory>tests/Command</directory>
+        </testsuite>
     </testsuites>
 
     <filter>

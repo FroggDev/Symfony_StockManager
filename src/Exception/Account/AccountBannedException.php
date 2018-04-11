@@ -25,4 +25,3 @@ class AccountBannedException extends AccountStatusException
         return $this->message;
     }
 }
-
