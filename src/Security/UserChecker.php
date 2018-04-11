@@ -30,7 +30,7 @@ class UserChecker implements UserCheckerInterface
 {
     /**
      * checks before authentication (banned/closed/deleted)
-     * @param UserInterface null|$user
+     * @param UserInterface null| $user
      *
      * @throws AccountBannedException
      * @throws AccountClosedException
@@ -102,7 +102,7 @@ class UserChecker implements UserCheckerInterface
 
     /**
      * Checks before validate a registration
-     * @param User $user
+     * @param User        $user
      * @param null|String $token
      *
      * @throws AccountAlreadyActivatedException
@@ -121,7 +121,7 @@ class UserChecker implements UserCheckerInterface
 
     /**
      * Checks before validate a registration
-     * @param User $user
+     * @param User        $user
      * @param null|String $token
      *
      * @throws AccountExpiredTokenException
@@ -139,7 +139,7 @@ class UserChecker implements UserCheckerInterface
 
     /**
      * Check if token is correct
-     * @param User $user
+     * @param User   $user
      * @param String $token
      *
      * @throws AccountBadTokenException

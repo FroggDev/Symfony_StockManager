@@ -400,7 +400,7 @@ class User extends AbstractAdvancedUser
          * If token already exist dosnt reset it to be able to register/recover if both asked at the same time
          */
         if (!$this->token) {
-            $this->token = uniqid('', true) . uniqid('', true);
+            $this->token = uniqid('', true).uniqid('', true);
         }
         /*
          * set token validity only if account has been validated
@@ -444,7 +444,7 @@ class User extends AbstractAdvancedUser
             return false;
         }
 
-        return $this->tokenValidity<new \DateTime();
+        return $this->tokenValidity < new \DateTime();
     }
 
     /**

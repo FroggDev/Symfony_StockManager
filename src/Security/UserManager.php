@@ -49,13 +49,13 @@ class UserManager
     /**
      * UserManager constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
-     * @param EntityManagerInterface $entityManager
-     * @param TranslatorInterface $translator
-     * @param Environment $twig
-     * @param RequestStack $requestStack
-     * @param MailerManager $mailer
-     * @param SessionInterface $session
-     * @param UserChecker $userChecker
+     * @param EntityManagerInterface       $entityManager
+     * @param TranslatorInterface          $translator
+     * @param Environment                  $twig
+     * @param RequestStack                 $requestStack
+     * @param MailerManager                $mailer
+     * @param SessionInterface             $session
+     * @param UserChecker                  $userChecker
      */
     public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, FlashBagInterface $flashbag, UserChecker $userChecker)
     {
@@ -98,12 +98,11 @@ class UserManager
                 $user->getEmail(),
                 $this->twig->render('mail/security/register.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/register.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email account validation subject', [], 'security_mail')
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security_mail')
             );
 
             // set confirm message
             $this->flash->add('check', 'validation register sent confirmation');
-
         } catch (\Exception $exception) {
             //error occured
             $this->flash->add(
@@ -141,7 +140,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation register confirmation');
-
         } catch (\Exception $exception) {
             //error occured
             $this->flash->add(
@@ -184,7 +182,7 @@ class UserManager
                 $email,
                 $this->twig->render('mail/security/recover.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/recover.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email password recovery subject', [], 'security_mail')
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security_mail')
             );
 
             // set register validation ok message
@@ -230,7 +228,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', $this->translator->trans('validation password changed', [], 'security'));
-
         } catch (\Exception $exception) {
             //error occured
             $this->flash->add(
