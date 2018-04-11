@@ -2,46 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Fixture/AbstractUserFixture.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Security/UserRepositoryTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Security/UsermanagerTest.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/Symfony_StockManager.iml" afterPath="$PROJECT_DIR$/.idea/Symfony_StockManager.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_DOC/site_test.txt" afterPath="$PROJECT_DIR$/_DOC/site_test.txt" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" afterPath="$PROJECT_DIR$/config/bundles.php" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/doctrine.yaml" afterPath="$PROJECT_DIR$/config/packages/test/doctrine.yaml" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
       <change beforePath="$PROJECT_DIR$/src/Command/UserManager.php" afterPath="$PROJECT_DIR$/src/Command/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Client/UserTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Client/UserTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Controller/FormCheckTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Controller/FormCheckTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StockController.php" afterPath="$PROJECT_DIR$/src/Controller/StockController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" afterPath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountAlreadyActivatedException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountAlreadyActivatedException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountBadTokenException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountBadTokenException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountBannedException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountBannedException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountClosedException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountClosedException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountDeletedException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountDeletedException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountDisabledException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountDisabledException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountExpiredTokenException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountExpiredTokenException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountNotFoundException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountNotFoundException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountTypeException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountTypeException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Security/UserType.php" afterPath="$PROJECT_DIR$/src/Form/Security/UserType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20180409085449.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php" afterPath="$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserChecker.php" afterPath="$PROJECT_DIR$/src/Security/UserChecker.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserManager.php" afterPath="$PROJECT_DIR$/src/Security/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/MailerManager.php" afterPath="$PROJECT_DIR$/src/Service/MailerManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/SiteConfig.php" afterPath="$PROJECT_DIR$/src/SiteConfig.php" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,7 +45,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.51378614">
+    <splitter split-orientation="horizontal" split-proportion="0.39926964">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="UserRepositoryTest.php" pinned="false" current-in-tab="false">
@@ -111,8 +73,8 @@
           <file leaf-file-name="UsermanagerTest.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/Security/UsermanagerTest.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="26">
-                  <caret line="96" column="47" lean-forward="false" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+                <state relative-caret-position="400">
+                  <caret line="118" column="15" lean-forward="true" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
                   <folding>
                     <element signature="e#250#270#0#PHP" expanded="true" />
                   </folding>
@@ -144,11 +106,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserManager.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UserManager.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Security/UserManager.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="459">
                   <caret line="102" column="28" lean-forward="false" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserManager.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Command/UserManager.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="270" column="19" lean-forward="false" selection-start-line="270" selection-start-column="19" selection-end-line="270" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -179,7 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>UserChecker</find>
       <find>dump</find>
       <find>must be null after being re</find>
       <find>disabled</find>
@@ -209,6 +180,7 @@
       <find>Router</find>
       <find>findAll</find>
       <find>emana</find>
+      <find>addUserRole</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -272,7 +244,6 @@
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/tests/Command/testUserManager.php" />
         <option value="$PROJECT_DIR$/config/packages/test/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/src/Command/UserManager.php" />
         <option value="$PROJECT_DIR$/_DOC/site_test.txt" />
         <option value="$PROJECT_DIR$/tests/Security/UserAdvancedTest.php" />
         <option value="$PROJECT_DIR$/tests/Fixture/UserFixture.php" />
@@ -283,6 +254,7 @@
         <option value="$PROJECT_DIR$/src/Security/UserManager.php" />
         <option value="$PROJECT_DIR$/tests/Security/UserRepositoryTest.php" />
         <option value="$PROJECT_DIR$/tests/Security/UsermanagerTest.php" />
+        <option value="$PROJECT_DIR$/src/Command/UserManager.php" />
       </list>
     </option>
   </component>
@@ -430,8 +402,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -546,16 +518,18 @@
       <workItem from="1523457266081" duration="1790000" />
       <workItem from="1523459118772" duration="1787000" />
       <workItem from="1523460979192" duration="869000" />
+      <workItem from="1523467175731" duration="1121000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402812000" />
+    <option name="totallyTimeSpent" value="403933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20735608" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14427084" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20670995" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
@@ -778,20 +752,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/450b6d62/7504823d-45d6-4849-b078-f658d12abdec/stockmanagertest.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/450b6d62/7504823d-45d6-4849-b078-f658d12abdec/stockmanager.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://table:/450b6d62/7504823d-45d6-4849-b078-f658d12abdec/stockmanagertest.user" />
+    <entry file="das://table:/450b6d62/7504823d-45d6-4849-b078-f658d12abdec/stockmanager.user" />
     <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -839,14 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command/UserManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="115" column="32" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -872,13 +826,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="42" column="30" lean-forward="true" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
     <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -959,11 +907,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Security/UsermanagerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="96" column="47" lean-forward="false" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+        <state relative-caret-position="400">
+          <caret line="118" column="15" lean-forward="true" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
           <folding>
             <element signature="e#250#270#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/UserManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="270" column="19" lean-forward="false" selection-start-line="270" selection-start-column="19" selection-end-line="270" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
