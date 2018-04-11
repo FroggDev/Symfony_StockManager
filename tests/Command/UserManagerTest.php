@@ -48,7 +48,7 @@ class UserManagerTest extends KernelTestCase
 
         // Make sure we are in the test environment
         if ('test' !== self::$kernel->getEnvironment()) {
-            throw new \LogicException('Primer must be executed in the test environment');
+            throw new \LogicException('Test must be executed in the test environment');
         }
 
         self::$application = new Application(self::$kernel);
