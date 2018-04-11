@@ -172,7 +172,7 @@ class UserManager extends Command
 
     /**
      * Main function
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
      *
      * @return void
@@ -395,7 +395,7 @@ class UserManager extends Command
         $this->eManager->flush();
 
         // OK COLOR
-        $this->output->success("The user '" . $user->getId() . "' has been enabled");
+        $this->output->success("The user '".$user->getId()."' has been enabled");
 
         return self::CONTINUECODE;
     }
@@ -425,7 +425,7 @@ class UserManager extends Command
 
         // Check if can add role
         if (2 === count($userRolesDisplay)) {
-            $this->output->warning("No role can be added from user with id '" . $user->getId());
+            $this->output->warning("No role can be added from user with id '".$user->getId());
 
             return self::CONTINUECODE;
         }
@@ -434,7 +434,6 @@ class UserManager extends Command
         $input = $this->output->choice('Select a role to add', $userRolesDisplay, 'Cancel');
 
         if ('Cancel' === !$input) {
-
             return self::CONTINUECODE;
         }
 
@@ -449,7 +448,7 @@ class UserManager extends Command
                 // role already exist
                 if ($user->hasRole($input)) {
                     // ERROR COLOR
-                    $this->output->warning("The user already has the role " . $input);
+                    $this->output->warning("The user already has the role ".$input);
 
                     return self::CONTINUECODE;
                 }
@@ -462,7 +461,7 @@ class UserManager extends Command
                 $this->eManager->flush();
 
                 // OK COLOR
-                $this->output->success("The role '$input' has been added to user with id '" . $user->getId() . "'");
+                $this->output->success("The role '$input' has been added to user with id '".$user->getId()."'");
                 break;
         }
 
@@ -494,13 +493,13 @@ class UserManager extends Command
 
         // Check if can remove role
         if (2 === count($userRolesDisplay)) {
-            $this->output->warning("No role can be removed from user with id '" . $user->getId() . "'");
+            $this->output->warning("No role can be removed from user with id '".$user->getId()."'");
 
             return self::CONTINUECODE;
         }
 
         // Ask user for a choice
-        $input = $this->output->choice('Remove a role from the user ' . $user->getId(), $userRolesDisplay);
+        $input = $this->output->choice('Remove a role from the user '.$user->getId(), $userRolesDisplay);
 
         if ("Cancel" === $input) {
             return self::CONTINUECODE;
@@ -520,7 +519,7 @@ class UserManager extends Command
         $this->eManager->flush();
 
         // OK COLOR
-        $this->output->success("The role '$input' has been removed from user with id '" . $user->getId() . "'");
+        $this->output->success("The role '$input' has been removed from user with id '".$user->getId()."'");
 
         return self::CONTINUECODE;
     }
