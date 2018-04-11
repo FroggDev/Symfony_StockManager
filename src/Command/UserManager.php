@@ -254,6 +254,11 @@ class UserManager extends Command
         $entity = SiteConfig::USERENTITY;
         $userList = $this->eManager->getRepository(get_class(new $entity()))->findAll();
 
+        // TEST ONLY
+        //echo "TRYING TO ENABLE THE USER";
+        //$userTest = $this->eManager->getRepository(get_class(new $entity()))->find(1);
+        //$userTest->setEnabled();
+
         // GET NB USER
         $nbUser = count($userList);
 

@@ -1,0 +1,24 @@
+ISSUES
+------
+
+Bug phpunit & composer.phar location
+https://github.com/symfony/symfony/issues/26637
+
+Bug Command with phpunit ( & symfony style)
+https://github.com/symfony/symfony/issues/26885
+
+Bug profiler
+https://github.com/symfony/symfony/issues/26855
+
+Bug Security AppSecret
+https://github.com/symfony/symfony/issues/26860
+
+PULL REQUESTS
+-------------
+
+PR YAML class
+https://github.com/symfony/symfony/pull/26710
+
+PR RoleHierarchy
+https://github.com/symfony/symfony/pull/26622
+

@@ -30,7 +30,7 @@ abstract class AbstractUserFixture
     {
         // Make sure we are in the test environment
         if ('test' !== $kernel->getEnvironment()) {
-            throw new \LogicException('Primer must be executed in the test environment');
+            throw new \LogicException('Test must be executed in the test environment');
         }
 
         $application = new Application($kernel);

@@ -47,9 +47,7 @@ class UserManagerTest extends KernelTestCase
         self::$kernel = self::bootKernel();
 
         // Make sure we are in the test environment
-        if ('test' !== self::$kernel->getEnvironment()) {
-            throw new \LogicException('Primer must be executed in the test environment');
-        }
+        AbstractUserFixture::checkEnvironement(self::$kernel);
 
         self::$application = new Application(self::$kernel);
         self::$application->setAutoExit(true);
