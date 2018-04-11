@@ -25,4 +25,3 @@ class AccountBadTokenException extends AccountStatusException
         return $this->message;
     }
 }
-

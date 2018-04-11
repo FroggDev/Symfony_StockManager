@@ -57,14 +57,14 @@ class UserManager
      * @param SessionInterface $session
      * @param UserChecker $userChecker
      */
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, SessionInterface $session,UserChecker $userChecker)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, FlashBagInterface $flashbag, UserChecker $userChecker)
     {
         $this->passwordEncoder = $passwordEncoder;
         $this->translator = $translator;
         $this->mailer = $mailer;
         $this->twig = $twig;
         $this->entityManager = $entityManager;
-        $this->flash = $session->getFlashBag();
+        $this->flash = $flashbag;
         $this->request = $requestStack->getMasterRequest();
         $this->userChecker = $userChecker;
     }
@@ -125,7 +125,7 @@ class UserManager
             $user = $this->getUserFromRequest();
 
             // check before validation
-            $this->userChecker->checkRegisterValidation($user,$this->request->query->get('token'));
+            $this->userChecker->checkRegisterValidation($user, $this->request->query->get('token'));
 
             // remove token and enable account
             $user->setEnabled();
@@ -136,7 +136,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation register confirmation');
-
         } catch (AccountStatusException $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessageKey());
@@ -180,7 +179,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation recover sent confirmation');
-
         } catch (AccountStatusException $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());
@@ -202,7 +200,7 @@ class UserManager
     {
         try {
             // check before validation
-            $this->userChecker->checkRecoverValidation($user,$this->request->query->get('token'));
+            $this->userChecker->checkRecoverValidation($user, $this->request->query->get('token'));
 
             // password encryption
             $password = $this->passwordEncoder->encodePassword($user, $user->getPassword());
@@ -218,7 +216,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', $this->translator->trans('validation password changed', [], 'security'));
-
         } catch (AccountStatusException $exception) {
             //error occured
             $this->flash->add('error', $exception->getMessage());

@@ -36,16 +36,10 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param bool $forceBase
-     *
      * @return array
      */
-    public function findAll(bool $forceBase = false): array
+    public function findAll(): array
     {
-        if ($this->allUser && $forceBase === false) {
-            return $this->allUser;
-        }
-
         $this->allUser = $this->createQueryBuilder('u')
             ->orderBy('u.dateInscription', 'DESC')
             ->getQuery()

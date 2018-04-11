@@ -10,3 +10,9 @@ php bin\phpunit (will install extra stuff)
 display coverage
 ----------------
 php bin\phpunit --coverage-html public/output/
+
+
+Fixtures
+--------
+composer require -dev doctrine/doctrine-fixtures-bundle
+composer require -dev fzaninotto/faker

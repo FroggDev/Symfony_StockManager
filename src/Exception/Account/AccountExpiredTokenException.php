@@ -26,4 +26,3 @@ class AccountExpiredTokenException extends AccountStatusException
         return $this->message;
     }
 }
-

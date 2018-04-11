@@ -83,6 +83,7 @@ use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
@@ -104,13 +105,12 @@ class UserManager extends Command
 
     /**
      * UserRoleManager constructor.
-     * @param null|string            $name
      * @param EntityManagerInterface $eManager
      */
-    public function __construct(?string $name = null, EntityManagerInterface $eManager) //, RoleHierarchy $rolesHierarchy
+    public function __construct(EntityManagerInterface $eManager) //, RoleHierarchy $rolesHierarchy
     {
         // parent constructor
-        parent::__construct($name);
+        parent::__construct();
 
         // get doctrine entity manager
         $this->eManager = $eManager;
@@ -170,6 +170,7 @@ class UserManager extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
+
         // Use to test 4.1 stuff
         $this->defaultOutput = $output;
 
@@ -225,10 +226,6 @@ class UserManager extends Command
                     break;
                 case 'Exit':
                     exit();
-                    break;
-                default:
-                    // ERROR COLOR (Should not be possible as already managed by choice()
-                    $this->output->error("$input is not a valid selection");
                     break;
             }
         }
@@ -289,12 +286,12 @@ class UserManager extends Command
                 $userList[$i]->getId(),
                 $userList[$i]->getEmail(),
                 $userList[$i]->isEnabled(),
-                join("+", $userList[$i]->getRoles() ?? []),
+                implode("+", $userList[$i]->getRoles() ?? []),
             ];
         }
 
         // DISPLAY USER LIST AS TABLE
-        $this->output->table(['ID', 'EMAIL', 'ACTIVATED', 'ROLES'], $display);
+        $this->output->table(['ID', 'EMAIL', 'ENABLED', 'ROLES'], $display);
     }
 
 
@@ -323,7 +320,7 @@ class UserManager extends Command
         $table = new Table($sectionTable);
 
         //Table headers
-        $table->addRow(['ID', 'EMAIL', 'ACTIVATED', 'ROLES']);
+        $table->addRow(['ID', 'EMAIL', 'ENABLED', 'ROLES']);
 
         // set max value to progress bar
         $progress = new ProgressBar($section);
@@ -338,7 +335,7 @@ class UserManager extends Command
                     $user->getId(),
                     $user->getEmail(),
                     $user->isEnabled(),
-                    join("+", $user->getRoles() ?? []),
+                    implode("+", $user->getRoles() ?? []),
                 ]
             );
 
@@ -370,7 +367,7 @@ class UserManager extends Command
         $this->eManager->flush();
 
         // OK COLOR
-        $this->output->success("The user '".$user->getId()."' has been activated");
+        $this->output->success("The user '".$user->getId()."' has been enabled");
     }
 
     /**
