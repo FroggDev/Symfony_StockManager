@@ -19,7 +19,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\Exception\AccountStatusException;
 use Symfony\Component\Translation\TranslatorInterface;
 use Twig\Environment;
 
@@ -49,13 +48,13 @@ class UserManager
     /**
      * UserManager constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
-     * @param EntityManagerInterface       $entityManager
-     * @param TranslatorInterface          $translator
-     * @param Environment                  $twig
-     * @param RequestStack                 $requestStack
-     * @param MailerManager                $mailer
-     * @param SessionInterface             $session
-     * @param UserChecker                  $userChecker
+     * @param EntityManagerInterface $entityManager
+     * @param TranslatorInterface $translator
+     * @param Environment $twig
+     * @param RequestStack $requestStack
+     * @param MailerManager $mailer
+     * @param SessionInterface $session
+     * @param UserChecker $userChecker
      */
     public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, FlashBagInterface $flashbag, UserChecker $userChecker)
     {
@@ -98,7 +97,7 @@ class UserManager
                 $user->getEmail(),
                 $this->twig->render('mail/security/register.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/register.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security_mail')
+                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email account validation subject', [], 'security_mail')
             );
 
             // set confirm message
@@ -126,7 +125,9 @@ class UserManager
     {
         try {
             // recover user from request
-            $user = $this->getUserFromRequest();
+            $user = $this->entityManager->getRepository(User::class)->findOneByEmail(
+                $this->request->query->get('email')
+            );
 
             // check before validation
             $this->userChecker->checkRegisterValidation($user, $this->request->query->get('token'));
@@ -140,7 +141,11 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation register confirmation');
+
         } catch (\Exception $exception) {
+
+            echo "\n\n\nhere " . $exception->getMessage()."\n\n\n";
+
             //error occured
             $this->flash->add(
                 'error',
@@ -164,7 +169,7 @@ class UserManager
     {
         try {
             /** @var User $user get author from email */
-            $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+            $user = $this->entityManager->getRepository(User::class)->findOneByEmail($email);
 
             // check before validation
             $this->userChecker->basicTest($user);
@@ -182,7 +187,7 @@ class UserManager
                 $email,
                 $this->twig->render('mail/security/recover.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/recover.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security_mail')
+                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email password recovery subject', [], 'security_mail')
             );
 
             // set register validation ok message
@@ -242,24 +247,4 @@ class UserManager
         return true;
     }
 
-    /*##############
-    # Util Methods #
-    ###############*/
-
-    /**
-     * @return null|User
-     */
-    public function getUserFromRequest(): ?User
-    {
-        // get request info
-        $email = $this->request->query->get('email');
-
-        // getUserFromEmail
-        $reposirotyUser = $this->entityManager->getRepository(User::class);
-
-        /** @var User $user */
-        $user = $reposirotyUser->findOneByEmail($email);
-
-        return $user;
-    }
 }

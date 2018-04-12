@@ -10,7 +10,7 @@ php bin\phpunit (will install extra stuff)
 display coverage
 ----------------
 php bin\phpunit --coverage-html public/output/
-
+php bin\phpunit --coverage-text
 
 Fixtures
 --------
