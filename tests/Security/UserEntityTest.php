@@ -94,7 +94,6 @@ class UserEntityTest extends TestCase
         // Create the user
         $user = new User();
 
-
         // TEST
         //-----
 

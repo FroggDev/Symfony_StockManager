@@ -179,7 +179,6 @@ class UserManager extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-
         // Use to test 4.1 stuff
         $this->defaultOutput = $output;
 

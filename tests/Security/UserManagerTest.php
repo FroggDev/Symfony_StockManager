@@ -14,9 +14,10 @@ use App\Entity\User;
 use App\Security\UserChecker;
 use App\Security\UserManager;
 use App\Service\MailerManager;
-use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\HttpFoundation\ParameterBag;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -50,8 +51,21 @@ class UserManagerTest extends KernelTestCase
 
     public function setUp()
     {
+        /**
+         * WITH REAL SERVICES :
+         * @see php bin/console debug:container
+         *
+            self::$kernel = self::bootKernel();
+            self::$kernel->getContainer()->get('doctrine.orm.entity_manager');
+            self::$kernel->getContainer()->get('request_stack');
+            self::$kernel->getContainer()->get('mailer');
+            self::$kernel->getContainer()->get('translator');
+            self::$kernel->getContainer()->get('twig');         *
+         */
 
         /**
+         * FAKING USER
+         * -----------
          * Only for database test
          */
         $this->user = new User();
@@ -61,6 +75,9 @@ class UserManagerTest extends KernelTestCase
             ->setEmail('Fake Email');
 
         /**
+         * FAKING entityManager
+         * --------------------
+         *
          * @see https://stackoverflow.com/questions/24416028/is-there-a-way-to-create-a-mock-of-doctrine-2s-entity-manager-and-supply-it-a-m
          *
          * Infering that the the Subject Under Test is dealing with a single
@@ -69,11 +86,11 @@ class UserManagerTest extends KernelTestCase
         $repository = $this
             ->getMockBuilder('Doctrine\ORM\EntityRepository')
             ->disableOriginalConstructor()
-            ->setMethods(array('findOneBy'))
+            ->setMethods(array('findOneByEmail'))
             ->getMock();
 
         $repository
-            ->method('findOneBy')
+            ->method('findOneByEmail')
             ->will($this->returnValue($this->user));
 
         /**
@@ -91,9 +108,60 @@ class UserManagerTest extends KernelTestCase
             ->with('App\Entity\User')
             ->will($this->returnValue($repository));
 
+        /**
+         * FAKING entityManager
+         * --------------------
+         *
+         * hand made !
+         *
+         * mutiple call
+         * @see https://stackoverflow.com/questions/5988616/phpunit-mock-method-multiple-calls-with-different-arguments/5989095
+         */
+
+        // PARAMETER BAG
+
+        $parameterbag = $this
+            ->getMockBuilder( ParameterBag::class)
+            ->disableOriginalConstructor()
+            ->setMethods(array('get'))
+            ->getMock();
+
+        $parameterbag
+            ->method('get')
+            ->with(
+                $this->logicalOr(
+                    $this->equalTo('email'),
+                    $this->equalTo('token')
+                )
+            )
+            ->will($this->returnCallback(array($this, 'getRequestCallBack')));
+
+
+        // REQUEST
+
+        $request = $this->createMock(Request::class);
+
+        $request->query = $parameterbag;
+
+        // REQUESTSTACK
+
+        $requestStack = $this->getMockBuilder(RequestStack::class)
+             ->disableOriginalConstructor()
+             ->setMethods(array('getMasterRequest'))
+             ->getMock();
+
+        $requestStack
+            ->method('getMasterRequest')
+            ->will($this->returnValue($request));
+
+        /*
+        var_dump($requestStack->getMasterRequest()->query->get('email'));
+        var_dump($requestStack->getMasterRequest()->query->get('token'));
+        */
 
         /**
-         * Other fields
+         * FAKING other injections
+         * -----------------------
          */
         $this->passwordEncoder = $this->createMock(UserPasswordEncoderInterface::class);
 
@@ -103,16 +171,10 @@ class UserManagerTest extends KernelTestCase
 
         $twig = $this->createMock(Environment::class);
 
-        $this->usermanager = new UserManager(
-            $this->passwordEncoder,
-            $this->entityManager,
-            $translator,
-            $twig,
-            $this->createMock(RequestStack::class),
-            $this->mailerManager,
-            $this->createMock(FlashBagInterface::class),
-            new UserChecker()
-        );
+        /**
+         * FAKING Methods
+         * ---------------
+         */
 
         $this->mailerManager
             ->method('send')
@@ -125,6 +187,23 @@ class UserManagerTest extends KernelTestCase
         $twig
             ->method('render')
             ->willReturn('Fake Content');
+
+        /**
+         * Creating Object from FAKE injections
+         * ------------------------------------
+         */
+        $this->usermanager = new UserManager(
+            $this->passwordEncoder,
+            $this->entityManager,
+            $translator,
+            $twig,
+            $requestStack,
+            $this->mailerManager,
+            $this->createMock(FlashBagInterface::class),
+            new UserChecker()
+        );
+
+
     }
 
     /*####################
@@ -198,35 +277,22 @@ class UserManagerTest extends KernelTestCase
             ->setDisabled()
             ->setToken();
 
-        /*
-         * TODO THERE MOCK AN EXISTING METHOD
-         */
-        /*
-        $this->usermanager
-            ->method('getUserFromRequest')
-            ->willReturn($user);
-
-        +
-        $this->request->query->get('token')
-
-        */
 
         // TEST
         //-----
 
         // Check if all is ok
-        /*
         $this->assertTrue($this->usermanager->registerValidation());
 
         // Check if user is enabled
-        $this->assertTrue($user->isEnabled());
+        $this->assertTrue($this->user->isEnabled());
 
         // Test if a token has been removed
-        $this->assertNull($user->getToken());
+        $this->assertNull($this->user->getToken());
 
         // Test if no validity
-        $this->assertNull($user->getTokenValidity());
-        */
+        $this->assertNull($this->user->getTokenValidity());
+
     }
 
     public function testRegisterValidationWithError()
@@ -234,19 +300,16 @@ class UserManagerTest extends KernelTestCase
         // INIT
         //-----
 
-        /*
-         * TODO THERE MOCK AN EXISTING METHOD
-         */
-
-        //$this->usermanager
-        //    ->method('getUserFromRequest')
-        //    ->will($this->throwException(new \Exception()));
+        // add an exception
+        $this->entityManager
+            ->method('persist')
+            ->will($this->throwException(new \Exception()));
 
         // TEST
         //-----
 
         // Check if all is not ok
-        //$this->assertFalse($this->usermanager->registerValidation());
+        $this->assertFalse($this->usermanager->registerValidation());
     }
 
     /*--------
@@ -338,35 +401,21 @@ class UserManagerTest extends KernelTestCase
             ->method('encodePassword')
             ->willReturn($this->user->getPassword());
 
-        /*
-         * TODO THERE MOCK AN EXISTING METHOD
-         */
-        /*
-        $this->usermanager
-            ->method('getUserFromRequest')
-            ->willReturn($user);
-
-        +
-        $this->request->query->get('token')
-
-        */
-
         // TEST
         //-----
 
         // Check if all is ok
-        /*
-        $this->assertTrue($this->usermanager->trcoverValidation());
+
+        $this->assertTrue($this->usermanager->recoverValidation($this->user));
 
         // Check if user is enabled
-        $this->assertTrue($user->isEnabled());
+        $this->assertTrue($this->user->isEnabled());
 
         // Test if a token has been removed
-        $this->assertNull($user->getToken());
+        $this->assertNull($this->user->getToken());
 
         // Test if no validity
-        $this->assertNull($user->getTokenValidity());
-        */
+        $this->assertNull($this->user->getTokenValidity());
     }
 
     public function testRecoverValidationWithError()
@@ -374,19 +423,32 @@ class UserManagerTest extends KernelTestCase
         // INIT
         //-----
 
-        /*
-         * TODO THERE MOCK AN EXISTING METHOD
-         */
-
-        //$this->usermanager
-        //    ->method('getUserFromRequest')
-        //    ->will($this->throwException(new \Exception()));
+        $this->passwordEncoder
+            ->method('encodePassword')
+            ->will($this->throwException(new \Exception()));
 
         // TEST
         //-----
 
         // Check if all is not ok
-        //$this->assertFalse($this->usermanager->registerValidation());
+        $this->assertFalse($this->usermanager->recoverValidation($this->user));
     }
 
+    /*#############
+     # UTIL FUNCS #
+     #############*/
+
+    /**
+     * @param string $param
+     * @return null|string
+     */
+    public function getRequestCallBack(string $param) : ? string
+    {
+        switch($param){
+            case 'email' : return $this->user->getEmail();
+            case 'token' : return $this->user->getToken();
+        }
+
+        return null;
+    }
 }

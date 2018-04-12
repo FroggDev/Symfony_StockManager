@@ -41,3 +41,8 @@ php bin/console translation:update --dump-messages fr
 
 - adding missing translation and overwrite existing with specific format
 php bin/console translation:update --dump-messages --force fr --output-format xlf
+
+Container
+---------
+- get all alias id
+php bin/console debug:container

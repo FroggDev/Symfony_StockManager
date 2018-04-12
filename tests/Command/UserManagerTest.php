@@ -50,7 +50,7 @@ class UserManagerTest extends KernelTestCase
         AbstractUserFixture::checkEnvironement(self::$kernel);
 
         self::$application = new Application(self::$kernel);
-        self::$application->setAutoExit(true);
+        self::$application->setAutoExit(false);
 
         // Get the commmand
         self::$command = self::$application
@@ -64,6 +64,7 @@ class UserManagerTest extends KernelTestCase
             ->getRepository(User::class);
 
     }
+
 
     /*###########
      # DB TESTS #
