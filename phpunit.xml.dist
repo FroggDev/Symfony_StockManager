@@ -24,6 +24,9 @@
         <testsuite name="Command Test Suite">
             <directory>tests/Command</directory>
         </testsuite>
+        <testsuite name="Service Test Suite">
+            <directory>tests/Service</directory>
+        </testsuite>
     </testsuites>
 
     <filter>

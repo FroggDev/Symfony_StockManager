@@ -186,10 +186,10 @@ class LocaleManager
         $this->request->setLocale($this->newLocale);
 
         // Update session
-        $this->request->getSession()->set('_locale', $this->newLocale);
+        //$this->request->getSession()->set('_locale', $this->newLocale);
 
         // Update default locale
-        $this->request->setDefaultLocale($this->newLocale);
+        //$this->request->setDefaultLocale($this->newLocale);
 
         // fluent
         return $this;

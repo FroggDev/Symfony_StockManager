@@ -60,7 +60,7 @@ class UserManagerTest extends KernelTestCase
             self::$kernel->getContainer()->get('request_stack');
             self::$kernel->getContainer()->get('mailer');
             self::$kernel->getContainer()->get('translator');
-            self::$kernel->getContainer()->get('twig');         *
+            self::$kernel->getContainer()->get('twig');
          */
 
         /**
@@ -178,7 +178,7 @@ class UserManagerTest extends KernelTestCase
 
         $this->mailerManager
             ->method('send')
-            ->willReturn(null);
+            ->willReturn(1);
 
         $translator
             ->method('trans')

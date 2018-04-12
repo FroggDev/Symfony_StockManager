@@ -14,10 +14,4 @@ namespace App\Service\Twig;
  */
 abstract class AbstractTwigExtension
 {
-    /**
-     * AbstractTwigExtension constructor.
-     */
-    public function __construct()
-    {
-    }
 }

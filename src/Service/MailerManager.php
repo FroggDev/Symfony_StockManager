@@ -28,13 +28,16 @@ class MailerManager
     }
 
     /**
-     * @param string $from     mail from
-     * @param string $to       mail to
-     * @param string $template twig template to display in the mail
-     * @param string $subject  mail subject
-     *
      * @see https://symfony.com/doc/current/email/dev_environment.html
      * @see  Controller & injection __construct(\Swift_Mailer $mailer)
+     *
+     * @param string $from mail from
+     * @param string $to mail to
+     * @param string $bodyhtml
+     * @param string $bodytxt
+     * @param string $subject mail subject
+     *
+     * @return void
      */
     public function send(string $from, string $to, string $bodyhtml, string $bodytxt, string $subject): void
     {

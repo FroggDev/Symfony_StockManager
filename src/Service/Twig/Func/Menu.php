@@ -35,10 +35,10 @@ class Menu extends AbstractTwigExtension
      */
     public function getActiveMenu(string $route) : void
     {
-        $stack = $this->requestStack->getMasterRequest();
+        $request = $this->requestStack->getMasterRequest();
 
-        if ($route === $stack->get('_route')) {
-            echo "active ";
+        if ($route === $request->get('_route')) {
+            echo 'active ';
         }
     }
 }
