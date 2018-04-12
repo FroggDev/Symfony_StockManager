@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Security/AccessDeniedHandlerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Service/LocaleManagerTest.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_DOC/site_commands.txt" afterPath="$PROJECT_DIR$/_DOC/site_commands.txt" />
-      <change beforePath="$PROJECT_DIR$/_DOC/site_test.txt" afterPath="$PROJECT_DIR$/_DOC/site_test.txt" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserManager.php" afterPath="$PROJECT_DIR$/src/Command/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserManager.php" afterPath="$PROJECT_DIR$/src/Security/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Command/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserEntityTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserEntityTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
+      <change beforePath="$PROJECT_DIR$/src/Service/LocaleManager.php" afterPath="$PROJECT_DIR$/src/Service/LocaleManager.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,14 +35,34 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.5448799">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="LocaleManager.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="LocaleManager.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Service/LocaleManager.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+                <state relative-caret-position="332">
+                  <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LocaleManagerTest.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tests/Service/LocaleManagerTest.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="176">
+                  <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="phpunit.xml.dist" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="459">
+                  <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
@@ -57,12 +72,24 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="LocaleManager.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="LocaleManager.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Service/LocaleManager.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
+                <state relative-caret-position="247">
+                  <caret line="96" column="41" lean-forward="false" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="41" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserManagerTest.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/Security/UserManagerTest.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="448">
+                  <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="210" selection-end-column="27" />
+                  <folding>
+                    <marker date="1523527523277" expanded="true" signature="3969:3974" ph="select * fro... roles" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -82,18 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getUserFromRequest()</find>
-      <find>UserManager</find>
-      <find>active</find>
-      <find>kenValidity())-&gt;days &lt; User::TOKENVALIDITYT</find>
-      <find>setT</find>
-      <find>expired</find>
-      <find>setActive</find>
-      <find>account token is not valid</find>
-      <find>activa</find>
-      <find>Router</find>
-      <find>findAll</find>
-      <find>emana</find>
       <find>addUserRole</find>
       <find>Yes</find>
       <find>$repository</find>
@@ -112,6 +127,18 @@
       <find>here</find>
       <find>HERE</find>
       <find>echo</find>
+      <find>getLocale</find>
+      <find>changeDefaultLocale</find>
+      <find>generate('index', ['_locale' =&gt;</find>
+      <find>setCurrentLocale</find>
+      <find>setSystemLocale</find>
+      <find>setRedirectUri</find>
+      <find>$parameterbag</find>
+      <find>setRequestedLocale</find>
+      <find>router</find>
+      <find>generate</find>
+      <find>setUserLocale</find>
+      <find>COOKIELOCALENAME</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -135,8 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Exception/AccountAlreadyActivatedException.php" />
-        <option value="$PROJECT_DIR$/src/Exception/AccountExpiredTokenException.php" />
         <option value="$PROJECT_DIR$/src/Exception/AccountBadTokenException.php" />
         <option value="$PROJECT_DIR$/src/Controller/IndexController.php" />
         <option value="$PROJECT_DIR$/src/Exception/Account/AccountAlreadyActivatedException.php" />
@@ -167,7 +192,6 @@
         <option value="$PROJECT_DIR$/translations/stock_home.en.xlf" />
         <option value="$PROJECT_DIR$/translations/stock_home.fr.xlf" />
         <option value="$PROJECT_DIR$/templates/components/common/nav.html.twig" />
-        <option value="$PROJECT_DIR$/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/tests/Command/testUserManager.php" />
         <option value="$PROJECT_DIR$/config/packages/test/doctrine.yaml" />
         <option value="$PROJECT_DIR$/tests/Security/UserAdvancedTest.php" />
@@ -186,6 +210,9 @@
         <option value="$PROJECT_DIR$/tests/Security/AccessDeniedHandlerTest.php" />
         <option value="$PROJECT_DIR$/tests/Security/UserEntityTest.php" />
         <option value="$PROJECT_DIR$/_DOC/site_test.txt" />
+        <option value="$PROJECT_DIR$/src/Service/LocaleManager.php" />
+        <option value="$PROJECT_DIR$/tests/Service/LocaleManagerTest.php" />
+        <option value="$PROJECT_DIR$/phpunit.xml.dist" />
       </list>
     </option>
   </component>
@@ -369,19 +396,19 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\symfony\Symfony_StockManager\src\Exception" />
-      <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\config\packages\test" />
-      <recent name="C:\symfony\Symfony_StockManager\templates\stock" />
-      <recent name="C:\symfony\Symfony_StockManager\src\Controller" />
-      <recent name="C:\symfony\Symfony_StockManager\templates\mail\security" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\symfony\Symfony_StockManager\src\Exception\Account" />
       <recent name="C:\symfony\Symfony_StockManager\src\Security" />
       <recent name="C:\symfony\Symfony_StockManager\tests\Security" />
       <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\_DOC" />
       <recent name="C:\symfony\Symfony_StockManager\templates\components\home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\tests\Service" />
+      <recent name="C:\symfony\Symfony_StockManager\src\Exception" />
+      <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\config\packages\test" />
+      <recent name="C:\symfony\Symfony_StockManager\templates\stock" />
+      <recent name="C:\symfony\Symfony_StockManager\src\Controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -439,17 +466,22 @@
       <workItem from="1523524391531" duration="1786000" />
       <workItem from="1523526218683" duration="1777000" />
       <workItem from="1523528018607" duration="1789000" />
-      <workItem from="1523529830101" duration="677000" />
+      <workItem from="1523529830101" duration="1794000" />
+      <workItem from="1523531648503" duration="1792000" />
+      <workItem from="1523533456689" duration="1834000" />
+      <workItem from="1523535317836" duration="1787000" />
+      <workItem from="1523537210132" duration="516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="431840000" />
+    <option name="totallyTimeSpent" value="438886000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15351813" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15991472" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20670995" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
@@ -502,13 +534,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/Security/FakeClass/UserFake.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Security/UserTokenTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -649,6 +674,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -739,17 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserManagerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="225" column="0" lean-forward="true" selection-start-line="225" selection-start-column="0" selection-end-line="227" selection-end-column="15" />
-          <folding>
-            <element signature="e#250#270#0#PHP" expanded="false" />
-            <marker date="1523527523277" expanded="true" signature="3969:3974" ph="select * fro... roles" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Security/AccessDeniedHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -784,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3332">
           <caret line="42" column="15" lean-forward="false" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,7 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="32" column="8" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,15 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1451">
           <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,7 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -824,7 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,14 +834,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/LocaleManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="332">
+          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Security/UserManagerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="210" selection-end-column="27" />
+          <folding>
+            <marker date="1523527523277" expanded="true" signature="3969:3974" ph="select * fro... roles" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Service/LocaleManagerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding />
         </state>
       </provider>
