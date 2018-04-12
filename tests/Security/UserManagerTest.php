@@ -178,7 +178,7 @@ class UserManagerTest extends KernelTestCase
 
         $this->mailerManager
             ->method('send')
-            ->willReturn(null);
+            ->willReturn(1);
 
         $translator
             ->method('trans')

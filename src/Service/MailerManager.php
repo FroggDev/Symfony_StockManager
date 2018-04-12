@@ -47,6 +47,6 @@ class MailerManager
             ->setBody($bodyhtml, 'text/html')
             ->addPart($bodytxt, 'text/plain');
 
-        return $this->mailer->send($message);
+        $this->mailer->send($message);
     }
 }

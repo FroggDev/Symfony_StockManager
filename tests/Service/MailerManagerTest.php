@@ -63,8 +63,7 @@ class MailerManagerTest extends KernelTestCase
         //-----
 
         //test return code
-        $this->assertEquals(
-            1,
+        $this->$this->assertNull(
             $mailManager->send(
                 'test@frogg.fr',
                 'test@frogg.fr',
