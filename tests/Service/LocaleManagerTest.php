@@ -66,6 +66,7 @@ class LocaleManagerTest extends KernelTestCase
         // INIT
         //-----
 
+
         self::$kernel = self::bootKernel();
 
         // FAKING THE REQUEST GET LANG FROM URL
