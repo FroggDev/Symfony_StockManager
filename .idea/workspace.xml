@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Service/MailerManager.php" afterPath="$PROJECT_DIR$/src/Service/MailerManager.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" />
       <change beforePath="$PROJECT_DIR$/tests/Service/MailerManagerTest.php" afterPath="$PROJECT_DIR$/tests/Service/MailerManagerTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +38,8 @@
           <file leaf-file-name="MailerManagerTest.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/Service/MailerManagerTest.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="329">
-                  <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+                <state relative-caret-position="312">
+                  <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -61,7 +59,7 @@
             <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="571">
-                  <caret line="78" column="8" lean-forward="true" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
+                  <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -95,7 +93,7 @@
             <entry file="file://$PROJECT_DIR$/src/Service/MailerManager.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="646">
-                  <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+                  <caret line="45" column="24" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -115,7 +113,7 @@
             <entry file="file://$PROJECT_DIR$/tests/Security/UserManagerTest.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="400">
-                  <caret line="381" column="8" lean-forward="true" selection-start-line="381" selection-start-column="8" selection-end-line="381" selection-end-column="27" />
+                  <caret line="381" column="8" lean-forward="false" selection-start-line="381" selection-start-column="8" selection-end-line="381" selection-end-column="27" />
                   <folding>
                     <marker date="1523541553487" expanded="true" signature="3959:3964" ph="select * fro... roles" />
                   </folding>
@@ -518,12 +516,12 @@
       <workItem from="1523535317836" duration="1787000" />
       <workItem from="1523537210132" duration="1787000" />
       <workItem from="1523539046527" duration="1819000" />
-      <workItem from="1523540888302" duration="705000" />
+      <workItem from="1523540888302" duration="825000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="442681000" />
+    <option name="totallyTimeSpent" value="442801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -892,7 +890,7 @@
     <entry file="file://$PROJECT_DIR$/tests/Security/UserManagerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="381" column="8" lean-forward="true" selection-start-line="381" selection-start-column="8" selection-end-line="381" selection-end-column="27" />
+          <caret line="381" column="8" lean-forward="false" selection-start-line="381" selection-start-column="8" selection-end-line="381" selection-end-column="27" />
           <folding>
             <marker date="1523541553487" expanded="true" signature="3959:3964" ph="select * fro... roles" />
           </folding>
@@ -902,7 +900,7 @@
     <entry file="file://$PROJECT_DIR$/src/Service/MailerManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
-          <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <caret line="45" column="24" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -910,15 +908,15 @@
     <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="571">
-          <caret line="78" column="8" lean-forward="true" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
+          <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Service/MailerManagerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="312">
+          <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
           <folding />
         </state>
       </provider>
