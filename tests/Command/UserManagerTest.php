@@ -46,9 +46,6 @@ class UserManagerTest extends KernelTestCase
         // Get the kernel
         self::$kernel = self::bootKernel();
 
-        // Make sure we are in the test environment
-        AbstractUserFixture::checkEnvironement(self::$kernel);
-
         self::$application = new Application(self::$kernel);
         self::$application->setAutoExit(false);
 
@@ -135,7 +132,7 @@ class UserManagerTest extends KernelTestCase
         // Set input scenario
         $commandTester->setInputs([0]); // display user list
         $commandTester->setInputs([0]); // continue to display user list ? (0=no)
-         $commandTester->setInputs([5]); // exit
+        $commandTester->setInputs([5]); // exit
 
         // TEST
         //-----

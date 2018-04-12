@@ -144,8 +144,6 @@ class UserManager
 
         } catch (\Exception $exception) {
 
-            echo "\n\n\nhere " . $exception->getMessage()."\n\n\n";
-
             //error occured
             $this->flash->add(
                 'error',

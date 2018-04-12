@@ -66,7 +66,6 @@ class LocaleManagerTest extends KernelTestCase
         // INIT
         //-----
 
-
         self::$kernel = self::bootKernel();
 
         // FAKING THE REQUEST GET LANG FROM URL
@@ -93,7 +92,6 @@ class LocaleManagerTest extends KernelTestCase
             ->method('get')
             ->with(SiteConfig::COOKIELOCALENAME)
             ->willReturn(self::TOLOCALE);
-
 
         // REQUEST
         $request = $this->getMockBuilder(Request::class)
@@ -129,7 +127,7 @@ class LocaleManagerTest extends KernelTestCase
     }
 
     /*######################
-     # Localemanager TESTS #
+     # LocaleManager TESTS #
      ######################*/
 
     /**

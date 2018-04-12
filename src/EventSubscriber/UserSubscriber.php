@@ -12,6 +12,7 @@ namespace App\EventSubscriber;
 
 use App\Common\Traits\Client\UserTrait;
 use App\Entity\User;
+use App\Exception\Account\AccountAccessDeniedException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -56,6 +57,10 @@ class UserSubscriber implements EventSubscriberInterface
     {
         // Get the User entity.
         $this->user = $event->getAuthenticationToken()->getUser();
+
+        if(!$this->user->isEnabled()){
+            throw new AccountAccessDeniedException();
+        }
 
         if ($this->user instanceof User) {
             // set last connexion

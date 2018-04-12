@@ -27,6 +27,9 @@
         <testsuite name="Service Test Suite">
             <directory>tests/Service</directory>
         </testsuite>
+        <testsuite name="Event Test Suite">
+            <directory>tests/Event</directory>
+        </testsuite>
     </testsuites>
 
     <filter>

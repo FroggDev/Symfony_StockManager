@@ -321,9 +321,9 @@ class User extends AbstractAdvancedUser
     }
 
     /**
-     * @return \DateTime
+     * @return null|\DateTime
      */
-    public function getLastConnexion(): \DateTime
+    public function getLastConnexion(): ?\DateTime
     {
         return $this->lastConnexion;
     }
