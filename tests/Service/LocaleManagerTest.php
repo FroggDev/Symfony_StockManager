@@ -144,9 +144,15 @@ class LocaleManagerTest extends KernelTestCase
         // TEST
         //-----
 
+        //check if is response
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $responseResult);
 
+        //check if redirect is good
         $this->assertEquals(self::TOURI, $responseResult->headers->get('location'));
+
+        // check if the cookie is set
+        $this->assertEquals($responseResult->headers->getCookies()[0]->getName(),SiteConfig::COOKIELOCALENAME);
+        $this->assertEquals($responseResult->headers->getCookies()[0]->getValue(),self::TOLOCALE);
     }
 
     /**
@@ -162,9 +168,10 @@ class LocaleManagerTest extends KernelTestCase
         // TEST
         //-----
 
+        // check if is good response
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $responseResult);
 
+        // check if redirect is good
         $this->assertEquals(self::TOURI, $responseResult->headers->get('location'));
-
     }
 }
