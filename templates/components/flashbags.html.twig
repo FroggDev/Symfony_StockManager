@@ -4,7 +4,10 @@
         <div class="row flash-notice">
             <div class="m12 s12 col">
                 <div class="card-panel {{ key }}">
-                    <h6 class="white-text"><i class="material-icons left" style="line-height: unset;">{{ key }}</i>{{ flash | trans | nl2br }}</h6>
+                    <h6 class="white-text">
+                        <i class="material-icons left" style="line-height: unset;">{{ key }}</i>
+                        <div>{{ flash | trans | nl2br }}</div>
+                    </h6>
                 </div>
             </div>
         </div>

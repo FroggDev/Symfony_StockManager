@@ -103,6 +103,9 @@ class UserManager
             // set confirm message
             $this->flash->add('check', 'validation register sent confirmation');
         } catch (\Exception $exception) {
+
+            dump($exception);
+
             //error occured
             $this->flash->add(
                 'error',

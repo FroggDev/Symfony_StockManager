@@ -25,6 +25,7 @@ trait FormCheckTrait
      */
     private function isOk(FormErrorIterator $errors): bool
     {
+
         if (count($errors) > 0) {
             //Add error message
             foreach ($errors as $error) {

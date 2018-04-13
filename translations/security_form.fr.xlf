@@ -43,7 +43,7 @@
       </trans-unit>
       <trans-unit id="AI1.w0y" resname="register title">
         <source>register title</source>
-        <target>Creation de compte</target>
+        <target>Création de compte</target>
       </trans-unit>
       <trans-unit id="4Em87HC" resname="label firstname">
         <source>label firstname</source>

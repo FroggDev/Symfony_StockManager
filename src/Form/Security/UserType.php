@@ -33,7 +33,7 @@ class UserType extends AbstractType
             ->add('firstname', TextType::class, ['attr' => ['class' => 'validate']])
             ->add('lastname', TextType::class, ['attr' => ['class' => 'validate']])
             ->add('email', EmailType::class, ['attr' => ['class' => 'validate']])
-            ->add('password', PasswordType::class, ['attr' => ['class' => 'validate']]);
+            ->add('password', TextType::class, ['attr' => ['class' => 'validate']]);
     }
 
     /**

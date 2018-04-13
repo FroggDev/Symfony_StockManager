@@ -51,6 +51,11 @@
                         {{ form_widget(form.password) }}
                         <label for="user_password">{{ "label password" | trans }}</label>
                     </div>
+
+                    <div class="securityerror red-text" style="margin-left: 3.5rem;">
+                        {{ form_errors(form.password) }}
+                    </div>
+
                 </div>
 
                 <div class="row">

@@ -17,6 +17,10 @@
         <source>password should not be blank</source>
         <target>Please enter a password.</target>
       </trans-unit>
+      <trans-unit id="fu4uM9r-en" resname="email should not be blank">
+        <source>email should not be blank</source>
+        <target>Please enter an email.</target>
+      </trans-unit>
       <trans-unit id="fu4uM9r" resname="email is not valid">
         <source>email is not valid</source>
         <target>This email is not valid.</target>
@@ -24,6 +28,22 @@
       <trans-unit id="dJeMHTI" resname="email already in use">
         <source>email already in use</source>
         <target>This email is already in use.</target>
+      </trans-unit>
+      <trans-unit id="first-too-long-en" resname="firstname is too long">
+        <source>firstname is too long</source>
+        <target>Your firstname is too long.</target>
+      </trans-unit>
+      <trans-unit id="last-too-long-en" resname="lastname is too long">
+        <source>lastname is too long</source>
+        <target>Your lastname is too long.</target>
+      </trans-unit>
+      <trans-unit id="password-too-long-en" resname="password is too long">
+        <source>password is too long</source>
+        <target>Your password is too long.</target>
+      </trans-unit>
+      <trans-unit id="email-too-long-en" resname="email is too long">
+        <source>email is too long</source>
+        <target>Your email is too long.</target>
       </trans-unit>
     </body>
   </file>

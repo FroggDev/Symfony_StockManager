@@ -22,6 +22,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class RegisterTest extends WebTestCase
 {
+    /** @const int nb of fixture to create */
+    private const NBUSERFIXTURE = 3;
+
     /** @var Client */
     private $client;
 
@@ -50,7 +53,23 @@ class RegisterTest extends WebTestCase
         $this->translator = self::$kernel->getContainer()->get('translator');
 
         // get register page uri
-        $this->page = $this->router->generate('security_register');
+        $this->page = $this->router->generate('security_register',['_locale' => 'en']);
+    }
+
+    /*###########
+     # DB TESTS #
+     ###########*/
+
+    /**
+     * Test the Create Database & user
+     */
+    public function testToCreateDatabaseWithFixturedUsers(): void
+    {
+        // nothing should occur
+        $this->assertNull(AbstractUserFixture::createDatabase(self::$kernel));
+
+        // nothing should occur
+        $this->assertNull(AbstractUserFixture::createFixtures(self::$kernel,self::NBUSERFIXTURE));
     }
 
     /*############
@@ -59,16 +78,19 @@ class RegisterTest extends WebTestCase
 
     public function testRegisterUser()
     {
-        // INIT
+
+         // INIT
         //-----
 
         // init a fake user
         $fakeUser = new User();
+        $originalPassword = 'Fake';
+        $originalEmail = 'addinbase@fake.fr';
         $fakeUser
             ->setFirstName('FakeFirstName')
             ->setLastName('FakeLastName')
-            ->setPassword('Fake')
-            ->setEmail('fake@fake.fr');
+            ->setPassword($originalPassword)
+            ->setEmail($originalEmail);
 
         // NAVIGATION
         //-----------
@@ -82,9 +104,6 @@ class RegisterTest extends WebTestCase
         // TEST
         //-----
 
-        //TODO HERE TEST IF PAGE IS 200 AND GOOD TARGET
-        //$crawler
-
         // checks that an email was sent
         $this->assertSame(1, $mailCollector->getMessageCount());
 
@@ -95,11 +114,69 @@ class RegisterTest extends WebTestCase
         $this->assertSame(SiteConfig::SITENAME . ' - ' . $this->translator->trans('email account validation subject', [], 'security_mail'), $message->getSubject());
         $this->assertSame(SiteConfig::SECURITYMAIL, key($message->getFrom()));
         $this->assertSame($fakeUser->getEmail(), key($message->getTo()));
+
+        // TEST USER IN DATABASE
+        //----------------------
+
+        /** @var user $testuser get user created ni database */
+        $testuser =
+            self::$kernel
+                ->getContainer()
+                ->get('doctrine.orm.entity_manager')
+                ->getRepository(User::class)
+                ->find(self::NBUSERFIXTURE+1);
+
+        // test if user exist in database
+        $this->assertNotNull($testuser, "User should not be null");
+
+        // test if email is correct
+        $this->assertSame($testuser->getEmail(),$originalEmail);
+
+        // test if password has been encoded
+        $this->assertNotEquals($testuser->getPassword(),$originalPassword);
     }
 
     /*################
      # NEGATIVE TESTS#
      ################*/
+
+    // ********* MAIN
+
+    public function testRegisterUserIfAlreadyExit()
+    {
+        // init a fake user
+        $fakeUser = new User();
+        $fakeUser
+            ->setFirstName('')
+            ->setLastName('FakeLastName')
+            ->setPassword('Fake')
+            ->setEmail('addinbase@fake.fr');
+
+        // Check if error occured
+        $this->errorNavigation(
+            $fakeUser,
+            $this->translator->trans('email already in use', [], 'validators')
+        );
+    }
+
+    public function testRegisterUserWithInvalidEmail()
+    {
+        // init a fake user
+        $fakeUser = new User();
+        $fakeUser
+            ->setFirstName('FakeFirstName')
+            ->setLastName('FakeLastName')
+            ->setPassword('Fake')
+            ->setEmail('fake@fake');
+
+        // Check if error occured
+        $this->errorNavigation(
+            $fakeUser,
+            $this->translator->trans('email is not valid', [], 'validators')
+        );
+    }
+
+    // ********* EMPTY FIELD
 
     public function testRegisterUserWithoutFirstName()
     {
@@ -114,7 +191,7 @@ class RegisterTest extends WebTestCase
         // Check if error occured
         $this->errorNavigation(
             $fakeUser,
-            $this->translator->trans('', [], '')
+            $this->translator->trans('firstname should not be blank', [], 'validators')
         );
     }
 
@@ -131,7 +208,7 @@ class RegisterTest extends WebTestCase
         // Check if error occured
         $this->errorNavigation(
             $fakeUser,
-            $this->translator->trans('', [], '')
+            $this->translator->trans('lastname should not be blank', [], 'validators')
         );
     }
 
@@ -148,12 +225,11 @@ class RegisterTest extends WebTestCase
         // Check if error occured
         $this->errorNavigation(
             $fakeUser,
-            $this->translator->trans('', [], '')
+            $this->translator->trans('password should not be blank', [], 'validators')
         );
     }
 
-
-    public function testRegisterUserWithoutInvalidEmail()
+    public function testRegisterUserWithoutEmail()
     {
         // init a fake user
         $fakeUser = new User();
@@ -161,12 +237,82 @@ class RegisterTest extends WebTestCase
             ->setFirstName('FakeFirstName')
             ->setLastName('FakeLastName')
             ->setPassword('Fake')
-            ->setEmail('fake@fake');
+            ->setEmail('');
 
         // Check if error occured
         $this->errorNavigation(
             $fakeUser,
-            $this->translator->trans('', [], '')
+            $this->translator->trans('email should not be blank', [], 'validators')
+        );
+    }
+
+    // ********* TOO LONG
+
+    public function testRegisterUserWithTooLongFirstName()
+    {
+        // init a fake user
+        $fakeUser = new User();
+        $fakeUser
+            ->setFirstName('FakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstNameFakeFirstName')
+            ->setLastName('FakeLastName')
+            ->setPassword('Fake')
+            ->setEmail('fake@fake.fr');
+
+        // Check if error occured
+        $this->errorNavigation(
+            $fakeUser,
+            $this->translator->trans('firstname is too long', [], 'validators')
+        );
+    }
+
+    public function testRegisterUserWithtTooLongLastName()
+    {
+        // init a fake user
+        $fakeUser = new User();
+        $fakeUser
+            ->setFirstName('FakeFirstName')
+            ->setLastName('FakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastNameFakeLastName')
+            ->setPassword('Fake')
+            ->setEmail('fake@fake.fr');
+
+        // Check if error occured
+        $this->errorNavigation(
+            $fakeUser,
+            $this->translator->trans('lastname is too long', [], 'validators')
+        );
+    }
+
+    public function testRegisterUserWithtTooLongPassword()
+    {
+        // init a fake user
+        $fakeUser = new User();
+        $fakeUser
+            ->setFirstName('FakeFirstName')
+            ->setLastName('FakeLastName')
+            ->setPassword('FakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFakeFake')
+            ->setEmail('fake@fake.fr');
+
+        // Check if error occured
+        $this->errorNavigation(
+            $fakeUser,
+            $this->translator->trans('password is too long', [], 'validators')
+        );
+    }
+
+    public function testRegisterUserWithtTooLongEmail()
+    {
+        // init a fake user
+        $fakeUser = new User();
+        $fakeUser
+            ->setFirstName('FakeFirstName')
+            ->setLastName('FakeLastName')
+            ->setPassword('Fake')
+            ->setEmail('reallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemailreallylongemail@yahou.fr');
+
+        // Check if error occured
+        $this->errorNavigation(
+            $fakeUser,
+            $this->translator->trans('email is too long', [], 'validators')
         );
     }
 
@@ -189,11 +335,30 @@ class RegisterTest extends WebTestCase
         // get mail info from profiler
         $mailCollector = $this->client->getProfile()->getCollector('swiftmailer');
 
+        /**
+         * TODO CLEAN THIS
+         */
+
+        // get html error block
+        if($crawler->filter('.securityerror UL LI')->count())
+        {
+        $text = $crawler->filter('.securityerror UL LI')->eq(0)->text();
+        }
+        else{
+            $text =  $crawler->filter('.flash-notice H6 DIV')->eq(0)->text();
+        }
+
         // TEST
         //-----
 
-        //TODO HERE TEST IF TRIGGER ERROR MESSAGE
-        //$crawler / $message
+        // test if an error html is present
+        $this->assertNotNull($text,"No error occured, but should trigger " . $message);
+
+        //test error message
+        $this->assertSame(
+            $text,
+            $message
+        );
 
         // checks that an email was sent
         $this->assertSame(0, $mailCollector->getMessageCount());

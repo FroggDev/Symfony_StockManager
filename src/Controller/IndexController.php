@@ -103,8 +103,8 @@ class IndexController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/langue.html",
-     *     "en": "/locale.html"
+     *     "fr": "/change-langue.html",
+     *     "en": "/change-language.html"
      *     },
      *     name="change_locale",
      *     methods={"GET"}
@@ -115,8 +115,10 @@ class IndexController extends Controller
      */
     public function changeLocale(LocaleManager $localeService)
     {
-        // Return current route changed to other lang
-        return $localeService->changeSelectedLocale();
+        // Return current route changed to other lang (remove cache)
+        return $this->removeCacheFromResponse(
+            $localeService->changeSelectedLocale()
+        );
     }
 
     /**

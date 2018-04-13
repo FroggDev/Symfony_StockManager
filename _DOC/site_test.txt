@@ -1,16 +1,39 @@
 UNIT TEST
----------
+=========
 
-installation
-------------
+installation phpunit
+--------------------
 composer require --dev symfony/phpunit-bridge
 php bin\phpunit (will install extra stuff)
 
+> to create a client
+composer require --dev symfony/browser-kit
+
+> css selector
+composer require --dev symfony/css-selector
+
+installation behat
+------------------
+
+composer require --dev behat/mink "dev-master"
+composer require --dev behat/mink-browserkit-driver "dev-master"
+composer require --dev behat/mink-extension
+composer require --dev behat/mink-goutte-driver
+composer require --dev behat/mink-selenium2-driver
+composer require --dev Behat/Symfony2-extension
+
+demo :
+vendor\bin\behat
+
+set behat.yml.dist
+
+dont forget  extends MinkContext implements Context
 
 display coverage
 ----------------
 php bin\phpunit --coverage-html public/output/
 php bin\phpunit --coverage-text
+php bin\phpunit --testsuite "nom du test suite"
 
 Fixtures
 --------
