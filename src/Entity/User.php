@@ -57,18 +57,22 @@ class User extends AbstractAdvancedUser
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(max=100,maxMessage="firstname is too long")
      * @Assert\NotBlank(message="firstname should not be blank")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(max=100,maxMessage="lastname is too long")
      * @Assert\NotBlank(message="lastname should not be blank")
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Length(max=255,maxMessage="email is too long")
+     * @Assert\NotBlank(message="email should not be blank")
      * @Assert\Email(message="email is not valid",checkMX = true,checkHost = true)
      */
     private $email;
@@ -87,6 +91,7 @@ class User extends AbstractAdvancedUser
      * For base64 encode
      * @ORM\Column(type="string",length=64)
      * @Assert\NotBlank(message="password should not be blank")
+     * @Assert\Length(max=64,maxMessage="password is too long")
      */
     private $password;
 

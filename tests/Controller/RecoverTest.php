@@ -23,6 +23,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class RecoverTest extends WebTestCase
 {
+
+    /** @const int nb of fixture to create */
+    private const NBUSERFIXTURE = 3;
+
+    /** @const int the user id to test */
+    private const USERID = 1;
+
     /** @var Client */
     private $client;
 
@@ -58,7 +65,7 @@ class RecoverTest extends WebTestCase
         $this->entityManager = self::$kernel->getContainer()->get('doctrine.orm.entity_manager');
 
         // get register page uri
-        $this->page = $this->router->generate('security_recover');
+        $this->page = $this->router->generate('security_recover', ['_locale' => 'en']);
     }
 
     /*###########
@@ -74,7 +81,7 @@ class RecoverTest extends WebTestCase
         $this->assertNull(AbstractUserFixture::createDatabase(self::$kernel));
 
         // nothing should occur
-        $this->assertNull(AbstractUserFixture::createFixtures(self::$kernel, 1));
+        $this->assertNull(AbstractUserFixture::createFixtures(self::$kernel, self::NBUSERFIXTURE));
     }
 
     /*############
@@ -131,7 +138,7 @@ class RecoverTest extends WebTestCase
         // Check if error occured
         $this->errorNavigation(
             $fakeUser,
-            $this->translator->trans('', [], '')
+            $this->translator->trans('account is unfindable', [], 'flashbag')
         );
     }
 
@@ -140,7 +147,7 @@ class RecoverTest extends WebTestCase
         // Check if error occured
         $this->errorNavigation(
             $this->setUserStatus('Banned'),
-            $this->translator->trans('', [], '')
+            $this->translator->trans('account is banned', [], 'flashbag')
         );
     }
 
@@ -149,7 +156,7 @@ class RecoverTest extends WebTestCase
         // Check if error occured
         $this->errorNavigation(
             $this->setUserStatus('Closed'),
-            $this->translator->trans('', [], '')
+            $this->translator->trans('account is closed', [], 'flashbag')
         );
     }
 
@@ -158,7 +165,7 @@ class RecoverTest extends WebTestCase
         // Check if error occured
         $this->errorNavigation(
             $this->setUserStatus('Deleted'),
-            $this->translator->trans('', [], '')
+            $this->translator->trans('account is unfindable', [], 'flashbag')
         );
     }
 
@@ -181,11 +188,17 @@ class RecoverTest extends WebTestCase
         // get mail info from profiler
         $mailCollector = $this->client->getProfile()->getCollector('swiftmailer');
 
+        // get html error block
+        $text = $crawler->filter('.flash-notice H6 DIV')->eq(0)->text();
+
         // TEST
         //-----
 
-        //TODO HERE TEST IF TRIGGER ERROR MESSAGE
-        //$crawler / $message
+        // test if an error html is present
+        $this->assertNotNull($text, "No error occured, but should trigger " . $message);
+
+        //test error message
+        $this->assertSame($text, $message);
 
         // checks that an email was sent
         $this->assertSame(0, $mailCollector->getMessageCount());
@@ -223,7 +236,7 @@ class RecoverTest extends WebTestCase
         $action = "set$status";
 
         /** @var User $fakeUser */
-        $fakeUser = $this->entityManager->getRepository(User::class)->find(1);
+        $fakeUser = $this->entityManager->getRepository(User::class)->find(self::USERID);
         $fakeUser->$action();
 
         // insert into database
@@ -233,28 +246,16 @@ class RecoverTest extends WebTestCase
         return $fakeUser;
     }
 
-
     /**
      * @param User $fakeUser
      * @param $mailCollector
      */
-    private function doResult(User $fakeUser) : void
+    private function doResult(User $fakeUser): void
     {
+
+        $originalEmail = $fakeUser->getEmail();
+
         $mailCollector = $this->client->getProfile()->getCollector('swiftmailer');
-
-        //TODO HERE TEST IF PAGE IS 200 AND GOOD TARGET
-        //$crawler
-
-        //test if user has token recover set
-        $this->assertNotNull($fakeUser->getToken());
-
-        if($fakeUser->isEnabled()){
-            //test if user has token validity (has enabled first)
-            $this->assertNotNull($fakeUser->getTokenValidity());
-        }else{
-            //test if user has no token validity (has not enabled first)
-            $this->assertNull($fakeUser->getTokenValidity());
-        }
 
         // checks that an email was sent
         $this->assertSame(1, $mailCollector->getMessageCount());
@@ -266,5 +267,40 @@ class RecoverTest extends WebTestCase
         $this->assertSame(SiteConfig::SITENAME . ' - ' . $this->translator->trans('email password recovery subject', [], 'security_mail'), $message->getSubject());
         $this->assertSame(SiteConfig::SECURITYMAIL, key($message->getFrom()));
         $this->assertSame($fakeUser->getEmail(), key($message->getTo()));
+
+        // TEST USER IN DATABASE
+        //----------------------
+
+        /** @var user $fakeUser get user created ni database */
+        $fakeUser =
+            self::$kernel
+                ->getContainer()
+                ->get('doctrine.orm.entity_manager')
+                ->getRepository(User::class)
+                ->find(self::USERID);
+
+        // test if user exist in database
+        $this->assertNotNull($fakeUser, "User should not be null");
+
+        // test if email is correct
+        $this->assertSame($fakeUser->getEmail(), $originalEmail);
+
+        //test if user has token recover set
+        $this->verifyToken($fakeUser,"(In Database)");
     }
+
+    private function verifyToken(User $fakeUser)
+    {
+        // test if token has been set
+        $this->assertNotNull($fakeUser->getToken(), "User must have a token when ask recover");
+
+        if ($fakeUser->isEnabled()) {
+            //test if user has token validity (has enabled first)
+            $this->assertNotNull($fakeUser->getTokenValidity(), "Enabled user Should have a token validity");
+        } else {
+            //test if user has no token validity (has not enabled first)
+            $this->assertNull($fakeUser->getTokenValidity(), "Disabled user Should not have token validity");
+        }
+    }
+
 }
