@@ -21,14 +21,17 @@
         <testsuite name="Security Test Suite">
             <directory>tests/Security</directory>
         </testsuite>
-        <testsuite name="Command Test Suite">
-            <directory>tests/Command</directory>
-        </testsuite>
         <testsuite name="Service Test Suite">
             <directory>tests/Service</directory>
         </testsuite>
         <testsuite name="Event Test Suite">
             <directory>tests/Event</directory>
+        </testsuite>
+        <testsuite name="Controller Test Suite">
+            <directory>tests/Controller</directory>
+        </testsuite>
+        <testsuite name="Command Test Suite">
+            <directory>tests/Command</directory>
         </testsuite>
     </testsuites>
 
@@ -37,6 +40,9 @@
             <directory>./src/</directory>
             <exclude>
                 <directory>./src/Migrations/</directory>
+            </exclude>
+            <exclude>
+                <directory>./src/DataFixtures/</directory>
             </exclude>
             <exclude>
                 <file>./src/Kernel.php</file>

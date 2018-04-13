@@ -12,7 +12,7 @@ namespace App\Tests\Command;
 
 use App\Command\UserManager;
 use App\Entity\User;
-use App\Tests\Fixture\AbstractUserFixture;
+use App\Tests\Util\AbstractUserFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

@@ -14,7 +14,7 @@ use App\Entity\User;
 use App\EventSubscriber\UserSubscriber;
 use App\Exception\Account\AccountAccessDeniedException;
 use App\SiteConfig;
-use App\Tests\Fixture\AbstractUserFixture;
+use App\Tests\Util\AbstractUserFixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

@@ -51,8 +51,8 @@ use Symfony\Component\Translation\TranslatorInterface;
  *
  * @Route(
  *     {
- *     "fr": "/{_locale<fr|en>?fr}/compte",
- *     "en": "/{_locale<fr|en>?en}/account"
+ *     "fr": "/compte",
+ *     "en": "/account"
  *     },
  *     name="security_"
  * )
