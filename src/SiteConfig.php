@@ -59,7 +59,7 @@ class SiteConfig
      * name of security mail from
      * @const string
      */
-    const SECURITYMAIL = 'stock@frogg.fr';
+    const SECURITYMAIL = 'support@frogg.fr';
 
     /**
      * name of security Entity

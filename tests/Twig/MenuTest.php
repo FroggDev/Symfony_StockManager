@@ -10,6 +10,7 @@
 
 namespace App\Tests\Twig;
 
+use App\Service\Twig\AbstractTwigExtension;
 use App\Service\Twig\Func\Menu;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,33 +22,65 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class TestMenu extends KernelTestCase
 {
 
+    private const ROUTE1 = 'test.html';
+    private const ROUTE2 = 'other.html';
+
+    /** @var RequestStack */
+    private $requestStack;
+
+    /*#######################
+     # ONCE BEFORE EACH TEST #
+     #######################*/
+
+    public function setUp()
+    {
+        // INIT
+        //-----
+
+        self::$kernel = self::bootKernel();
+
+        //create a request
+        $request = new FakeRequest();
+        $request->set('_route', self::ROUTE1);
+
+        //requeststack
+        $this->requestStack = new RequestStack();
+        $this->requestStack->push($request);
+    }
+
+    /**
+     * Test if menu is selected
+     */
+    function testMenuInstance()
+    {
+        // INIT
+        //-----
+
+        $menu = new Menu($this->requestStack);
+
+        // TEST
+        //-----
+
+        $this->assertInstanceOf(AbstractTwigExtension::class, $menu);
+    }
+
+
     /**
      * Test if menu is selected
      */
     function testMenuSelection()
     {
-
-        $route = 'test.html';
-
         // INIT
         //-----
 
-        $request = new FakeRequest();
-
-        $request->set('_route', $route);
-
-        $requestStack = new RequestStack();
-
-        $requestStack->push($request);
-
-        $menu = new Menu($requestStack);
+        $menu = new Menu($this->requestStack);
 
         // TEST
         //-----
 
         $this->expectOutputString('active ');
 
-        $menu->getActiveMenu($route);
+        $menu->getActiveMenu(self::ROUTE1);
 
     }
 
@@ -56,30 +89,19 @@ class TestMenu extends KernelTestCase
      */
     function testMenuNoSelection()
     {
-
-        $route = 'test.html';
-        $anotherRoute = 'other.html';
-
         // INIT
         //-----
 
-        $request = new FakeRequest();
-
-        $request->set('_route', $route);
-
-        $requestStack = new RequestStack();
-
-        $requestStack->push($request);
-
-        $menu = new Menu($requestStack);
+        //menu
+        $menu = new Menu($this->requestStack);
 
         // TEST
         //-----
 
-        $this->assertNull($menu->getActiveMenu($anotherRoute));
+        $this->assertNull($menu->getActiveMenu(self::ROUTE2));
 
+        $this->assertInstanceOf('App\Service\Twig\AbstractTwigExtension',$menu);
     }
-
 }
 
 /**
@@ -102,6 +124,7 @@ class FakeRequest extends Request
     /**
      * @param string $key
      * @param null $default
+     *
      * @return mixed
      */
     function get($key, $default = NULL)

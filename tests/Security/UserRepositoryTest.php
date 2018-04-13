@@ -10,7 +10,7 @@
 namespace App\Tests\Security;
 
 use App\Entity\User;
-use App\Tests\Fixture\AbstractUserFixture;
+use App\Tests\Util\AbstractUserFixture;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

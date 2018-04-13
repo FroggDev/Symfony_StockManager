@@ -45,8 +45,6 @@ class MailerManagerTest extends KernelTestCase
         $this->swiftmailer
             ->method('send')
             ->will($this->returnValue(1));
-
-
     }
 
     /**

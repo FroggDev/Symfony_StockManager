@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Fixture;
+namespace App\Tests\Util;
 
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Console\Application;

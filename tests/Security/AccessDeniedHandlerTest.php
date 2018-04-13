@@ -58,7 +58,6 @@ class AccessDeniedHandlerTest extends KernelTestCase
 
         $accesDeniedhandler = new AccessDeniedHandler();
 
-
         // TEST
         //-----
 
@@ -67,5 +66,4 @@ class AccessDeniedHandlerTest extends KernelTestCase
             $accesDeniedhandler->handle($request,new AccessDeniedException())
         );
     }
-
 }
