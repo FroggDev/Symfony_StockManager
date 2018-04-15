@@ -37,6 +37,10 @@
         <source>changepassword title</source>
         <target>Password change</target>
       </trans-unit>
+      <trans-unit id="nJahiSs-en" resname="password button validation">
+        <source>change button</source>
+        <target>Change password</target>
+      </trans-unit>
       <trans-unit id="dczWwOv" resname="recover title">
         <source>recover title</source>
         <target>Password recovery</target>

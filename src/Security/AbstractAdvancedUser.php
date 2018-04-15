@@ -190,6 +190,17 @@ abstract class AbstractAdvancedUser implements UserInterface
     }
 
     /**
+     * Check if the account is disabled.
+     *
+     * @return bool
+     */
+    public function isDisabled(): bool
+    {
+        return $this->status === $this::DISABLED;
+    }
+
+
+    /**
      * Check if the account is deleted.
      *
      * @return bool

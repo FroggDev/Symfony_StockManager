@@ -388,14 +388,20 @@ class User extends AbstractAdvancedUser
     }
 
     /**
+     * @param null|string $token
      * @return User
      */
-    public function setToken(): AbstractAdvancedUser
+    public function setToken(?string $token = null): AbstractAdvancedUser
     {
 
         //nothing to do if account is banned or closed
         if ($this->status === $this::CLOSED || $this->status === $this::BANNED || $this->status === $this::DELETED) {
             return $this;
+        }
+
+        // set token value if passed as arguments
+        if ($token) {
+            $this->token = $token;
         }
 
         /*
@@ -405,7 +411,7 @@ class User extends AbstractAdvancedUser
          * If token already exist dosnt reset it to be able to register/recover if both asked at the same time
          */
         if (!$this->token) {
-            $this->token = uniqid('', true).uniqid('', true);
+            $this->token = uniqid('', true) . uniqid('', true);
         }
         /*
          * set token validity only if account has been validated
@@ -413,7 +419,7 @@ class User extends AbstractAdvancedUser
          */
         if ($this->status === $this::ENABLED) {
             $this->tokenValidity = new \DateTime();
-            $this->tokenValidity->modify('+'.$this::TOKENVALIDITYTIME.' day');
+            $this->tokenValidity->modify('+' . $this::TOKENVALIDITYTIME . ' day');
         }
 
         return $this;

@@ -22,7 +22,7 @@ class RouteTest extends WebTestCase
 
     public function testAllRoutes()
     {
-        $maxTime = 2000;
+        $maxTime = 10000;
 
         $client = static::createClient();
 

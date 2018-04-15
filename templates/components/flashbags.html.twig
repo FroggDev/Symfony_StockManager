@@ -6,7 +6,8 @@
                 <div class="card-panel {{ key }}">
                     <h6 class="white-text">
                         <i class="material-icons left" style="line-height: unset;">{{ key }}</i>
-                        <div>{{ flash | trans | nl2br }}</div>
+                        <div>{{ flash | trans | replace({"\n": "<br>"})|raw }}</div>
+                        <!-- nl2br style display \n why ???-->
                     </h6>
                 </div>
             </div>

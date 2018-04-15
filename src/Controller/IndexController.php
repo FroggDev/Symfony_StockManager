@@ -124,22 +124,18 @@ class IndexController extends Controller
     /**
      * Test to access denied pages
      *
-     * @Route(
+     * @ Route(
      *     "/test/test.html",
      *     name="index_logged",
      *     methods={"GET"}
      * )
-     * @return Response
-     */
+     * @ return Response
+
     public function Temp(): Response
     {
         //Security !
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-
-        // display page from twig template
-        //return $this->render('TEMP.html.twig', []);
-
         //test access denied
         return $this->render('security/access_denied.html.twig');
-    }
+    }*/
 }

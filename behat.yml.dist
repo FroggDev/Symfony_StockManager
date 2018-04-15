@@ -1,23 +1,137 @@
+# full config : vendor\bin\behat --config-reference
 default:
+
+    ##############
+    # SUITE LIST #
+    ##############
+
     suites:
-        default:
+        # security test suite
+        security_test:
+            paths: ['%paths.base%/features/security']
             contexts:
                 - FeatureContext:
                     kernel: '@kernel'
 
+    ##########
+    # OUTPUT #
+    ##########
+
+    formatters:
+        progress:
+        pretty:
+        # require extension emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension
+        html:
+            output_path: '%paths.base%/public/output/behat'
+
+    exceptions:
+        # Output verbosity (1, 2, 3, 4) default 1
+        verbosity: 4
+
+    # for another lange sentence has to be translated
+    # and set somewhere
+    translation:
+        # Sets output locale for the tester
+        locale: en
+        # Sets fallback output locale for the tester
+        fallback_locale: en
+
+    ##########
+    # CONFIG #
+    ##########
+
+    mink:
+        browser_name: chrome
+
     extensions:
+
+        # HTML Rendering
+        # https://github.com/dutchiexl/BehatHtmlFormatterPlugin
+        emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+              name: html
+              renderer: Twig
+              file_name: index
+              print_args: true
+              print_outp: true
+              loop_break: true
+
+        # Browser
         Behat\MinkExtension:
             base_url: http://127.0.0.1:8000
             browser_name: chrome
-
             goutte: ~
             selenium2:
+                browser: chrome
                 capabilities:
-                    chrome:
-                        binary: C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+                    firefox:
+                        #profile:              ~
+                        binary:               C:\Program Files\Mozilla Firefox\firefox.exe
+                    chrome: ~
+                        #switches:             []
+                        #binary:               ~
+                        #extensions:           []
 
+        # behat for symfony
         Behat\Symfony2Extension:
             kernel:
                 bootstrap: features/bootstrap/bootstrap.php
                 class: App\Kernel
                 env: dev
+
+    ############
+    # PROFILES #
+    ############
+
+#behat -p build-dev
+build-dev:
+    formatters:
+        progress:
+
+#behat -p build
+build:
+    formatters:
+        progress:
+        #junit: [C:\symfony\Symfony_StockManager\public\output\behat\junit]
+
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                env: prod
+
+
+
+
+
+ #                           capabilities:
+ #                               chrome:
+ #                                   binary: C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+ #                               opera:
+ #                                   binary: C:\Program Files\Opera\52.0.2871.40\opera.exe
+ #                               firefox:
+ #                                   binary: C:\Program Files\Mozilla Firefox\firefox.exe
+ #behat -p chrome
+ # chrome:
+ #     extensions:
+ #         Behat\MinkExtension:
+ #             browser_name: chrome
+ #             selenium2:
+ #                 browser: chrome
+ #
+ # #behat -p firefox
+ # firefox:
+ #     extensions:
+ #         Behat\MinkExtension:
+ #             browser_name: firefox
+ #             selenium2:
+ #                 browser: firefox
+ #
+ # #behat -p opera
+ # opera:
+ #     extensions:
+ #         Behat\MinkExtension:
+ #             browser_name: opera
+ #             selenium2:
+ #                 browser: chrome
+ #                 capabilities:
+ #                     chrome:
+ #                         binary: C:\Program Files\Opera\52.0.2871.40\opera.exe

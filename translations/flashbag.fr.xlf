@@ -51,7 +51,7 @@
       </trans-unit>
       <trans-unit id="AbQR.Xs" resname="account is disabled">
         <source>account is disabled</source>
-        <target>Ce compte n'a pas été activé, vous devez avoir reçu un mail de validation dans lequel un lien d'activation est disponbile.\nSi vous avez perdu ce mail, vous pouvez faire une requête de récupération de mot de passe pour récupérer votre compte.</target>
+        <target>Ce compte n'a pas encore été activé, vous devez avoir reçu un mail de validation dans lequel un lien d'activation est disponbile.\nSi vous avez perdu ce mail, vous pouvez faire une requête de récupération de mot de passe pour récupérer votre compte.</target>
       </trans-unit>
       <trans-unit id="XKVo_vx" resname="internal error">
         <source>internal error</source>

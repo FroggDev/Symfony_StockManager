@@ -33,6 +33,10 @@
         <source>recover title</source>
         <target>Récupération du mot de passe</target>
       </trans-unit>
+      <trans-unit id="nJahiSs-fr" resname="password button validation">
+        <source>change button</source>
+        <target>Valider</target>
+      </trans-unit>
       <trans-unit id="ywRGf7q" resname="label email">
         <source>label email</source>
         <target>Email</target>

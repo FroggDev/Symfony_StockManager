@@ -200,29 +200,6 @@ class UserCheckerTest extends TestCase
         $userChecker->checkRecoverValidation($user->setEnabled()->setToken(),$user->getToken());
     }
 
-
-
-    /**
-     * Test for basicTest method
-     */
-    public function testBasicTestMethodIfUserNotFound() : void
-    {
-        // INIT
-        //-----
-
-        // Create a new user checker
-        $userChecker = new UserChecker();
-
-        // TEST
-        //-----
-
-        $this->expectException(AccountNotFoundException::class);
-
-        //test disabled exception
-        $userChecker->basicTest(null);
-    }
-
-
     /**
      * Test for checkRegisterValidation
      */
