@@ -14,6 +14,8 @@ composer require --dev symfony/css-selector
 
 installation behat
 ------------------
+http://behat.org/en/latest/cookbooks/integrating_symfony2_with_behat.html#installing-behat-in-your-symfony2-project
+https://blog.jetbrains.com/phpstorm/2014/07/using-behat-in-phpstorm/
 
 composer require --dev behat/mink "dev-master"
 composer require --dev behat/mink-browserkit-driver "dev-master"
@@ -22,16 +24,31 @@ composer require --dev behat/mink-goutte-driver
 composer require --dev behat/mink-selenium2-driver
 composer require --dev Behat/Symfony2-extension
 
+html export :
+composer require --dev emuse/behat-html-formatter
+https://github.com/dutchiexl/BehatHtmlFormatterPlugin
+
 demo :
 vendor\bin\behat
 
-set behat.yml.dist
+config :
+set behat.yml.dist (full config : vendor\bin\behat --config-reference)
+dont forget  extends MinkContext implements Context in php
 
-dont forget  extends MinkContext implements Context
+Behat drivers:
+https://github.com/mozilla/geckodriver/releases
+https://github.com/operasoftware/operachromiumdriver/releases
+
+selenium driver:
+https://www.seleniumhq.org/download/
+opera selenium:
+http://book2s.com/java/jar/s/selenium-opera-driver/download-selenium-opera-driver-3.0.0-beta4.html
+firefox selenium:
+http://book2s.com/java/jar/s/download-jar-selenium-firefox-driver.html
 
 display coverage
 ----------------
-php bin\phpunit --coverage-html public/output/
+php bin\phpunit --coverage-html public/output/phpunit
 php bin\phpunit --coverage-text
 php bin\phpunit --testsuite "nom du test suite"
 
@@ -39,3 +56,6 @@ Fixtures
 --------
 composer require -dev doctrine/doctrine-fixtures-bundle
 composer require -dev fzaninotto/faker
+
+
+

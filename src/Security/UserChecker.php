@@ -37,21 +37,21 @@ class UserChecker implements UserCheckerInterface
      * @throws AccountDeletedException
      * @throws AccountTypeException
      */
-    public function checkPreAuth(UserInterface $user)
+    public function checkPreAuth(?UserInterface $user)
     {
         if (!$user instanceof User) {
-            throw new AccountTypeException('internal error');
+            throw new AccountTypeException('account is unfindable');
         }
 
-        if ($user->isBanned()) {
+        if (true===$user->isBanned()) {
             throw new AccountBannedException('account is banned');
         }
 
-        if ($user->isClosed()) {
+        if (true===$user->isClosed()) {
             throw new AccountClosedException('account is closed');
         }
 
-        if ($user->isDeleted()) {
+        if (true===$user->isDeleted()) {
             throw new AccountDeletedException('account is unfindable');
         }
 
@@ -66,7 +66,7 @@ class UserChecker implements UserCheckerInterface
     }
 
     /**
-     *  checks after authentication (disabled)
+     *  checks after authentication (disabled mean first check credentials)
      * @param UserInterface $user
      *
      * @throws AccountTypeException
@@ -78,40 +78,23 @@ class UserChecker implements UserCheckerInterface
             throw new AccountTypeException('internal error');
         }
 
-        if (!$user->isEnabled()) {
+        if (true===$user->isDisabled()) {
             throw new AccountDisabledException('account is disabled');
         }
     }
 
     /**
-     * check with basics
-     *
-     * @param null|User $user
-     *
-     * @throws AccountNotFoundException
-     */
-    public function basicTest(?User $user)
-    {
-        if (!$user) {
-            throw new AccountNotFoundException('account is unfindable');
-        }
-
-        $this->checkPreAuth($user);
-    }
-
-
-    /**
      * Checks before validate a registration
-     * @param User        $user
+     * @param null|User   $user
      * @param null|String $token
      *
      * @throws AccountAlreadyActivatedException
      */
-    public function checkRegisterValidation(User $user, ?String $token)
+    public function checkRegisterValidation(?User $user, ?String $token)
     {
-        $this->basicTest($user);
+        $this->checkPreAuth($user);
 
-        if ($user->isEnabled()) {
+        if (true===$user->isEnabled()) {
             throw new AccountAlreadyActivatedException('account is already activated');
         }
 
@@ -121,33 +104,33 @@ class UserChecker implements UserCheckerInterface
 
     /**
      * Checks before validate a registration
-     * @param User        $user
+     * @param null|User   $user
      * @param null|String $token
      *
      * @throws AccountExpiredTokenException
      */
-    public function checkRecoverValidation(User $user, ?String $token)
+    public function checkRecoverValidation(?User $user, ?String $token)
     {
-        $this->basicTest($user);
+        $this->checkPreAuth($user);
 
         $this->checkToken($user, $token);
-
-        if ($user->isTokenExpired()) {
-            throw new AccountExpiredTokenException('account is expired token');
-        }
     }
 
     /**
      * Check if token is correct
      * @param User   $user
-     * @param String $token
+     * @param null|String $token
      *
      * @throws AccountBadTokenException
      */
-    private function checkToken(User $user, String $token)
+    private function checkToken(User $user, ?String $token)
     {
-        if ($user->getToken() !== $token) {
+        if ($token===null || $token==="" || $user->getToken() !== $token) {
             throw new AccountBadTokenException('account token is not valid');
+        }
+
+        if (true===$user->isTokenExpired()) {
+            throw new AccountExpiredTokenException('account is expired token');
         }
     }
 }

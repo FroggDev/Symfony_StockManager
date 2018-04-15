@@ -110,6 +110,9 @@
     "egulias/email-validator": {
         "version": "2.1.3"
     },
+    "emuse/behat-html-formatter": {
+        "version": "dev-master"
+    },
     "fabpot/goutte": {
         "version": "3.2-dev"
     },

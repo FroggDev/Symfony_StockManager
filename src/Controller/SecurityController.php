@@ -16,11 +16,13 @@ use App\Entity\User;
 use App\Form\Security\UserPasswordType;
 use App\Form\Security\UserRecoverType;
 use App\Form\Security\UserType;
+use App\Security\UserChecker;
 use App\Security\UserManager;
 use App\SiteConfig;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -80,8 +82,13 @@ class SecurityController extends Controller
      *
      * @return Response
      */
-    public function connexion(AuthenticationUtils $authenticationUtils, TranslatorInterface $translator)
+    public function connexion(AuthenticationUtils $authenticationUtils, TranslatorInterface $translator, Request $request)
     {
+        $email =
+            $request->query->get('email') ??
+            $authenticationUtils->getLastUsername() ??
+            $request->cookies->get(SiteConfig::COOKIEUSERNAME);
+
         // Check if user is logged in
         if ($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             return $this->redirectToRoute('stock_home');
@@ -92,13 +99,13 @@ class SecurityController extends Controller
 
         // create a flash bag if an authentication error occured
         if ($error) {
-            $this->addFlash('error', $translator->trans($error->getMessageKey(), [], "security"));
+            $this->addFlash('error', $translator->trans($error->getMessageKey(), [], 'security'));
         }
 
         // Display form & Get last user email set by user
         $response = $this->render(
             'security/connexion.html.twig',
-            ['last_email' => $authenticationUtils->getLastUsername()]
+            ['last_email' => $email]
         );
 
         return $response;
@@ -117,7 +124,7 @@ class SecurityController extends Controller
      *     )
      *
      * @param UserManager $userManager
-     * @param Request     $request
+     * @param Request $request
      *
      * @return Response
      */
@@ -161,13 +168,13 @@ class SecurityController extends Controller
      *
      * @return Response
      */
-    public function registerValidation(UserManager $userManager)
+    public function registerValidation(UserManager $userManager, Session $session)
     {
         //validate the registration
-        $userManager->registerValidation();
+        $email = $userManager->registerValidation();
 
         // redirect user
-        return $this->redirectToRoute('security_connexion');
+        return $this->redirectToRoute('security_connexion', ['email' => $email]);
     }
 
 
@@ -184,8 +191,8 @@ class SecurityController extends Controller
      * )
      *
      * @param AuthenticationUtils $authenticationUtils
-     * @param Request             $request
-     * @param UserManager         $userManager
+     * @param Request $request
+     * @param UserManager $userManager
      *
      * @return Response
      */
@@ -225,18 +232,24 @@ class SecurityController extends Controller
      * )
      *
      * @param UserManager $userManager
-     * @param Request     $request
+     * @param Request $request
      *
      * @return Response
      */
-    public function recoverValidation(UserManager $userManager, Request $request)
+    public function recoverValidation(UserManager $userManager,UserChecker $userChecker, Request $request)
     {
-        // check user token
-        $user = $userManager->getUserFromRequest();
+        //get and check user
+        $result = $userManager->recoverPreValidation();
 
-        //redirect if user not valid
-        if (!$user) {
-            return $this->redirectToRoute('security_connexion');
+        /** @var User $user */
+        $user = $result['user'];
+
+        //check if has valid user
+        if($result['ok']===false){
+            return $this->redirectToRoute(
+                'security_connexion',
+                ['email' => $user?$user->getEmail():null]
+            );
         }
 
         // create the user form
@@ -266,7 +279,7 @@ class SecurityController extends Controller
      *
      * @return Response
      */
-    private function setCookieResponse(string $email) : response
+    private function setCookieResponse(string $email): response
     {
         $response = $this->redirectToRoute('security_connexion');
         $response->headers->setCookie($this->getUserCookie($email));

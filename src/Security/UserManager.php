@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -44,7 +45,6 @@ class UserManager
     /** @var UserChecker */
     private $userChecker;
 
-
     /**
      * UserManager constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
@@ -56,14 +56,14 @@ class UserManager
      * @param SessionInterface $session
      * @param UserChecker $userChecker
      */
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, FlashBagInterface $flashbag, UserChecker $userChecker)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, SessionInterface $session, UserChecker $userChecker)
     {
         $this->passwordEncoder = $passwordEncoder;
         $this->translator = $translator;
         $this->mailer = $mailer;
         $this->twig = $twig;
         $this->entityManager = $entityManager;
-        $this->flash = $flashbag;
+        $this->flash = $session->getFlashBag();
         $this->request = $requestStack->getMasterRequest();
         $this->userChecker = $userChecker;
     }
@@ -102,18 +102,9 @@ class UserManager
 
             // set confirm message
             $this->flash->add('check', 'validation register sent confirmation');
+
         } catch (\Exception $exception) {
-
-            dump($exception);
-
-            //error occured
-            $this->flash->add(
-                'error',
-                method_exists($exception, 'getMessageKey') ?
-                    $exception->getMessageKey() : $exception->getMessage()
-            );
-
-            return false;
+            return $this->setFlashBagException($exception);
         }
 
         return true;
@@ -122,15 +113,15 @@ class UserManager
     /**
      * Check if request is valid then validate the user account + add flash bag message
      *
-     * @return bool
+     * @return null|string
      */
-    public function registerValidation(): bool
+    public function registerValidation(): ?string
     {
         try {
+            $email = $this->request->query->get('email');
+
             // recover user from request
-            $user = $this->entityManager->getRepository(User::class)->findOneByEmail(
-                $this->request->query->get('email')
-            );
+            $user = $this->getUserFromEmail( $email );
 
             // check before validation
             $this->userChecker->checkRegisterValidation($user, $this->request->query->get('token'));
@@ -146,18 +137,12 @@ class UserManager
             $this->flash->add('check', 'validation register confirmation');
 
         } catch (\Exception $exception) {
+            $this->setFlashBagException($exception);
 
-            //error occured
-            $this->flash->add(
-                'error',
-                method_exists($exception, 'getMessageKey') ?
-                    $exception->getMessageKey() : $exception->getMessage()
-            );
-
-            return false;
+            return null;
         }
 
-        return true;
+        return $email;
     }
 
     /**
@@ -170,10 +155,10 @@ class UserManager
     {
         try {
             /** @var User $user get author from email */
-            $user = $this->entityManager->getRepository(User::class)->findOneByEmail($email);
+            $user = $this->getUserFromEmail($email);
 
             // check before validation
-            $this->userChecker->basicTest($user);
+            $this->userChecker->checkPreAuth($user);
 
             // create a token
             $user->setToken();
@@ -193,20 +178,34 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation recover sent confirmation');
-        } catch (\Exception $exception) {
-            //error occured
-            $this->flash->add(
-                'error',
-                method_exists($exception, 'getMessageKey') ?
-                    $exception->getMessageKey() : $exception->getMessage()
-            );
 
-            return false;
+        } catch (\Exception $exception) {
+            return $this->setFlashBagException($exception);
         }
 
         return true;
     }
 
+
+    /**
+     * @return array
+     */
+    public function recoverPreValidation(): array
+    {
+        // check user token
+        $user = $this->getUserFromEmail($this->request->query->get('email'));
+
+        // redirect if invalid request
+        try {
+            // check before validation
+            $this->userChecker->checkRecoverValidation($user, $this->request->query->get('token'));
+        }catch (\Exception $exception){
+            $this->setFlashBagException($exception);
+            return ['ok'=>false,'user'=>$user];
+        }
+
+        return ['ok'=>true,'user'=>$user];
+    }
 
     /**
      * change user password + add flash bag message
@@ -234,18 +233,36 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', $this->translator->trans('validation password changed', [], 'security'));
-        } catch (\Exception $exception) {
-            //error occured
-            $this->flash->add(
-                'error',
-                method_exists($exception, 'getMessageKey') ?
-                    $exception->getMessageKey() : $exception->getMessage()
-            );
 
-            return false;
+        } catch (\Exception $exception) {
+            return $this->setFlashBagException($exception);
         }
 
         return true;
     }
 
+    /**
+     * @param null|string $email
+     * @return null|User
+     */
+    public function getUserFromEmail(?string $email) : ?User
+    {
+        return $this->entityManager->getRepository(User::class)->findOneByEmail( $email );
+    }
+
+    /**
+     * @param \Exception $exception
+     * @return bool
+     */
+    private function setFlashBagException(\Exception $exception) : bool
+    {
+        //error occured
+        $this->flash->add(
+            'error',
+            method_exists($exception, 'getMessageKey') ?
+                $exception->getMessageKey() : 'internal error'
+        );
+
+        return false;
+    }
 }

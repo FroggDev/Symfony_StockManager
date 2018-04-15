@@ -15,7 +15,7 @@
       </trans-unit>
       <trans-unit id="F97gHr_" resname="site subject">
         <source>site subject</source>
-        <target>Gestion des stock de nourriture</target>
+        <target>Gestion de stock de nourriture</target>
       </trans-unit>
     </body>
   </file>

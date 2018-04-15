@@ -38,8 +38,8 @@ class UserAdvancedTest extends TestCase
         //-----
 
         // test setDisabled
-        $this->assertNotTrue(
-            $user->setDisabled()->isEnabled(),
+        $this->assertTrue(
+            $user->setDisabled()->isDisabled(),
             'User must not be enabled after being disabled'
         );
         // test status

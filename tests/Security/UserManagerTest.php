@@ -282,7 +282,7 @@ class UserManagerTest extends KernelTestCase
         //-----
 
         // Check if all is ok
-        $this->assertTrue($this->usermanager->registerValidation());
+        $this->assertNotNull($this->usermanager->registerValidation(),"Should return the email");
 
         // Check if user is enabled
         $this->assertTrue($this->user->isEnabled());
@@ -309,7 +309,7 @@ class UserManagerTest extends KernelTestCase
         //-----
 
         // Check if all is not ok
-        $this->assertFalse($this->usermanager->registerValidation());
+        $this->assertNull($this->usermanager->registerValidation(),"Should return null, as no email should be found");
     }
 
     /*--------
