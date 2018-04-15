@@ -193,8 +193,6 @@ class UserCheckerTest extends TestCase
 
         $this->assertNull($userChecker->checkPreAuth($user->setEnabled()));
 
-        $this->assertNull($userChecker->basicTest($user->setEnabled()));
-
         $userChecker->checkRegisterValidation($user->setDisabled(),$user->getToken());
 
         $userChecker->checkRecoverValidation($user->setEnabled()->setToken(),$user->getToken());

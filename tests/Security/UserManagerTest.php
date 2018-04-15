@@ -19,7 +19,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Twig\Environment;
@@ -61,6 +62,7 @@ class UserManagerTest extends KernelTestCase
             self::$kernel->getContainer()->get('mailer');
             self::$kernel->getContainer()->get('translator');
             self::$kernel->getContainer()->get('twig');
+         * self::$kernel->getContainer()->get('session');
          */
 
         /**
@@ -188,6 +190,9 @@ class UserManagerTest extends KernelTestCase
             ->method('render')
             ->willReturn('Fake Content');
 
+
+        self::$kernel = self::bootKernel();
+
         /**
          * Creating Object from FAKE injections
          * ------------------------------------
@@ -199,7 +204,7 @@ class UserManagerTest extends KernelTestCase
             $twig,
             $requestStack,
             $this->mailerManager,
-            $this->createMock(FlashBagInterface::class),
+            self::$kernel->getContainer()->get('session'),
             new UserChecker()
         );
 
@@ -350,7 +355,6 @@ class UserManagerTest extends KernelTestCase
         // Check if all is ok
         $this->assertTrue($this->usermanager->recover($this->user->getEmail()));
 
-
         // Check if user is enabled
         $this->assertTrue($this->user->isEnabled());
 
@@ -418,6 +422,19 @@ class UserManagerTest extends KernelTestCase
         $this->assertNull($this->user->getTokenValidity());
     }
 
+    public function testRecoverPreValidation()
+    {
+        $result = $this->usermanager->recoverPreValidation();
+
+        $this->assertInternalType('array',$result);
+        $this->assertEquals(2,count($result));
+
+        $this->assertTrue($result['ok']);
+
+        $this->assertInstanceOf('App\Entity\User',$result['user']);
+    }
+
+
     public function testRecoverValidationWithError()
     {
         // INIT
@@ -433,6 +450,77 @@ class UserManagerTest extends KernelTestCase
         // Check if all is not ok
         $this->assertFalse($this->usermanager->recoverValidation($this->user));
     }
+
+
+    public function testRecoverPreValidationWithError()
+    {
+        // PARAMETER BAG
+
+        $parameterbag = $this
+            ->getMockBuilder( ParameterBag::class)
+            ->disableOriginalConstructor()
+            ->setMethods(array('get'))
+            ->getMock();
+
+        $parameterbag
+            ->method('get')
+            ->with(
+                $this->logicalOr(
+                    $this->equalTo('email'),
+                    $this->equalTo('token')
+                )
+            )
+            ->will($this->returnCallback(array($this, 'getRequestCallBackForError')));
+
+
+        // REQUEST
+
+        $request = $this->createMock(Request::class);
+
+        $request->query = $parameterbag;
+
+        // REQUESTSTACK
+
+        $requestStack = $this->getMockBuilder(RequestStack::class)
+            ->disableOriginalConstructor()
+            ->setMethods(array('getMasterRequest'))
+            ->getMock();
+
+        $requestStack
+            ->method('getMasterRequest')
+            ->will($this->returnValue($request));
+
+        $usermanager = new UserManager(
+            $this->passwordEncoder,
+            $this->entityManager,
+            $this->createMock(TranslatorInterface::class),
+            $this->createMock(Environment::class),
+            $requestStack,
+            $this->mailerManager,
+            self::$kernel->getContainer()->get('session'),
+            new UserChecker()
+        );
+
+
+        $result = $usermanager->recoverPreValidation();
+
+        $this->assertInternalType('array',$result);
+        $this->assertEquals(2,count($result));
+
+        $this->assertNotTrue($result['ok']);
+
+        $this->assertInstanceOf('App\Entity\User',$result['user']);
+    }
+
+
+
+
+
+
+
+
+
+
 
     /*#############
      # UTIL FUNCS #
@@ -451,4 +539,19 @@ class UserManagerTest extends KernelTestCase
 
         return null;
     }
+
+    /**
+     * @param string $param
+     * @return null|string
+     */
+    public function getRequestCallBackForError(string $param) : ? string
+    {
+        switch($param){
+            case 'email' : return $this->user->getEmail();
+            case 'token' : return 'AFakeTokenToTriggerAnErro';
+        }
+
+        return null;
+    }
+
 }

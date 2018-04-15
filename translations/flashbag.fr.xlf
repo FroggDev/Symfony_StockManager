@@ -8,8 +8,7 @@
       <trans-unit id="fmui2JV" resname="validation register sent confirmation">
         <source>validation register sent confirmation</source>
         <target>Un mail de validation de création de compte vous a été envoyé, vous trouverez un lien dans ce
-                    mail pour valider votre compte.
-                </target>
+                    mail pour valider votre compte.</target>
       </trans-unit>
       <trans-unit id="i.V8Mvt" resname="validation register confirmation">
         <source>validation register confirmation</source>
@@ -18,8 +17,7 @@
       <trans-unit id="RRHoI0f" resname="validation recover sent confirmation">
         <source>validation recover sent confirmation</source>
         <target>Un mail a été envoyé à votre adresse dans lequel vous trouverez les informations pour
-                    récupération votre mot de passe.
-                </target>
+                    récupération votre mot de passe.</target>
       </trans-unit>
       <trans-unit id="MOon0fQ" resname="validation password changed">
         <source>validation password changed</source>
