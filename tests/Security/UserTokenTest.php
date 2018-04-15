@@ -54,6 +54,26 @@ class UserTokenTest extends TestCase
         );
     }
 
+    /**
+     * Test test If Token Has Been Removed When Activated
+     */
+    public function testToManualyAddAToken() : void
+    {
+        // INIT
+        //-----
+
+        // Create the user
+        $user = new User();
+
+        // TEST
+        //-----
+
+        // Test if token well set
+        $this->assertSame(
+            $user->setToken('TestToken')->getToken(),
+            'TestToken'
+        );
+    }
 
     /**
      * Test the User token remover

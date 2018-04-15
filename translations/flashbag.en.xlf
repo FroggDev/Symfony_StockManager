@@ -8,13 +8,11 @@
       <trans-unit id="fmui2JV" resname="validation register sent confirmation">
         <source>validation register sent confirmation</source>
         <target>A validation mail as been sent, to complete your registration click on the link in the mail
-                    sent.
-                </target>
+                    sent.</target>
       </trans-unit>
       <trans-unit id="i.V8Mvt" resname="validation register confirmation">
         <source>validation register confirmation</source>
-        <target>You registration has been validated, you can now log to the application in with your acccount.
-                </target>
+        <target>Your registration has been validated, you can now log to the application in with your acccount.</target>
       </trans-unit>
       <trans-unit id="RRHoI0f" resname="validation recover sent confirmation">
         <source>validation recover sent confirmation</source>

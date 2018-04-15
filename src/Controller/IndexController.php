@@ -45,6 +45,7 @@ namespace App\Controller;
 use App\Common\Traits\Client\ResponseTrait;
 use App\Service\LocaleManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Debug\Exception\FatalErrorException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 

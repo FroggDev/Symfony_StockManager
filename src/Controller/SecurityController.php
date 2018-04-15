@@ -236,7 +236,7 @@ class SecurityController extends Controller
      *
      * @return Response
      */
-    public function recoverValidation(UserManager $userManager,UserChecker $userChecker, Request $request)
+    public function recoverValidation(UserManager $userManager, Request $request)
     {
         //get and check user
         $result = $userManager->recoverPreValidation();
