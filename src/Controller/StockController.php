@@ -12,6 +12,7 @@ namespace App\Controller;
 
 use App\Common\Traits\Client\ResponseTrait;
 use App\Service\LocaleManager;
+use App\Stock\ProductManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -84,7 +85,6 @@ class StockController extends Controller
      * )
      * @return Response
      */
-
     public function del()
     {
         return new Response("TODO");
@@ -107,4 +107,129 @@ class StockController extends Controller
     {
         return new Response("TODO");
     }
+
+    /*######
+     # ADD #
+     ######*/
+
+    /**
+     * Route to display a product from barcode
+     *
+     * @Route(
+     *     {
+     *     "fr": "/produit.html",
+     *     "en": "/product.html"
+     *     },
+     *     name="product",
+     *     methods={"GET","POST"}
+     * )
+     * @return Response
+     */
+    public function showProduct()
+    {
+        return new Response("TODO");
+    }
+
+    /**
+     * Route to display search result
+     *
+     * @Route(
+     *     {
+     *     "fr": "/resultat.html",
+     *     "en": "/result.html"
+     *     },
+     *     name="result",
+     *     methods={"GET","POST"}
+     * )
+     * @return Response
+     */
+    public function showResult()
+    {
+        return new Response("TODO");
+    }
+
+    /*#######
+     # AJAX #
+     #######*/
+
+    /**
+     * Route to ajax get product from barcode
+     *
+     * @Route(
+     *     {
+     *     "fr": "/ajax/produit.{_format<json>?json}",
+     *     "en": "/ajax/product.{_format<json>?json}"
+     *     },
+     *     name="ajax_barcode",
+     *     methods={"GET","POST"}
+     * )
+     * @param ProductManager $productManager
+     *
+     * @return Response
+     */
+    public function ajaxCodeBar(Request $request)//(ProductManager $productManager)
+    {
+
+        $productManager=new ProductManager($request);
+        $productManager->getProductFromBarcode();
+
+        return new Response("{}");
+    }
+
+    /**
+     * Route to ajax remove product from stock
+     *
+     * @Route(
+     *     {
+     *     "fr": "/ajax/remove.{_format<json>?json}",
+     *     "en": "/ajax/supprimer.{_format<json>?json}"
+     *     },
+     *     name="ajax_remove",
+     *     methods={"GET","POST"}
+     * )
+     * @return Response
+     */
+    public function ajaxRemove()
+    {
+        return new Response("TODO");
+    }
+
+    /**
+     * Route to ajax cancel action remove fom stock
+     *
+     * @Route(
+     *     {
+     *     "fr": "/ajax/annulation/suppression.{_format<json>?json}",
+     *     "en": "/ajax/cancel/remove.{_format<json>?json}"
+     *     },
+     *     name="ajax_cancel_remove",
+     *     methods={"GET","POST"}
+     * )
+     * @return Response
+     */
+    public function ajaxCancelRemove()
+    {
+        return new Response("TODO");
+    }
+
+    /**
+     * Route to ajax cancel action add fom stock
+     *
+     * @Route(
+     *     {
+     *     "fr": "/ajax/annulation/ajout.{_format<json>?json}",
+     *     "en": "/ajax/cancel/add.{_format<json>?json}"
+     *     },
+     *     name="ajax_cancel_add",
+     *     methods={"GET","POST"}
+     * )
+     * @return Response
+     */
+    public function ajaxCancelAdd()
+    {
+        return new Response("TODO");
+    }
+
+
+
 }
