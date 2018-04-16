@@ -17,6 +17,8 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -39,6 +41,8 @@ class RecoverTest extends WebTestCase
     /** @var EntityManager */
     private $entityManager;
 
+    /** @var Translator  */
+    private $translator;
 
     /** @var string */
     private $page;

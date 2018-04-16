@@ -11,6 +11,7 @@
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -18,11 +19,21 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class RouteTest extends WebTestCase
 {
+    /** @var Router */
+    private $router;
 
+    public function setUp()
+    {
+        self::$kernel = static::bootKernel();
+
+        // get router from container
+        $this->router = self::$kernel->getContainer()->get('router');
+    }
 
     public function testAllRoutes()
     {
-        $maxTime = 10000;
+
+        $maxTime = 100000;
 
         $client = static::createClient();
 
@@ -44,7 +55,7 @@ class RouteTest extends WebTestCase
                 }
             }
 
-            if($path==='/'){
+            if ($path === '/' || $path === '/_error') {
                 continue;
             }
 
@@ -61,6 +72,47 @@ class RouteTest extends WebTestCase
         }
     }
 
+    /**
+     * CHANGE LANG
+     */
+
+    public function testChangeLang()
+    {
+        $client = static::createClient();
+
+        // create a new crawler
+        $client->request('GET', '/');
+
+        // create a new crawler
+        $crawler = $client->request(
+            'GET',
+            $this->router->generate('change_locale', ['_locale' => 'en']),
+            ['locale' => 'en']
+        );
+
+        $this->assertEquals(
+            301,
+            $client->getResponse()->getStatusCode()
+        );
+
+    }
+
+    public function testChangeLangError()
+    {
+        $client = static::createClient();
+
+        try {
+            // create a new crawler
+            $client->request(
+                'GET',
+                $this->router->generate('change_locale', ['_locale' => 'en']),
+                ['locale' => 'en']
+            );
+        } catch (\Error $error) {
+            $this->assertContains("setRedirectUri() must be of the type string", $error->getMessage());
+        }
+    }
+
     /*################
      # UTILS METHODS #
      ################*/
@@ -68,12 +120,15 @@ class RouteTest extends WebTestCase
     /**
      * @param $client
      */
-    private function isValidResponse(Client $client,string $msg)
+    private function isValidResponse(Client $client, string $msg)
     {
-        $this->assertEquals(
-            200,
-            $client->getResponse()->getStatusCode(),
-            $msg
-        );
+        $code = $client->getResponse()->getStatusCode();
+        if ($code !== 301 && $code !== 302) {
+            $this->assertEquals(
+                200,
+                $client->getResponse()->getStatusCode(),
+                $msg
+            );
+        }
     }
 }

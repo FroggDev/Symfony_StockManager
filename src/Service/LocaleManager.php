@@ -37,13 +37,13 @@ class LocaleManager
     private $currentLocale;
     /** @var string */
     private $uri;
-    /** @var bool  */
-    private $addCookie=false;
+    /** @var bool */
+    private $addCookie = false;
 
     /**
      * LocaleService constructor.
      * @param RouterInterface $router
-     * @param RequestStack    $requestStack
+     * @param RequestStack $requestStack
      */
     public function __construct(RouterInterface $router, RequestStack $requestStack)
     {
@@ -182,8 +182,10 @@ class LocaleManager
      */
     private function setSystemLocale(): LocaleManager
     {
-        // some logic to determine the $locale
-        $this->request->setLocale($this->newLocale);
+        if ($this->newLocale) {
+            // some logic to determine the $locale
+            $this->request->setLocale($this->newLocale);
+        }
 
         // Update session
         //$this->request->getSession()->set('_locale', $this->newLocale);

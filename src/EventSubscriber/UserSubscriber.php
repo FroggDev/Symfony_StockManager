@@ -58,7 +58,7 @@ class UserSubscriber implements EventSubscriberInterface
         // Get the User entity.
         $this->user = $event->getAuthenticationToken()->getUser();
 
-        if(!$this->user->isEnabled()){
+        if (!$this->user->isEnabled()) {
             throw new AccountAccessDeniedException();
         }
 

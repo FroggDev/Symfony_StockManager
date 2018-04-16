@@ -2,17 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" />
+      <change beforePath="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" afterPath="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" />
+      <change beforePath="$PROJECT_DIR$/src/Command/UserManager.php" afterPath="$PROJECT_DIR$/src/Command/UserManager.php" />
+      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php" />
       <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserCheckerTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserCheckerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserTokenTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserTokenTest.php" />
-      <change beforePath="$PROJECT_DIR$/translations/flashbag.en.xlf" afterPath="$PROJECT_DIR$/translations/flashbag.en.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/flashbag.fr.xlf" afterPath="$PROJECT_DIR$/translations/flashbag.fr.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/unregistred_index.en.xlf" afterPath="$PROJECT_DIR$/translations/unregistred_index.en.xlf" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StockController.php" afterPath="$PROJECT_DIR$/src/Controller/StockController.php" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
+      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" afterPath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" />
+      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountAccessDeniedException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountAccessDeniedException.php" />
+      <change beforePath="$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php" afterPath="$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php" />
+      <change beforePath="$PROJECT_DIR$/src/Security/UserChecker.php" afterPath="$PROJECT_DIR$/src/Security/UserChecker.php" />
+      <change beforePath="$PROJECT_DIR$/src/Security/UserManager.php" afterPath="$PROJECT_DIR$/src/Security/UserManager.php" />
+      <change beforePath="$PROJECT_DIR$/src/Service/LocaleManager.php" afterPath="$PROJECT_DIR$/src/Service/LocaleManager.php" />
+      <change beforePath="$PROJECT_DIR$/src/SiteConfig.php" afterPath="$PROJECT_DIR$/src/SiteConfig.php" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/RecoverTest.php" afterPath="$PROJECT_DIR$/tests/Controller/RecoverTest.php" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/RecoverValidationTest.php" afterPath="$PROJECT_DIR$/tests/Controller/RecoverValidationTest.php" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/RegisterTest.php" afterPath="$PROJECT_DIR$/tests/Controller/RegisterTest.php" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/RegisterValidationTest.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/RouteTest.php" afterPath="$PROJECT_DIR$/tests/Controller/RouteTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,12 +60,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="stockmanager: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="stockmanagertest: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
@@ -62,100 +67,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RecoverTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Controller/RecoverTest.php">
+      <file leaf-file-name="RouteTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Controller/RouteTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="301" column="50" lean-forward="false" selection-start-line="301" selection-start-column="47" selection-end-line="301" selection-end-column="50" />
+            <state relative-caret-position="276">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <file leaf-file-name="StockController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/StockController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+            <state relative-caret-position="1139">
+              <caret line="80" column="20" lean-forward="false" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserManager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Security/UserManager.php">
+      <file leaf-file-name="LocaleManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/LocaleManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="175" column="47" lean-forward="false" selection-start-line="175" selection-start-column="47" selection-end-line="175" selection-end-column="126" />
+            <state relative-caret-position="448">
+              <caret line="178" column="14" lean-forward="false" selection-start-line="178" selection-start-column="14" selection-end-line="178" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecoverValidationTest.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/Controller/RecoverValidationTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="128" column="10" lean-forward="false" selection-start-line="128" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterTest.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Controller/RegisterTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="347" column="29" lean-forward="false" selection-start-line="347" selection-start-column="29" selection-end-line="347" selection-end-column="77" />
+            <state relative-caret-position="153">
+              <caret line="382" column="0" lean-forward="true" selection-start-line="382" selection-start-column="0" selection-end-line="382" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterValidationTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Controller/RegisterValidationTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="flashbag.en.xlf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/translations/flashbag.en.xlf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="flashbag.fr.xlf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/translations/flashbag.fr.xlf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user" pinned="false" current-in-tab="false">
-        <entry file="das://table:/8158f521/7504823d-45d6-4849-b078-f658d12abdec/stockmanager.user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user" pinned="false" current-in-tab="false">
-        <entry file="das://table:/8158f521/7504823d-45d6-4849-b078-f658d12abdec/stockmanagertest.user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -173,36 +120,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>flush(</find>
-      <find>-&gt;entityManager</find>
-      <find>checkPreAuth</find>
-      <find>basictest</find>
-      <find>security_connexion</find>
-      <find>t-de-passe/confirmation.</find>
-      <find>n as expired with</find>
-      <find>takeAScreenshot</find>
-      <find>PasswordValidationExpiredToken</find>
-      <find>take</find>
-      <find>card-panel</find>
-      <find>## ==&gt; Screenshot</find>
-      <find>basicTest</find>
-      <find>FlashBagInter</find>
-      <find>createMock</find>
-      <find>recoverValidation</find>
-      <find>setToken</find>
-      <find>getUserFromEmail</find>
-      <find>recoverPreValidation</find>
-      <find>checkRegisterValidation</find>
-      <find>Password change</find>
-      <find>changepassword title</find>
+      <find>router-&gt;generate</find>
+      <find>var_dump</find>
+      <find>Ce mail est déjà utilisé</find>
+      <find>assertEqual</find>
+      <find>generate</find>
+      <find>firstname should not be blank</find>
+      <find>password should not be blank</find>
+      <find>find</find>
+      <find>self::$kernel-&gt;getContainer()-&gt;get</find>
       <find>formNavigatation</find>
       <find>doResult</find>
-      <find>You registration has been validated, you can now log to the application in with your acccount</find>
-      <find>You registration</find>
-      <find>Your registration</find>
-      <find>validation register confirmation</find>
-      <find>env</find>
+      <find>verifyToken</find>
+      <find>errorNavigation</find>
+      <find>getErrors</find>
+      <find>Invalid credentials</find>
+      <find>BadCredentialsException</find>
+      <find>dump</find>
+      <find>encoderFactory</find>
+      <find>passwordEncoder</find>
+      <find>recoverPreValidation</find>
+      <find>Your password has been successfully changed</find>
+      <find>getUserFromEmail</find>
+      <find>$kernel</find>
       <find>setUserStatus</find>
+      <find>Invalid credentials.</find>
+      <find>Account cannot be found.</find>
+      <find>HTTP_ACCEPT_LANGUAGE</find>
+      <find>filter</find>
+      <find>$pageValidation</find>
+      <find>Symfony Exception</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -227,57 +174,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/Service/MailerManager.php" />
+        <option value="$PROJECT_DIR$/src/Service/Twig/AbstractTwigExtension.php" />
+        <option value="$PROJECT_DIR$/src/Service/Twig/Func/Menu.php" />
+        <option value="$PROJECT_DIR$/tests/Service/MailerManagerTest.php" />
+        <option value="$PROJECT_DIR$/tests/Service/LocaleManagerTest.php" />
+        <option value="$PROJECT_DIR$/tests/Twig/TestMenu.php" />
+        <option value="$PROJECT_DIR$/tests/Twig/TestAbstractExtension.php" />
+        <option value="$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
+        <option value="$PROJECT_DIR$/src/Exception/Account/AccountAccessDeniedException.php" />
+        <option value="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" />
+        <option value="$PROJECT_DIR$/tests/Event/UserSubscriberTest.php" />
+        <option value="$PROJECT_DIR$/tests/Security/AccessDeniedHandlerTest.php" />
+        <option value="$PROJECT_DIR$/tests/SecurityForm/RegisterTest.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/RouteTester.php" />
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/tests/Util/AbtractResponseUtil.php" />
         <option value="$PROJECT_DIR$/src/SiteConfig.php" />
         <option value="$PROJECT_DIR$/vendor/symfony/routing/Generator/UrlGenerator.php" />
+        <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
         <option value="$PROJECT_DIR$/vendor/symfony/framework-bundle/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/vendor/symfony/routing/Router.php" />
         <option value="$PROJECT_DIR$/translations/validators.fr.xlf" />
         <option value="$PROJECT_DIR$/tests/Util/AbstractUserFixture.php" />
+        <option value="$PROJECT_DIR$/templates/components/flashbags.html.twig" />
         <option value="$PROJECT_DIR$/translations/validators.en.xlf" />
-        <option value="$PROJECT_DIR$/tests/Controller/RecoverTest.php" />
+        <option value="$PROJECT_DIR$/src/Controller/IndexController.php" />
+        <option value="$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Common/Traits/Controller/FormCheckTrait.php" />
         <option value="$PROJECT_DIR$/src/Form/Security/UserType.php" />
         <option value="$PROJECT_DIR$/templates/security/register.html.twig" />
-        <option value="$PROJECT_DIR$/tests/Controller/RegisterTest.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/features/home.feature" />
-        <option value="$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php" />
-        <option value="$PROJECT_DIR$/vendor/symfony/security/Core/User/User.php" />
-        <option value="$PROJECT_DIR$/vendor/symfony/security/Core/User/UserChecker.php" />
-        <option value="$PROJECT_DIR$/templates/components/common/nav.html.twig" />
-        <option value="$PROJECT_DIR$/templates/components/flashbags.html.twig" />
-        <option value="$PROJECT_DIR$/translations/security_form.en.xlf" />
-        <option value="$PROJECT_DIR$/translations/security_mail.en.xlf" />
-        <option value="$PROJECT_DIR$/translations/security_mail.fr.xlf" />
-        <option value="$PROJECT_DIR$/translations/security_form.fr.xlf" />
-        <option value="$PROJECT_DIR$/templates/security/password.html.twig" />
-        <option value="$PROJECT_DIR$/templates/security/connexion.html.twig" />
-        <option value="$PROJECT_DIR$/tests/Security/UserAdvancedTest.php" />
-        <option value="$PROJECT_DIR$/templates/mail/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/_DOC/site_test.txt" />
-        <option value="$PROJECT_DIR$/src/Security/UserManager.php" />
         <option value="$PROJECT_DIR$/behat.yml.dist" />
-        <option value="$PROJECT_DIR$/assets/inc/css/materialize.css" />
-        <option value="$PROJECT_DIR$/features/security/home.feature" />
-        <option value="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" />
-        <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
-        <option value="$PROJECT_DIR$/config/packages/dev/framework.yaml" />
-        <option value="$PROJECT_DIR$/src/Controller/IndexController.php" />
-        <option value="$PROJECT_DIR$/translations/unregistred_index.en.xlf" />
-        <option value="$PROJECT_DIR$/tests/Controller/RouteTest.php" />
-        <option value="$PROJECT_DIR$/tests/Security/UserCheckerTest.php" />
-        <option value="$PROJECT_DIR$/src/Security/UserChecker.php" />
-        <option value="$PROJECT_DIR$/tests/Security/UserTokenTest.php" />
-        <option value="$PROJECT_DIR$/tests/Security/UserManagerTest.php" />
-        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/translations/flashbag.en.xlf" />
-        <option value="$PROJECT_DIR$/translations/flashbag.fr.xlf" />
+        <option value="$PROJECT_DIR$/_DOC/site_test.txt" />
+        <option value="$PROJECT_DIR$/translations/security_form.fr.xlf" />
+        <option value="$PROJECT_DIR$/features/home.feature" />
         <option value="$PROJECT_DIR$/tests/Controller/RegisterValidationTest.php" />
+        <option value="$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php" />
+        <option value="$PROJECT_DIR$/templates/stock/home.html.twig" />
+        <option value="$PROJECT_DIR$/src/Security/UserManager.php" />
+        <option value="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" />
+        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/RecoverTest.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/SecurityFakeTest.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/ErrorFakeTest.php" />
+        <option value="$PROJECT_DIR$/src/Service/LocaleManager.php" />
         <option value="$PROJECT_DIR$/tests/Controller/RecoverValidationTest.php" />
+        <option value="$PROJECT_DIR$/src/Controller/StockController.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/RouteTest.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/RegisterTest.php" />
       </list>
     </option>
   </component>
@@ -303,11 +250,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="PhpServers">
-    <servers />
-  </component>
-  <component name="PhpWebServerValidation" path_to_validation_script="C:\symfony\Symfony_StockManager" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1:9000" />
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7.2">
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
@@ -410,11 +353,11 @@
       <path value="$PROJECT_DIR$/vendor/emuse/behat-html-formatter" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="134" />
-    <option name="y" value="87" />
-    <option name="width" value="1329" />
-    <option name="height" value="961" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="22" />
+    <option name="y" value="66" />
+    <option name="width" value="1280" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -450,7 +393,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -461,66 +404,50 @@
             <path>
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_DOC" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="translations" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Symfony_TestProject" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\symfony\Symfony_StockManager\features\security" />
-      <recent name="C:\symfony\Symfony_StockManager\src\Exception\Account" />
-      <recent name="C:\symfony\Symfony_StockManager\src\Security" />
-      <recent name="C:\symfony\Symfony_StockManager\tests\Security" />
-      <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\_DOC" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\symfony\Symfony_StockManager\tests\Controller" />
       <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\features" />
       <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\tests\Service" />
       <recent name="C:\symfony\Symfony_StockManager\src\Exception" />
       <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\config\packages\test" />
+      <recent name="C:\symfony\Symfony_StockManager\templates\stock" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\symfony\Symfony_StockManager\src\Exception\Account" />
+      <recent name="C:\symfony\Symfony_StockManager\src\Security" />
+      <recent name="C:\symfony\Symfony_StockManager\tests\Security" />
+      <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\_DOC" />
+      <recent name="C:\symfony\Symfony_StockManager\templates\components\home" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -602,35 +529,44 @@
       <workItem from="1523628976343" duration="1809000" />
       <workItem from="1523630809256" duration="1762000" />
       <workItem from="1523632632405" duration="1654000" />
-      <workItem from="1523698028430" duration="85073000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="580733000" />
+    <option name="totallyTimeSpent" value="514483000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="134" y="87" width="1329" height="961" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1713633" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1988273" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20670995" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15689261" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1337953" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32700422" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20317003" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20454545" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20670995" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20454545" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13432837" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -666,74 +602,157 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Core/User/UserInterface.php">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/framework-bundle/Controller/ControllerTrait.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="30" column="10" lean-forward="false" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="289">
+          <caret line="39" column="6" lean-forward="false" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Core/User/UserChecker.php">
+    <entry file="file://$PROJECT_DIR$/templates/components/flashbags.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="136">
+          <caret line="8" column="62" lean-forward="true" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Command/UserManagerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="224" column="14" lean-forward="false" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Util/AbstractUserFixture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Event/UserSubscriberTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1028">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/framework-bundle/Controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/validators.en.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Common/Traits/Client/ResponseTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/flashbag.en.xlf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/form/FormInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="264" column="20" lean-forward="false" selection-start-line="264" selection-start-column="20" selection-end-line="264" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Core/Exception/BadCredentialsException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Core/Exception/AccountStatusException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Core/Exception/AuthenticationException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="6" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exception/Account/AccountTypeException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="182" column="39" lean-forward="true" selection-start-line="182" selection-start-column="39" selection-end-line="182" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="-612">
+          <caret line="16" column="60" lean-forward="false" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/components/common/nav.html.twig">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/form/Extension/Core/Type/EmailType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="31" column="94" lean-forward="true" selection-start-line="31" selection-start-column="94" selection-end-line="31" selection-end-column="124" />
-          <folding />
+        <state relative-caret-position="136">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translations/security_mail.en.xlf">
+    <entry file="file://$PROJECT_DIR$/templates/security/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="482">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/security/password.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/security/connexion.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Form/Security/UserType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="59" column="61" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="61" />
-          <folding />
+          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_DOC/site_creation_step.txt">
+    <entry file="file://$PROJECT_DIR$/src/Common/Traits/Controller/FormCheckTrait.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
+        <state relative-caret-position="425">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4113">
-          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -742,365 +761,229 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_DOC/symfony_github.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/bootstrap/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translations/security_mail.fr.xlf">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+        <state relative-caret-position="323">
+          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/demo.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/home.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="33" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="33" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/translations/security_form.fr.xlf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="36" column="29" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/behat/symfony2-extension/src/Behat/Symfony2Extension/Context/KernelDictionary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="21" column="6" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="85" column="32" lean-forward="false" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="226" column="91" lean-forward="false" selection-start-line="226" selection-start-column="91" selection-end-line="226" selection-end-column="91" />
-          <folding>
-            <marker date="1523751083666" expanded="true" signature="5871:6011" ph="..." />
-            <marker date="1523751083666" expanded="true" signature="5944:6002" ph="{...}" />
-            <marker date="1523751083666" expanded="false" signature="6951:6986" ph="..." />
-            <marker date="1523751083666" expanded="true" signature="6987:7517" ph="..." />
-            <marker date="1523751083666" expanded="true" signature="7036:7236" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="7109:7162" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="7176:7182" ph=" " />
-            <marker date="1523751083666" expanded="true" signature="7285:7517" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="7346:7368" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="7370:7376" ph=" " />
-            <marker date="1523751083666" expanded="false" signature="7441:7463" ph="..." />
-            <marker date="1523751083666" expanded="true" signature="7476:7517" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="8217:8239" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="8241:8247" ph=" " />
-            <marker date="1523751083666" expanded="true" signature="8342:8534" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="8411:8464" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="8478:8484" ph=" " />
-            <marker date="1523751083666" expanded="false" signature="8789:8824" ph="..." />
-            <marker date="1523751083666" expanded="true" signature="8825:9355" ph="..." />
-            <marker date="1523751083666" expanded="true" signature="8874:9074" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="8947:9000" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="9014:9020" ph=" " />
-            <marker date="1523751083666" expanded="true" signature="9123:9355" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="9184:9206" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="9208:9214" ph=" " />
-            <marker date="1523751083666" expanded="false" signature="9279:9301" ph="..." />
-            <marker date="1523751083666" expanded="true" signature="9314:9355" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="9760:9782" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="9784:9790" ph=" " />
-            <marker date="1523751083666" expanded="true" signature="9885:10077" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="9954:10007" ph="..." />
-            <marker date="1523751083666" expanded="false" signature="10021:10027" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507">
-          <caret line="400" column="0" lean-forward="false" selection-start-line="400" selection-start-column="0" selection-end-line="400" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_DOC/front_info.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/inc/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/inc/css/materialize.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="2281" column="32" lean-forward="false" selection-start-line="2281" selection-start-column="32" selection-end-line="2281" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        <state relative-caret-position="765">
+          <caret line="49" column="19" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/behat.yml.dist">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+        <state relative-caret-position="-187">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/features/security/home.feature">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/framework-bundle/Test/WebTestCase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/bootstrap/FeatureContext.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/unregistred_index.fr.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/unregistred_index.en.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/base.fr.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_DOC/site_test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="53" />
+        <state relative-caret-position="221">
+          <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserTokenTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserAdvancedTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserEntityTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserManagerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="503" column="0" lean-forward="false" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Security/UserChecker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserCheckerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Controller/RouteTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="89" column="7" lean-forward="true" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Security/UserManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="175" column="47" lean-forward="false" selection-start-line="175" selection-start-column="47" selection-end-line="175" selection-end-column="126" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/8158f521/7504823d-45d6-4849-b078-f658d12abdec/stockmanager.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/8158f521/7504823d-45d6-4849-b078-f658d12abdec/stockmanagertest.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Controller/RecoverTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="301" column="50" lean-forward="false" selection-start-line="301" selection-start-column="47" selection-end-line="301" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/security_form.en.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/components/flashbags.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/flashbag.en.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/flashbag.fr.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        <state relative-caret-position="51">
+          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Controller/RegisterValidationTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state relative-caret-position="-385">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="99" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Controller/RegisterTest.php">
+    <entry file="file://$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="347" column="29" lean-forward="false" selection-start-line="347" selection-start-column="29" selection-end-line="347" selection-end-column="77" />
+        <state relative-caret-position="323">
+          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stock/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2170">
+          <caret line="76" column="7" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/450b6d62/7504823d-45d6-4849-b078-f658d12abdec/stockmanagertest.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Security/UserChecker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Security/UserManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-582">
+          <caret line="192" column="20" lean-forward="false" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Controller/RecoverTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+          <folding>
+            <element signature="e#252#272#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_DOC/site_test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-351">
+          <caret line="52" column="2" lean-forward="true" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="109" column="30" lean-forward="false" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/bootstrap/FeatureContext.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="319" column="12" lean-forward="false" selection-start-line="319" selection-start-column="12" selection-end-line="319" selection-end-column="35" />
+          <folding>
+            <marker date="1523879406262" expanded="true" signature="12302:12308" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Controller/ErrorFakeTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Controller/RecoverValidationTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="128" column="10" lean-forward="false" selection-start-line="128" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
+        <state relative-caret-position="36">
+          <caret line="129" column="15" lean-forward="false" selection-start-line="129" selection-start-column="15" selection-end-line="129" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/LocaleManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="178" column="14" lean-forward="false" selection-start-line="178" selection-start-column="14" selection-end-line="178" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/StockController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="80" column="20" lean-forward="false" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Controller/RouteTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Controller/RegisterTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="382" column="0" lean-forward="true" selection-start-line="382" selection-start-column="0" selection-end-line="382" selection-end-column="0" />
           <folding />
         </state>
       </provider>

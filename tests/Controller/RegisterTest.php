@@ -16,6 +16,7 @@ use App\Tests\Util\AbstractUserFixture;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Translation\Translator;
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -31,8 +32,17 @@ class RegisterTest extends WebTestCase
     /** @var Router */
     private $router;
 
+    /** @var Translator  */
+    private $translator;
+
     /** @var string */
     private $page;
+    private $pageValidation;
+    private $pageConnexion;
+
+    /** @var string */
+    private $originalEmail;
+    private $originalPassword;
 
     /*###################
      # BEFORE EACH TESTS#
@@ -40,6 +50,9 @@ class RegisterTest extends WebTestCase
 
     public function setUp()
     {
+        $this->originalPassword = 'Fake';
+        $this->originalEmail = 'addinbase@fake.fr';
+
         // create a client
         $this->client = static::createClient();
 
@@ -54,6 +67,12 @@ class RegisterTest extends WebTestCase
 
         // get register page uri
         $this->page = $this->router->generate('security_register',['_locale' => 'en']);
+
+        // get register page validation uri
+        $this->pageValidation = $this->router->generate('security_register_validation', ['_locale' => 'en']);
+
+        // get register page uri
+        $this->pageConnexion = $this->router->generate('security_connexion',['_locale' => 'en']);
     }
 
     /*###########
@@ -84,13 +103,11 @@ class RegisterTest extends WebTestCase
 
         // init a fake user
         $fakeUser = new User();
-        $originalPassword = 'Fake';
-        $originalEmail = 'addinbase@fake.fr';
         $fakeUser
             ->setFirstName('FakeFirstName')
             ->setLastName('FakeLastName')
-            ->setPassword($originalPassword)
-            ->setEmail($originalEmail);
+            ->setPassword($this->originalPassword)
+            ->setEmail($this->originalEmail);
 
         // NAVIGATION
         //-----------
@@ -130,10 +147,10 @@ class RegisterTest extends WebTestCase
         $this->assertNotNull($testuser, "User should not be null");
 
         // test if email is correct
-        $this->assertSame($testuser->getEmail(),$originalEmail);
+        $this->assertSame($testuser->getEmail(),$this->originalEmail);
 
         // test if password has been encoded
-        $this->assertNotEquals($testuser->getPassword(),$originalPassword);
+        $this->assertNotEquals($testuser->getPassword(),$this->originalPassword);
     }
 
     /*################
@@ -315,6 +332,139 @@ class RegisterTest extends WebTestCase
             $this->translator->trans('email is too long', [], 'validators')
         );
     }
+
+    /*#####################
+     # MAIN REGISTER TESTS#
+     #####################*/
+
+    public function testRegisterValidation()
+    {
+        // INIT
+        //-----
+
+        /** @var user $testuser get user created ni database */
+        $testuser =
+            self::$kernel
+                ->getContainer()
+                ->get('doctrine.orm.entity_manager')
+                ->getRepository(User::class)
+                ->findOneByEmail($this->originalEmail);
+
+
+        //test if user is disabled
+        $this->assertTrue($testuser->isDisabled());
+
+        // NAVIGATION
+        //-----------
+
+        $this->client->followRedirects(true);
+
+        // create a new crawler
+        $crawler = $this->client->request(
+            'GET',
+            $this->pageValidation,
+            ['email' => $testuser->getEmail(), 'token' => $testuser->getToken()]
+        );
+
+        //$crawler = $this->client->followRedirect();
+
+        $text = $crawler->filter('.flash-notice H6 DIV')->eq(0)->text();
+
+        // select the form and fill in some values
+        $form = $crawler->filter('FORM[name=connexion]')->form();
+        $form['_username'] = $testuser->getEmail();
+        $form['_password'] = $this->originalPassword;
+
+        // set lang for test
+        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'en-EN';
+
+        // submits the given form
+        $crawler = $this->client->submit($form);
+
+        //$crawler = $this->client->followRedirect();
+
+        //get user edited from database
+        $dbUser =
+            self::$kernel
+                ->getContainer()
+                ->get('doctrine.orm.entity_manager')
+                ->getRepository(User::class)
+                ->findOneByEmail($this->originalEmail);
+
+        // NAVIGATION TEST
+        //----------------
+
+        // Test to display creating account when logged in
+        $crawlerAccount = $this->client->request('GET', $this->page );
+
+        // Test to display connexion when loged in
+        $crawlerConnexion = $this->client->request('GET', $this->pageConnexion );
+
+
+        // TEMP TEST (MORE TEST CAN BE ADDED IN ANOTHER TEST SUITE, ATM JUST FOR TESTING PURPOSE)
+        $this->client->request('GET', $this->router->generate('stock_add',['_locale' => 'en']) );
+        $this->client->request('GET', $this->router->generate('stock_del',['_locale' => 'en']) );
+        $this->client->request('GET', $this->router->generate('stock_list',['_locale' => 'en']) );
+
+        // TEST
+        //-----
+
+        //test validation register message
+        $this->assertSame($text, $this->translator->trans('validation register confirmation', [], 'flashbag'));
+
+        //test if user is enable by the validation
+        $this->assertTrue($dbUser->isEnabled());
+
+        //test if is connected !
+        $this->assertSame(
+            $this->translator->trans('stock home title', [], 'stock_home'),
+            $crawler->filter('H1')->eq(0)->text()
+        );
+
+        $this->assertSame(
+            $this->translator->trans('stock home title', [], 'stock_home'),
+            $crawlerAccount->filter('H1')->eq(0)->text()
+        );
+
+        $this->assertSame(
+            $this->translator->trans('stock home title', [], 'stock_home'),
+            $crawlerConnexion->filter('H1')->eq(0)->text()
+        );
+
+    }
+
+    public function testFakeConnexion()
+    {
+        // NAVIGATION
+        //-----------
+
+        $this->client->followRedirects(true);
+
+        // create a new crawler
+        $crawler = $this->client->request(
+            'GET',
+            $this->pageConnexion
+        );
+
+
+        // select the form and fill in some values
+        $form = $crawler->filter('FORM[name=connexion]')->form();
+        $form['_username'] ='fakeUser@dontexist.fr';
+        $form['_password'] = 'fakepassword';
+
+        // submits the given form
+        $crawler = $this->client->submit($form);
+
+        // get flash bag message
+        $message = $crawler->filter('.flash-notice H6 DIV')->eq(0)->text();
+
+        // TEST
+        //-----
+
+        //test confirm message
+        $this->assertSame($message,  $this->translator->trans('Invalid credentials.', [], 'security'));
+    }
+
 
     /*################
      # UTILS METHODS #

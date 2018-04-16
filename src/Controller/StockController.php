@@ -83,6 +83,7 @@ class StockController extends Controller
      * )
      * @return Response
      */
+
     public function del()
     {
         return new Response("TODO");

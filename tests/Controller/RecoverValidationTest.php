@@ -11,12 +11,13 @@
 namespace App\Tests\Controller;
 
 use App\Entity\User;
-use App\SiteConfig;
 use App\Tests\Util\AbstractUserFixture;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -35,6 +36,9 @@ class RecoverValidationTest extends WebTestCase
 
     /** @var Router */
     private $router;
+
+    /** @var Translator  */
+    private $translator;
 
     /** @var EntityManager */
     private $entityManager;
@@ -95,8 +99,7 @@ class RecoverValidationTest extends WebTestCase
 
         $user = $this->setUserStatus('Disabled');
 
-        $originalPass = $user->getPassword();
-
+        $this->client->followRedirects(true);
         // create a new crawler
         $crawler = $this->client->request(
             'GET',
@@ -104,39 +107,86 @@ class RecoverValidationTest extends WebTestCase
             ['email'=>$user->getEmail(),'token'=>$user->getToken()]
         );
 
+        //dump($crawler);
+
         $text = $crawler->filter('H1')->eq(0)->text();
 
+        /*
+        $crawler = $this->client->request(
+            'POST',
+            $this->page.'?email='.$user->getEmail().'&token'.$user->getToken(),
+            [
+                'user_password[password]' => 'NewPassword',
+                'user_password[_token]' => $crawler->filter('#user_password__token')->eq(0)->attr('value')
+            ]
+        );
+        */
 
-        // select the form and fill in some values
-        $form = $crawler->filter('FORM[name=user_password]')->form();
+        $uri = $this->page.'?email='.$user->getEmail().'&token='.$user->getToken();
+
+        // REPLACE THE FORM ACTION
+        $form = $crawler
+            ->filter('FORM[name=user_password]')
+            ->reduce(function (Crawler $form) use ($uri) {
+                $node = $form->getNode(0);
+                if (!$node->hasAttribute('action')){
+                    $node->setAttribute('action', $uri);
+                    $node->setAttribute('method', 'POST');
+                    return true;
+                }
+                return false;
+            })
+            ->form();
         $form['user_password[password]'] = 'NewPassword';
-
-
         // submits the given form
         $crawler = $this->client->submit($form);
-        $this->client->followRedirect();
 
-        // USER NOT FOUND ?????
-        //dump($this->client->getResponse());
+
+        //dump($crawler);
+
+        $message = $crawler->filter('.flash-notice H6 DIV')->eq(0)->text();
 
         //get user edited from database
-        $dbUser = $this->getUser();
+        //$dbUser = $this->getUser();
 
         // TEST
         //-----
 
         //test page title
-        //$this->assertSame($text,  $this->translator->trans('changepassword title', [], 'security_form'));
-
-        //dump($originalPass);
-        //dump($dbUser->getPassword());
-
-        //test user password
-        //$this->assertNotSame($originalPass,  $dbUser->getPassword());
+        $this->assertSame($text,  $this->translator->trans('changepassword title', [], 'security_form'));
 
         //test if user is enable
-        $this->assertTrue($dbUser->isEnabled());
+        //$this->assertTrue($dbUser->isEnabled());
+
+        //test confirm message
+        $this->assertSame($message,  $this->translator->trans('validation password changed', [], 'flashbag'));
+
     }
+
+    public function testFakeRecoverValidationConnexion()
+    {
+        // NAVIGATION
+        //-----------
+
+        $this->client->followRedirects(true);
+
+        // create a new crawler
+        $crawler = $this->client->request(
+            'GET',
+            $this->page,
+            ['email' => 'fakeUser@dontexist.fr', 'token' =>  'faketoken']
+        );
+
+        // get flash bag message
+        $message = $crawler->filter('.flash-notice H6 DIV')->eq(0)->text();
+
+        // TEST
+        //-----
+
+        //test confirm message
+        $this->assertSame($message,  $this->translator->trans('account is unfindable', [], 'flashbag'));
+    }
+
 
     /*################
      # UTILS METHODS #
