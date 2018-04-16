@@ -67,7 +67,8 @@ class StockController extends Controller
      */
     public function add()
     {
-        return new Response("TODO");
+        // Display form view
+        return $this->render('stock/form_add.html.twig');
     }
 
     /**

@@ -204,7 +204,7 @@ class SecurityController extends Controller
      */
     public function recoverRequest(AuthenticationUtils $authenticationUtils, Request $request, UserManager $userManager)
     {
-        $email = $request->cookies->get(SiteConfig::COOKIEUSERNAME) ?? $authenticationUtils->getLastUsername();
+        $email = $authenticationUtils->getLastUsername() ?? $request->cookies->get(SiteConfig::COOKIEUSERNAME);
 
         // create the user form
         $form = $this->createForm(UserRecoverType::class, null, ['last_email' => $email]);

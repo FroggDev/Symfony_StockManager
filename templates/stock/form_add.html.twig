@@ -1,0 +1,113 @@
+{% extends "template.html.twig" %}
+
+{% trans_default_domain 'stock_home' %}
+
+{% block page_title "stock home title" | trans %}
+
+{# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
+
+{% block main %}
+    {{ parent() }}
+    {# Content #}
+    <main class="container main">
+
+        <div class="section">
+
+            <h1 class="teal-text text-lighten-2">Add a product</h1>
+
+            <!-- Display bar code scanner -->
+            <div class="card toHideWhenOff bgItems">
+
+                <form id="searchProduct" action="listresult.html">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input required="required" type="text" id="autocomplete-input" class="autocomplete speech-input" autocomplete="off" lang="fr" data-instant-submit>
+                        <label for="autocomplete-input"></label>
+                    </div>
+                    <input type="submit" class="waves-effect waves-light btn" value="ok">
+                </form>
+
+                <div class="card-image waves-effect waves-block waves-light">
+                    <div class="controls">
+                        <form>
+                            <label class="hidden" for="settings_torch">Torch</label>
+                            <input type="checkbox" name="settings_torch" id="settings_torch" class="hidden" />
+                            <section id="container">
+                                <div id="interactive" class="viewport"></div>
+                                <div id="result_strip">
+                                    <ul class="thumbnails"></ul>
+                                    <ul class="collector"></ul>
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="scanBtn">
+                    <a href="{{ path('stock_home') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                    <a id="cameraTorch" class="btn-floating btn-large waves-effect waves-light right "><i class="material-icons left">wb_incandescent</i></a>
+                    <a onclick="document.app.Scan.closeScan();document.app.Util.doAjax('ajax/getProduct.html',{ barcode: 11111111 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
+                </div>
+
+                <div class="card-content" style="padding: 0 30px 5px 30px;margin-top: -20px;">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">aspect_ratio</i>
+                        <select name="input-stream_constraints" id="deviceSelection"></select>
+                        <label for="deviceSelection">Camera</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Display if no product found -->
+            <div  id="notfound" style="display: none;">
+                <div class="card bgItems">
+                    <div class="teal lighten-1">
+                        <div class="list">
+                            <h4>No product found for the barcode : <span id="notfoundbarcode" class="text-accent-2 orange-text right"></span></h4>
+                        </div>
+                    </div>
+
+                    <div class="scanBtn">
+                        <a href="{{ path('stock_home') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                    </div>
+
+                    <div class="card-content">
+                        No product has been found matching the bar code, maybe it is just an error while scanning, you can retry to scan another time or you can add the product manually.
+                    </div>
+                </div>
+
+                <div class="center mainBtn">
+                    <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
+                    <a href="createproduct.html" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+{%  endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <link href="{{ asset('inc/css/scan.css') }}" rel="stylesheet">
+{%  endblock %}
+
+{% block js  %}
+    {{ parent() }}
+    {# javascripts #}
+    <script src="{{ asset('lib/class/ajax.class.js') }}"></script>
+    <script src="{{ asset('lib/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('lib/quagga.min.js') }}" ></script>
+    <script src="{{ asset('inc/js/product.js') }}" ></script>
+    <script src="{{ asset('inc/js/scan.js') }}" ></script>
+    <script>
+        var instance = M.Autocomplete.init(document.querySelector('.autocomplete'), {
+            data: {
+                "Volvic": null,
+                "Nutella": null,
+                "Barilla": null
+            }
+        });
+    </script>
+{%  endblock %}

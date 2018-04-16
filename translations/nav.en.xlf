@@ -17,6 +17,10 @@
         <source>login</source>
         <target>Login</target>
       </trans-unit>
+      <trans-unit id="QoghNQ6-en" resname="register">
+        <source>register</source>
+        <target>Register</target>
+      </trans-unit>
       <trans-unit id="TqFAWIF" resname="home">
         <source>home</source>
         <target>Home</target>
