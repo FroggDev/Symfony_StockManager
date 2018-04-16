@@ -25,7 +25,7 @@ Ajax.prototype =
                 if (opt.async) this.async = opt.async;
                 if (opt.param && this.method === 'GET') {
                     this.param = opt.param;
-                    this.url += '?' + this.param;
+                    this.url += '?' + Object.entries(opt.param).map(e => e.join('=')).join('&');
                 }
             }
 

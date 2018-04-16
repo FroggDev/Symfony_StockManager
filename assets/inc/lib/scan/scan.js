@@ -10,7 +10,7 @@ document.app.Scan = {
         /**
 		 * If camera anvas not found
          */
-		if(this.objControlsForm.length==0){return;}
+		if(this.objControlsForm.length===0){return;}
 
         this.objNotfound.hide();
 
@@ -51,9 +51,8 @@ document.app.Scan = {
         });
 
         Quagga.onDetected(function(result) {
-            //var canvas = Quagga.canvas.dom.image;
             document.app.Scan.closeScan();
-            document.app.Util.doAjax("ajax/getProduct.html",{ barcode: result.codeResult.code },document.app.Scan.displayResult);
+            document.app.Util.doAjax(document.app.url.barcode,{ barcode: result.codeResult.code },document.app.Scan.displayResult);
         });
 
 	},
@@ -325,23 +324,14 @@ document.app.Scan = {
 		else {
 
             /**
-             * CASE PRODUCT FOUND
+			 * Case found add & remove
              */
-			/*
-            $('#result .list')
-                .html("")
-                .append(
-                    "<div style=\"float:left;margin: 1.52rem 1rem 0 0;\"><img style=\"height:100px; border-radius: 12px;border:1px solid #fff;\" src=\"upload/products/" + data.barcode + ".jpg\"/></div>"
-                    + "<div style=\"overflow: hidden;\"><div><h4><b id=\"nbproduct\">1</b> x " + data.name + "</h4></div>"
-                    + "<div>code bar : " + data.barcode + "</div></div>"
-                );
 
-            $('#result').show();*/
 			if(data.remove){
-                document.location="productlistdetail.html";
+                document.location=document.app.url.displayResult;
             }
 			else{
-				document.location="addproductshort.html";
+				document.location=document.app.url.displayProduct;
             }
         }
 	}

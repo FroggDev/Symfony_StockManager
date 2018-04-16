@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
+
+{% block nav %}
+    {# Menu #}
+    {% include 'components/common/nav.html.twig' %}
+{% endblock %}
+
+{% block main %}
+    {# Parallaxe top #}
+    {% include 'components/common/parallax_mini.html.twig' %}
+{%  endblock %}
+
+{% block footer %}
+    {# Footer #}
+    {% include 'components/common/footer_mini.html.twig' %}
+{%  endblock %}
+
+{% block js  %}
+    {{ parent() }}
+    <script>
+        document.app.url={};
+        document.app.url.barcode='{{ path('stock_ajax_barcode') }}';
+        document.app.url.displayResult='{{ path('stock_result') }}';
+        document.app.url.displayProduct='{{ path('stock_product') }}';
+        document.app.url.removeFromStock='{{ path('stock_ajax_remove') }}';
+        document.app.url.cancelAddToStock='{{ path('stock_ajax_cancel_add') }}';
+        document.app.url.cancelRemoveFromStok='{{ path('stock_ajax_cancel_remove') }}';
+    </script>
+{% endblock %}

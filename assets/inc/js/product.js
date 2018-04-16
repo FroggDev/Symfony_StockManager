@@ -36,15 +36,13 @@ document.app.Product = {
     },
 
     addToStock: function (data) {
-         //document.app.Scan.init();
-
         //Reset form
         document.querySelector('#expire').value="";
         document.querySelector('#nbproduct').innerHTML=1;
         document.querySelector('#nbproductfield').value=1;
 
         document.app.toastResult = M.toast({
-            html: data.qte + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(\'ajax/canceladdtostock.html\',{ id: ' + data.id + ' },document.app.Product.cancelAddToStock);">CANCEL</button>',
+            html: data.qte + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelAddToStock,{ id: ' + data.id + ' },document.app.Product.cancelAddToStock);">CANCEL</button>',
             displayLength: 7000,
             classes: 'green'
         });
@@ -60,7 +58,7 @@ document.app.Product = {
 
     removeFromStock: function (data) {
         document.app.toastResult = M.toast({
-            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(\'ajax/canceladdtostock.html\',{ id: ' + data.id + ' },document.app.Product.cancelRemoveFormStock);">CANCEL</button>',
+            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelRemoveFromStock,{ id: ' + data.id + ' },document.app.Product.cancelRemoveFormStock);">CANCEL</button>',
             displayLength: 7000,
             classes: 'green',
             completeCallback: function () {
@@ -158,7 +156,7 @@ document.app.Product = {
             //refresh display
             document.app.Product.list.init();
 
-            document.app.Util.doAjax("ajax/removefromstock.html", {
+            document.app.Util.doAjax(document.app.url.removeFromStock, {
                 barcode: this.parentNode.parentNode.querySelector('.barcode').value,
                 expire: expireDates
             }, document.app.Product.removeFromStock);
