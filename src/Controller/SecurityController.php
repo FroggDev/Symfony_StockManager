@@ -130,6 +130,12 @@ class SecurityController extends Controller
      */
     public function register(UserManager $userManager, Request $request)
     {
+
+        // Check if user is logged in
+        if ($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('stock_home');
+        }
+
         // New user registration
         $user = new User();
 
@@ -245,7 +251,7 @@ class SecurityController extends Controller
         $user = $result['user'];
 
         //check if has valid user
-        if($result['ok']===false){
+        if ($result['ok']===false) {
             return $this->redirectToRoute(
                 'security_connexion',
                 ['email' => $user?$user->getEmail():null]

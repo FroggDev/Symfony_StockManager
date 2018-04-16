@@ -111,6 +111,8 @@ class FeatureContext extends MinkContext implements Context
     /**
      * @Given /^I take a screenshot "([^"]*)"$/
      * @param string $filename
+     * @throws \Behat\Mink\Exception\DriverException
+     * @throws \Behat\Mink\Exception\UnsupportedDriverActionException
      */
     public function iTakeAScreenshot(string $filename)
     {

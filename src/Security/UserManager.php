@@ -102,7 +102,6 @@ class UserManager
 
             // set confirm message
             $this->flash->add('check', 'validation register sent confirmation');
-
         } catch (\Exception $exception) {
             return $this->setFlashBagException($exception);
         }
@@ -121,7 +120,7 @@ class UserManager
             $email = $this->request->query->get('email');
 
             // recover user from request
-            $user = $this->getUserFromEmail( $email );
+            $user = $this->getUserFromEmail($email);
 
             // check before validation
             $this->userChecker->checkRegisterValidation($user, $this->request->query->get('token'));
@@ -135,7 +134,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation register confirmation');
-
         } catch (\Exception $exception) {
             $this->setFlashBagException($exception);
 
@@ -178,7 +176,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', 'validation recover sent confirmation');
-
         } catch (\Exception $exception) {
             return $this->setFlashBagException($exception);
         }
@@ -199,7 +196,7 @@ class UserManager
         try {
             // check before validation
             $this->userChecker->checkRecoverValidation($user, $this->request->query->get('token'));
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             $this->setFlashBagException($exception);
             return ['ok'=>false,'user'=>$user];
         }
@@ -215,6 +212,7 @@ class UserManager
      */
     public function recoverValidation(user $user): bool
     {
+
         try {
             // check before validation
             $this->userChecker->checkRecoverValidation($user, $this->request->query->get('token'));
@@ -233,7 +231,6 @@ class UserManager
 
             // set register validation ok message
             $this->flash->add('check', $this->translator->trans('validation password changed', [], 'security'));
-
         } catch (\Exception $exception) {
             return $this->setFlashBagException($exception);
         }
@@ -247,7 +244,7 @@ class UserManager
      */
     public function getUserFromEmail(?string $email) : ?User
     {
-        return $this->entityManager->getRepository(User::class)->findOneByEmail( $email );
+        return $this->entityManager->getRepository(User::class)->findOneByEmail($email);
     }
 
     /**
