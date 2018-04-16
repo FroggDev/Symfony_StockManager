@@ -66,6 +66,8 @@ NAV A{font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-San
 
 #dropdownlangmobile{width:100%;}
 
+#nav-mobile .active{background:#b2dfdb}
+
 /* ============== SECTION ============== */
 
 .main.container{min-height: calc(100% - 194px);}
@@ -238,6 +240,7 @@ background-size: cover;}
 .dropdown-content [type="checkbox"]:not(:checked):disabled+span:not(.lever):before{background-color: transparent;}
 
 /* ============== SEARCH PRODUCT INPUT ============== */
+#searchProduct{border-bottom: 1px solid #9e9e9e;}
 #searchProduct .input-field{margin: 0 10px;width: calc(100% - 87px);display: inline-block;}
 #searchProduct .speech-input{border-bottom: 0;margin: 0;margin-left: 40px;}
 #searchProduct .btn {height: 50px;line-height: 50px;}

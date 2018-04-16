@@ -38,6 +38,9 @@ Encore
 
     // uncomment if you use Sass/SCSS files
     .enableSassLoader()
+
+    //add jquery
+    //.autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

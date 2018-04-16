@@ -55,7 +55,7 @@
             <li><a href="{{ getActiveMenu('security_logout') }}"><i class="material-icons left">exit_to_app</i>{{ "log out" | trans }}</a></li>
             {% else %}
             <li><a class="{{ getActiveMenu('security_connexion') }}" href="{{ path('security_connexion') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
-            <li><a class="{{ getActiveMenu('security_register') }}" href="{{ path('security_register') }}"><i class="material-icons left">assistant_photo</i>{{ "login" | trans }}</a></li>
+            <li><a class="{{ getActiveMenu('security_register') }}" href="{{ path('security_register') }}"><i class="material-icons left">assistant_photo</i>{{ "register" | trans }}</a></li>
             {% endif %}
             <li class="divider"></li>
             <li><a class="dropdown-trigger" href="#" data-target="dropdownlangmobile"><span class="flag-icon flag-icon-{{ app.request.locale }}"></span><i class="material-icons right">arrow_drop_down</i> {{ ("lang" ~ app.request.locale) | lower | trans }}</a></li>
