@@ -58,9 +58,12 @@ class ProductManager
             ->findByBarcode($barcode);
 
         if(!$product){
-            $this->scraper->scrap($barcode);
+            $product = $this->scraper->scrap($barcode);
+        }else{
+            echo "PRODUCT IS IN DATABASE !";
         }
 
+        dump($product);
         exit($barcode);
 
     }

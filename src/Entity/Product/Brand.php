@@ -95,6 +95,19 @@ class Brand
      */
     private $name;
 
+
+    /**
+     * Brand constructor.
+     * @param string $name
+     */
+    public function __construct(string $name=null)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return int
+     */
     public function getId()
     {
         return $this->id;

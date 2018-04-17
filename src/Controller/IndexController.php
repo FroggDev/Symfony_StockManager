@@ -23,6 +23,7 @@
  * extension=mysqli for Doctrine
  * extension=pdo_mysql for Doctrine
  * extension=intl for swift mailer
+ * http://curl.haxx.se/libcurl/c/libcurl-errors.html
  */
 
 /**

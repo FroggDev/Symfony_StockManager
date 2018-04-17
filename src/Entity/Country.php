@@ -129,4 +129,93 @@ class Country
      */
     private $name;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Country
+     */
+    public function setId(int $id): Country
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCode(): int
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param int $code
+     * @return Country
+     */
+    public function setCode(int $code): Country
+    {
+        $this->code = $code;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlpha2(): string
+    {
+        return $this->alpha2;
+    }
+
+    /**
+     * @param string $alpha2
+     * @return Country
+     */
+    public function setAlpha2(string $alpha2): Country
+    {
+        $this->alpha2 = $alpha2;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlpha3(): string
+    {
+        return $this->alpha3;
+    }
+
+    /**
+     * @param string $alpha3
+     * @return Country
+     */
+    public function setAlpha3(string $alpha3): Country
+    {
+        $this->alpha3 = $alpha3;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Country
+     */
+    public function setName(string $name): Country
+    {
+        $this->name = $name;
+        return $this;
+    }
 }

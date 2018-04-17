@@ -95,6 +95,19 @@ class Packaging
      */
     private $name;
 
+    /**
+     * Packaging constructor.
+     * @param string $name
+     */
+    public function __construct(string $name=null)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return int
+     */
+
     public function getId()
     {
         return $this->id;
