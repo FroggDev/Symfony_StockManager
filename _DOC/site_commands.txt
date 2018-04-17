@@ -27,6 +27,11 @@ php bin/console doctrine:migrations:diff
 - apply diff to database
 php bin/console doctrine:migrations:migrate
 
+- Table to Entity
+php bin/console doctrine:mapping:convert annotation ./src/ExportedEntity --from-database
+
+- create entities
+php bin/console doctrine:make:entity Origin
 
 Translation
 -----------

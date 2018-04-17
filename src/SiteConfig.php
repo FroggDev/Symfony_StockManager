@@ -95,6 +95,10 @@ class SiteConfig
      */
     const NBPERPAGE = 10;
 
+    const ENERGYUNIT = ['kcal','KJ'];
+
+    const WEIGHTUNIT = ['g','mg','µg'];
+
     /*########
     # LOCALE #
     #########*/
@@ -110,4 +114,11 @@ class SiteConfig
      * @const string
      */
     const COOKIELOCALENAME = 'locale';
+
+    /*#####
+    # SQL #
+    ######*/
+
+    const SQLCOUNTRY = 'sql\country.sql';
+
 }

@@ -157,23 +157,19 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/ajax/produit.{_format<json>?json}",
-     *     "en": "/ajax/product.{_format<json>?json}"
+     *     "fr": "/ajax/produit.{_format<json|html>?json}",
+     *     "en": "/ajax/product.{_format<json|html>?json}"
      *     },
      *     name="ajax_barcode",
-     *     methods={"GET","POST"}
+     *     methods={"GET"}
      * )
      * @param ProductManager $productManager
      *
      * @return Response
      */
-    public function ajaxCodeBar(Request $request)//(ProductManager $productManager)
+    public function ajaxCodeBar(ProductManager $productManager)//(ProductManager $productManager)
     {
-
-        $productManager=new ProductManager($request);
-        $productManager->getProductFromBarcode();
-
-        return new Response("{}");
+        return new Response($productManager->getProductFromBarcode());
     }
 
     /**
@@ -185,7 +181,7 @@ class StockController extends Controller
      *     "en": "/ajax/supprimer.{_format<json>?json}"
      *     },
      *     name="ajax_remove",
-     *     methods={"GET","POST"}
+     *     methods={"GET"}
      * )
      * @return Response
      */
@@ -203,7 +199,7 @@ class StockController extends Controller
      *     "en": "/ajax/cancel/remove.{_format<json>?json}"
      *     },
      *     name="ajax_cancel_remove",
-     *     methods={"GET","POST"}
+     *     methods={"GET"}
      * )
      * @return Response
      */
@@ -221,7 +217,7 @@ class StockController extends Controller
      *     "en": "/ajax/cancel/add.{_format<json>?json}"
      *     },
      *     name="ajax_cancel_add",
-     *     methods={"GET","POST"}
+     *     methods={"GET"}
      * )
      * @return Response
      */

@@ -60,6 +60,18 @@ services:
         tags:
             - { name: 'kernel.event_listener', event: 'security.interactive_login' }
 
+
+    ############
+    # SERVICES #
+    ############
+
+    app.service.client:
+       class: Goutte\Client
+
+    Goutte\Client: '@app.service.client'
+
+
+
     # =======================================
     # ! NO MORE NEEDED WITH 4.1 !
     #========================================
