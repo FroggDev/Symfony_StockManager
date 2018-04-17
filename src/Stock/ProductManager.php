@@ -10,7 +10,11 @@
 
 namespace App\Stock;
 
+use App\Entity\Product;
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -20,24 +24,45 @@ class ProductManager
 
     /** @var Request */
     private $request;
+    /**
+     * @var ObjectManager
+     */
+    private $manager;
+    /**
+     * @var ProductScraper
+     */
+    private $scraper;
 
     /**
      * ProductManager constructor.
      * @param Request $request
+     * @param ObjectManager $manager
+     * @param ProductScraper $scraper
      */
-    public function __construct(Request $request)
+    public function __construct(RequestStack $request,EntityManagerInterface $manager,ProductScraper $scraper)
     {
-        $this->request = $request;
+        $this->request = $request->getMasterRequest();
+        $this->manager = $manager;
+        $this->scraper = $scraper;
     }
 
     public function getProductFromBarcode()
     {
-        $barcode=$this->request->query->get('barcode');
+        // get barcode from request
+        $barcode=$this->request->query->get('b');
 
-        // ==> get bar code in database
-        // ==> else scrap from web
+        // Get product from barcode
+        $product = $this
+            ->manager
+            ->getRepository(Product::class)
+            ->findByBarcode($barcode);
+
+        if(!$product){
+            $this->scraper->scrap($barcode);
+        }
 
         exit($barcode);
 
     }
+
 }

@@ -124,6 +124,16 @@ class User extends AbstractAdvancedUser
      */
     protected $dateClosed;
 
+    /*############
+     # RELATIONS #
+     ############*/
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Product",mappedBy="user")
+     */
+    private $products;
+
+
     /*#############
     # Constructor #
     ##############*/
