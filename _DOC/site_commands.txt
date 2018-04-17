@@ -33,6 +33,9 @@ php bin/console doctrine:mapping:convert annotation ./src/ExportedEntity --from-
 - create entities
 php bin/console doctrine:make:entity Origin
 
+- import countries
+php bin/console doctrine:database:import sql\country.sql
+
 Translation
 -----------
 - check translation
