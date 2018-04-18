@@ -17,9 +17,6 @@ document.app.Scan = {
         this.objToHideWhenOff.show();
 
 		Quagga.init(this.defaultValues, function(err) {
-
-			console.log('here ?');
-
 			if (err) return self.handleError(err);
 			self.initCameraSelection();
 			document.app.Scan.checkCapabilities();				
@@ -52,7 +49,7 @@ document.app.Scan = {
 
         Quagga.onDetected(function(result) {
             document.app.Scan.closeScan();
-            document.app.Util.doAjax(document.app.url.barcode,{ b: result.codeResult.code },document.app.Scan.displayResult);
+            document.app.Util.doAjax(document.app.url.barcode,{ barcode: result.codeResult.code },document.app.Scan.displayResult);
         });
 
 	},
@@ -331,7 +328,7 @@ document.app.Scan = {
                 document.location=document.app.url.displayResult;
             }
 			else{
-				document.location=document.app.url.displayProduct;
+                document.location=document.app.url.displayProduct+'/'+data.barcode+'/stock_add';
             }
         }
 	}

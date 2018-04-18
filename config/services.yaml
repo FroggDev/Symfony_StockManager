@@ -71,7 +71,6 @@ services:
     Goutte\Client: '@app.service.client'
 
 
-
     # =======================================
     # ! NO MORE NEEDED WITH 4.1 !
     #========================================

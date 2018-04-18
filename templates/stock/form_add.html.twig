@@ -1,8 +1,8 @@
 {% extends "stock.html.twig" %}
 
-{% trans_default_domain 'stock_home' %}
+{% trans_default_domain 'stock_add' %}
 
-{% block page_title "stock home title" | trans %}
+{% block page_title "stock add title" | trans %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
@@ -86,6 +86,28 @@
         </div>
     </main>
 
+    <!-- Modal Structure -->
+    <div id="modal-loader" class="modal">
+
+        <h5>Please wait while getting datas</h5>
+
+        <div class="center loadercontainer">
+            <!-- loader -->
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left"><div class="circle"></div></div>
+                    <div class="gap-patch"><div class="circle"></div></div>
+                    <div class="circle-clipper right"><div class="circle"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- btn -->
+        <div class="modal-footer">
+            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
 {%  endblock %}
 
 {% block css %}
@@ -96,7 +118,6 @@
 {% block js  %}
     {{ parent() }}
     {# javascripts #}
-    <script src="{{ asset('lib/class/ajax.class.js') }}"></script>
     <script src="{{ asset('lib/jquery-2.1.1.min.js') }}"></script>
     <script src="{{ asset('lib/quagga.min.js') }}" ></script>
     <script src="{{ asset('inc/js/product.js') }}" ></script>

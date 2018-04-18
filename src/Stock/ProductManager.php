@@ -46,26 +46,31 @@ class ProductManager
         $this->scraper = $scraper;
     }
 
+    /**
+     * @return string
+     * @throws \App\Exception\Product\ProductTypeException
+     */
     public function getProductFromBarcode()
     {
         // get barcode from request
-        $barcode=$this->request->query->get('b');
+        $barcode=$this->request->query->get('barcode');
 
         // Get product from barcode
         $product = $this
             ->manager
             ->getRepository(Product::class)
-            ->findByBarcode($barcode);
+            ->findOneByBarcode($barcode);
 
+        // get the product from scrap
         if(!$product){
             $product = $this->scraper->scrap($barcode);
-        }else{
-            echo "PRODUCT IS IN DATABASE !";
         }
 
-        dump($product);
-        exit($barcode);
+        // no result found
+        if(!$product){
+            return '{  "result" : "ok" , "barcode" : "' . $barcode . '"  )';
+        }
 
+        return '{  "result" : "ok" , "name" : "' . $product->getName() . '" , "barcode" : "' . $barcode . '" , "generic" : "' . $product->getCommonName() . '"}';
     }
-
 }

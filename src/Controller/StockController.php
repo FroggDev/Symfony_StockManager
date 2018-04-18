@@ -11,8 +11,11 @@
 namespace App\Controller;
 
 use App\Common\Traits\Client\ResponseTrait;
+use App\Entity\Product;
 use App\Service\LocaleManager;
 use App\Stock\ProductManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -117,18 +120,24 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/produit.html",
-     *     "en": "/product.html"
+     *     "fr": "/produit.html/{barcode<[^/]*>?}/{from<.*>?}",
+     *     "en": "/product.html/{barcode<[^/]*>?}/{from<.*>?}"
      *     },
      *     name="product",
      *     methods={"GET","POST"}
      * )
-     * @return Response
+     *
+     * @Entity("product",expr="repository.findOneByBarcode(barcode)")
+     * @param null|string $barcode
+     * @param null|string $from
+     * @return void
      */
-    public function showProduct()
+    public function showProduct(Product $product,?string $from)
     {
-        return new Response("TODO");
+        // Display form view
+        return $this->render('stock/form_add_to_stock.html.twig',['from'=>$from,'product'=>$product]);
     }
+
 
     /**
      * Route to display search result

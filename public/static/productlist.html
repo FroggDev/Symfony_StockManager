@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StockManager - Add product</title>
+    <meta name="language" content="EN">
+
+    <!-- DESCRIPTION -->
+    <meta name="description"
+          content="Frogg StockManager a web application that store and manage food stocks using barcode"/>
+    <meta name="keywords" content="Frogg,StockManager,stock,manage,food,barcode"/>
+    <meta name="subject" content="Food Stock Management using barcode">
+    <meta name="url" content="https://stock.frogg.fr">
+    <!-- AUTHOR -->
+    <meta name="copyright" content="Frogg.fr">
+    <meta name="author" content="Frogg, admin@frogg.fr">
+    <!-- CONTENT -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- TODO -->
+    <!--meta name="revisit-after" content="7 days">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="robots" content="index,follow" />
+    <meta name="google-site-verification" content=""/-->
+
+    <!-- CSS  -->
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <link href="inc/css/icon.min.css" rel="stylesheet">
+    <link href="inc/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="inc/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<!-- Dropdown Structure -->
+<ul id="dropdownlang" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> En</a></li>
+</ul>
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+</ul>
+<ul id="dropdownprofile" class="dropdown-content">
+    <li><a href="#">Account</a></li>
+    <li><a href="#">Stock Option</a></li>
+    <li class="divider"></li>
+    <li><a href="index.html">Log out</a></li>
+</ul>
+<ul id="dropdownsort" class="dropdown-content" >
+    <li><a href="#">Sort by date expire</a></li>
+    <li><a href="#">Sort by date added</a></li>
+    <li><a href="#">Sort by name</a></li>
+</ul>
+
+<nav role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="home-connected.html" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
+
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+        <ul>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+            </li>
+
+            <li class="right">
+                <a class="dropdown-trigger" href="#" data-target="dropdownsort">
+                    <span class="hide-on-med-and-down">Sort by date expire</span>
+                    <i class="material-icons left">sort</i>
+                </a>
+            </li>
+
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#" data-target="dropdownprofile"><i class="material-icons left">account_circle</i> My profile</a>
+            </li>
+
+            <li class="right hide-on-med-and-down">
+                <a href="home-connected.html"><i class="material-icons left">home</i>Home</a>
+            </li>
+
+            <li class="hide-on-large-only"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
+        </ul>
+
+        <!-- Mobile navigation -->
+        <ul id="nav-mobile" class="sidenav">
+            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
+            <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
+            <li><a href="#"><i class="material-icons left">assignment</i>Product list</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a href="#"><i class="material-icons left">settings</i>My Stock Option</a></li>
+            <li class="divider"></li>
+            <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+            <li class="divider"></li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                    French
+                </a>
+            </li>
+        </ul>
+
+
+
+        <!--form>
+            <div class="input-field">
+                <input id="search" placeholder="Type your seach here.." type="search" required>
+                <i class="material-icons">close</i>
+            </div>
+        </form-->
+
+    </div>
+</nav>
+
+<div class="parallax-container connected">
+    <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
+</div>
+
+<main class="container main">
+    <div class="section">
+
+        <h1 class="teal-text text-lighten-2">My Stock products</h1>
+
+        <div class="productList">
+
+            <ul class="collapsible bgItems">
+
+                <!-- si liste vient de addproduct short alors afficher data d ajout remove_red_eye-->
+
+                <li class="expiresoon">
+                    <div class="collapsible-header">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
+                        <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
+                        <h4><span class="nbProduct">3</span> x Eau minérale - Volvic - 1.5 l</h4>
+                        <div>
+                            <select multiple>
+                                <option value="11/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="no expire data set">no expire data set</option>
+                                <option value="no expire data set">no expire data set</option>
+                                <option value="no expire data set">no expire data set</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (0 kcal)</h5>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0 g Matières grasses / Lipides en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0 g Acides gras saturés en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0 g Sucres en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.0025 g Sel en faible quantité</div>
+                    </div>
+                </li>
+
+                <li class="expiresoon">
+                    <div class="collapsible-header">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
+                        <i class="material-icons left imgproduct"><img src="upload/products/3017620421006.jpg"></i>
+                        <h4><span class="nbProduct">2</span> x Nutella - Ferrero - 750 g</h4>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/e.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (539 kcal)</h5>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>10.6 g Acides gras saturés en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>56.3 g Sucres en quantité élevée</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.107 g Sel en faible quantité</div>
+                    </div>
+                </li>
+
+                <li class="expirewarn">
+                    <div class="collapsible-header">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
+                        <i class="material-icons left imgproduct"><img src="upload/products/8076809529433.jpg"></i>
+                        <h4><span class="nbProduct">7</span> x Pennette Rigate Integrale Blé Complet - Barilla - 500 g</h4>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (350 kcal)</h5>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>10.6 g Acides gras saturés en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>56.3 g Sucres en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.03 g Sel en faible quantité</div>
+                    </div>
+                </li>
+
+                <li class="expirewarn">
+                    <div class="collapsible-header">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
+                        <i class="material-icons left imgproduct"><img src="upload/products/3057640234163.jpg"></i>
+                        <h4><span class="nbProduct">3</span> x Eau minérale - Volvic - 1.5 l</h4>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (0 kcal)</h5>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0 g Matières grasses / Lipides en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0 g Acides gras saturés en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0 g Sucres en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.0025 g Sel en faible quantité</div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
+                        <i class="material-icons left imgproduct"><img src="upload/products/3017620421006.jpg"></i>
+                        <h4><span class="nbProduct">2</span> x Nutella - Ferrero - 750 g</h4>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/e.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (539 kcal)</h5>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>10.6 g Acides gras saturés en quantité élevée</div>
+                        <div><a class="btn-floating red waves-effect waves-light mini"></a>56.3 g Sucres en quantité élevée</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.107 g Sel en faible quantité</div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header">
+                        <input type="hidden" value="3057640234163" name="barcode" class="barcode">
+                        <i class="material-icons left imgproduct"><img src="upload/products/8076809529433.jpg"></i>
+                        <h4><span class="nbProduct">7</span> x Pennette Rigate Integrale Blé Complet - Barilla - 500 g</h4>
+                        <div>
+                            <select multiple>
+                                <option value="10/02/2025" selected>11/02/2025</option>
+                                <option value="12/02/2025">12/02/2025</option>
+                                <option value="13/02/2025">13/02/2025</option>
+                                <option value="" disabled></option>
+                            </select>
+                            <label>Expire</label>
+                        </div>
+                        <div class="actionbtn">
+                            <div class="left"><img class="nutriscore" src="inc/img/nutriscore/a.svg"></div>
+                            <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating green waves-effect waves-light" href="addproductshort.html"><i class="material-icons">add</i></a>
+                            <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="productlistdetail.html"><i class="material-icons">assignment</i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <h5>Repères nutritionnels pour 100 g (350 kcal)</h5>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>30.9 g Matières grasses / Lipides en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>10.6 g Acides gras saturés en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>56.3 g Sucres en faible quantité</div>
+                        <div><a class="btn-floating green waves-effect waves-light mini"></a>0.03 g Sel en faible quantité</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div style="clear: both;"></div>
+
+            <div class="center">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="waves-effect"><a href="#">2</a></li>
+                    <li class="waves-effect"><a href="#">3</a></li>
+                    <li class="waves-effect"><a href="#">4</a></li>
+                    <li class="waves-effect"><a href="#">5</a></li>
+                    <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer class="page-footer mini">
+    <div class="footer-copyright">
+        <div class="container">
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a></span>
+        </div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="inc/js/materialize.min.js"></script>
+<script src="inc/js/init.js"></script>
+<script src="inc/js/ajax.class.js"></script>
+<script src="inc/js/product.js"></script>
+
+
+</body>
+</html>

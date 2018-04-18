@@ -19,6 +19,7 @@
 
 {% block js  %}
     {{ parent() }}
+    <script src="{{ asset('lib/class/ajax.class.js') }}"></script>
     <script>
         document.app.url={};
         document.app.url.barcode='{{ path('stock_ajax_barcode') }}';

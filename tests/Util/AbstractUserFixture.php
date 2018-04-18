@@ -47,9 +47,10 @@ abstract class AbstractUserFixture
     public static function createDatabase(KernelInterface $kernel) : void
     {
         $application = self::checkEnvironement($kernel);
-        $application->run(new StringInput('doctrine:database:drop --force --env=test'));
-        $application->run(new StringInput('doctrine:database:create --env=test'));
-        $application->run(new StringInput('doctrine:migrations:migrate --env=test --no-interaction'));
+        $application->run(new StringInput('doctrine:database:drop --force --env='.$kernel->getEnvironment()));
+        $application->run(new StringInput('doctrine:database:create --env='.$kernel->getEnvironment()));
+        $application->run(new StringInput('doctrine:migrations:migrate --no-interaction --env='.$kernel->getEnvironment()));
+        $application->run(new StringInput('doctrine:database:import sql/country.sql --quiet --no-interaction --env='.$kernel->getEnvironment()));
     }
 
     /**

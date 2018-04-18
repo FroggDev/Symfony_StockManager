@@ -85,7 +85,7 @@ Ajax.prototype =
                         this.callback(data);
                     }
                     else {
-                        alert("error : else");
+                        alert("Data result not ok !");
                         console.log('TODO : MANAGE ERROR HERE ??');
                     }
 

@@ -19,6 +19,7 @@
     "symfony/browser-kit": "dev-master",
     "symfony/console": "^4.0",
     "symfony/css-selector": "dev-master",
+    "symfony/expression-language": "dev-master",
     "symfony/flex": "^1.0",
     "symfony/form": "dev-master",
     "symfony/framework-bundle": "dev-master",

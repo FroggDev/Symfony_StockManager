@@ -11,11 +11,26 @@
 namespace App\Stock;
 
 use App\Entity\User;
+use App\SiteConfig;
 use Goutte\Client;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DomCrawler\Crawler;
 use App\Exception\Product\ProductTypeException;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+
+/**
+ * TODO IF PRODUCT IS NOT FOUND
+ * TODO : Missing fields
+nutriscore
+picture
+ingredientPicture
+nutritionPicture
+$servingSize
+$user (from loged in user)
+*/
+
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -26,12 +41,21 @@ class ProductScraper
     private $client;
 
     /** @var Crawler */
+
     private $crawler;
+    /** @var EntityManagerInterface */
+    private $manager;
+
+    /** @var User  */
+    private $user;
 
     /** @var Product */
     private $product;
 
-    /** @var array  */
+    /**
+     * Map between INPUT, DATA TYPE, ENTITY PROPERTY, LINKED ENTITY
+     * @var array
+     */
     private $map = [
         ['#product_name_fr','string', 'name'],
         ['#generic_name_fr','string', 'commonName'],
@@ -89,44 +113,32 @@ class ProductScraper
         ['#nutriment_carbon-footprint','float','footprint'],
         ['#nutriment_carbon-footprint_unit','string','footprintUnit']
     ];
-    /**
-     * @var EntityManagerInterface
-     */
-    private $manager;
 
     /**
      * ProductScraper constructor.
      * @param Client $client
      * @param EntityManagerInterface $manager
+     * @param TokenStorage $storage
      */
-    public function __construct(Client $client, EntityManagerInterface $manager)
+    public function __construct(Client $client, EntityManagerInterface $manager,TokenStorageInterface $storage)
     {
         $this->client = $client;
         $this->manager = $manager;
+        $this->user = $storage->getToken()->getUser();
     }
 
     /**
      * @param string $barcode
      *
      * @return Product
+     * @throws ProductTypeException
      */
     public function scrap(string $barcode) : Product
     {
         //init product
-        $this->product = new Product(intval($barcode));
+        $this->product = new Product((int) $barcode);
 
-        /**
-         * TODO IF PRODUCT IS NOT FOUND
-         * ADD USER ID
-         */
-        $fakeuser = new User();
-        $fakeuser
-            ->setFirstName('FIRST')
-            ->setLastName('LAST')
-            ->setEmail('email@frogg.fr')
-            ->setPassword('FAKE PASS');
-
-        $this->product->setUser($fakeuser);
+        $this->product->setUser($this->user);
 
         // do the navigation
         $this->navigate();
@@ -135,6 +147,7 @@ class ProductScraper
         $this->fillProduct();
 
         /*
+         * TESTING PURPOSE !
         dump($this->product);
         exit();
         */
@@ -145,42 +158,35 @@ class ProductScraper
 
         // return the save product
         return $this->product;
-
-/*
- * TODO : Missing fields
-nutriscore
-picture
-ingredientPicture
-nutritionPicture
-$servingSize
-$user (from loged in user)
-*/
-
     }
 
-    private function navigate()
+    /**
+     * Make the nagivation to get product page content
+     */
+    private function navigate() : void
     {
         //set follow redirect
         $this->client->followRedirects(true);
 
-        /*
-         * TODO SET INFO IN CONFIG FILE
-         */
-        // create a new crawler
+        // create a new crawler to login on website
         $this->client->request(
             'POST',
-            'https://fr.openfoodfacts.org/cgi/session.pl',
-            ['user_id' => 'stock@frogg.fr', 'password' => 'scrapOFF']
+            SiteConfig::SCRAPLOGINURL,
+            ['user_id' => SiteConfig::SCRAPUSERID, 'password' => SiteConfig::SCRAPPASSWORD]
         );
 
+        // get the product informations on the website
         $this->crawler = $this->client->request(
             'GET',
-            'https://fr.openfoodfacts.org/cgi/product.pl?type=edit&code=' . $this->product->getBarcode()
+            SiteConfig::SCRAPDATAURL . $this->product->getBarcode()
         );
-
     }
 
 
+    /**
+     * set the product information
+     * @throws ProductTypeException
+     */
     private function fillProduct() : void
     {
         foreach($this->map as $line){
@@ -204,24 +210,26 @@ $user (from loged in user)
         }
     }
 
-
     /**
      * @param array $line
+     *
      * @return null|string
      */
     private function getValue(array $line) : ?string
     {
-        if(strstr ($line[0],'_unit')) {
+        if(true===strstr ($line[0],'_unit')) {
+            //get data from a select
             $node = $this->crawler->filter($line[0] . ' option:selected');
             return $node->count() ? $node->eq(0)->text() : null;
-        }else{
-            $node = $this->crawler->filter($line[0]);
-            return $node->count() ? $node->eq(0)->attr('value') : null;
         }
+
+        // get datas from other inputs
+        $node = $this->crawler->filter($line[0]);
+        return $node->count() ? $node->eq(0)->attr('value') : null;
      }
 
-
     /**
+     * Format the value to fit the database specs
      * @param string $value
      * @param array $line
      * @return array|float|int|string
@@ -236,30 +244,30 @@ $user (from loged in user)
             $values = array_map('trim',explode(",",$value));
 
             // get the value as array of object
-            $value = $this->getEntityValue($values,$line[3]);
+            $arrayValue = $this->getEntityValue($values,$line[3]);
         }
 
         // Convert to required type
         switch($line[1]){
             case 'array':
+                return $arrayValue;
             case 'string':
-                break;
+                return $value;
             case 'int':
-                $value=intval($value);
-                break;
+                return (int) $value;
             case 'float':
-                $value=floatval($value);
-                break;
+                return (float) $value;
             default:
                 throw new ProductTypeException('invalid type ' . $line[2]);
         }
-
-        return $value;
     }
 
     /**
+     * Get or set the linked entities
      * @param array $values
      * @param string $entity
+     *
+     * @return array
      */
     private function getEntityValue(array $values, string $entity) : array
     {
@@ -287,7 +295,6 @@ $user (from loged in user)
             //add it to the list of items
             $items[]=$item;
         }
-
 
         return $items;
     }
