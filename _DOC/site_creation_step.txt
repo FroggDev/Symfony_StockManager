@@ -61,6 +61,10 @@ composer require symfony/workflow (NOT ADDED ATM)
 https://symfony.com/doc/current/frontend.html
 npm install @symfony/webpack-encore --save-dev
 
+@Param converter
+composer require symfony/expression-language
+
+
 STEP Bonus
 ----------
 composer require --dev symfony/thanks

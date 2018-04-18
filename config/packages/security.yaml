@@ -79,7 +79,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # required ROLES for access
-        #- { path: /mon-stock/, roles: [ ROLE_MEMBER ] }
+        - { path: /mon-stock/, roles: [ ROLE_MEMBER ] }
         - { path: /my-stock/, roles: [ ROLE_MEMBER ] }
         - { path: /admin/,   roles: [ ROLE_ADMIN ] }
 

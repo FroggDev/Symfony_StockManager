@@ -106,6 +106,17 @@ class Trace
     }
 
     /**
+     * @param int $id
+     * @return int
+     */
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getId()

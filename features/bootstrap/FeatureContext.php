@@ -40,6 +40,9 @@ class FeatureContext extends MinkContext implements Context
     /** @var Response|null */
     private $response;
 
+    /** @var string  */
+    private $env;
+
     /**
      * FeatureContext constructor.
      * @param KernelInterface $kernel
@@ -47,6 +50,7 @@ class FeatureContext extends MinkContext implements Context
     public function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
+        $this->env = $this->kernel->getEnvironment();
     }
 
     /**
@@ -171,11 +175,16 @@ class FeatureContext extends MinkContext implements Context
      */
     public function iRecreateDatabase(): void
     {
+        if('test'!==$this->env && 'dev'!==$this->env){
+            throw new \Exception("Should be run only for 'dev' or 'test' purpose actually running on ".$this->env);
+        }
+
         $application = new Application($this->kernel);
         $application->setAutoExit(false);
-        $application->run(new StringInput('doctrine:database:drop --quiet --force --env=dev'));
-        $application->run(new StringInput('doctrine:database:create --quiet --env=dev'));
-        $application->run(new StringInput('doctrine:migrations:migrate --quiet --no-interaction --env=dev'));
+        $application->run(new StringInput('doctrine:database:drop --quiet --force --env='.$this->env));
+        $application->run(new StringInput('doctrine:database:create --quiet --env='.$this->env));
+        $application->run(new StringInput('doctrine:migrations:migrate --quiet --no-interaction --env='.$this->env));
+        $application->run(new StringInput('doctrine:database:import sql/country.sql --quiet --no-interaction --env='.$this->env));
     }
 
     /**
@@ -390,7 +399,7 @@ class FeatureContext extends MinkContext implements Context
 
         //create screenshots directory if it doesn't exist
         if (!file_exists($path . '\\' . $featureFolder)) {
-            mkdir($path . '\\' . $featureFolder, 0777, true);
+            @mkdir($path . '\\' . $featureFolder, 0777, true);
         }
 
         //take screenshot and save as the previously defined filename
@@ -408,9 +417,11 @@ class FeatureContext extends MinkContext implements Context
      */
     private function delTree(string $dir)
     {
-        $files = array_diff(scandir($dir), array('.', '..'));
-        foreach ($files as $file) {
-            (is_dir("$dir/$file")) ? $this->delTree("$dir/$file") : @unlink("$dir/$file");
+        $files = @array_diff(@scandir($dir), array('.', '..'));
+        if($files){
+            foreach ($files as $file) {
+                (is_dir("$dir/$file")) ? $this->delTree("$dir/$file") : @unlink("$dir/$file");
+            }
         }
         return @rmdir($dir);
     }

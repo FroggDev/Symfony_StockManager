@@ -51,6 +51,28 @@ class SiteConfig
      */
     const SITECHARSET = 'UTF-8';
 
+    /*########
+    # LOCALE #
+    #########*/
+
+    /**
+     * Cookie validity in days
+     * @const int
+     */
+    const COOKIELOCALEVALIDITY = 30;
+
+    /**
+     * Cookie name
+     * @const string
+     */
+    const COOKIELOCALENAME = 'locale';
+
+    /*#####
+    # SQL #
+    ######*/
+
+    const SQLCOUNTRY = 'sql\country.sql';
+
     /*##########
     # SECURITY #
     ###########*/
@@ -95,30 +117,43 @@ class SiteConfig
      */
     const NBPERPAGE = 10;
 
+    /**
+     * Energie Unit list
+     * @const array
+     */
     const ENERGYUNIT = ['kcal','KJ'];
 
+    /**
+     * Weight unit list
+     * @const array
+     */
     const WEIGHTUNIT = ['g','mg','µg'];
 
-    /*########
-    # LOCALE #
-    #########*/
+    /*#######
+    # SCRAP #
+    ########*/
 
     /**
-     * Cookie validity in days
-     * @const int
-     */
-    const COOKIELOCALEVALIDITY = 30;
-
-    /**
-     * Cookie name
+     * URL to login on the site with products
      * @const string
      */
-    const COOKIELOCALENAME = 'locale';
+    const SCRAPLOGINURL = 'https://fr.openfoodfacts.org/cgi/session.pl';
 
-    /*#####
-    # SQL #
-    ######*/
+    /**
+     * URL to login ID
+     * @const string
+     */
+    const SCRAPUSERID = 'stock@frogg.fr';
 
-    const SQLCOUNTRY = 'sql\country.sql';
+    /**
+     * URL to login PASSWORD
+     * @const string
+     */
+    const SCRAPPASSWORD = 'scrapOFF';
 
+    /**
+     * URL to where data are available
+     * @const string
+     */
+    const SCRAPDATAURL = 'https://fr.openfoodfacts.org/cgi/product.pl?type=edit&code=';
 }

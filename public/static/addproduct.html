@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StockManager - Add product</title>
+    <meta name="language" content="EN">
+
+    <!-- DESCRIPTION -->
+    <meta name="description"
+          content="Frogg StockManager a web application that store and manage food stocks using barcode"/>
+    <meta name="keywords" content="Frogg,StockManager,stock,manage,food,barcode"/>
+    <meta name="subject" content="Food Stock Management using barcode">
+    <meta name="url" content="https://stock.frogg.fr">
+    <!-- AUTHOR -->
+    <meta name="copyright" content="Frogg.fr">
+    <meta name="author" content="Frogg, admin@frogg.fr">
+    <!-- CONTENT -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- TODO -->
+    <!--meta name="revisit-after" content="7 days">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="robots" content="index,follow" />
+    <meta name="google-site-verification" content=""/-->
+
+    <!-- CSS  -->
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <link href="inc/css/icon.min.css" rel="stylesheet">
+    <link href="inc/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="inc/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<!-- Dropdown Structure -->
+<ul id="dropdownlang" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Fr</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> En</a></li>
+</ul>
+<ul id="dropdownprofile" class="dropdown-content">
+    <li><a href="#">Account</a></li>
+    <li><a href="#">Stock Option</a></li>
+    <li class="divider"></li>
+    <li><a href="index.html">Log out</a></li>
+</ul>
+<ul id="dropdownlangmobile" class="dropdown-content">
+    <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><span class="flag-icon flag-icon-en"></span> English</a></li>
+</ul>
+
+<nav role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="home-connected.html" class="brand-logo"><img src="inc/img/stock-manager_logo.png"></a>
+
+        <ul>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#" data-target="dropdownlang">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a class="dropdown-trigger" href="#" data-target="dropdownprofile">
+                    <i class="material-icons left">account_circle</i> My profile</a>
+            </li>
+            <li class="right hide-on-med-and-down">
+                <a href="home-connected.html"><i class="material-icons left">home</i>Home</a>
+            </li>
+            <li class="hide-on-large-only"><a href="home-connected.html"><i class="material-icons">home</i></a></li>
+        </ul>
+
+        <!-- Mobile navigation -->
+        <ul id="nav-mobile" class="sidenav">
+            <li><a class="active" href="home-connected.html"><i class="material-icons left">home</i>Home</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
+            <li><a href="#"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
+            <li><a href="#"><i class="material-icons left">assignment</i>Product list</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a href="#"><i class="material-icons left">settings</i>My Stock Option</a></li>
+            <li class="divider"></li>
+            <li><a href="index.html"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+            <li class="divider"></li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="dropdownlangmobile">
+                    <span class="flag-icon flag-icon-fr"></span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                    French
+                </a>
+            </li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+        <!--form>
+            <div class="input-field">
+                <input id="search" placeholder="Type your seach here.." type="search" required>
+                <i class="material-icons">close</i>
+            </div>
+        </form-->
+
+    </div>
+</nav>
+
+<div class="parallax-container connected">
+    <div class="parallax"><img src="inc/img/home/background1.jpg" alt="paralax background image"></div>
+</div>
+
+<main class="container main">
+
+    <div class="section">
+
+        <h1 class="teal-text text-lighten-2">Add a product</h1>
+
+        <!-- Display bar code scanner -->
+        <div class="card toHideWhenOff bgItems">
+
+
+
+            <form id="searchProduct" action="listresult.html">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input required="required" type="text" id="autocomplete-input" class="autocomplete speech-input" autocomplete="off" lang="fr" data-instant-submit>
+                    <label for="autocomplete-input"></label>
+                </div>
+                <input type="submit" class="waves-effect waves-light btn" value="ok">
+            </form>
+
+            <div class="card-image waves-effect waves-block waves-light">
+                <div class="controls">
+                    <form>
+                        <label class="hidden" for="settings_torch">Torch</label>
+                        <input type="checkbox" name="settings_torch" id="settings_torch" class="hidden" />
+                        <section id="container">
+                            <div id="interactive" class="viewport"></div>
+                            <div id="result_strip">
+                                <ul class="thumbnails"></ul>
+                                <ul class="collector"></ul>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+
+            <div class="scanBtn">
+                <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                <a id="cameraTorch" class="btn-floating btn-large waves-effect waves-light right "><i class="material-icons left">wb_incandescent</i></a>
+                <a onclick="document.app.Scan.closeScan();document.app.Util.doAjax('ajax/getProduct.html',{ barcode: 11111111 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
+            </div>
+
+            <div class="card-content" style="padding: 0 30px 5px 30px;margin-top: -20px;">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">aspect_ratio</i>
+                    <select name="input-stream_constraints" id="deviceSelection"></select>
+                    <label for="deviceSelection">Camera</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display if no product found -->
+        <div  id="notfound" style="display: none;">
+            <div class="card bgItems">
+                <div class="teal lighten-1">
+                    <div class="list">
+                        <h4>No product found for the barcode : <span id="notfoundbarcode" class="text-accent-2 orange-text right"></span></h4>
+                    </div>
+                </div>
+
+                <div class="scanBtn">
+                    <a href="home-connected.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                </div>
+
+                <div class="card-content">
+                    No product has been found matching the bar code, maybe it is just an error while scanning, you can retry to scan another time or you can add the product manually.
+                </div>
+            </div>
+
+            <div class="center mainBtn">
+                <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
+                <a href="createproduct.html" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+
+<!-- Modal Structure -->
+<div id="modal-loader" class="modal">
+
+    <h5>Please wait while getting datas</h5>
+
+    <div class="center loadercontainer">
+        <!-- loader -->
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- btn -->
+    <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+
+<footer class="page-footer mini">
+    <div class="footer-copyright">
+        <div class="container">
+            Frogg StockManager - Copyright Frogg.fr &copy; 2018<span class="extra-credits"> - Using <a class="yellow-text" href="http://materializecss.com">Materialize</a></span>
+        </div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="inc/js/materialize.min.js"></script>
+<script src="inc/js/init.js"></script>
+<script src="inc/js/ajax.class.js"></script>
+<script src="inc/js/product.js"></script>
+
+<!-- CAMERA SCRIPTS -->
+<script src="inc/lib/jquery-2.1.1.min.js"></script>
+<script src="inc/lib/scan/quagga.min.js" type="text/javascript"></script>
+<script src="inc/lib/scan/scan.js" type="text/javascript"></script>
+<link href="inc/lib/scan/scan.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="inc/lib/mic/speech-input.css">
+<script src="inc/lib/mic/speech-input.js"></script>
+
+<script>
+    var instance = M.Autocomplete.init(document.querySelector('.autocomplete'), {
+        data: {
+            "Volvic": null,
+            "Nutella": null,
+            "Barilla": null
+        }
+    });
+</script>
+
+</body>
+</html>

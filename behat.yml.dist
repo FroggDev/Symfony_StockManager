@@ -82,6 +82,13 @@ default:
     # PROFILES #
     ############
 
+#behat -p test
+test:
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                env: test
+
 #behat -p build-dev
 build-dev:
     formatters:
@@ -96,7 +103,7 @@ build:
     extensions:
         Behat\Symfony2Extension:
             kernel:
-                env: prod
+                env: dev
 
 
 

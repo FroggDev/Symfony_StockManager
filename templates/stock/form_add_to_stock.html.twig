@@ -1,0 +1,74 @@
+{% extends "stock.html.twig" %}
+
+{% trans_default_domain 'stock_add' %}
+
+{% block page_title "stock add stock title" | trans %}
+
+{# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
+
+{% block main %}
+    {{ parent() }}
+    {# Content #}
+    <main class="container main">
+
+        <div class="section">
+
+            <h1 class="teal-text text-lighten-2">Add a product</h1>
+
+            <!-- Display result from bar code -->
+            <div  id="result">
+                <div class="card">
+                    <div class="teal lighten-1">
+                        <div class="list">
+
+                            <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset('upload/product/3057640234163.jpg') }}"/></div>
+                            <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x {{ product.name }}</h4></div>
+                                <div>{{ product.commonname }}</div>
+                                <div>code bar : {{ product.barcode }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scanBtn">
+                        <a href="{{ path(from) }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                        <a class="btn-floating btn-large green right" id="addproduct"><i class="material-icons">add</i></a>
+                        <a class="btn-floating btn-large red right" id="removeproduct"><i class="material-icons">remove</i></a>
+                        <span class="tag right spaced">Quantity : </span>
+                    </div>
+
+                    <div class="card-content">
+                        <form id="addProductForm" method="post">
+
+                            <div>
+                                <div class="input-field" style="display: inline-block;width: calc(97% - 100px);">
+                                    <i class="material-icons prefix">today</i>
+                                    <label for="expire" class="">Expire date</label>
+                                    <input type="text" class="datepicker" id="expire" name="expire">
+                                </div>
+
+                                <div class="right"><img src="{{ asset('img/nutriscore/a.svg') }}" style="width: 100px;"></div>
+                            </div>
+
+                            <input type="hidden" id="nbproductfield" name="nbproductfield" value="1">
+                            <input type="hidden" id="barcode" name="barcode" value="{{ product.barcode }}">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="center mainBtn">
+                    <a href="{{ path('stock_add') }}" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
+                    <a onclick="console.log('TODO HERE SERIALIZE DATA');console.log(document.querySelector('#addProductForm'));console.log(new FormData(document.querySelector('#addProductForm')));document.app.Util.doAjax('ajax/addtostock.html',new FormData(document.querySelector('#addProductForm')),document.app.Product.addToStock)" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+{%  endblock %}
+
+{% block js  %}
+    {{ parent() }}
+    {# javascripts #}
+    <script src="{{ asset('inc/js/product.js') }}" ></script>
+
+{%  endblock %}

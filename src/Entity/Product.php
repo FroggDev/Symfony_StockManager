@@ -696,7 +696,7 @@ class Product
     }
 
     /**
-     * @return mixed
+     * @return User
      */
     public function getUser()
     {
@@ -704,7 +704,7 @@ class Product
     }
 
     /**
-     * @param mixed $user
+     * @param User $user
      * @return Product
      */
     public function setUser($user)
