@@ -10,6 +10,7 @@
 namespace App\Tests\Security;
 
 use App\Entity\Country;
+use App\Entity\Product;
 use App\Entity\User;
 use App\Tests\Util\AbstractUserFixture;
 use Doctrine\ORM\EntityManager;
@@ -44,7 +45,7 @@ class ProductRepositoryTest extends KernelTestCase
      ##########################*/
 
     /**
-     * Test find all in country table
+     * Test find all in country
      */
     function testFindAllCountries()
     {
@@ -68,12 +69,12 @@ class ProductRepositoryTest extends KernelTestCase
      ##########################*/
 
     /**
-     * Test find all in user table
+     * Test find all in products
      */
-    function testFindAll()
+    function testFindAllProducts()
     {
         // get all country
-        $productList = self::$emanager->getRepository(Country::class)->findAll();
+        $productList = self::$emanager->getRepository(Product::class)->findAll();
 
         // check type
         $this->assertInstanceOf('array',$productList);
