@@ -46,7 +46,8 @@
                 <div class="scanBtn">
                     <a href="{{ path('stock_home') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
                     <a id="cameraTorch" class="btn-floating btn-large waves-effect waves-light right "><i class="material-icons left">wb_incandescent</i></a>
-                    <a onclick="document.app.Scan.closeScan();document.app.Util.doAjax(document.app.url.barcode,{ barcode: 3057640234163 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
+                    <a onclick="document.app.Util.doAjax(document.app.url.barcode,{ barcode: 3057640234163 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
+                    <a onclick="document.app.Util.doAjax(document.app.url.barcode,{ barcode: 305640234163 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right red accent-2"></a>
                 </div>
 
                 <div class="card-content" style="padding: 0 30px 5px 30px;margin-top: -20px;">
@@ -78,7 +79,7 @@
 
                 <div class="center mainBtn">
                     <a onclick="document.app.Scan.init();" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>Rescan</a>
-                    <a href="createproduct.html" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+                    <a href="{{ path('stock_product_create') }}" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
                 </div>
             </div>
 
@@ -86,27 +87,7 @@
         </div>
     </main>
 
-    <!-- Modal Structure -->
-    <div id="modal-loader" class="modal">
-
-        <h5>Please wait while getting datas</h5>
-
-        <div class="center loadercontainer">
-            <!-- loader -->
-            <div class="preloader-wrapper big active">
-                <div class="spinner-layer spinner-blue-only">
-                    <div class="circle-clipper left"><div class="circle"></div></div>
-                    <div class="gap-patch"><div class="circle"></div></div>
-                    <div class="circle-clipper right"><div class="circle"></div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- btn -->
-        <div class="modal-footer">
-            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-        </div>
-    </div>
+    {% include 'components/loader.html.twig' %}
 
 {%  endblock %}
 

@@ -18,6 +18,9 @@
     </php>
 
     <testsuites>
+        <testsuite name="Controller Test Suite">
+            <directory>tests/Controller</directory>
+        </testsuite>
         <testsuite name="Security Test Suite">
             <directory>tests/Security</directory>
         </testsuite>
@@ -27,11 +30,11 @@
         <testsuite name="Event Test Suite">
             <directory>tests/Event</directory>
         </testsuite>
-        <testsuite name="Controller Test Suite">
-            <directory>tests/Controller</directory>
-        </testsuite>
         <testsuite name="Command Test Suite">
             <directory>tests/Command</directory>
+        </testsuite>
+        <testsuite name="Stock Test Suite">
+            <directory>tests/Stock</directory>
         </testsuite>
     </testsuites>
 

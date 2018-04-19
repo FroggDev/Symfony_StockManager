@@ -10,6 +10,7 @@
 namespace App\Service\Twig;
 
 use App\Service\Twig\Func\Menu;
+use App\Service\Twig\Func\Product;
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -39,12 +40,15 @@ class AppExtension extends \Twig_Extension
      *
      * Twig calls :
      * {{ getActiveMenu("route_name") }}
+     * {{ asset( getProductImage(product.barcode,product.picture) ) }}
      */
     public function getFunctions(): array
     {
         return [
             // Menu selection
             new \Twig_Function('getActiveMenu', [Menu::class, 'getActiveMenu']),
+            // Image product
+            new \Twig_Function('getProductImage', [Product::class, 'getProductImage']),
         ];
     }
 }

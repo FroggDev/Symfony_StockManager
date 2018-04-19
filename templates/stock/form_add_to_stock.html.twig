@@ -21,10 +21,10 @@
                     <div class="teal lighten-1">
                         <div class="list">
 
-                            <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset('upload/product/3057640234163.jpg') }}"/></div>
-                            <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x {{ product.name }}</h4></div>
+                            <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"/></div>
+                            <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x {{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4></div>
                                 <div>{{ product.commonname }}</div>
-                                <div>code bar : {{ product.barcode }}</div>
+                                <!--div>code bar : {{ product.barcode }}</div-->
                             </div>
                         </div>
                     </div>
@@ -63,6 +63,8 @@
 
         </div>
     </main>
+
+    {% include 'components/loader.html.twig' %}
 
 {%  endblock %}
 

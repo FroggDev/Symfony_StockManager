@@ -129,6 +129,12 @@ class SiteConfig
      */
     const WEIGHTUNIT = ['g','mg','µg'];
 
+    /**
+     * where the products images are stored
+     * @const string
+     */
+    const UPLOADPATH = 'upload/product/';
+
     /*#######
     # SCRAP #
     ########*/
@@ -156,4 +162,11 @@ class SiteConfig
      * @const string
      */
     const SCRAPDATAURL = 'https://fr.openfoodfacts.org/cgi/product.pl?type=edit&code=';
+
+    /**
+     * URL to where images are available
+     * @const string
+     */
+    const SCRAPIMGURL = 'https://fr.openfoodfacts.org/images/products/';
+
 }

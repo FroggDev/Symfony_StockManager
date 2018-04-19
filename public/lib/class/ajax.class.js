@@ -95,6 +95,6 @@ Ajax.prototype =
                     console.log(this);
                     break;
             }
-            if (this.isloading) document.app.loader.close();
+            if (document.app.loader) document.app.loader.close();
         }
     }

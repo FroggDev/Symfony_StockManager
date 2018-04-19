@@ -42,6 +42,17 @@
 
         <!-- Mobile navigation -->
         <ul id="nav-mobile" class="sidenav">
+            <li class="teal lighten-1 logo">
+                <img src="{{ asset('img/stock-manager_logo.png') }}">
+                <div class="title">
+                    {{ constant('App\\SiteConfig::SITENAME') }}
+                    <div class="subtitle">{{ "main title" | trans }}</div>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <br>
+                    <div class="user">{% trans with {'%user%': ((app.user.lastname | capitalize)~" "~(app.user.firstname | upper))}%}welcome{% endtrans %}</div>
+                    {% endif %}
+                </div>
+            </li>
             <li><a class="{{ getActiveMenu('index') }}{{ getActiveMenu('stock_home') }}" href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
             <li class="divider"></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}

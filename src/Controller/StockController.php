@@ -235,6 +235,27 @@ class StockController extends Controller
         return new Response("TODO");
     }
 
+    /*########
+     # OTHER #
+     ########*/
+
+    /**
+     * Route to create a product from scratch
+     *
+     * @Route(
+     *     {
+     *     "fr": "/produit/creation.html",
+     *     "en": "/product/create.html"
+     *     },
+     *     name="product_create",
+     *     methods={"GET"}
+     * )
+     * @return Response
+     */
+    public function createProduct()
+    {
+        return new Response("TODO");
+    }
 
 
 }
