@@ -44,7 +44,9 @@
 namespace App\Controller;
 
 use App\Common\Traits\Client\ResponseTrait;
+use App\Entity\Product;
 use App\Service\LocaleManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Debug\Exception\FatalErrorException;
 use Symfony\Component\HttpFoundation\Response;
@@ -132,12 +134,14 @@ class IndexController extends Controller
      *     methods={"GET"}
      * )
      * @ return Response
-
-    public function Temp(): Response
+     */
+    /*
+    public function Temp(EntityManagerInterface $manager): Response
     {
         //Security !
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         //test access denied
         return $this->render('security/access_denied.html.twig');
+
     }*/
 }

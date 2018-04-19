@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\OneToMany;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -127,11 +128,15 @@ class Product
      */
     private $countries;
 
+    /**
+     * One Stock has Many StockProducts.
+     * @OneToMany(targetEntity="App\Entity\StockProducts", mappedBy="product")
+     */
+    private $stockProducts;
 
     /*####################
      # RELATIONS PRODUCT #
      ####################*/
-
 
     /**
      * Labels, certifications, award
@@ -729,7 +734,7 @@ class Product
     /**
      * @return User
      */
-    public function getUser()
+    public function getUser() : User
     {
         return $this->user;
     }
@@ -739,7 +744,7 @@ class Product
      *
      * @return Product
      */
-    public function setUser($user)
+    public function setUser($user) : Product
     {
         $this->user = $user;
 
@@ -755,11 +760,11 @@ class Product
     }
 
     /**
-     * @param mixed $countries
+     * @param array $countries
      *
      * @return Product
      */
-    public function setCountries($countries)
+    public function setCountries(array $countries) :  Product
     {
         $this->countries = $countries;
 
@@ -775,11 +780,11 @@ class Product
     }
 
     /**
-     * @param mixed $certifications
+     * @param array $certifications
      *
      * @return Product
      */
-    public function setCertifications($certifications)
+    public function setCertifications(array $certifications):Product
     {
         $this->certifications = $certifications;
 
@@ -795,11 +800,11 @@ class Product
     }
 
     /**
-     * @param mixed $origins
+     * @param array $origins
      *
      * @return Product
      */
-    public function setOrigins($origins)
+    public function setOrigins(array $origins):Product
     {
         $this->origins = $origins;
 
@@ -815,11 +820,11 @@ class Product
     }
 
     /**
-     * @param mixed $places
+     * @param array $places
      *
      * @return Product
      */
-    public function setPlaces($places)
+    public function setPlaces(array $places):Product
     {
         $this->places = $places;
 
@@ -835,11 +840,11 @@ class Product
     }
 
     /**
-     * @param mixed $packagings
+     * @param array $packagings
      *
      * @return Product
      */
-    public function setPackagings($packagings)
+    public function setPackagings(array $packagings):Product
     {
         $this->packagings = $packagings;
 
@@ -855,11 +860,11 @@ class Product
     }
 
     /**
-     * @param mixed $categories
+     * @param array $categories
      *
      * @return Product
      */
-    public function setCategories($categories)
+    public function setCategories(array $categories):Product
     {
         $this->categories = $categories;
 
@@ -875,11 +880,11 @@ class Product
     }
 
     /**
-     * @param mixed $brands
+     * @param array $brands
      *
      * @return Product
      */
-    public function setBrands($brands)
+    public function setBrands(array $brands):Product
     {
         $this->brands = $brands;
 
@@ -915,11 +920,11 @@ class Product
     }
 
     /**
-     * @param mixed $traces
+     * @param array $traces
      *
      * @return Product
      */
-    public function setTraces($traces)
+    public function setTraces(array $traces) : Product
     {
         $this->traces = $traces;
 
@@ -935,11 +940,11 @@ class Product
     }
 
     /**
-     * @param mixed $additives
+     * @param array $additives
      *
      * @return Product
      */
-    public function setAdditives($additives)
+    public function setAdditives(array $additives) : Product
     {
         $this->additives = $additives;
 

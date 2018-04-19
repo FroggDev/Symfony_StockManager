@@ -42,7 +42,7 @@ document.app.Product = {
         document.querySelector('#nbproductfield').value=1;
 
         document.app.toastResult = M.toast({
-            html: data.qte + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelAddToStock,{ id: ' + data.id + ' },document.app.Product.cancelAddToStock);">CANCEL</button>',
+            html: data.nbproductfield + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelAddToStock,{ data : data },document.app.Product.cancelAddToStock);">CANCEL</button>',
             displayLength: 7000,
             classes: 'green'
         });

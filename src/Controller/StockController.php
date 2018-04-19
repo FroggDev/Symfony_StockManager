@@ -12,14 +12,18 @@ namespace App\Controller;
 
 use App\Common\Traits\Client\ResponseTrait;
 use App\Entity\Product;
+use App\Entity\StockProducts;
 use App\Service\LocaleManager;
 use App\Stock\ProductManager;
+use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Tests\RequestTest;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -132,10 +136,10 @@ class StockController extends Controller
      * @param null|string $from
      * @return void
      */
-    public function showProduct(Product $product,?string $from)
+    public function showProduct(Product $product, ?string $from)
     {
         // Display form view
-        return $this->render('stock/form_add_to_stock.html.twig',['from'=>$from,'product'=>$product]);
+        return $this->render('stock/form_add_to_stock.html.twig', ['from' => $from, 'product' => $product]);
     }
 
 
@@ -179,6 +183,69 @@ class StockController extends Controller
     public function ajaxCodeBar(ProductManager $productManager)//(ProductManager $productManager)
     {
         return new Response($productManager->getProductFromBarcode());
+    }
+
+    /**
+     * Route to ajax remove product from stock
+     *
+     * @Route(
+     *     {
+     *     "fr": "/ajax/add.{_format<json|html>?json}",
+     *     "en": "/ajax/ajout.{_format<json|html>?json}"
+     *     },
+     *     name="ajax_add",
+     *     methods={"GET","POST"}
+     * )
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function ajaxAdd(Request $request, EntityManagerInterface $manager)
+    {
+        /**
+         * TODO : PUT THIS SOMEWHERE MORE CLEAN
+         */
+
+        /**
+         * Get datas from form
+         */
+        $expire = $request->get('expire');
+        $nbProduct = $request->get('nbproductfield');
+        $barcode = $request->get('barcode');
+        $idproduct = $request->get('idproduct');
+        $dateExpire = null;
+
+        /**
+         * TODO ADAPT THIS WITH LOCALE !!
+         */
+
+        if ("" !== $expire) {
+            $dateExpire = DateTime::createFromFormat('M j, Y', $expire);
+        }
+
+        $product = $manager->getRepository(Product::class)->findOneById($idproduct);
+
+        $ids = [];
+
+        for ($w = 0; $w < (int)$nbProduct; $w++) {
+            $stockProduct = new StockProducts();
+
+            $stockProduct
+                ->setDateExpire($dateExpire)
+                ->setProduct($product)
+                ->setStock($this->getUser()->getStock());
+
+            $manager->persist($stockProduct);
+            $manager->flush();
+
+            $ids[] = $stockProduct->getId();
+        }
+
+        //add to request
+        $request->request->add(['productIds' => $ids]);
+        $request->request->add(['result' => 'ok']);
+
+        return new Response(json_encode($request->request->all()));
     }
 
     /**
@@ -230,9 +297,32 @@ class StockController extends Controller
      * )
      * @return Response
      */
-    public function ajaxCancelAdd()
+    public function ajaxCancelAdd(RequestTest $request,EntityManagerInterface $manager)
     {
-        return new Response("TODO");
+        /**
+         * TODO : PUT THIS SOMEWHERE MORE CLEAN
+         */
+
+        /**
+         * Get datas from form
+         */
+        $productIds = $request->get('productIds');
+
+        $nbProduct = count($productIds);
+
+        foreach ($productIds as $id) {
+            $stockProduct = $manager
+                ->getRepository(StockProducts::class)
+                ->findOneById($id);
+
+            $manager->remove($stockProduct);
+            $manager->flush();
+        }
+
+        //$request->request->add(['result' => 'ok']);
+
+        return new Response(json_encode($request->request->all()));
+        //JsonResponse (a test)
     }
 
     /*########

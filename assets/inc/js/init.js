@@ -69,8 +69,8 @@ document.app.Util = {
         evt.stopPropagation();
     },
 
-    doAjax : function(url, data , callback,isloading=true){
+    doAjax : function(url, data , callback,method='GET'){
         M.Toast.dismissAll();
-        new Ajax(url,callback, { param : data } , isloading);
+        new Ajax(url,callback, { method: method ,param : data } , true);
     }
 };
