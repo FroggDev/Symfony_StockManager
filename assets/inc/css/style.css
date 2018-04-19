@@ -69,9 +69,10 @@ NAV A{font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-San
 #nav-mobile .active{background:#b2dfdb}
 
 #nav-mobile .logo IMG{width: 75px;  margin: 15px 0 0px 15px;}
-#nav-mobile .title{line-height: 1.3em;display: inline-block;    font-family: MavenProLight;    vertical-align: top;    margin:15px 5px 5px 5px;    font-size: 1.3em;}
+#nav-mobile .title{margin: 20px 5px 5px;line-height: 1.3em;display: inline-block;    font-family: MavenProLight;    vertical-align: top;    margin:15px 5px 5px 5px;    font-size: 1.3em;}
 #nav-mobile .subtitle{font-size:0.7em;}
-#nav-mobile .user {font-size: 0.7em; text-align: right;}
+#nav-mobile .user {font-size: 0.7em; text-align: right;line-height: normal; padding: 0 10px 10px 10px;}
+#nav-mobile .block{line-height: normal;}
 
 /* ============== SECTION ============== */
 
@@ -188,12 +189,13 @@ footer.page-footer {
   color: #fff;
   margin-left: 37px;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   border-radius: 2px;
   background-clip: padding-box;
   background-color: #039be5 !important;
+  height:auto;
 }
-.tag.spaced{margin-top: 20px;}
+.tag.spaced{margin-top: 15px;}
 
 
 /* ============== ADDED TO CLEAN ============== */

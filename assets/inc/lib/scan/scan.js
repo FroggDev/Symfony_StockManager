@@ -304,11 +304,11 @@ document.app.Scan = {
 
 	displayResult:function(data){
 
-        document.app.Scan.closeScan();
-
         $('#barcode').val(data.barcode);
 
 		if(!data.name){
+
+            document.app.Scan.closeScan();
 
             /**
 			 * CASE PRODUCT NOT FOUND

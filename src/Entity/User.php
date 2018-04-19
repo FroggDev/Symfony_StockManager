@@ -12,6 +12,8 @@ namespace App\Entity;
 
 use App\Security\AbstractAdvancedUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\OneToOne;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -130,9 +132,22 @@ class User extends AbstractAdvancedUser
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Product",mappedBy="user")
+     *
+     * @var array
      */
     private $products;
 
+    /**
+     * One User has One Stock.
+     * inversedBy will be the start of the relation
+     * @OneToOne(targetEntity="App\Entity\Stock", inversedBy="user",cascade={"persist"})
+     *
+     * Mean the key id_stock will exist in User table (optional done by the inversedBy automatically)
+     * @JoinColumn(name="stock_id", referencedColumnName="id")
+     *
+     * @var Stock
+     */
+    private $stock;
 
     /*#############
     # Constructor #
@@ -149,20 +164,13 @@ class User extends AbstractAdvancedUser
         $this->dateInscription = new \DateTime();
         //by default account is not active and has to be validated by email
         $this->setDisabled();
+        //Add his stock
+        $this->setStock(new Stock());
     }
 
     /*#########
     # Methods #
     ##########*/
-
-    /**
-     * @return int
-     */
-    public function getStatus(): int
-    {
-        return $this->status;
-    }
-
 
     /**
      * @return int
@@ -289,6 +297,52 @@ class User extends AbstractAdvancedUser
     {
         $this->dateInscription = $dateInscription;
 
+        return $this;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getProducts(): array
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param array $products
+     * @return User
+     */
+    public function setProducts(array $products): User
+    {
+        $this->products = $products;
+        return $this;
+    }
+
+    /**
+     * @return Stock
+     */
+    public function getStock(): Stock
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param Stock $stock
+     * @return User
+     */
+    public function setStock(Stock $stock): User
+    {
+        $this->stock = $stock;
         return $this;
     }
 
