@@ -16,6 +16,7 @@ use App\Entity\StockProducts;
 use App\Service\LocaleManager;
 use App\Stock\ProductManager;
 use DateTime;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -211,7 +212,7 @@ class StockController extends Controller
          */
         $expire = $request->get('expire');
         $nbProduct = $request->get('nbproductfield');
-        $barcode = $request->get('barcode');
+        //$barcode = $request->get('barcode');
         $idproduct = $request->get('idproduct');
         $dateExpire = null;
 
@@ -242,7 +243,7 @@ class StockController extends Controller
         }
 
         //add to request
-        $request->request->add(['productIds' => $ids]);
+        $request->request->add(['productIds' => implode(",",$ids)]);
         $request->request->add(['result' => 'ok']);
 
         return new Response(json_encode($request->request->all()));
@@ -295,9 +296,11 @@ class StockController extends Controller
      *     name="ajax_cancel_add",
      *     methods={"GET"}
      * )
+     * @param RequestTest $request
+     * @param EntityManager $manager
      * @return Response
      */
-    public function ajaxCancelAdd(RequestTest $request,EntityManagerInterface $manager)
+    public function ajaxCancelAdd(Request $request,EntityManagerInterface $manager)
     {
         /**
          * TODO : PUT THIS SOMEWHERE MORE CLEAN
@@ -306,9 +309,8 @@ class StockController extends Controller
         /**
          * Get datas from form
          */
-        $productIds = $request->get('productIds');
 
-        $nbProduct = count($productIds);
+        $productIds = explode(",",$request->get('productIds'));
 
         foreach ($productIds as $id) {
             $stockProduct = $manager
@@ -321,8 +323,7 @@ class StockController extends Controller
 
         //$request->request->add(['result' => 'ok']);
 
-        return new Response(json_encode($request->request->all()));
-        //JsonResponse (a test)
+        return new Response(json_encode($request->query->all()));
     }
 
     /*########

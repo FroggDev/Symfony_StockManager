@@ -4,6 +4,10 @@
 
 document.app.Product = {
 
+    lastAdded:null,
+
+    lastRemoved:null,
+
     addToStockEvent:function(){
 
         var addProductObj = document.querySelector('#addproduct');
@@ -41,8 +45,11 @@ document.app.Product = {
         document.querySelector('#nbproduct').innerHTML=1;
         document.querySelector('#nbproductfield').value=1;
 
+        //set last added element
+        document.app.Product.lastAdded = data;
+
         document.app.toastResult = M.toast({
-            html: data.nbproductfield + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelAddToStock,{ data : data },document.app.Product.cancelAddToStock);">CANCEL</button>',
+            html: data.nbproductfield + ' x ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelAddToStock,document.app.Product.lastAdded,document.app.Product.cancelAddToStock);">CANCEL</button>',
             displayLength: 7000,
             classes: 'green'
         });
@@ -50,15 +57,19 @@ document.app.Product = {
 
     cancelAddToStock: function (data) {
         document.app.toastResult = M.toast({
-            html: data.qte + ' x ' + data.name + ' <br> has been canceled',
+            html: data.nbproductfield + ' x ' + data.name + ' <br> has been canceled',
             displayLength: 7000,
             classes: 'orange accent-2'
         });
     },
 
     removeFromStock: function (data) {
+
+        //set last added element
+        document.app.Product.lastRemoved = data;
+
         document.app.toastResult = M.toast({
-            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelRemoveFromStock,{ id: ' + data.id + ' },document.app.Product.cancelRemoveFormStock);">CANCEL</button>',
+            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelRemoveFromStock,document.app.Product.lastRemoved ,document.app.Product.cancelRemoveFormStock,\'POST\'));">CANCEL</button>',
             displayLength: 7000,
             classes: 'green',
             completeCallback: function () {
@@ -68,7 +79,6 @@ document.app.Product = {
     },
 
     cancelRemoveFormStock: function (data) {
-
         document.app.Product.cancelCurrent.cancel();
 
         document.app.toastResult = M.toast({

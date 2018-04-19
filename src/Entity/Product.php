@@ -752,9 +752,9 @@ class Product
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getCountries()
+    public function getCountries() : array
     {
         return $this->countries;
     }

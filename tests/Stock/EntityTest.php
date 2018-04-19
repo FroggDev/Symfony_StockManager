@@ -292,44 +292,44 @@ class EntityTest extends WebTestCase
             $product->setUser($user)->getUser()
         );
 
-        $this->assertSame($country,
-            $product->setCountries($country)->getCountries()
+        $this->assertSame([$country],
+            $product->setCountries([$country])->getCountries()
         );
 
-        $this->assertSame($certification,
-            $product->setCertifications($certification)->getCertifications()
+        $this->assertSame([$certification],
+            $product->setCertifications([$certification])->getCertifications()
         );
 
-        $this->assertSame($origin,
-            $product->setOrigins($origin)->getOrigins()
+        $this->assertSame([$origin],
+            $product->setOrigins([$origin])->getOrigins()
         );
 
-        $this->assertSame($place,
-            $product->setPlaces($place)->getPlaces()
+        $this->assertSame([$place],
+            $product->setPlaces([$place])->getPlaces()
         );
 
-        $this->assertSame($packing,
-            $product->setPackagings($packing)->getPackagings()
+        $this->assertSame([$packing],
+            $product->setPackagings([$packing])->getPackagings()
         );
 
-        $this->assertSame($category,
-            $product->setCategories($category)->getCategories()
+        $this->assertSame([$category],
+            $product->setCategories([$category])->getCategories()
         );
 
-        $this->assertSame($brand,
-            $product->setBrands($brand)->getBrands()
+        $this->assertSame([$brand],
+            $product->setBrands([$brand])->getBrands()
         );
 
-        $this->assertSame($alergy,
-            $product->setAlergies($alergy)->getAlergies()
+        $this->assertSame([$alergy],
+            $product->setAlergies([$alergy])->getAlergies()
         );
 
-        $this->assertSame($trace,
-            $product->setTraces($trace)->getTraces()
+        $this->assertSame([$trace],
+            $product->setTraces([$trace])->getTraces()
         );
 
-        $this->assertSame($additive,
-            $product->setAdditives($additive)->getAdditives()
+        $this->assertSame([$additive],
+            $product->setAdditives([$additive])->getAdditives()
         );
 
         $this->assertSame('random',
