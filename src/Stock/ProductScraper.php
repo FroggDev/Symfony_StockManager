@@ -10,6 +10,7 @@
 
 namespace App\Stock;
 
+use App\Common\Traits\Product\FolderTrait;
 use App\Entity\User;
 use App\SiteConfig;
 use Goutte\Client;
@@ -21,15 +22,9 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
- * TODO IF PRODUCT IS NOT FOUND
  * TODO : Missing fields
-nutriscore
-picture
-ingredientPicture
-nutritionPicture
-$servingSize
-$user (from loged in user)
-*/
+ * nutriscore
+ */
 
 
 /**
@@ -37,6 +32,8 @@ $user (from loged in user)
  */
 class ProductScraper
 {
+    use FolderTrait;
+
     /** @var Client */
     private $client;
 
@@ -51,6 +48,9 @@ class ProductScraper
 
     /** @var Product */
     private $product;
+
+    /** @var string */
+    private $barcode;
 
     /**
      * Map between INPUT, DATA TYPE, ENTITY PROPERTY, LINKED ENTITY
@@ -130,11 +130,15 @@ class ProductScraper
     /**
      * @param string $barcode
      *
-     * @return Product
+     * @return Product|null
      * @throws ProductTypeException
      */
-    public function scrap(string $barcode) : Product
+    public function scrap(string $barcode) : ?Product
     {
+
+        //set barcode
+        $this->barcode=$barcode;
+
         //init product
         $this->product = new Product((int) $barcode);
 
@@ -143,14 +147,16 @@ class ProductScraper
         // do the navigation
         $this->navigate();
 
+        // check if as reult
+        if(false===$this->hasResult()){
+            return null;
+        }
+
         // fill the product from navigation pages
         $this->fillProduct();
 
-        /*
-         * TESTING PURPOSE !
-        dump($this->product);
-        exit();
-        */
+        // get the product image
+        $this->getImageProduct();
 
         // save to database
         $this->manager->persist($this->product);
@@ -182,6 +188,42 @@ class ProductScraper
         );
     }
 
+    /**
+     * download the image product and update product info
+     */
+    private function getImageProduct()
+    {
+        // get image name
+        $imageName = $this->crawler->filter('#front_fr_display_url')->eq(0)->attr('value');
+
+        //set target image name
+        $image = $this->barcode.'.'.pathinfo($imageName, PATHINFO_EXTENSION);
+
+        // get product image path
+        $imageFolder = $this->getFolder($this->barcode);
+
+        //create the local folder
+        $localFolder = SiteConfig::UPLOADPATH.$imageFolder;
+        @mkdir($localFolder, 0777, true);
+
+        // get product image full path
+         file_put_contents(
+             $localFolder.$image,
+             file_get_contents(SiteConfig::SCRAPIMGURL . $imageFolder .$imageName)
+         );
+
+        //set image in product object
+        $this->product->setPicture($image);
+    }
+
+
+    /**
+     * @return bool
+     */
+    private function hasResult():bool
+    {
+        return $this->crawler->filter('H1')->eq(0)->text()!=="Erreur";
+    }
 
     /**
      * set the product information
@@ -232,7 +274,9 @@ class ProductScraper
      * Format the value to fit the database specs
      * @param string $value
      * @param array $line
+     *
      * @return array|float|int|string
+     *
      * @throws ProductTypeException
      */
     private function formatValue(string $value, array $line)

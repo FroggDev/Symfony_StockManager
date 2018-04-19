@@ -43,6 +43,7 @@ class Product
 
     /**
      * @ORM\Column(type="bigint", unique=true)
+     *
      * @Assert\Length(max=13,maxMessage="barcode is too long")
      * @Assert\NotBlank(message="barcode should not be blank")
      *
@@ -59,6 +60,7 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=150)
+     *
      * @Assert\Length(max=150,maxMessage="product name is too long")
      * @Assert\NotBlank(message="product name should not be blank")
      *
@@ -68,6 +70,7 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=150)
+     *
      * @Assert\Length(max=150,maxMessage="product common name is too long")
      *
      * @var string
@@ -116,6 +119,7 @@ class Product
     /**
      * Contries where sold
      * @ManyToMany(targetEntity="App\Entity\Country")
+     *
      * @JoinTable(name="products_countries",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="country_id", referencedColumnName="id")}
@@ -132,6 +136,7 @@ class Product
     /**
      * Labels, certifications, award
      * @ManyToMany(targetEntity="App\Entity\Product\Certification",cascade={"persist"})
+     *
      * @JoinTable(name="products_certifications",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="certification_id", referencedColumnName="id")}
@@ -142,6 +147,7 @@ class Product
     /**
      * Ingredients origin
      * @ManyToMany(targetEntity="App\Entity\Product\Origin",cascade={"persist"})
+     *
      * @JoinTable(name="products_origins",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="origin_id", referencedColumnName="id")}
@@ -152,6 +158,7 @@ class Product
     /**
      * Manufacturing or processing place
      * @ManyToMany(targetEntity="App\Entity\Product\Place",cascade={"persist"})
+     *
      * @JoinTable(name="products_places",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="place_id", referencedColumnName="id")}
@@ -162,6 +169,7 @@ class Product
     /**
      * Product packaging
      * @ManyToMany(targetEntity="App\Entity\Product\Packaging",cascade={"persist"})
+     *
      * @JoinTable(name="products_packagings",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="packaging_id", referencedColumnName="id")}
@@ -173,6 +181,7 @@ class Product
     /**
      * Product categories
      * @ManyToMany(targetEntity="App\Entity\Product\Category",cascade={"persist"})
+     *
      * @JoinTable(name="products_categories",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="category_id", referencedColumnName="id")}
@@ -183,6 +192,7 @@ class Product
     /**
      * Product brands
      * @ManyToMany(targetEntity="App\Entity\Product\Brand",cascade={"persist"})
+     *
      * @JoinTable(name="products_brands",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="brand_id", referencedColumnName="id")}
@@ -193,6 +203,7 @@ class Product
     /**
      * Substances or products causing allergies or intolerances
      * @ManyToMany(targetEntity="App\Entity\Product\Alergy",cascade={"persist"})
+     *
      * @JoinTable(name="products_alergies",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="alergy_id", referencedColumnName="id")}
@@ -203,6 +214,7 @@ class Product
     /**
      * Substances traces
      * @ManyToMany(targetEntity="App\Entity\Product\Trace",cascade={"persist"})
+     *
      * @JoinTable(name="products_traces",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="trace_id", referencedColumnName="id")}
@@ -213,6 +225,7 @@ class Product
     /**
      * Additive
      * @ManyToMany(targetEntity="App\Entity\Product\Additive",cascade={"persist"})
+     *
      * @JoinTable(name="products_additives",
      *      joinColumns={@JoinColumn(name="product_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="additive_id", referencedColumnName="id")}
@@ -518,11 +531,11 @@ class Product
      * Product constructor.
      * @param null|int $barcode
      */
-    public function __construct(?int $barcode=null)
+    public function __construct(?int $barcode = null)
     {
         $this->dateCreation = new \DateTime();
 
-        if($barcode){
+        if ($barcode) {
             $this->barcode = $barcode;
         }
     }
@@ -543,11 +556,13 @@ class Product
 
     /**
      * @param int $id
+     *
      * @return Product
      */
     public function setId(int $id): Product
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -561,11 +576,13 @@ class Product
 
     /**
      * @param int $barcode
+     *
      * @return Product
      */
     public function setBarcode(int $barcode): Product
     {
         $this->barcode = $barcode;
+
         return $this;
     }
 
@@ -579,11 +596,13 @@ class Product
 
     /**
      * @param string $embCode
+     *
      * @return Product
      */
     public function setEmbCode(string $embCode): Product
     {
         $this->embCode = $embCode;
+
         return $this;
     }
 
@@ -597,11 +616,13 @@ class Product
 
     /**
      * @param string $name
+     *
      * @return Product
      */
     public function setName(string $name): Product
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -615,11 +636,13 @@ class Product
 
     /**
      * @param string $commonName
+     *
      * @return Product
      */
     public function setCommonName(string $commonName): Product
     {
         $this->commonName = $commonName;
+
         return $this;
     }
 
@@ -633,11 +656,13 @@ class Product
 
     /**
      * @param \DateTime $dateCreation
+     *
      * @return Product
      */
     public function setDateCreation(\DateTime $dateCreation): Product
     {
         $this->dateCreation = $dateCreation;
+
         return $this;
     }
 
@@ -651,29 +676,33 @@ class Product
 
     /**
      * @param string $quantity
+     *
      * @return Product
      */
     public function setQuantity(string $quantity): Product
     {
         $this->quantity = $quantity;
+
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPicture(): string
+    public function getPicture(): ?string
     {
         return $this->picture;
     }
 
     /**
      * @param string $picture
+     *
      * @return Product
      */
     public function setPicture(string $picture): Product
     {
         $this->picture = $picture;
+
         return $this;
     }
 
@@ -687,11 +716,13 @@ class Product
 
     /**
      * @param string $producerPage
+     *
      * @return Product
      */
     public function setProducerPage(string $producerPage): Product
     {
         $this->producerPage = $producerPage;
+
         return $this;
     }
 
@@ -705,11 +736,13 @@ class Product
 
     /**
      * @param User $user
+     *
      * @return Product
      */
     public function setUser($user)
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -723,11 +756,13 @@ class Product
 
     /**
      * @param mixed $countries
+     *
      * @return Product
      */
     public function setCountries($countries)
     {
         $this->countries = $countries;
+
         return $this;
     }
 
@@ -741,11 +776,13 @@ class Product
 
     /**
      * @param mixed $certifications
+     *
      * @return Product
      */
     public function setCertifications($certifications)
     {
         $this->certifications = $certifications;
+
         return $this;
     }
 
@@ -759,11 +796,13 @@ class Product
 
     /**
      * @param mixed $origins
+     *
      * @return Product
      */
     public function setOrigins($origins)
     {
         $this->origins = $origins;
+
         return $this;
     }
 
@@ -777,11 +816,13 @@ class Product
 
     /**
      * @param mixed $places
+     *
      * @return Product
      */
     public function setPlaces($places)
     {
         $this->places = $places;
+
         return $this;
     }
 
@@ -795,11 +836,13 @@ class Product
 
     /**
      * @param mixed $packagings
+     *
      * @return Product
      */
     public function setPackagings($packagings)
     {
         $this->packagings = $packagings;
+
         return $this;
     }
 
@@ -813,11 +856,13 @@ class Product
 
     /**
      * @param mixed $categories
+     *
      * @return Product
      */
     public function setCategories($categories)
     {
         $this->categories = $categories;
+
         return $this;
     }
 
@@ -831,11 +876,13 @@ class Product
 
     /**
      * @param mixed $brands
+     *
      * @return Product
      */
     public function setBrands($brands)
     {
         $this->brands = $brands;
+
         return $this;
     }
 
@@ -849,11 +896,13 @@ class Product
 
     /**
      * @param mixed $alergies
+     *
      * @return Product
      */
     public function setAlergies($alergies)
     {
         $this->alergies = $alergies;
+
         return $this;
     }
 
@@ -867,11 +916,13 @@ class Product
 
     /**
      * @param mixed $traces
+     *
      * @return Product
      */
     public function setTraces($traces)
     {
         $this->traces = $traces;
+
         return $this;
     }
 
@@ -885,11 +936,13 @@ class Product
 
     /**
      * @param mixed $additives
+     *
      * @return Product
      */
     public function setAdditives($additives)
     {
         $this->additives = $additives;
+
         return $this;
     }
 
@@ -903,11 +956,13 @@ class Product
 
     /**
      * @param string $ingredientPicture
+     *
      * @return Product
      */
     public function setIngredientPicture(string $ingredientPicture): Product
     {
         $this->ingredientPicture = $ingredientPicture;
+
         return $this;
     }
 
@@ -921,11 +976,13 @@ class Product
 
     /**
      * @param string $ingredients
+     *
      * @return Product
      */
     public function setIngredients(string $ingredients): Product
     {
         $this->ingredients = $ingredients;
+
         return $this;
     }
 
@@ -939,11 +996,13 @@ class Product
 
     /**
      * @param string $nutritionPicture
+     *
      * @return Product
      */
     public function setNutritionPicture(string $nutritionPicture): Product
     {
         $this->nutritionPicture = $nutritionPicture;
+
         return $this;
     }
 
@@ -957,11 +1016,13 @@ class Product
 
     /**
      * @param string $nutriscore
+     *
      * @return Product
      */
     public function setNutriscore(string $nutriscore): Product
     {
         $this->nutriscore = $nutriscore;
+
         return $this;
     }
 
@@ -975,11 +1036,13 @@ class Product
 
     /**
      * @param string $servingSize
+     *
      * @return Product
      */
     public function setServingSize(string $servingSize): Product
     {
         $this->servingSize = $servingSize;
+
         return $this;
     }
 
@@ -993,11 +1056,13 @@ class Product
 
     /**
      * @param float $energy
+     *
      * @return Product
      */
     public function setEnergy(float $energy): Product
     {
         $this->energy = $energy;
+
         return $this;
     }
 
@@ -1011,11 +1076,13 @@ class Product
 
     /**
      * @param string $energyUnit
+     *
      * @return Product
      */
     public function setEnergyUnit(string $energyUnit): Product
     {
         $this->energyUnit = $energyUnit;
+
         return $this;
     }
 
@@ -1029,11 +1096,13 @@ class Product
 
     /**
      * @param float $levelFat
+     *
      * @return Product
      */
     public function setLevelFat(float $levelFat): Product
     {
         $this->levelFat = $levelFat;
+
         return $this;
     }
 
@@ -1047,11 +1116,13 @@ class Product
 
     /**
      * @param string $levelFatUnit
+     *
      * @return Product
      */
     public function setLevelFatUnit(string $levelFatUnit): Product
     {
         $this->levelFatUnit = $levelFatUnit;
+
         return $this;
     }
 
@@ -1065,11 +1136,13 @@ class Product
 
     /**
      * @param float $levelSaturedFat
+     *
      * @return Product
      */
     public function setLevelSaturedFat(float $levelSaturedFat): Product
     {
         $this->levelSaturedFat = $levelSaturedFat;
+
         return $this;
     }
 
@@ -1083,11 +1156,13 @@ class Product
 
     /**
      * @param string $levelSaturedFatUnit
+     *
      * @return Product
      */
     public function setLevelSaturedFatUnit(string $levelSaturedFatUnit): Product
     {
         $this->levelSaturedFatUnit = $levelSaturedFatUnit;
+
         return $this;
     }
 
@@ -1101,11 +1176,13 @@ class Product
 
     /**
      * @param float $levelCarbohydrate
+     *
      * @return Product
      */
     public function setLevelCarbohydrate(float $levelCarbohydrate): Product
     {
         $this->levelCarbohydrate = $levelCarbohydrate;
+
         return $this;
     }
 
@@ -1119,11 +1196,13 @@ class Product
 
     /**
      * @param string $levelCarbohydrateUnit
+     *
      * @return Product
      */
     public function setLevelCarbohydrateUnit(string $levelCarbohydrateUnit): Product
     {
         $this->levelCarbohydrateUnit = $levelCarbohydrateUnit;
+
         return $this;
     }
 
@@ -1137,11 +1216,13 @@ class Product
 
     /**
      * @param float $levelSugar
+     *
      * @return Product
      */
     public function setLevelSugar(float $levelSugar): Product
     {
         $this->levelSugar = $levelSugar;
+
         return $this;
     }
 
@@ -1155,11 +1236,13 @@ class Product
 
     /**
      * @param string $levelSugarUnit
+     *
      * @return Product
      */
     public function setLevelSugarUnit(string $levelSugarUnit): Product
     {
         $this->levelSugarUnit = $levelSugarUnit;
+
         return $this;
     }
 
@@ -1173,11 +1256,13 @@ class Product
 
     /**
      * @param float $levelDietaryFiber
+     *
      * @return Product
      */
     public function setLevelDietaryFiber(float $levelDietaryFiber): Product
     {
         $this->levelDietaryFiber = $levelDietaryFiber;
+
         return $this;
     }
 
@@ -1191,11 +1276,13 @@ class Product
 
     /**
      * @param string $levelDietaryFiberUnit
+     *
      * @return Product
      */
     public function setLevelDietaryFiberUnit(string $levelDietaryFiberUnit): Product
     {
         $this->levelDietaryFiberUnit = $levelDietaryFiberUnit;
+
         return $this;
     }
 
@@ -1209,11 +1296,13 @@ class Product
 
     /**
      * @param float $levelProteins
+     *
      * @return Product
      */
     public function setLevelProteins(float $levelProteins): Product
     {
         $this->levelProteins = $levelProteins;
+
         return $this;
     }
 
@@ -1227,11 +1316,13 @@ class Product
 
     /**
      * @param string $levelProteinsUnit
+     *
      * @return Product
      */
     public function setLevelProteinsUnit(string $levelProteinsUnit): Product
     {
         $this->levelProteinsUnit = $levelProteinsUnit;
+
         return $this;
     }
 
@@ -1245,11 +1336,13 @@ class Product
 
     /**
      * @param float $levelSalt
+     *
      * @return Product
      */
     public function setLevelSalt(float $levelSalt): Product
     {
         $this->levelSalt = $levelSalt;
+
         return $this;
     }
 
@@ -1263,11 +1356,13 @@ class Product
 
     /**
      * @param string $levelSaltUnit
+     *
      * @return Product
      */
     public function setLevelSaltUnit(string $levelSaltUnit): Product
     {
         $this->levelSaltUnit = $levelSaltUnit;
+
         return $this;
     }
 
@@ -1281,11 +1376,13 @@ class Product
 
     /**
      * @param float $levelSodium
+     *
      * @return Product
      */
     public function setLevelSodium(float $levelSodium): Product
     {
         $this->levelSodium = $levelSodium;
+
         return $this;
     }
 
@@ -1299,11 +1396,13 @@ class Product
 
     /**
      * @param string $levelSodiumUnit
+     *
      * @return Product
      */
     public function setLevelSodiumUnit(string $levelSodiumUnit): Product
     {
         $this->levelSodiumUnit = $levelSodiumUnit;
+
         return $this;
     }
 
@@ -1317,11 +1416,13 @@ class Product
 
     /**
      * @param float $levelAlcohol
+     *
      * @return Product
      */
     public function setLevelAlcohol(float $levelAlcohol): Product
     {
         $this->levelAlcohol = $levelAlcohol;
+
         return $this;
     }
 
@@ -1335,11 +1436,13 @@ class Product
 
     /**
      * @param float $levelSilica
+     *
      * @return Product
      */
     public function setLevelSilica(float $levelSilica): Product
     {
         $this->levelSilica = $levelSilica;
+
         return $this;
     }
 
@@ -1353,11 +1456,13 @@ class Product
 
     /**
      * @param string $levelSilicaUnit
+     *
      * @return Product
      */
     public function setLevelSilicaUnit(string $levelSilicaUnit): Product
     {
         $this->levelSilicaUnit = $levelSilicaUnit;
+
         return $this;
     }
 
@@ -1371,11 +1476,13 @@ class Product
 
     /**
      * @param float $levelBicarbonate
+     *
      * @return Product
      */
     public function setLevelBicarbonate(float $levelBicarbonate): Product
     {
         $this->levelBicarbonate = $levelBicarbonate;
+
         return $this;
     }
 
@@ -1389,11 +1496,13 @@ class Product
 
     /**
      * @param string $levelBicarbonateUnit
+     *
      * @return Product
      */
     public function setLevelBicarbonateUnit(string $levelBicarbonateUnit): Product
     {
         $this->levelBicarbonateUnit = $levelBicarbonateUnit;
+
         return $this;
     }
 
@@ -1407,11 +1516,13 @@ class Product
 
     /**
      * @param float $levelPotassium
+     *
      * @return Product
      */
     public function setLevelPotassium(float $levelPotassium): Product
     {
         $this->levelPotassium = $levelPotassium;
+
         return $this;
     }
 
@@ -1425,11 +1536,13 @@ class Product
 
     /**
      * @param string $levelPotassiumUnit
+     *
      * @return Product
      */
     public function setLevelPotassiumUnit(string $levelPotassiumUnit): Product
     {
         $this->levelPotassiumUnit = $levelPotassiumUnit;
+
         return $this;
     }
 
@@ -1443,11 +1556,13 @@ class Product
 
     /**
      * @param float $levelChloride
+     *
      * @return Product
      */
     public function setLevelChloride(float $levelChloride): Product
     {
         $this->levelChloride = $levelChloride;
+
         return $this;
     }
 
@@ -1461,11 +1576,13 @@ class Product
 
     /**
      * @param string $levelChlorideUnit
+     *
      * @return Product
      */
     public function setLevelChlorideUnit(string $levelChlorideUnit): Product
     {
         $this->levelChlorideUnit = $levelChlorideUnit;
+
         return $this;
     }
 
@@ -1479,11 +1596,13 @@ class Product
 
     /**
      * @param float $levelCalcium
+     *
      * @return Product
      */
     public function setLevelCalcium(float $levelCalcium): Product
     {
         $this->levelCalcium = $levelCalcium;
+
         return $this;
     }
 
@@ -1497,11 +1616,13 @@ class Product
 
     /**
      * @param string $levelCalciumUnit
+     *
      * @return Product
      */
     public function setLevelCalciumUnit(string $levelCalciumUnit): Product
     {
         $this->levelCalciumUnit = $levelCalciumUnit;
+
         return $this;
     }
 
@@ -1515,11 +1636,13 @@ class Product
 
     /**
      * @param float $levelMagnesium
+     *
      * @return Product
      */
     public function setLevelMagnesium(float $levelMagnesium): Product
     {
         $this->levelMagnesium = $levelMagnesium;
+
         return $this;
     }
 
@@ -1533,11 +1656,13 @@ class Product
 
     /**
      * @param string $levelMagnesiumUnit
+     *
      * @return Product
      */
     public function setLevelMagnesiumUnit(string $levelMagnesiumUnit): Product
     {
         $this->levelMagnesiumUnit = $levelMagnesiumUnit;
+
         return $this;
     }
 
@@ -1551,11 +1676,13 @@ class Product
 
     /**
      * @param float $levelNitrates
+     *
      * @return Product
      */
     public function setLevelNitrates(float $levelNitrates): Product
     {
         $this->levelNitrates = $levelNitrates;
+
         return $this;
     }
 
@@ -1569,11 +1696,13 @@ class Product
 
     /**
      * @param string $levelNitratesUnit
+     *
      * @return Product
      */
     public function setLevelNitratesUnit(string $levelNitratesUnit): Product
     {
         $this->levelNitratesUnit = $levelNitratesUnit;
+
         return $this;
     }
 
@@ -1587,11 +1716,13 @@ class Product
 
     /**
      * @param float $levelSulfates
+     *
      * @return Product
      */
     public function setLevelSulfates(float $levelSulfates): Product
     {
         $this->levelSulfates = $levelSulfates;
+
         return $this;
     }
 
@@ -1605,11 +1736,13 @@ class Product
 
     /**
      * @param string $levelSulfatesUnit
+     *
      * @return Product
      */
     public function setLevelSulfatesUnit(string $levelSulfatesUnit): Product
     {
         $this->levelSulfatesUnit = $levelSulfatesUnit;
+
         return $this;
     }
 
@@ -1623,11 +1756,13 @@ class Product
 
     /**
      * @param float $footprint
+     *
      * @return Product
      */
     public function setFootprint(float $footprint): Product
     {
         $this->footprint = $footprint;
+
         return $this;
     }
 
@@ -1641,11 +1776,13 @@ class Product
 
     /**
      * @param string $footprintUnit
+     *
      * @return Product
      */
     public function setFootprintUnit(string $footprintUnit): Product
     {
         $this->footprintUnit = $footprintUnit;
+
         return $this;
     }
 }

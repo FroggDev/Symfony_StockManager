@@ -141,7 +141,6 @@ class RecoverValidationTest extends WebTestCase
         // submits the given form
         $crawler = $this->client->submit($form);
 
-
         //dump($crawler);
 
         $message = $crawler->filter('.flash-notice H6 DIV')->eq(0)->text();

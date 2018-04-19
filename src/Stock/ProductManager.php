@@ -39,7 +39,7 @@ class ProductManager
      * @param ObjectManager $manager
      * @param ProductScraper $scraper
      */
-    public function __construct(RequestStack $request,EntityManagerInterface $manager,ProductScraper $scraper)
+    public function __construct(RequestStack $request, EntityManagerInterface $manager, ProductScraper $scraper)
     {
         $this->request = $request->getMasterRequest();
         $this->manager = $manager;
@@ -48,12 +48,13 @@ class ProductManager
 
     /**
      * @return string
+     *
      * @throws \App\Exception\Product\ProductTypeException
      */
     public function getProductFromBarcode()
     {
         // get barcode from request
-        $barcode=$this->request->query->get('barcode');
+        $barcode = $this->request->query->get('barcode');
 
         // Get product from barcode
         $product = $this
@@ -62,13 +63,13 @@ class ProductManager
             ->findOneByBarcode($barcode);
 
         // get the product from scrap
-        if(!$product){
+        if (!$product) {
             $product = $this->scraper->scrap($barcode);
         }
 
         // no result found
-        if(!$product){
-            return '{  "result" : "ok" , "barcode" : "' . $barcode . '"  )';
+        if (!$product) {
+            return '{  "result" : "ok" , "barcode" : "' . $barcode . '"  }';
         }
 
         return '{  "result" : "ok" , "name" : "' . $product->getName() . '" , "barcode" : "' . $barcode . '" , "generic" : "' . $product->getCommonName() . '"}';

@@ -45,6 +45,14 @@
         <source>log out</source>
         <target>Log out</target>
       </trans-unit>
+      <trans-unit id="jxOdfgdfgOEj" resname="main title">
+        <source>main title</source>
+        <target>Online Stock Manager</target>
+      </trans-unit>
+      <trans-unit id="KA1Esdfsdfqx6" resname="welcome">
+        <source>welcome</source>
+        <target>Welcome %user%</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

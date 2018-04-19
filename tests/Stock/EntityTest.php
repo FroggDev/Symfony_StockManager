@@ -250,7 +250,6 @@ class EntityTest extends WebTestCase
         // TEST
         //-----
 
-
         $this->assertSame(1,
             $product->setId(1)->getId()
         );
@@ -438,9 +437,69 @@ class EntityTest extends WebTestCase
             $product->setLevelSilicaUnit('random')->getLevelSilicaUnit()
         );
 
+        $this->assertSame(1.0,
+            $product->setLevelBicarbonate(1)->getLevelBicarbonate()
+        );
+
+        $this->assertSame('random',
+            $product->setLevelBicarbonateUnit('random')->getLevelBicarbonateUnit()
+        );
+
+        $this->assertSame(1.0,
+            $product->setLevelPotassium(1)->getLevelPotassium()
+        );
+
+        $this->assertSame('random',
+            $product->setLevelPotassiumUnit('random')->getLevelPotassiumUnit()
+        );
+
+        $this->assertSame(1.0,
+            $product->setLevelChloride(1)->getLevelChloride()
+        );
+
+        $this->assertSame('random',
+            $product->setLevelChlorideUnit('random')->getLevelChlorideUnit()
+        );
+
+        $this->assertSame(1.0,
+            $product->setLevelCalcium(1)->getLevelCalcium()
+        );
+
+        $this->assertSame('random',
+            $product->setLevelCalciumUnit('random')->getLevelCalciumUnit()
+        );
+
+        $this->assertSame(1.0,
+            $product->setLevelMagnesium(1)->getLevelMagnesium()
+        );
+
+        $this->assertSame('random',
+            $product->setLevelMagnesiumUnit('random')->getLevelMagnesiumUnit()
+        );
+
+        $this->assertSame(1.0,
+            $product->setLevelNitrates(1)->getLevelNitrates()
+        );
+
+        $this->assertSame('random',
+            $product->setLevelNitratesUnit('random')->getLevelNitratesUnit()
+        );
+
+        $this->assertSame(1.0,
+            $product->setLevelSulfates(1)->getLevelSulfates()
+        );
+
+        $this->assertSame('random',
+            $product->setLevelSulfatesUnit('random')->getLevelSulfatesUnit()
+        );
 
 
+        $this->assertSame(1.0,
+            $product->setFootprint(1)->getFootprint()
+        );
 
-
+        $this->assertSame('random',
+            $product->setFootprintUnit('random')->getFootprintUnit()
+        );
     }
 }

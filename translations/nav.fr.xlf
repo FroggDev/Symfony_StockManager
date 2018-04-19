@@ -45,6 +45,14 @@
         <source>log out</source>
         <target>Se déconnecter</target>
       </trans-unit>
+      <trans-unit id="jxOgOEdfsdfj" resname="main title">
+        <source>main title</source>
+        <target>Gestionnaire de stock en ligne</target>
+      </trans-unit>
+      <trans-unit id="KA1sdfsdfEqx6" resname="welcome">
+        <source>welcome</source>
+        <target>Bienvenu(e) %user%</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

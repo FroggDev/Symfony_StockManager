@@ -68,6 +68,11 @@ NAV A{font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-San
 
 #nav-mobile .active{background:#b2dfdb}
 
+#nav-mobile .logo IMG{width: 75px;  margin: 15px 0 0px 15px;}
+#nav-mobile .title{line-height: 1.3em;display: inline-block;    font-family: MavenProLight;    vertical-align: top;    margin:15px 5px 5px 5px;    font-size: 1.3em;}
+#nav-mobile .subtitle{font-size:0.7em;}
+#nav-mobile .user {font-size: 0.7em; text-align: right;}
+
 /* ============== SECTION ============== */
 
 .main.container{min-height: calc(100% - 194px);}
@@ -198,7 +203,7 @@ BODY{
   background-size: cover;
 }
 
-.bgItems{
+.bgItems,.modal{
 background: url('../img/background-items.jpg') no-repeat center center fixed;
 background-size: cover;}
 
