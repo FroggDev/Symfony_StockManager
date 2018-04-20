@@ -42,6 +42,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class StockController extends Controller
 {
 
+    /*#######
+     # HOME #
+     #######*/
+
     /**
      * Route to Stock home (registered default home)
      *
@@ -103,17 +107,22 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/liste.html",
-     *     "en": "/list.html"
+     *     "fr": "/liste.html/{currentPage?1}",
+     *     "en": "/list.html/{currentPage?1}"
      *     },
      *     name="list",
      *     methods={"GET","POST"}
      * )
      * @return Response
      */
-    public function list()
+    public function list(EntityManagerInterface $manager, string $currentPage)
     {
-        return new Response("TODO");
+        $products = $manager
+            ->getRepository(StockProducts::class)
+            ->findByGroupedProduct($this->getUser()->getStock(),(int) $currentPage, 'sp.dateExpire');
+
+        // Display product list
+        return $this->render('stock/list.html.twig',['products'=>$products , 'currentPage' => $currentPage, 'countPagination' => 5]);
     }
 
     /*######
@@ -143,6 +152,32 @@ class StockController extends Controller
         return $this->render('stock/form_add_to_stock.html.twig', ['from' => $from, 'product' => $product]);
     }
 
+    /*#########
+     # DETAIL #
+     #########*/
+
+
+    /**
+     * Route to product detail
+     *
+     * @Route(
+     *     {
+     *     "fr": "/fiche-produit.html",
+     *     "en": "/product-description.html"
+     *     },
+     *     name="product_card",
+     *     methods={"GET","POST"}
+     * )
+     * @return Response
+     */
+    public function showProductCard()
+    {
+        return new Response("TODO");
+    }
+
+    /*#######
+     # LIST #
+     #######*/
 
     /**
      * Route to display search result

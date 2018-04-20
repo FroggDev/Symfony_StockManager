@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping\ManyToOne;
 /**
  * @author Frogg <admin@frogg.fr>
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\StockProductsRepository")
  */
 class StockProducts
 {
