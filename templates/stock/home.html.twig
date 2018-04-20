@@ -21,7 +21,7 @@
             <div class="right" style="width:100%;">
                 <p style="margin: 0;line-height: 1.5em;text-align:right;">
                     {% trans with {'%user%': ((app.user.lastname | capitalize)~" "~(app.user.firstname | upper))}%}welcome{% endtrans %}
-                    <a href="productlistdetail.html"><span style="margin-left:4px;" class="new badge red" data-badge-caption="{{ "expire soon" | trans }}">(7)</span></a>
+                    <a href="{{ path('stock_list') }}"><span style="margin-left:4px;" class="new badge red" data-badge-caption="{{ "expire soon" | trans }}">(7)</span></a>
                 </p>
 
             </div>

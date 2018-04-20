@@ -150,12 +150,22 @@ class SiteConfig
      * @const string
      */
     const SCRAPUSERID = 'stock@frogg.fr';
+    /**
+     * URL to login ID INPUT
+     * @const string
+     */
+    const SCRAPINPUTUSERID = 'user_id';
 
     /**
      * URL to login PASSWORD
      * @const string
      */
     const SCRAPPASSWORD = 'scrapOFF';
+    /**
+     * URL to login PASSWORD
+     * @const string
+     */
+    const SCRAPINPUTPASSWORD = 'password';
 
     /**
      * URL to where data are available

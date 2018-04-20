@@ -38,8 +38,8 @@ class ProductScraper
     private $client;
 
     /** @var Crawler */
-
     private $crawler;
+
     /** @var EntityManagerInterface */
     private $manager;
 
@@ -114,6 +114,8 @@ class ProductScraper
         ['#nutriment_carbon-footprint_unit','string','footprintUnit']
     ];
 
+    private $imageSelector = '#front_fr_display_url';
+
     /**
      * ProductScraper constructor.
      * @param Client $client
@@ -142,6 +144,7 @@ class ProductScraper
         //init product
         $this->product = new Product((int) $barcode);
 
+        // add user creator product
         $this->product->setUser($this->user);
 
         // do the navigation
@@ -178,7 +181,10 @@ class ProductScraper
         $this->client->request(
             'POST',
             SiteConfig::SCRAPLOGINURL,
-            ['user_id' => SiteConfig::SCRAPUSERID, 'password' => SiteConfig::SCRAPPASSWORD]
+            [
+                SiteConfig::SCRAPINPUTUSERID => SiteConfig::SCRAPUSERID,
+                SiteConfig::SCRAPINPUTPASSWORD => SiteConfig::SCRAPPASSWORD
+            ]
         );
 
         // get the product informations on the website
@@ -194,7 +200,7 @@ class ProductScraper
     private function getImageProduct()
     {
         // get image name
-        $imageName = $this->crawler->filter('#front_fr_display_url')->eq(0)->attr('value');
+        $imageName = $this->crawler->filter($this->imageSelector)->eq(0)->attr('value');
 
         //set target image name
         $image = $this->barcode.'.'.pathinfo($imageName, PATHINFO_EXTENSION);
@@ -259,7 +265,7 @@ class ProductScraper
      */
     private function getValue(array $line) : ?string
     {
-        if(true===strstr ($line[0],'_unit')) {
+        if(false!==strstr ($line[0],'_unit')) {
             //get data from a select
             $node = $this->crawler->filter($line[0] . ' option:selected');
             return $node->count() ? $node->eq(0)->text() : null;

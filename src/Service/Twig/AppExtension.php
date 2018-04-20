@@ -9,6 +9,7 @@
  */
 namespace App\Service\Twig;
 
+use App\Service\Twig\Func\Link;
 use App\Service\Twig\Func\Menu;
 use App\Service\Twig\Func\Product;
 
@@ -41,6 +42,7 @@ class AppExtension extends \Twig_Extension
      * Twig calls :
      * {{ getActiveMenu("route_name") }}
      * {{ asset( getProductImage(product.barcode,product.picture) ) }}
+     * {{ getLink('route',test,{params:params},"class") }}
      */
     public function getFunctions(): array
     {
@@ -49,6 +51,8 @@ class AppExtension extends \Twig_Extension
             new \Twig_Function('getActiveMenu', [Menu::class, 'getActiveMenu']),
             // Image product
             new \Twig_Function('getProductImage', [Product::class, 'getProductImage']),
+            // Global link generator
+            new \Twig_Function('getLink' , [Link::class,'getLink'])
         ];
     }
 }
