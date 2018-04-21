@@ -50,6 +50,11 @@ class SiteConfig
      * @const string
      */
     const SITECHARSET = 'UTF-8';
+    /**
+     * website physical path
+     * @const string
+     */
+    const SITEPATH = 'C:/symfony/Symfony_StockManager/public/';
 
     /*########
     # LOCALE #
@@ -67,11 +72,22 @@ class SiteConfig
      */
     const COOKIELOCALENAME = 'locale';
 
+    /**
+     * Locale Date format
+     * @const array
+     */
+    const DATELOCALE = [
+        'fr' => 'd/m/Y',
+        'en' => 'm/d/Y',
+    ];
+
     /*#####
     # SQL #
     ######*/
 
     const SQLCOUNTRY = 'sql\country.sql';
+    const SQLSTOCK = 'sql\stock.sql';
+    const SQLUSER = 'sql\user.sql';
 
     /*##########
     # SECURITY #
@@ -127,13 +143,33 @@ class SiteConfig
      * Weight unit list
      * @const array
      */
-    const WEIGHTUNIT = ['g','mg','µg'];
+    const WEIGHTUNIT = ['g'=>1,'mg'=>1000,'µg'=>1000000];
 
     /**
      * where the products images are stored
      * @const string
      */
     const UPLOADPATH = 'upload/product/';
+
+    /**
+     * Grade product information
+     * @const array
+     */
+    const PRODUCTGRADE = [
+        0 => [
+            'color' => 'green',
+            'text' => 'en faible quantité'
+        ],
+        1 => [
+            'color' => 'orange darken-1',
+            'text' => 'en quantité modérée'
+        ],
+        2 => [
+            'color' => 'red',
+            'text' => 'en quantité élevée'
+        ],
+    ];
+
 
     /*#######
     # SCRAP #

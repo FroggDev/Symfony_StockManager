@@ -140,7 +140,7 @@ footer.page-footer {
 .productList .active .collapsible-header{border-bottom: 0;}
 .productList .collapsible-body {padding: 0 2rem 1rem 2rem;overflow: hidden;width: 100%;border-bottom: 1px solid #fff;}
 .productList .collapsible .imgproduct{width: 50px;}
-.productList .collapsible .imgproduct IMG{height:60px;border-radius:7px;border:1px solid #fff;}
+.productList .collapsible .imgproduct IMG{height:60px;border-radius:7px;border:1px solid #fff;max-width: 50px;}
 .productList .collapsible h4 {font-size: 1rem;margin:0;font-weight: bold;}
 .productList .collapsible h5 {font-size: 1rem;margin:0;margin-top: 1em;text-decoration: underline;}
 .productList .actionbtn i.material-icons{width:inherit;}
@@ -267,21 +267,8 @@ background-size: cover;}
 
   #index-banner .section { top: 0; }
 
-  .parallax-container.connected{display:none}
-
   .home.container {margin-top: 2em;  }
 
   /* PRODUCT DETAIL */
   .productdetail I{    display: block;   float: none !important;    text-align: center;  }
-
-/* FOOTER */
-
-  .extra-credits{display:none;}
-
-}
-
-@media only screen and (max-width : 400px) {
-
-  #result .tag{display:none}
-
 }

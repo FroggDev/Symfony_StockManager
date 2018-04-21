@@ -10,7 +10,7 @@
 
 namespace App\Tests\Security;
 
-use App\Security\AccessDeniedHandler;
+use App\Service\Security\AccessDeniedHandler;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Tests\Controller;

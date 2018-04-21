@@ -17,6 +17,15 @@
     <li class="divider"></li>
     <li><a href="{{path('security_logout') }}">{{ "log out" | trans }}</a></li>
 </ul>
+
+{% if app.request.get('_route')=='stock_list' %}
+<ul id="dropdownsort" class="dropdown-content" >
+    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':1}) }}">Sort by date expire</a></li>
+    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':2}) }}">Sort by date added</a></li>
+    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':3}) }}">Sort by name</a></li>
+</ul>
+{% endif %}
+
 {% endif %}
 
 <nav role="navigation">
@@ -75,5 +84,13 @@
             <li><a class="dropdown-trigger" href="#" data-target="dropdownlangmobile"><span class="flag-icon flag-icon-{{ app.request.locale }}"></span><i class="material-icons right">arrow_drop_down</i> {{ ("lang" ~ app.request.locale) | lower | trans }}</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+        {% if app.request.get('_route')=='stock_list' and is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a class="dropdown-trigger right" href="#" data-target="dropdownsort">
+            <span class="hide-on-med-and-down">Sort by date expire</span>
+            <i class="material-icons left">sort</i>
+        </a>
+        {% endif %}
+
     </div>
 </nav>

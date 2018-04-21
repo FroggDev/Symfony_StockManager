@@ -88,7 +88,7 @@ services:
     #       - "@request"
     #
     #app.service.user:
-    #   class: App\Service\UserManager
+    #   class: App\Service\UserCommand
     #   arguments:
     #       - "@twig"
     ###############

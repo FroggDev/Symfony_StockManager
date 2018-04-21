@@ -18,6 +18,8 @@ Ajax.prototype =
         init: function (url, callback, opt, isloading, onprogress) {
             this.isloading = isloading;
 
+
+            console.log('Ajax OPT');
             console.log(opt);
 
             //Set vars
@@ -43,6 +45,9 @@ Ajax.prototype =
             this.xhr.open(this.method, this.url, this.async);
 
             this.xhr.upload.onprogress = onprogress;
+
+            console.log('sending');
+            console.log(opt.param);
 
             this.xhr.send(this.method === 'GET' ? '' : opt.param);
         },

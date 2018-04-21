@@ -26,11 +26,11 @@ security:
             # Custom security check at login
             # ##########################
             pattern: ^/
-            user_checker: App\Security\UserChecker
+            user_checker: App\Service\Security\UserChecker
 
             # Custom Access denied handler
             # ##########################
-            access_denied_handler: App\Security\AccessDeniedHandler
+            access_denied_handler: App\Service\Security\AccessDeniedHandler
 
             # Login configuration
             # ###################

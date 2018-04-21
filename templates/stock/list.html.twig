@@ -21,24 +21,18 @@
 
                     <!-- si liste vient de addproduct short alors afficher data d ajout remove_red_eye-->
 
-                    {% for productInfo in products %}
+                    {% for productInfo in stockProducts %}
 
                         {% set product = productInfo[0].product %}
                         {% set nbProduct = productInfo[1] %}
                     <li>
                         <div class="collapsible-header">
-                            <input type="hidden" value="3057640234163" name="barcode" class="barcode">
+                            <input type="hidden" value="{{ product.id }}" name="productId" class="productId">
                             <i class="material-icons left imgproduct"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"></i>
-                            <h4><span class="nbProduct">{{ nbProduct }}</span> x {{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4>
+                            <h4><span class="nbProduct">{{ nbProduct }}</span> <span class="name">x {{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</span></h4>
                             <div>
-                                <!-- TODO FUNC TWIG HERE ! -->
-                                <select multiple>
-                                    <option value="11/02/2025" selected>11/02/2025</option>
-                                    <option value="12/02/2025">12/02/2025</option>
-                                    <option value="13/02/2025">13/02/2025</option>
-                                    <option value="no expire data set">no expire data set</option>
-                                    <option value="no expire data set">no expire data set</option>
-                                    <option value="no expire data set">no expire data set</option>
+                                 <select multiple>
+                                    {{ getExpires( product.id , app.user.stock.id ) | raw  }}
                                     <option value="" disabled></option>
                                 </select>
                                 <label>Expire</label>
@@ -47,41 +41,46 @@
                                 <div class="left"><img class="nutriscore" src="{{ asset('img/nutriscore/a.svg') }}"></div>
                                 <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                                 <a class="btn-floating green waves-effect waves-light" href="{{ path('stock_product',{'from' : 'stock_list','barcode' : product.barcode})  }}"><i class="material-icons">add</i></a>
-                                <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="{{ path('stock_product_card') }}"><i class="material-icons">visibility</i></a>
+                                <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="{{ path('stock_product_card',{'from' : 'stock_list','barcode' : product.barcode}) }}"><i class="material-icons">visibility</i></a>
                             </div>
                         </div>
                         <div class="collapsible-body">
                             <h5>Repères nutritionnels pour 100 g ({{ product.energy }} {{ product.energyUnit }})</h5>
-                            <div><a class="btn-floating green waves-effect waves-light mini"></a>{{ product.levelFat }} {{ product.levelFatUnit }} Matières grasses / Lipides en faible quantité</div>
-                            <div><a class="btn-floating green waves-effect waves-light mini"></a>{{ product.levelSaturedFat }} {{ product.levelSaturedFatUnit }} Acides gras saturés en faible quantité</div>
-                            <div><a class="btn-floating green waves-effect waves-light mini"></a>{{ product.levelSugar }} {{ product.levelSugarUnit }} Sucres en faible quantité</div>
-                            <div><a class="btn-floating green waves-effect waves-light mini"></a>{{ product.levelSalt }} {{ product.levelSaltUnit }} Sel en faible quantité</div>
+                            {{ getNutritionalInfo(product) | raw }}
                         </div>
                     </li>
 
                     {% endfor %}
+
+                    {# TODO #}
                    <!--li class="expiresoon"-->
                     <!--li class="expirewarn"-->
                     <!--  class="expiresoon" -->
 
                 </ul>
 
-                <div style="clear: both;"></div>
+                {# PAGINATION, ONLY IF MORE THAN 1 PAGE #}
 
+                {% if countPagination>1 %}
+
+                <div style="clear: both;"></div>
                 <div class="center">
                     <ul class="pagination">
-                    {% if currentPage>1 %}<li class="disabled">{{ getLink('stock_list','<i class="material-icons">chevron_left</i>',{ currentPage : currentPage-1}) | raw  }}</li>{% endif %}
+                    {% if currentPage>1 %}<li class="waves-effect">{{ getLink('stock_list','<i class="material-icons">chevron_left</i>',{ currentPage : currentPage-1 , order : order}) | raw  }}</li>{% endif %}
                     {% for i in 1..countPagination %}
                         {% if currentPage==i %}
                             {% set paginationClass='active' %}
                         {% else %}
                             {% set paginationClass='' %}
                         {% endif %}
-                        <li class="waves-effect {{ paginationClass }}">{{ getLink('stock_list',i,{ currentPage : i}) | raw  }}</li>
+                        <li class="waves-effect {{ paginationClass }}">{{ getLink('stock_list',i,{ currentPage : i , order : order}) | raw  }}</li>
                     {% endfor %}
-                    {% if currentPage<countPagination %}<li class="waves-effect">{{ getLink('stock_list','<i class="material-icons">chevron_right</i>',{ currentPage : currentPage+1}) | raw  }}</li>{% endif %}
+                    {% if currentPage<countPagination %}<li class="waves-effect">{{ getLink('stock_list','<i class="material-icons">chevron_right</i>',{ currentPage : currentPage+1 , order : order}) | raw  }}</li>{% endif %}
                     </ul>
                 </div>
+
+                {% endif %}
+
             </div>
         </div>
     </main>
@@ -97,6 +96,5 @@
 
 {% block js  %}
     {{ parent() }}
-    {# javascripts #}
     <script src="{{ asset('inc/js/product.js') }}" ></script>
 {%  endblock %}

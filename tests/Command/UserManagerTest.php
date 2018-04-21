@@ -10,7 +10,7 @@
 
 namespace App\Tests\Command;
 
-use App\Command\UserManager;
+use App\Command\UserCommand;
 use App\Entity\User;
 use App\Tests\Util\AbstractUserFixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -105,7 +105,7 @@ class UserManagerTest extends KernelTestCase
 
         // Execute the command
         $this->assertEquals(
-            UserManager::EXITCODE,
+            UserCommand::EXITCODE,
             $commandTester->execute(['command' => self::$command->getName()])
         );
 
@@ -139,7 +139,7 @@ class UserManagerTest extends KernelTestCase
 
         // Execute the command
         $this->assertEquals(
-            UserManager::EXITCODE,
+            UserCommand::EXITCODE,
             $commandTester->execute(['command' => self::$command->getName()])
             );
 
@@ -174,7 +174,7 @@ class UserManagerTest extends KernelTestCase
 
         // Execute the command
         $this->assertEquals(
-            UserManager::EXITCODE,
+            UserCommand::EXITCODE,
             $commandTester->execute(['command' => self::$command->getName()])
         );
 
@@ -216,7 +216,7 @@ class UserManagerTest extends KernelTestCase
 
         // Execute the command
         $this->assertEquals(
-            UserManager::EXITCODE,
+            UserCommand::EXITCODE,
             $commandTester->execute(['command' => self::$command->getName()])
         );
 
@@ -254,7 +254,7 @@ class UserManagerTest extends KernelTestCase
 
         // Execute the command
         $this->assertEquals(
-            UserManager::EXITCODE,
+            UserCommand::EXITCODE,
             $commandTester->execute(['command' => self::$command->getName()])
         );
 
@@ -299,7 +299,7 @@ class UserManagerTest extends KernelTestCase
 
         // Execute the command
         $this->assertEquals(
-            UserManager::EXITCODE,
+            UserCommand::EXITCODE,
             $commandTester->execute(['command' => self::$command->getName()])
         );
 
