@@ -1,0 +1,96 @@
+{% extends "stock.html.twig" %}
+
+{% trans_default_domain 'stock_add' %}
+
+{% block page_title "stock add title" | trans %}
+
+{# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
+
+{% block main %}
+    {{ parent() }}
+    {# Content #}
+    <main class="container main">
+        <div class="section">
+
+            <a class="waves-effect waves-light btn-large right red" href="#" onclick="history.go(-1)"><i class="material-icons left">backspace</i>Back</a>
+
+            <h1 class="teal-text text-lighten-2">Product result</h1>
+
+            <div class="productList">
+
+                <ul class="collapsible bgItems">
+
+                    {% if products|length < 1 %}
+                    <li>
+                        <div class="row flash-notice">
+                            <div class="m12 s12 col" style="padding: 0">
+                                <div class="card-panel warning">
+                                    <h6 class="white-text">
+                                        <i class="material-icons left" style="line-height: unset;">warning</i>
+                                        <div>No result found for the search "{{ search }}"</div>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+
+                    {% for product in products %}
+                    <li>
+                        <div class="collapsible-header">
+
+                            <input type="hidden" value="3057640234163" class="barcode">
+                            <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
+
+                            <i class="material-icons left imgproduct"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"></i>
+                            <h4>{{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4>
+                            <div>{{ product.commonName }}</div>
+                            <div class="actionbtn">
+                                <div class="left"><img class="nutriscore" src="{{ asset('img/nutriscore/a.svg') }}"></div>
+                                <a class="btn-floating green darken-1 waves-effect waves-light" href="{{ path('stock_product',{barcode : product.barcode}) }}"><i class="material-icons">add</i></a>
+                            </div>
+                        </div>
+                        <div class="collapsible-body">
+                            <h5>Repères nutritionnels pour 100 g ({{ product.energy }} {{ product.energyUnit }})</h5>
+                            {{ getNutritionalInfo(product) | raw }}
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                {# PAGINATION, ONLY IF MORE THAN 1 PAGE #}
+
+                {% if countPagination>1 %}
+
+                    <div style="clear: both;"></div>
+                    <div class="center">
+                        <ul class="pagination">
+                            {% if currentPage>1 %}<li class="waves-effect">{{ getLink(from,'<i class="material-icons">chevron_left</i>',{ currentPage : currentPage-1 , search : search}) | raw  }}</li>{% endif %}
+                            {% for i in 1..countPagination %}
+                                {% if currentPage==i %}
+                                    {% set paginationClass='active' %}
+                                {% else %}
+                                    {% set paginationClass='' %}
+                                {% endif %}
+                                <li class="waves-effect {{ paginationClass }}">{{ getLink(from,i,{ currentPage : i , search : search}) | raw  }}</li>
+                            {% endfor %}
+                            {% if currentPage<countPagination %}<li class="waves-effect">{{ getLink(from,'<i class="material-icons">chevron_right</i>',{ currentPage : currentPage+1 , search : search}) | raw  }}</li>{% endif %}
+                        </ul>
+                    </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </main>
+{%  endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <link href="{{ asset('inc/css/scan.css') }}" rel="stylesheet">
+{%  endblock %}
+
+{% block js  %}
+    {{ parent() }}
+    <script src="{{ asset('inc/js/product.js') }}" ></script>
+{%  endblock %}

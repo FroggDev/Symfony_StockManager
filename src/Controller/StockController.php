@@ -161,8 +161,8 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/produit.html/{barcode<[^/]*>?}/{from<.*>?}",
-     *     "en": "/product.html/{barcode<[^/]*>?}/{from<.*>?}"
+     *     "fr": "/produit.html/{barcode<[^/]*>?}}",
+     *     "en": "/product.html/{barcode<[^/]*>?}}"
      *     },
      *     name="product",
      *     methods={"GET","POST"}
@@ -175,10 +175,10 @@ class StockController extends Controller
      *
      * @return Response
      */
-    public function showProduct(Product $product, ?string $from)
+    public function showProduct(Product $product)
     {
         // Display form view
-        return $this->render('stock/form_add_to_stock.html.twig', ['from' => $from, 'product' => $product]);
+        return $this->render('stock/form_add_to_stock.html.twig', [ 'product' => $product]);
     }
 
     /*#########
@@ -191,8 +191,8 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/fiche-produit.html/{barcode<[^/]*>?}/{from<.*>?}",
-     *     "en": "/product-description.html/{barcode<[^/]*>?}/{from<.*>?}"
+     *     "fr": "/fiche-produit.html/{barcode<[^/]*>}}",
+     *     "en": "/product-description.html/{barcode<[^/]*>}}"
      *     },
      *     name="product_card",
      *     methods={"GET","POST"}
@@ -201,13 +201,12 @@ class StockController extends Controller
      * @Entity("product",expr="repository.findOneByBarcode(barcode)")
      *
      * @param Product $product
-     * @param null|string $from
      *
      * @return void
      */
-    public function showProductCard(Product $product, ?string $from)
+    public function showProductCard(Product $product)
     {
-        return $this->render('stock/product.html.twig', ['from' => $from, 'product' => $product]);
+        return $this->render('stock/product.html.twig', [ 'product' => $product]);
     }
 
     /*#########
@@ -219,20 +218,36 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/produit/recherche.html",
-     *     "en": "/product/search.html"
+     *     "fr": "/produit/recherche.html/{currentPage?1}",
+     *     "en": "/product/search.html/{currentPage?1}"
      *     },
      *     name="product_result",
-     *     methods={"POST"}
+     *     methods={"GET","POST"}
      * )
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     *
      * @return Response
      */
-    public function showProductResult(Request $request)
+    public function showProductResult(Request $request,EntityManagerInterface $manager, string $currentPage)
     {
+        //string search
+        $search = $request->get('search');
 
-        dump($request->request);
+        //request in database
+        $result = $manager
+            ->getRepository(Product::class)
+            ->findAddSearch($search,$currentPage);
 
-        return new Response("TODO");
+        return $this->render(
+            'stock/search.html.twig',
+            [
+                'products' => $result[1] ,
+                'search' => $search,
+                'currentPage' => $currentPage,
+                'countPagination' => ceil($result[0] / SiteConfig::NBPERPAGE)
+            ]
+        );
     }
 
     /**

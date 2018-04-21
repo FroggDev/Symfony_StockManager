@@ -7,9 +7,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\SiteConfig;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -40,11 +42,48 @@ class ProductRepository extends ServiceEntityRepository
      */
     public function findAll(): array
     {
-        $this->allProduct = $this->createQueryBuilder('p')
+        return $this->createQueryBuilder('p')
             ->orderBy('p.name', 'DESC')
             ->getQuery()
             ->getResult();
+    }
 
-        return $this->allProduct;
+    /**
+     * @param string $search
+     * @param string $numPage
+     *
+     * @return array
+     */
+    public function findAddSearch(string $search, string $numPage): array
+    {
+        // Get the min limit to display
+        $limit = ((int)$numPage - 1) * SiteConfig::NBPERPAGE;
+
+        dump($limit);
+        dump( SiteConfig::NBPERPAGE);
+
+        //create query
+        $query = $this->createQueryBuilder('p')
+            ->select('p')
+            ->join('p.brands', 'b')
+            ->join('p.categories', 'c')
+            ->where('p.commonName LIKE :search')
+            ->orWhere('p.name LIKE :search')
+            ->orWhere('b.name LIKE :search')
+            ->orWhere('c.name LIKE :search')
+            ->setParameter('search', "%$search%")
+            ->setFirstResult($limit)
+            //->setMaxResults(SiteConfig::NBPERPAGE)
+            ->orderBy('p.name', 'DESC')
+            ->getQuery();
+
+        // get products
+        $products = $query->getResult();
+
+        // get nb of products
+        $nbProducts = 1; //$products->select('COUNT(p)')->getQuery()->getSingleScalarResult();
+
+        return [$nbProducts,$products];
+
     }
 }
