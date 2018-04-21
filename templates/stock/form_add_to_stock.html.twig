@@ -23,7 +23,7 @@
                             <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"/></div>
                             <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x {{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4></div>
                                 <div>{{ product.commonname }}</div>
-                                <div>code bar : {{ product.barcode }}</div>
+                                <div class="hide-on-small-only">code bar : {{ product.barcode }}</div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <a href="{{ path('stock_list') }}" class="btn-floating btn-large waves-effect waves-light light-blue darken-1"><i class="material-icons left">assignment</i></a>
                         <a class="btn-floating btn-large green right" id="addproduct"><i class="material-icons">add</i></a>
                         <a class="btn-floating btn-large red right" id="removeproduct"><i class="material-icons">remove</i></a>
-                        <span class="tag right spaced">Quantity : </span>
+                        <span class="tag right spaced hide-on-small-only">Quantity : </span>
                     </div>
 
                     <div class="card-content">

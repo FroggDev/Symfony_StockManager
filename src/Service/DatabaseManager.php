@@ -7,19 +7,20 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace App\Service;
 
 use App\SiteConfig;
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Console\Application;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * @author Frogg <admin@frogg.fr>
  */
-class Databasemanager
+class DatabaseManager
 {
 
     /**
@@ -47,10 +48,10 @@ class Databasemanager
      * @param Application $application
      * @param KernelInterface $kernel
      */
-    public function __construct(Application $application,KernelInterface $kernel, ObjectManager $manager)
+    public function __construct(KernelInterface $kernel, EntityManagerInterface $manager)
     {
         // application
-        $this->application = $application;
+        $this->application = new Application($kernel);
 
         // kernel
         $this->kernel = $kernel;
@@ -64,16 +65,24 @@ class Databasemanager
 
     public function create()
     {
-        $this->dropDatabase();
+        $this->delete();
         $this->createDatabase();
         $this->updateDatabase();
-        $this->importCountries();
+        $this->importData();
+    }
+
+    public function delete()
+    {
+        try {
+            $this->dropDatabase();
+        } catch (\Exception $exception) {
+            echo 'Error while deleting database : ' . $exception->getMessage();
+        }
     }
 
     public function update()
     {
         $this->updateDatabase();
-        $this->importCountries();
     }
 
     /**
@@ -82,7 +91,7 @@ class Databasemanager
      */
     private function dropDatabase(): void
     {
-        $this->application->run(new StringInput('doctrine:database:drop --force --env='.$this->env));
+        $this->application->run(new StringInput('doctrine:database:drop --force --env=' . $this->env));
     }
 
     /**
@@ -91,7 +100,7 @@ class Databasemanager
      */
     private function createDatabase(): void
     {
-        $this->application->run(new StringInput('doctrine:database:create --env='.$this->env));
+        $this->application->run(new StringInput('doctrine:database:create --env=' . $this->env));
     }
 
     /**
@@ -100,7 +109,7 @@ class Databasemanager
      */
     private function updateDatabase(): void
     {
-        $this->application->run(new StringInput('doctrine:migrations:migrate --no-interaction --env='.$this->env));
+        $this->application->run(new StringInput('doctrine:migrations:migrate --no-interaction --env=' . $this->env));
     }
 
     /**
@@ -110,6 +119,8 @@ class Databasemanager
     private function importCountries()
     {
         //tester si la table est vide
-        $this->application->run(new StringInput('doctrine:database:import '.SiteConfig::SQLCOUNTRY.' --env='.$this->env));
+        $this->application->run(new StringInput('doctrine:database:import ' . SiteConfig::SQLCOUNTRY . ' --env=' . $this->env));
+        $this->application->run(new StringInput('doctrine:database:import ' . SiteConfig::SQLSTOCK . ' --env=' . $this->env));
+        $this->application->run(new StringInput('doctrine:database:import ' . SiteConfig::SQLUSER . ' --env=' . $this->env));
     }
 }

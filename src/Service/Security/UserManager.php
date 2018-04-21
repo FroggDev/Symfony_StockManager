@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Security;
+namespace App\Service\Security;
 
 use App\Entity\User;
 use App\Service\MailerManager;
@@ -46,7 +46,7 @@ class UserManager
     private $userChecker;
 
     /**
-     * UserManager constructor.
+     * UserCommand constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param EntityManagerInterface $entityManager
      * @param TranslatorInterface $translator

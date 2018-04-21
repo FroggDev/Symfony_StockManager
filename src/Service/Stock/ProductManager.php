@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Stock;
+namespace App\Service\Stock;
 
 use App\Entity\Product;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -34,7 +34,7 @@ class ProductManager
     private $scraper;
 
     /**
-     * ProductManager constructor.
+     * ProductCommand constructor.
      * @param Request $request
      * @param ObjectManager $manager
      * @param ProductScraper $scraper
@@ -47,14 +47,18 @@ class ProductManager
     }
 
     /**
+     * @param string|null $barcode
+     *
      * @return string
      *
      * @throws \App\Exception\Product\ProductTypeException
      */
-    public function getProductFromBarcode()
+    public function getProductFromBarcode(string $barcode = null)
     {
         // get barcode from request
-        $barcode = $this->request->query->get('barcode');
+        if(null===$barcode){
+            $barcode = $this->request->query->get('barcode');
+        }
 
         // Get product from barcode
         $product = $this

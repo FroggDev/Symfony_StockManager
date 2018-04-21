@@ -65,13 +65,14 @@ class UserSubscriber implements EventSubscriberInterface
         if ($this->user instanceof User) {
             // set last connexion
             $this->user->setLastConnexion();
-            // save to database
-            $this->eManager->flush();
 
             // remove token if login and have one made but expired
             if($this->user->isTokenExpired()){
                 $this->user->removeToken();
             }
+
+            // save to database
+            $this->eManager->flush();
 
             //add event for the reponse
             $this->dispatcher->addListener(KernelEvents::RESPONSE, [$this, 'onKernelResponse']);

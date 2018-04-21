@@ -29,6 +29,7 @@ class Link extends AbstractTwigExtension
      * @var Packages
      */
     public $asset;
+
     /**
      * constructor.
      * @param RouterInterface $router
@@ -49,9 +50,10 @@ class Link extends AbstractTwigExtension
     public function getLink(
         string $route,
         string $text = null,
-        string $parameters = null,
+        array $parameters = null,
         string $class = null
-    ): string {
+    ): string
+    {
         return $this->getATag(
             $this->router->generate($route, $parameters),
             $text,

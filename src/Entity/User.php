@@ -10,7 +10,7 @@
 
 namespace App\Entity;
 
-use App\Security\AbstractAdvancedUser;
+use App\Service\Security\AbstractAdvancedUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\OneToOne;
@@ -58,15 +58,15 @@ class User extends AbstractAdvancedUser
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     * @Assert\Length(max=100,maxMessage="firstname is too long")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255,maxMessage="firstname is too long")
      * @Assert\NotBlank(message="firstname should not be blank")
      */
     private $firstName;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     * @Assert\Length(max=100,maxMessage="lastname is too long")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255,maxMessage="lastname is too long")
      * @Assert\NotBlank(message="lastname should not be blank")
      */
     private $lastName;
@@ -80,7 +80,7 @@ class User extends AbstractAdvancedUser
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\Column(type="string", length=255,nullable=true)
      */
     private $token;
 
@@ -167,6 +167,24 @@ class User extends AbstractAdvancedUser
         //Add his stock
         $this->setStock(new Stock());
     }
+
+    /**
+     * COUND BE done with doctrine events
+     * @see http://doctrine-orm.readthedocs.io/en/latest/reference/events.html#reference-events-lifecycle-events
+     *
+     * @ PrePersist
+    public function doStuffOnPrePersist()
+    {
+        // Symfony automatically serialize it
+        $this->setRoles('ROLE_MEMBER');
+        // initialize date creation on User creation
+        $this->dateInscription = new \DateTime();
+        //by default account is not active and has to be validated by email
+        $this->setDisabled();
+        //Add his stock
+        $this->setStock(new Stock());
+    }
+    */
 
     /*#########
     # Methods #

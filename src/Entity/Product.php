@@ -60,9 +60,9 @@ class Product
     private $embCode;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=255)
      *
-     * @Assert\Length(max=150,maxMessage="product name is too long")
+     * @Assert\Length(max=255,maxMessage="product name is too long")
      * @Assert\NotBlank(message="product name should not be blank")
      *
      * @var string
@@ -70,9 +70,9 @@ class Product
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=255,nullable=true)
      *
-     * @Assert\Length(max=150,maxMessage="product common name is too long")
+     * @Assert\Length(max=255,maxMessage="product common name is too long")
      *
      * @var string
      */
@@ -252,7 +252,7 @@ class Product
     private $ingredientPicture;
 
     /**
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\Column(type="string", length=255,nullable=true)
      *
      * @var string
      */
@@ -277,7 +277,7 @@ class Product
     private $nutriscore;
 
     /**
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\Column(type="string", length=255,nullable=true)
      *
      * @var string
      */
@@ -632,9 +632,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCommonName(): string
+    public function getCommonName(): ?string
     {
         return $this->commonName;
     }
@@ -1052,9 +1052,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getEnergy(): float
+    public function getEnergy(): ?float
     {
         return $this->energy;
     }
@@ -1072,9 +1072,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEnergyUnit(): string
+    public function getEnergyUnit(): ?string
     {
         return $this->energyUnit;
     }
@@ -1092,9 +1092,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelFat(): float
+    public function getLevelFat(): ?float
     {
         return $this->levelFat;
     }
@@ -1112,9 +1112,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelFatUnit(): string
+    public function getLevelFatUnit(): ?string
     {
         return $this->levelFatUnit;
     }
@@ -1132,9 +1132,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelSaturedFat(): float
+    public function getLevelSaturedFat(): ?float
     {
         return $this->levelSaturedFat;
     }
@@ -1152,9 +1152,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelSaturedFatUnit(): string
+    public function getLevelSaturedFatUnit(): ?string
     {
         return $this->levelSaturedFatUnit;
     }
@@ -1172,9 +1172,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelCarbohydrate(): float
+    public function getLevelCarbohydrate(): ?float
     {
         return $this->levelCarbohydrate;
     }
@@ -1192,9 +1192,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelCarbohydrateUnit(): string
+    public function getLevelCarbohydrateUnit(): ?string
     {
         return $this->levelCarbohydrateUnit;
     }
@@ -1212,9 +1212,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelSugar(): float
+    public function getLevelSugar(): ?float
     {
         return $this->levelSugar;
     }
@@ -1232,9 +1232,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelSugarUnit(): string
+    public function getLevelSugarUnit(): ?string
     {
         return $this->levelSugarUnit;
     }
@@ -1252,9 +1252,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelDietaryFiber(): float
+    public function getLevelDietaryFiber(): ?float
     {
         return $this->levelDietaryFiber;
     }
@@ -1272,9 +1272,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelDietaryFiberUnit(): string
+    public function getLevelDietaryFiberUnit(): ?string
     {
         return $this->levelDietaryFiberUnit;
     }
@@ -1292,9 +1292,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelProteins(): float
+    public function getLevelProteins(): ?float
     {
         return $this->levelProteins;
     }
@@ -1312,9 +1312,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelProteinsUnit(): string
+    public function getLevelProteinsUnit(): ?string
     {
         return $this->levelProteinsUnit;
     }
@@ -1332,9 +1332,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelSalt(): float
+    public function getLevelSalt(): ?float
     {
         return $this->levelSalt;
     }
@@ -1352,9 +1352,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelSaltUnit(): string
+    public function getLevelSaltUnit(): ?string
     {
         return $this->levelSaltUnit;
     }
@@ -1372,9 +1372,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelSodium(): float
+    public function getLevelSodium(): ?float
     {
         return $this->levelSodium;
     }
@@ -1392,9 +1392,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelSodiumUnit(): string
+    public function getLevelSodiumUnit(): ?string
     {
         return $this->levelSodiumUnit;
     }
@@ -1412,9 +1412,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelAlcohol(): float
+    public function getLevelAlcohol(): ?float
     {
         return $this->levelAlcohol;
     }
@@ -1434,7 +1434,7 @@ class Product
     /**
      * @return float
      */
-    public function getLevelSilica(): float
+    public function getLevelSilica(): ?float
     {
         return $this->levelSilica;
     }
@@ -1452,9 +1452,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelSilicaUnit(): string
+    public function getLevelSilicaUnit(): ?string
     {
         return $this->levelSilicaUnit;
     }
@@ -1472,9 +1472,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelBicarbonate(): float
+    public function getLevelBicarbonate(): ?float
     {
         return $this->levelBicarbonate;
     }
@@ -1492,9 +1492,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelBicarbonateUnit(): string
+    public function getLevelBicarbonateUnit(): ?string
     {
         return $this->levelBicarbonateUnit;
     }
@@ -1512,9 +1512,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelPotassium(): float
+    public function getLevelPotassium(): ?float
     {
         return $this->levelPotassium;
     }
@@ -1532,9 +1532,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelPotassiumUnit(): string
+    public function getLevelPotassiumUnit(): ?string
     {
         return $this->levelPotassiumUnit;
     }
@@ -1552,9 +1552,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelChloride(): float
+    public function getLevelChloride(): ?float
     {
         return $this->levelChloride;
     }
@@ -1572,9 +1572,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelChlorideUnit(): string
+    public function getLevelChlorideUnit(): ?string
     {
         return $this->levelChlorideUnit;
     }
@@ -1592,9 +1592,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelCalcium(): float
+    public function getLevelCalcium(): ?float
     {
         return $this->levelCalcium;
     }
@@ -1612,9 +1612,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelCalciumUnit(): string
+    public function getLevelCalciumUnit(): ?string
     {
         return $this->levelCalciumUnit;
     }
@@ -1632,9 +1632,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelMagnesium(): float
+    public function getLevelMagnesium(): ?float
     {
         return $this->levelMagnesium;
     }
@@ -1652,9 +1652,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelMagnesiumUnit(): string
+    public function getLevelMagnesiumUnit(): ?string
     {
         return $this->levelMagnesiumUnit;
     }
@@ -1672,9 +1672,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelNitrates(): float
+    public function getLevelNitrates(): ?float
     {
         return $this->levelNitrates;
     }
@@ -1692,9 +1692,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelNitratesUnit(): string
+    public function getLevelNitratesUnit(): ?string
     {
         return $this->levelNitratesUnit;
     }
@@ -1712,9 +1712,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getLevelSulfates(): float
+    public function getLevelSulfates(): ?float
     {
         return $this->levelSulfates;
     }
@@ -1732,9 +1732,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLevelSulfatesUnit(): string
+    public function getLevelSulfatesUnit(): ?string
     {
         return $this->levelSulfatesUnit;
     }
@@ -1752,9 +1752,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getFootprint(): float
+    public function getFootprint(): ?float
     {
         return $this->footprint;
     }
@@ -1772,9 +1772,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFootprintUnit(): string
+    public function getFootprintUnit(): ?string
     {
         return $this->footprintUnit;
     }

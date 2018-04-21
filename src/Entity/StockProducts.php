@@ -116,9 +116,9 @@ class StockProducts
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getDateExpire(): \DateTime
+    public function getDateExpire(): ?\DateTime
     {
         return $this->dateExpire;
     }

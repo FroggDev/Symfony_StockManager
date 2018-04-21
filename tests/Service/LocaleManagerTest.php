@@ -10,24 +10,17 @@
 
 namespace App\Tests\Security;
 
-use App\Entity\User;
-use App\Security\UserChecker;
-use App\Security\UserManager;
+
 use App\Service\LocaleManager;
-use App\Service\MailerManager;
+
 use App\SiteConfig;
-use Doctrine\ORM\EntityManagerInterface;
+
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\HeaderBag;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use Symfony\Component\Routing\RouterInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Translation\TranslatorInterface;
-use Twig\Environment;
+
 
 /**
  * @author Frogg <admin@frogg.fr>

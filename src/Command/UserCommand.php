@@ -92,7 +92,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  * Symfony console
  * @see https://symfony.com/doc/current/console.html
  */
-class UserManager extends Command
+class UserCommand extends Command
 {
     /** @const int EXITCODE the normal code returned when exit the command */
     public const EXITCODE = 0;

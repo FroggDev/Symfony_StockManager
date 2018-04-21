@@ -69,7 +69,7 @@ document.app.Product = {
         document.app.Product.lastRemoved = data;
 
         document.app.toastResult = M.toast({
-            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelRemoveFromStock,document.app.Product.lastRemoved ,document.app.Product.cancelRemoveFormStock,\'POST\'));">CANCEL</button>',
+            html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelRemoveFromStock,document.app.Product.lastRemoved ,document.app.Product.cancelRemoveFormStock,\'POST\');">CANCEL</button>',
             displayLength: 7000,
             classes: 'green',
             completeCallback: function () {
@@ -79,7 +79,11 @@ document.app.Product = {
     },
 
     cancelRemoveFormStock: function (data) {
-        document.app.Product.cancelCurrent.cancel();
+
+        console.log('cancelRemoveFormStock');
+        console.log(data);
+
+        document.app.Product.cancelCurrent.cancel(data);
 
         document.app.toastResult = M.toast({
             html: 'Removed ' + data.name + ' <br> has been canceled',
@@ -105,14 +109,18 @@ document.app.Product = {
             this.selectExpire = selectExpire;
         },
 
-        cancel: function () {
+        cancel: function (data) {
+
+            i=0;
+
             //restore datas
             this.obj.innerHTML = this.nbProduct;
 
             //restore date
             if(this.selectExpire) {
             for (expire in this.expires) {
-                    this.selectExpire.insertAdjacentHTML('afterbegin', '<option value="' + this.expires[expire] + '">' + this.expires[expire] + '</option>');
+                    this.selectExpire.insertAdjacentHTML('afterbegin', '<option value="' + data['ids'][i] + '">' + this.expires[expire] + '</option>');
+                i++;
                 }
             }
 
@@ -136,6 +144,10 @@ document.app.Product = {
 
     removeProduct: function (evt) {
 
+        /**
+         * TODO : THIS ONE CAN BE CLEANED
+         */
+
         // Prevent collapse to trigger
         document.app.Util.preventPropagation(evt);
 
@@ -148,11 +160,26 @@ document.app.Product = {
             return val !== ""
         });
 
+        var ids = [];
+
+        console.log(this.parentNode.parentNode.querySelector('h4 .nbProduct').innerHTML + this.parentNode.parentNode.querySelector('h4 .name').innerHTML);
+
         if (nbProduct > 0 && expireDates.length > 0) {
 
             if(selectExpire){
                 for (date in expireDates) {
-                    selectExpire.remove(selectExpire.querySelector('option[value="' + expireDates[date] + '"]').index);
+
+                    select = selectExpire.querySelectorAll('option');
+
+                    for(option in select){
+                        if(select[option].text===expireDates[date]){
+                            ids.push(select[option].value);
+                            selectExpire.remove(select[option].index);
+                            break;
+                        }
+                    }
+
+                    //selectExpire.remove(selectExpire.querySelector('option[value="' + val + '"]').index);
                 }
 
                 //set selected
@@ -167,8 +194,8 @@ document.app.Product = {
             document.app.Product.list.init();
 
             document.app.Util.doAjax(document.app.url.removeFromStock, {
-                barcode: this.parentNode.parentNode.querySelector('.barcode').value,
-                expire: expireDates
+                ids: ids,
+                name : this.parentNode.parentNode.querySelector('h4 .nbProduct').innerHTML + this.parentNode.parentNode.querySelector('h4 .name').innerHTML
             }, document.app.Product.removeFromStock);
         }
     },

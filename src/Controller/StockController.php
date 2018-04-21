@@ -10,16 +10,14 @@
 
 namespace App\Controller;
 
-use App\Common\Traits\Client\ResponseTrait;
 use App\Entity\Product;
 use App\Entity\StockProducts;
-use App\Service\LocaleManager;
-use App\Stock\ProductManager;
+use App\Service\Stock\ProductManager;
+use App\SiteConfig;
 use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -107,22 +105,51 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/liste.html/{currentPage?1}",
-     *     "en": "/list.html/{currentPage?1}"
+     *     "fr": "/liste.html/{currentPage?1}/{order?1}",
+     *     "en": "/list.html/{currentPage?1}/{order?1}"
      *     },
      *     name="list",
      *     methods={"GET","POST"}
      * )
+     * @param EntityManagerInterface $manager
+     * @param string $currentPage
+     * @param string $order
+     *
      * @return Response
      */
-    public function list(EntityManagerInterface $manager, string $currentPage)
+    public function list(EntityManagerInterface $manager, string $currentPage, string $order)
     {
-        $products = $manager
+        // get the selected request order
+        switch ($order) {
+            case 2:
+                $requestOrder = 'sp.dateCreation';
+                break;
+            case 3:
+                $requestOrder = 'p.name';
+                break;
+            default:
+                $requestOrder = 'sp.dateExpire';
+        }
+
+        // Get all datas linked to stock id (with limit)
+        $stockProducts = $manager
             ->getRepository(StockProducts::class)
-            ->findByGroupedProduct($this->getUser()->getStock(),(int) $currentPage, 'sp.dateExpire');
+            ->findByGroupedProduct(
+                $this->getUser()->getStock()->getId(),
+                (int)$currentPage,
+                $requestOrder
+            );
 
         // Display product list
-        return $this->render('stock/list.html.twig',['products'=>$products , 'currentPage' => $currentPage, 'countPagination' => 5]);
+        return $this->render(
+            'stock/list.html.twig',
+            [
+                'stockProducts' => $stockProducts,
+                'currentPage' => $currentPage,
+                'countPagination' => 5,
+                'order' => $order
+            ]
+        );
     }
 
     /*######
@@ -142,9 +169,10 @@ class StockController extends Controller
      * )
      *
      * @Entity("product",expr="repository.findOneByBarcode(barcode)")
-     * @param null|string $barcode
+     * @param Product $product
      * @param null|string $from
-     * @return void
+     *
+     * @return Response
      */
     public function showProduct(Product $product, ?string $from)
     {
@@ -216,7 +244,7 @@ class StockController extends Controller
      *
      * @return Response
      */
-    public function ajaxCodeBar(ProductManager $productManager)//(ProductManager $productManager)
+    public function ajaxCodeBar(ProductManager $productManager)//(ProductCommand $productManager)
     {
         return new Response($productManager->getProductFromBarcode());
     }
@@ -278,7 +306,7 @@ class StockController extends Controller
         }
 
         //add to request
-        $request->request->add(['productIds' => implode(",",$ids)]);
+        $request->request->add(['productIds' => implode(",", $ids)]);
         $request->request->add(['result' => 'ok']);
 
         return new Response(json_encode($request->request->all()));
@@ -289,17 +317,54 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/ajax/remove.{_format<json>?json}",
-     *     "en": "/ajax/supprimer.{_format<json>?json}"
+     *     "fr": "/ajax/remove.{_format<json|html>?json}",
+     *     "en": "/ajax/supprimer.{_format<json|html>?json}"
      *     },
      *     name="ajax_remove",
      *     methods={"GET"}
      * )
      * @return Response
      */
-    public function ajaxRemove()
+    public function ajaxRemove(Request $request, EntityManagerInterface $manager)
     {
-        return new Response("TODO");
+        /**
+         * Get datas from request
+         */
+        $ids = explode(',', $request->get('ids'));
+
+
+        /** @var array $return */
+        $return = [];
+
+        foreach ($ids as $id) {
+
+            $StockProduct = $manager
+                ->getRepository(StockProducts::class)
+                ->findOneById($id);
+
+            $return['data'][] = $this->getFormatedData($StockProduct);
+
+            $manager->remove($StockProduct);
+            //$manager->flush();
+        }
+
+        $return['name'] = $request->get('name');
+        $return['result'] = 'ok';
+
+        return new Response(json_encode($return));
+    }
+
+
+    /**
+     * @param StockProducts $StockProduct
+     */
+    private function getFormatedData(StockProducts $StockProduct)
+    {
+        $data['dateCreation'] = $StockProduct->getDateCreation();
+        $data['dateExpire'] = $StockProduct->getDateExpire();
+        $data['productId'] = $StockProduct->getProduct()->getId();
+
+        return $data;
     }
 
     /**
@@ -307,17 +372,47 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/ajax/annulation/suppression.{_format<json>?json}",
-     *     "en": "/ajax/cancel/remove.{_format<json>?json}"
+     *     "fr": "/ajax/annulation/suppression.{_format<json|html>?json}",
+     *     "en": "/ajax/cancel/remove.{_format<json|html>?json}"
      *     },
      *     name="ajax_cancel_remove",
-     *     methods={"GET"}
+     *     methods={"GET","POST"}
      * )
      * @return Response
      */
-    public function ajaxCancelRemove()
+    public function ajaxCancelRemove(Request $request, EntityManagerInterface $manager)
     {
-        return new Response("TODO");
+
+        $ids = [];
+
+        $datas = $request->get('data');
+
+
+        var_dump($datas);
+        exit();
+
+
+
+        foreach($datas as $data){
+
+            dump($data);
+
+            $stockProduct = new StockProducts();
+
+            $stockProduct
+                ->setDateExpire( $data['dateExpire'])
+                ->setDateCreation($data['dateCreation'])
+                ->setProduct($manager->getRepository(Product::class)->findOne($data['productId']))
+                ->setStock($this->getUser()->getStock());
+
+            //$manager->persist($stockProduct);
+            //$manager->flush();
+
+            $ids[]=$stockProduct->getId();
+
+        }
+        exit();
+        return new Response(json_encode(['result' => 'ok','ids' => $ids,'name' => $data['name']]));
     }
 
     /**
@@ -335,7 +430,7 @@ class StockController extends Controller
      * @param EntityManager $manager
      * @return Response
      */
-    public function ajaxCancelAdd(Request $request,EntityManagerInterface $manager)
+    public function ajaxCancelAdd(Request $request, EntityManagerInterface $manager)
     {
         /**
          * TODO : PUT THIS SOMEWHERE MORE CLEAN
@@ -345,7 +440,7 @@ class StockController extends Controller
          * Get datas from form
          */
 
-        $productIds = explode(",",$request->get('productIds'));
+        $productIds = explode(",", $request->get('productIds'));
 
         foreach ($productIds as $id) {
             $stockProduct = $manager

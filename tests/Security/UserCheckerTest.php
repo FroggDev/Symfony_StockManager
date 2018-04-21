@@ -18,9 +18,8 @@ use App\Exception\Account\AccountClosedException;
 use App\Exception\Account\AccountDeletedException;
 use App\Exception\Account\AccountDisabledException;
 use App\Exception\Account\AccountExpiredTokenException;
-use App\Exception\Account\AccountNotFoundException;
 use App\Exception\Account\AccountTypeException;
-use App\Security\UserChecker;
+use App\Service\Security\UserChecker;
 use App\Tests\Security\FakeClass\UserFake;
 use PHPUnit\Framework\TestCase;
 

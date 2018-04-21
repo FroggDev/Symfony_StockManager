@@ -267,21 +267,8 @@ background-size: cover;}
 
   #index-banner .section { top: 0; }
 
-  .parallax-container.connected{display:none}
-
   .home.container {margin-top: 2em;  }
 
   /* PRODUCT DETAIL */
   .productdetail I{    display: block;   float: none !important;    text-align: center;  }
-
-/* FOOTER */
-
-  .extra-credits{display:none;}
-
-}
-
-@media only screen and (max-width : 400px) {
-
-  #result .tag{display:none}
-
 }

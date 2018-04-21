@@ -11,16 +11,14 @@
 namespace App\Tests\Security;
 
 use App\Entity\User;
-use App\Security\UserChecker;
-use App\Security\UserManager;
+use App\Service\Security\UserChecker;
+use App\Service\Security\UserManager;
 use App\Service\MailerManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Twig\Environment;
@@ -212,7 +210,7 @@ class UserManagerTest extends KernelTestCase
     }
 
     /*####################
-     # UserManager TESTS #
+     # UserCommand TESTS #
      ####################*/
 
     /*---------
@@ -511,16 +509,6 @@ class UserManagerTest extends KernelTestCase
 
         $this->assertInstanceOf('App\Entity\User',$result['user']);
     }
-
-
-
-
-
-
-
-
-
-
 
     /*#############
      # UTIL FUNCS #

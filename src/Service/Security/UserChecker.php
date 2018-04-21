@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Security;
+namespace App\Service\Security;
 
 use App\Entity\User;
 use App\Exception\Account\AccountAlreadyActivatedException;

@@ -43,6 +43,7 @@ class AppExtension extends \Twig_Extension
      * {{ getActiveMenu("route_name") }}
      * {{ asset( getProductImage(product.barcode,product.picture) ) }}
      * {{ getLink('route',test,{params:params},"class") }}
+     * {{ getExpires( product,app.user.stock )  }}
      */
     public function getFunctions(): array
     {
@@ -51,6 +52,10 @@ class AppExtension extends \Twig_Extension
             new \Twig_Function('getActiveMenu', [Menu::class, 'getActiveMenu']),
             // Image product
             new \Twig_Function('getProductImage', [Product::class, 'getProductImage']),
+            // Expiration dates
+            new \Twig_Function('getExpires', [Product::class, 'getExpires']),
+            // Product nutrition info
+            new \Twig_Function('getNutritionalInfo' , [Product::class,'getNutritionalInfo']),
             // Global link generator
             new \Twig_Function('getLink' , [Link::class,'getLink'])
         ];
