@@ -50,6 +50,11 @@ class SiteConfig
      * @const string
      */
     const SITECHARSET = 'UTF-8';
+    /**
+     * website physical path
+     * @const string
+     */
+    const SITEPATH = 'C:/symfony/Symfony_StockManager/public/';
 
     /*########
     # LOCALE #

@@ -2,61 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/sql/stock.sql" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/sql/user.sql" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Command/DatabaseCommand.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Command/ProductCommand.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_DOC/site_commands.txt" afterPath="$PROJECT_DIR$/_DOC/site_commands.txt" />
       <change beforePath="$PROJECT_DIR$/assets/inc/css/style.css" afterPath="$PROJECT_DIR$/assets/inc/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/assets/inc/js/product.js" afterPath="$PROJECT_DIR$/assets/inc/js/product.js" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" afterPath="$PROJECT_DIR$/config/packages/security.yaml" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" afterPath="$PROJECT_DIR$/config/services.yaml" />
-      <change beforePath="$PROJECT_DIR$/public/inc/css/main.90561294b507047aecf88c4826049a2a.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/inc/js/product.4dc960f86c6f68a3e91c.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/inc/manifest.json" afterPath="$PROJECT_DIR$/public/inc/manifest.json" />
-      <change beforePath="$PROJECT_DIR$/public/lib/class/ajax.class.js" afterPath="$PROJECT_DIR$/public/lib/class/ajax.class.js" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserManager.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StockController.php" afterPath="$PROJECT_DIR$/src/Controller/StockController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" afterPath="$PROJECT_DIR$/src/Entity/Product.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Additive.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Additive.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Alergy.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Alergy.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Brand.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Brand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Certification.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Certification.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Origin.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Origin.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Packaging.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Packaging.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Place.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Place.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/StockProducts.php" afterPath="$PROJECT_DIR$/src/Entity/StockProducts.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" afterPath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20180420153428.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" afterPath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AbstractAdvancedUser.php" afterPath="$PROJECT_DIR$/src/Service/Security/AbstractAdvancedUser.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" afterPath="$PROJECT_DIR$/src/Service/Security/AccessDeniedHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserChecker.php" afterPath="$PROJECT_DIR$/src/Service/Security/UserChecker.php" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserManager.php" afterPath="$PROJECT_DIR$/src/Service/Security/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Databasemanager.php" afterPath="$PROJECT_DIR$/src/Service/DatabaseManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" afterPath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Product.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Product.php" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/3057640234163.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/3270190025337.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" afterPath="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" />
       <change beforePath="$PROJECT_DIR$/src/SiteConfig.php" afterPath="$PROJECT_DIR$/src/SiteConfig.php" />
-      <change beforePath="$PROJECT_DIR$/src/Stock/ProductManager.php" afterPath="$PROJECT_DIR$/src/Service/Stock/ProductManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Stock/ProductScraper.php" afterPath="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" />
-      <change beforePath="$PROJECT_DIR$/templates/components/common/footer_mini.html.twig" afterPath="$PROJECT_DIR$/templates/components/common/footer_mini.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/components/common/nav.html.twig" afterPath="$PROJECT_DIR$/templates/components/common/nav.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/components/common/parallax_mini.html.twig" afterPath="$PROJECT_DIR$/templates/components/common/parallax_mini.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock.html.twig" afterPath="$PROJECT_DIR$/templates/stock.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/form_add.html.twig" afterPath="$PROJECT_DIR$/templates/stock/form_add.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/form_add_to_stock.html.twig" afterPath="$PROJECT_DIR$/templates/stock/form_add_to_stock.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/list.html.twig" afterPath="$PROJECT_DIR$/templates/stock/list.html.twig" />
-      <change beforePath="$PROJECT_DIR$/tests/Command/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/Command/UserManagerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/AccessDeniedHandlerTest.php" afterPath="$PROJECT_DIR$/tests/Security/AccessDeniedHandlerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserCheckerTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserCheckerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/Security/UserManagerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Service/LocaleManagerTest.php" afterPath="$PROJECT_DIR$/tests/Service/LocaleManagerTest.php" />
+      <change beforePath="$PROJECT_DIR$/upload/product/305/764/023/4163/3057640234163.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/upload/product/317/853/041/2925/3178530412925.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/upload/product/324/093/051/4025/3240930514025.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/upload/product/325/039/077/9100/3250390779100.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/upload/product/325/622/439/8264/3256224398264.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/upload/product/406/230/012/6664/4062300126664.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/upload/product/761/303/553/0799/7613035530799.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/upload/product/800/227/001/5786/8002270015786.jpg" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -103,8 +61,18 @@
       <file leaf-file-name="ProductScraper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/Stock/ProductScraper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="344" column="59" lean-forward="false" selection-start-line="344" selection-start-column="59" selection-end-line="344" selection-end-column="59" />
+            <state relative-caret-position="642">
+              <caret line="211" column="43" lean-forward="true" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SiteConfig.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SiteConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="215" column="18" lean-forward="false" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -124,13 +92,13 @@
         <entry file="file://$PROJECT_DIR$/templates/stock/form_add.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+              <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockProductsRepository.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockProductsRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/StockProductsRepository.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="472">
@@ -154,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/src/Service/Stock/ProductManager.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="367">
-              <caret line="70" column="41" lean-forward="true" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+              <caret line="70" column="41" lean-forward="false" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -164,21 +132,8 @@
         <entry file="file://$PROJECT_DIR$/src/Command/ProductCommand.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="933">
-              <caret line="135" column="49" lean-forward="true" selection-start-line="135" selection-start-column="49" selection-end-line="135" selection-end-column="49" />
+              <caret line="135" column="49" lean-forward="false" selection-start-line="135" selection-start-column="49" selection-end-line="135" selection-end-column="49" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseCommand.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Command/DatabaseCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="95" column="23" lean-forward="false" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="35" />
-              <folding>
-                <element signature="e#6#1351#0#PHP" expanded="true" />
-                <element signature="e#1377#1423#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -187,7 +142,7 @@
         <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="116" lean-forward="true" selection-start-line="4" selection-start-column="116" selection-end-line="4" selection-end-column="129" />
+              <caret line="4" column="116" lean-forward="false" selection-start-line="4" selection-start-column="116" selection-end-line="4" selection-end-column="129" />
               <folding />
             </state>
           </provider>
@@ -206,7 +161,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>expires</find>
       <find>$dateExpire</find>
       <find>getDateExpire</find>
       <find>expire</find>
@@ -236,6 +190,7 @@
       <find>getCommonName</find>
       <find>Databasemanager</find>
       <find>Database</find>
+      <find>imgproduct</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -276,7 +231,6 @@
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/templates/stock/form_add_to_stock.html.twig" />
         <option value="$PROJECT_DIR$/templates/components/common/parallax_mini.html.twig" />
-        <option value="$PROJECT_DIR$/assets/inc/css/style.css" />
         <option value="$PROJECT_DIR$/templates/components/common/footer_mini.html.twig" />
         <option value="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" />
         <option value="$PROJECT_DIR$/src/Service/Twig/Func/ProductExpires.php" />
@@ -301,16 +255,17 @@
         <option value="$PROJECT_DIR$/src/Entity/Product.php" />
         <option value="$PROJECT_DIR$/sql/user.sql" />
         <option value="$PROJECT_DIR$/sql/stock.sql" />
-        <option value="$PROJECT_DIR$/src/SiteConfig.php" />
         <option value="$PROJECT_DIR$/src/Service/Databasemanager.php" />
         <option value="$PROJECT_DIR$/src/Command/ProductManager.php" />
         <option value="$PROJECT_DIR$/src/Command/DatabaseManager.php" />
         <option value="$PROJECT_DIR$/_DOC/site_commands.txt" />
         <option value="$PROJECT_DIR$/src/Command/DatabaseCommand.php" />
         <option value="$PROJECT_DIR$/src/Service/DatabaseManager.php" />
-        <option value="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" />
         <option value="$PROJECT_DIR$/templates/stock/form_add.html.twig" />
         <option value="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
+        <option value="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" />
+        <option value="$PROJECT_DIR$/src/SiteConfig.php" />
+        <option value="$PROJECT_DIR$/assets/inc/css/style.css" />
       </list>
     </option>
   </component>
@@ -503,7 +458,14 @@
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Service" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Service" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Stock" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -642,7 +604,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="698777000" />
+    <option name="totallyTimeSpent" value="699737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -715,14 +677,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/stock/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="76" column="81" lean-forward="false" selection-start-line="76" selection-start-column="74" selection-end-line="76" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/Twig/Func/Link.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -913,14 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="83" column="37" lean-forward="true" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Product/Place.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1048,7 +994,7 @@
         <state relative-caret-position="255">
           <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
           <folding>
-            <element signature="e#243#262#0#PHP" expanded="true" />
+            <element signature="e#243#262#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1067,7 +1013,7 @@
     <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="116" lean-forward="true" selection-start-line="4" selection-start-column="116" selection-end-line="4" selection-end-column="129" />
+          <caret line="4" column="116" lean-forward="false" selection-start-line="4" selection-start-column="116" selection-end-line="4" selection-end-column="129" />
           <folding />
         </state>
       </provider>
@@ -1083,7 +1029,7 @@
     <entry file="file://$PROJECT_DIR$/src/Service/Stock/ProductManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
-          <caret line="70" column="41" lean-forward="true" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+          <caret line="70" column="41" lean-forward="false" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1091,15 +1037,7 @@
     <entry file="file://$PROJECT_DIR$/src/Command/ProductCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="933">
-          <caret line="135" column="49" lean-forward="true" selection-start-line="135" selection-start-column="49" selection-end-line="135" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Stock/ProductScraper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="344" column="59" lean-forward="false" selection-start-line="344" selection-start-column="59" selection-end-line="344" selection-end-column="59" />
+          <caret line="135" column="49" lean-forward="false" selection-start-line="135" selection-start-column="49" selection-end-line="135" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -1115,7 +1053,7 @@
     <entry file="file://$PROJECT_DIR$/templates/stock/form_add.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+          <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1131,6 +1069,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
           <caret line="92" column="97" lean-forward="false" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Stock/ProductScraper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="211" column="43" lean-forward="true" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/inc/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="142" column="110" lean-forward="false" selection-start-line="142" selection-start-column="110" selection-end-line="142" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="215" column="18" lean-forward="false" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
           <folding />
         </state>
       </provider>

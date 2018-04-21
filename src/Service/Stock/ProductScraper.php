@@ -209,7 +209,7 @@ class ProductScraper
         $imageFolder = $this->getFolder($this->barcode);
 
         //create the local folder
-        $localFolder = SiteConfig::UPLOADPATH . $imageFolder;
+        $localFolder = SiteConfig::SITEPATH . SiteConfig::UPLOADPATH . $imageFolder;
         @mkdir($localFolder, 0777, true);
 
         // get product image full path
