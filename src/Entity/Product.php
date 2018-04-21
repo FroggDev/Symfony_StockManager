@@ -516,8 +516,11 @@ class Product
      # OTHER #
      ########*/
 
-
-    /** @var float */
+    /**
+     * @ORM\Column(type="float",nullable=true)
+     *
+     * @var float
+     */
     private $footprint;
     /**
      * @var string
@@ -712,9 +715,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProducerPage(): string
+    public function getProducerPage(): ?string
     {
         return $this->producerPage;
     }
@@ -972,9 +975,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIngredients(): string
+    public function getIngredients(): ?string
     {
         return $this->ingredients;
     }
@@ -992,9 +995,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNutritionPicture(): string
+    public function getNutritionPicture(): ?string
     {
         return $this->nutritionPicture;
     }
@@ -1012,9 +1015,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNutriscore(): string
+    public function getNutriscore(): ?string
     {
         return $this->nutriscore;
     }
@@ -1032,9 +1035,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getServingSize(): string
+    public function getServingSize(): ?string
     {
         return $this->servingSize;
     }

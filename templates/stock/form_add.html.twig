@@ -18,10 +18,10 @@
             <!-- Display bar code scanner -->
             <div class="card toHideWhenOff bgItems">
 
-                <form id="searchProduct" action="listresult.html">
+                <form id="searchProduct" method="post" action="{{ path('stock_product_result') }}">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">search</i>
-                        <input required="required" type="text" id="autocomplete-input" class="autocomplete speech-input" autocomplete="off" lang="fr" data-instant-submit>
+                        <input required="required" type="text" name="search" id="autocomplete-input" class="autocomplete speech-input" autocomplete="off" lang="fr" data-instant-submit>
                         <label for="autocomplete-input"></label>
                     </div>
                     <input type="submit" class="waves-effect waves-light btn" value="ok">

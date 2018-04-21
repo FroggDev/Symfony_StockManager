@@ -169,6 +169,7 @@ class StockController extends Controller
      * )
      *
      * @Entity("product",expr="repository.findOneByBarcode(barcode)")
+     *
      * @param Product $product
      * @param null|string $from
      *
@@ -190,22 +191,49 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/fiche-produit.html",
-     *     "en": "/product-description.html"
+     *     "fr": "/fiche-produit.html/{barcode<[^/]*>?}/{from<.*>?}",
+     *     "en": "/product-description.html/{barcode<[^/]*>?}/{from<.*>?}"
      *     },
      *     name="product_card",
      *     methods={"GET","POST"}
      * )
-     * @return Response
+     *
+     * @Entity("product",expr="repository.findOneByBarcode(barcode)")
+     *
+     * @param Product $product
+     * @param null|string $from
+     *
+     * @return void
      */
-    public function showProductCard()
+    public function showProductCard(Product $product, ?string $from)
     {
-        return new Response("TODO");
+        return $this->render('stock/product.html.twig', ['from' => $from, 'product' => $product]);
     }
 
-    /*#######
-     # LIST #
-     #######*/
+    /*#########
+     # SEARCH #
+     #########*/
+
+    /**
+     * Route to display search result
+     *
+     * @Route(
+     *     {
+     *     "fr": "/produit/recherche.html",
+     *     "en": "/product/search.html"
+     *     },
+     *     name="product_result",
+     *     methods={"POST"}
+     * )
+     * @return Response
+     */
+    public function showProductResult(Request $request)
+    {
+
+        dump($request->request);
+
+        return new Response("TODO");
+    }
 
     /**
      * Route to display search result

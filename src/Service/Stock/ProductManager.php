@@ -56,7 +56,7 @@ class ProductManager
     public function getProductFromBarcode(string $barcode = null)
     {
         // get barcode from request
-        if(null===$barcode){
+        if (null === $barcode) {
             $barcode = $this->request->query->get('barcode');
         }
 

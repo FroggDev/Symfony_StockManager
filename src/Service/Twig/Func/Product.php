@@ -59,6 +59,19 @@ class Product extends AbstractTwigExtension
         return SiteConfig::UPLOADPATH . $this->getFolder($barcode) . $image;
     }
 
+
+    /**
+     * @param Iterable  $object
+     *
+     * @return string
+     */
+    public function getFormatedList(Iterable $object)
+    {
+        $arrayObject = $object->toArray();
+
+        return implode(', ',array_map(function ($value) {return $value->getName(); },$arrayObject,array_keys($arrayObject)));
+    }
+
     /**
      * @param int $productId
      *

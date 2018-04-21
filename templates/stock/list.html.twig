@@ -41,11 +41,10 @@
                                 <div class="left"><img class="nutriscore" src="{{ asset('img/nutriscore/a.svg') }}"></div>
                                 <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
                                 <a class="btn-floating green waves-effect waves-light" href="{{ path('stock_product',{'from' : 'stock_list','barcode' : product.barcode})  }}"><i class="material-icons">add</i></a>
-                                <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="{{ path('stock_product_card') }}"><i class="material-icons">visibility</i></a>
+                                <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="{{ path('stock_product_card',{'from' : 'stock_list','barcode' : product.barcode}) }}"><i class="material-icons">visibility</i></a>
                             </div>
                         </div>
                         <div class="collapsible-body">
-                            {# TODO #}
                             <h5>Repères nutritionnels pour 100 g ({{ product.energy }} {{ product.energyUnit }})</h5>
                             {{ getNutritionalInfo(product) | raw }}
                         </div>
