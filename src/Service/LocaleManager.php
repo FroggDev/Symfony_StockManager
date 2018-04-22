@@ -43,7 +43,7 @@ class LocaleManager
     /**
      * LocaleService constructor.
      * @param RouterInterface $router
-     * @param RequestStack $requestStack
+     * @param RequestStack    $requestStack
      */
     public function __construct(RouterInterface $router, RequestStack $requestStack)
     {

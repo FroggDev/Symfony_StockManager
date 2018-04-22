@@ -12,21 +12,19 @@ namespace App\Service\Twig\Func;
 
 use App\Common\Traits\Product\FolderTrait;
 use App\Entity\StockProducts;
+use App\Repository\StockProductsRepository;
 use App\Service\Twig\AbstractTwigExtension;
 use App\SiteConfig;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-
 /**
  * @author Frogg <admin@frogg.fr>
  */
 class Product extends AbstractTwigExtension
 {
-
     use FolderTrait;
-
 
     /**
      * @var EntityManagerInterface
@@ -41,6 +39,7 @@ class Product extends AbstractTwigExtension
     /**
      * Product constructor.
      * @param EntityManagerInterface $manager
+     * @param RequestStack           $requestStack
      */
     public function __construct(EntityManagerInterface $manager, RequestStack $requestStack)
     {
@@ -50,18 +49,18 @@ class Product extends AbstractTwigExtension
 
     /**
      * @param string $barcode
-     * @param string $image |null
+     * @param string $image   |null
      *
      * @return string
      */
     public function getProductImage(string $barcode, ?string $image): string
     {
-        return SiteConfig::UPLOADPATH . $this->getFolder($barcode) . $image;
+        return SiteConfig::UPLOADPATH.$this->getFolder($barcode).$image;
     }
 
 
     /**
-     * @param Iterable  $object
+     * @param Iterable $object
      *
      * @return string
      */
@@ -69,22 +68,29 @@ class Product extends AbstractTwigExtension
     {
         $arrayObject = $object->toArray();
 
-        return implode(', ',array_map(function ($value) {return $value->getName(); },$arrayObject,array_keys($arrayObject)));
+        return implode(', ', array_map(function ($value) {
+            return $value->getName();
+        }, $arrayObject, array_keys($arrayObject)));
     }
 
     /**
-     * @param int $productId
+     * @param int      $productId
+     * @param int      $stockId
+     * @param int|null $inDay
      *
      * @return string
      */
-    public function getExpires(int $productId, int $stockId): string
+    public function getDateExpires(int $productId, int $stockId, ?int $inDay = null): string
     {
         //init
         $result = '';
         $selected = 'selected';
 
+        /** @var StockProductsRepository $repository */
+        $repository = $this->manager->getRepository(StockProducts::class);
+
         // get data from database
-        $stockProducts = $this->manager->getRepository(StockProducts::class)->findExpires($productId, $stockId);
+        $stockProducts = $repository->findDateExpires($productId, $stockId, $inDay);
 
         /**
          * @var StockProducts $product
@@ -102,7 +108,7 @@ class Product extends AbstractTwigExtension
             }
 
             //create the option
-            $result .= '<option value="' . $product->getId() . '" ' . $selected . '>' . $dateString . '</option>';
+            $result .= '<option value="'.$product->getId().'" '.$selected.'>'.$dateString.'</option>';
 
             //reset selected for other expiration dates
             $selected = '';
@@ -130,26 +136,26 @@ class Product extends AbstractTwigExtension
 
 
     /**
-     * @param string $type
-     * @param Product $product
+     * @param string              $type
+     * @param \App\Entity\Product $product
      *
      * @return string
      */
     private function getNutritionLine(string $type, \App\Entity\Product $product)
     {
         //prepare dynamic method name call
-        $level = 'getLevel' . $type;
-        $unit = 'getLevel' . $type . 'Unit';
+        $level = 'getLevel'.$type;
+        $unit = 'getLevel'.$type.'Unit';
 
         //get dynamically datas
         $levelData = $product->$level();
         $unitData = $product->$unit();
 
         //set default value
-        if(null===$levelData){
+        if (null === $levelData) {
             $levelData = 0;
         }
-        if(null===$unitData){
+        if (null === $unitData) {
             $unitData = 'g';
         }
 
@@ -165,7 +171,10 @@ class Product extends AbstractTwigExtension
          * Sel    jusqu'à 0,3g    de 0,3g à 1,5g    plus de 1,5g
          */
 
-        // get the grade from datas
+        /**
+         * get the grade from datas
+         * TODO : can be factorised
+         */
         switch ($type) {
             case 'Fat':
                 if ($value <= 3) {
@@ -201,15 +210,6 @@ class Product extends AbstractTwigExtension
                 break;
         }
 
-
-
-        return '<div><a class="btn-floating '
-            . SiteConfig::PRODUCTGRADE[$grade]['color']
-            . ' waves-effect waves-light mini"></a>'
-            . $levelData . ' ' . $unitData
-            . '  (TODO TRAD)' . $type . ' '
-            . SiteConfig::PRODUCTGRADE[$grade]['text']
-            . '</div>';
+        return '<div><a class="btn-floating '.SiteConfig::PRODUCTGRADE[$grade]['color'].' waves-effect waves-light mini"></a>'.$levelData.' '.$unitData.'  (TODO TRAD)'.$type.' '.SiteConfig::PRODUCTGRADE[$grade]['text'].'</div>';
     }
-
 }

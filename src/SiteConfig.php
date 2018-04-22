@@ -131,19 +131,19 @@ class SiteConfig
      * nb product to display per page
      * @const int
      */
-    const NBPERPAGE = 10;
+    const NBPERPAGE = 2;
 
     /**
      * Energie Unit list
      * @const array
      */
-    const ENERGYUNIT = ['kcal','KJ'];
+    const ENERGYUNIT = ['kcal', 'KJ'];
 
     /**
      * Weight unit list
      * @const array
      */
-    const WEIGHTUNIT = ['g'=>1,'mg'=>1000,'µg'=>1000000];
+    const WEIGHTUNIT = ['g'=>1, 'mg'=>1000, 'µg'=>1000000];
 
     /**
      * where the products images are stored
@@ -158,15 +158,15 @@ class SiteConfig
     const PRODUCTGRADE = [
         0 => [
             'color' => 'green',
-            'text' => 'en faible quantité'
+            'text' => 'en faible quantité',
         ],
         1 => [
             'color' => 'orange darken-1',
-            'text' => 'en quantité modérée'
+            'text' => 'en quantité modérée',
         ],
         2 => [
             'color' => 'red',
-            'text' => 'en quantité élevée'
+            'text' => 'en quantité élevée',
         ],
     ];
 
@@ -214,5 +214,4 @@ class SiteConfig
      * @const string
      */
     const SCRAPIMGURL = 'https://fr.openfoodfacts.org/images/products/';
-
 }

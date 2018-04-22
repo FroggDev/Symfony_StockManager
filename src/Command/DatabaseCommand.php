@@ -108,7 +108,7 @@ class DatabaseCommand extends Command
 
     /**
      * Main function
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -120,7 +120,7 @@ class DatabaseCommand extends Command
         $action = $input->getArgument('action');
 
         // DO MAIN SCRIPT
-        switch($action){
+        switch ($action) {
             case 'create':
                 $this->createDatabase();
                 break;

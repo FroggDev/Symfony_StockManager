@@ -65,8 +65,12 @@ document.app.Product = {
 
     removeFromStock: function (data) {
 
+        //Convert to form data
+        var form_data = new FormData();
+        form_data.append('data', JSON.stringify(data));
+
         //set last added element
-        document.app.Product.lastRemoved = data;
+        document.app.Product.lastRemoved = form_data;
 
         document.app.toastResult = M.toast({
             html: 'removed ' + data.name + '<button class="btn-flat toast-action" onclick="document.app.Util.doAjax(document.app.url.cancelRemoveFromStock,document.app.Product.lastRemoved ,document.app.Product.cancelRemoveFormStock,\'POST\');">CANCEL</button>',
@@ -79,9 +83,6 @@ document.app.Product = {
     },
 
     cancelRemoveFormStock: function (data) {
-
-        console.log('cancelRemoveFormStock');
-        console.log(data);
 
         document.app.Product.cancelCurrent.cancel(data);
 
@@ -111,6 +112,8 @@ document.app.Product = {
 
         cancel: function (data) {
 
+            //data = JSON.parse(data);
+
             i=0;
 
             //restore datas
@@ -124,6 +127,13 @@ document.app.Product = {
                 }
             }
 
+            //reset selection
+            this.selectExpire.selectedIndex = 0;
+
+            // RESTORE DISPLAY
+            this.obj.parentNode.parentNode.parentNode.className='';
+            document.querySelector('UL LI.empty').setAttribute('class','empty hide');
+
             //refresh display
             document.app.Product.list.init();
 
@@ -135,8 +145,23 @@ document.app.Product = {
 
         remove: function () {
             //if no more product left, remove the li product after cancel toast time
+
+            // REMOVE DISPLAY
             if (this.obj && parseInt(this.obj.innerHTML)<=0) {
-                this.obj.parentNode.parentNode.parentNode.parentNode.removeChild(this.obj.parentNode.parentNode.parentNode);
+                //this.obj.parentNode.parentNode.parentNode.parentNode.removeChild(this.obj.parentNode.parentNode.parentNode);
+                this.obj.parentNode.parentNode.parentNode.className='hide';
+            }
+
+            // If no more li in the page, reload if has pagination, else display message it is empty
+            if(document.querySelectorAll('UL.collapsible.bgItems > LI:not(.hide)').length===0){
+                if(document.querySelector('.pagination')) {
+                    /**
+                     * TODO Redirect to first page of pagination
+                     */
+                }
+                else{
+                    document.querySelector('UL LI.empty').setAttribute('class','empty');
+                }
             }
         }
     },
@@ -188,14 +213,15 @@ document.app.Product = {
 
             document.app.Product.cancelCurrent.set(nbProductObj, nbProduct, expireDates, selectExpire);
 
-            nbProductObj.innerHTML = (parseInt(nbProduct) + (expireDates.length * -1));
+            // Update display of number of product left (VERY IMPORTANT)
+            nbProductObj.innerHTML = (parseInt(nbProduct) - expireDates.length );
 
             //refresh display
             document.app.Product.list.init();
 
             document.app.Util.doAjax(document.app.url.removeFromStock, {
                 ids: ids,
-                name : this.parentNode.parentNode.querySelector('h4 .nbProduct').innerHTML + this.parentNode.parentNode.querySelector('h4 .name').innerHTML
+                name : expireDates.length + this.parentNode.parentNode.querySelector('h4 .name').innerHTML
             }, document.app.Product.removeFromStock);
         }
     },

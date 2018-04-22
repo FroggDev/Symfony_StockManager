@@ -343,6 +343,7 @@ class User extends AbstractAdvancedUser
     public function setProducts(array $products): User
     {
         $this->products = $products;
+
         return $this;
     }
 
@@ -361,6 +362,7 @@ class User extends AbstractAdvancedUser
     public function setStock(Stock $stock): User
     {
         $this->stock = $stock;
+
         return $this;
     }
 
@@ -493,7 +495,7 @@ class User extends AbstractAdvancedUser
          * If token already exist dosnt reset it to be able to register/recover if both asked at the same time
          */
         if (!$this->token) {
-            $this->token = uniqid('', true) . uniqid('', true);
+            $this->token = uniqid('', true).uniqid('', true);
         }
         /*
          * set token validity only if account has been validated
@@ -501,7 +503,7 @@ class User extends AbstractAdvancedUser
          */
         if ($this->status === $this::ENABLED) {
             $this->tokenValidity = new \DateTime();
-            $this->tokenValidity->modify('+' . $this::TOKENVALIDITYTIME . ' day');
+            $this->tokenValidity->modify('+'.$this::TOKENVALIDITYTIME.' day');
         }
 
         return $this;

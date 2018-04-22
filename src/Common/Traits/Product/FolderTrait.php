@@ -10,7 +10,6 @@
 
 namespace App\Common\Traits\Product;
 
-
 /**
  * @author Frogg <admin@frogg.fr>
  */
@@ -27,6 +26,6 @@ trait FolderTrait
         preg_match('/([\d]{3})([\d]{3})([\d]{3})(.*)/', $barcode, $matches);
         array_shift($matches);
 
-        return implode('/', $matches) . '/';
+        return implode('/', $matches).'/';
     }
 }

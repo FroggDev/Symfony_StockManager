@@ -55,13 +55,13 @@ class AppExtension extends \Twig_Extension
             // Image product
             new \Twig_Function('getProductImage', [Product::class, 'getProductImage']),
             // Expiration dates
-            new \Twig_Function('getExpires', [Product::class, 'getExpires']),
+            new \Twig_Function('getDateExpires', [Product::class, 'getDateExpires']),
             // Product nutrition info
-            new \Twig_Function('getNutritionalInfo' , [Product::class,'getNutritionalInfo']),
+            new \Twig_Function('getNutritionalInfo', [Product::class, 'getNutritionalInfo']),
             // Product relation list
-            new \Twig_Function('getFormatedList' , [Product::class,'getFormatedList']),
+            new \Twig_Function('getFormatedList', [Product::class, 'getFormatedList']),
             // Global link generator
-            new \Twig_Function('getLink' , [Link::class,'getLink'])
+            new \Twig_Function('getLink', [Link::class, 'getLink']),
         ];
     }
 }

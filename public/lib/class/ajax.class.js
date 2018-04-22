@@ -18,10 +18,6 @@ Ajax.prototype =
         init: function (url, callback, opt, isloading, onprogress) {
             this.isloading = isloading;
 
-
-            console.log('Ajax OPT');
-            console.log(opt);
-
             //Set vars
             this.url = url;
             if (opt) {

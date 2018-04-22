@@ -123,7 +123,7 @@ class SecurityController extends Controller
      *     )
      *
      * @param UserManager $userManager
-     * @param Request $request
+     * @param Request     $request
      *
      * @return Response
      */
@@ -196,8 +196,8 @@ class SecurityController extends Controller
      * )
      *
      * @param AuthenticationUtils $authenticationUtils
-     * @param Request $request
-     * @param UserManager $userManager
+     * @param Request             $request
+     * @param UserManager         $userManager
      *
      * @return Response
      */
@@ -237,7 +237,7 @@ class SecurityController extends Controller
      * )
      *
      * @param UserManager $userManager
-     * @param Request $request
+     * @param Request     $request
      *
      * @return Response
      */
@@ -250,7 +250,7 @@ class SecurityController extends Controller
         $user = $result['user'];
 
         //check if has valid user
-        if ($result['ok']===false) {
+        if ($result['ok'] === false) {
             return $this->redirectToRoute(
                 'security_connexion',
                 ['email' => $user?$user->getEmail():null]

@@ -11,10 +11,10 @@
 namespace App\Repository;
 
 use App\Entity\Product;
-use App\Entity\Stock;
 use App\Entity\StockProducts;
 use App\SiteConfig;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -36,83 +36,196 @@ class StockProductsRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param int $stockId
-     * @param int $numPage
-     * @param string $order
+     * @param int      $productId
+     * @param int      $stockId
+     * @param int|null $inDay
      *
      * @return array
      */
-    public function findByGroupedProduct(int $stockId, int $numPage = 1, string $order = 'sp.dateExpire'): array
+    public function findDateExpires(int $productId, int $stockId, ?int $inDay = null)
     {
-        //SELECT COUNT(product_id) FROM stock_products where stock_id=1 GROUP BY product_id ORDER BY date_expire DESC
-
-        // check order direction
-        $direction = 'DESC';
-        if('p.name'===$order){
-            $direction = 'ASC';
-        }
-
-        // Get the min limit to display
-        $limit = ($numPage - 1) * SiteConfig::NBPERPAGE;
-
-        return $this->createQueryBuilder('sp')
-            ->select('sp,count(sp.product)')
-            ->where('sp.stock = ' . $stockId)
-            ->join('sp.product', 'p')
-            ->groupBy('sp.product')
-            ->orderBy($order, $direction)
-            ->setFirstResult($limit)
-            ->setMaxResults($limit + SiteConfig::NBPERPAGE)
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * @param Product $product
-     *
-     * @return array
-     */
-    public function findExpires(int $productId, int $stockId)
-    {
-        return $this->createQueryBuilder('sp')
+        //prepare query
+        $query = $this->createQueryBuilder('sp')
             ->select('sp')
-            ->where('sp.product = ' . $productId)
-            ->andWhere('sp.stock = ' . $stockId)
-            ->orderBy('sp.dateExpire', 'DESC')
-            ->getQuery()
-            ->getResult();
+            ->where('sp.product = '.$productId)
+            ->andWhere('sp.stock = '.$stockId)
+            ->orderBy('sp.dateExpire', 'DESC');
+
+        return $this->applyFilter($query, $inDay)->getQuery()->getResult();
     }
 
     /**
-     * @param int $stockId
-     * @param int $numPage
+     * @param int    $stockId
+     * @param int    $numPage
      * @param string $order
      *
      * @return array
      */
-    public function findForSearch(int $stockId, int $numPage = 1, string $order = 'sp.dateExpire'): array
+    public function findByGroupedProduct(int $stockId, int $numPage = 1, string $order = '0'): array
     {
         //SELECT COUNT(product_id) FROM stock_products where stock_id=1 GROUP BY product_id ORDER BY date_expire DESC
 
-        // check order direction
-        $direction = 'DESC';
-        if('p.name'===$order){
-            $direction = 'ASC';
-        }
-
-        // Get the min limit to display
-        $limit = ($numPage - 1) * SiteConfig::NBPERPAGE;
-
-        return $this->createQueryBuilder('sp')
+        $products = $this->createQueryBuilder('sp')
             ->select('sp,count(sp.product)')
-            ->where('sp.stock = ' . $stockId)
+            ->where('sp.stock = '.$stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
-            ->orderBy($order, $direction)
-            ->setFirstResult($limit)
-            ->setMaxResults($limit + SiteConfig::NBPERPAGE)
+            ->orderBy($this->getOrder($order), $this->getDirection($order))
             ->getQuery()
             ->getResult();
+
+        $nbExpired = $this->getNbProductExpire($products);
+
+        return [
+            count($products),
+            array_slice(
+                $products,
+                $this->getLimit($numPage),
+                SiteConfig::NBPERPAGE
+            ),
+            $nbExpired,
+        ];
     }
 
+    /**
+     * @param int         $stockId
+     * @param null|string $inDay
+     * @param int         $numPage
+     * @param string      $order
+     *
+     * @return array
+     *
+     * @see http://doctrine-orm.readthedocs.io/en/latest/reference/dql-doctrine-query-language.html#id3
+     */
+    public function findList(int $stockId, ?string $inDay, int $numPage = 1, string $order = '0', int $productId = null, string $search = null)
+    {
+        $query = $this->createQueryBuilder('sp')
+            ->select('sp,count(sp.product)')
+            ->Where('sp.stock = '.$stockId)
+            ->join('sp.product', 'p')
+            ->groupBy('sp.product')
+            ->orderBy($this->getOrder($order), $this->getDirection($order));
+
+        if(null!==$productId){
+            $query->andWhere('sp.product = '.$productId);
+        }
+
+        if(null!==$search && ""!==$search){
+            $query
+                ->join('p.brands', 'b')
+                ->join('p.categories', 'c')
+                ->where('p.commonName LIKE :search')
+                ->orWhere('p.name LIKE :search')
+                ->orWhere('b.name LIKE :search')
+                ->orWhere('c.name LIKE :search')
+                ->setParameter('search', "%$search%");
+        }
+
+        $products = $this->applyFilter($query, $inDay)->getQuery()->getResult();
+
+        $nbExpired = $this->getNbProductExpire($products);
+
+        return [
+            count($products),
+            array_slice($products, $this->getLimit($numPage), SiteConfig::NBPERPAGE),
+            $nbExpired,
+        ];
+    }
+
+    /*###########
+     # PRIVATES #
+     ###########*/
+
+    /**
+     * @param String $order
+     *
+     * @return string
+     */
+    private function getDirection(String $order)
+    {
+        // check order direction
+        return ('p.name' === $order) ? 'ASC' : 'DESC';
+    }
+
+    /**
+     * @param string $order
+     *
+     * @return string
+     */
+    private function getOrder(string $order)
+    {
+        // get the selected request order
+        switch ($order) {
+            case '2':
+                $order = 'sp.dateCreation';
+                break;
+            case '3':
+                $order = 'p.name';
+                break;
+            default:
+                $order = 'sp.dateExpire';
+        }
+
+        return $order;
+    }
+
+    /**
+     * @param int $numPage
+     *
+     * @return int
+     */
+    private function getLimit(int $numPage)
+    {
+        // Get the min limit to display
+        return ($numPage - 1) * SiteConfig::NBPERPAGE;
+    }
+
+    /**
+     * @param array $expired
+     *
+     * @return int
+     */
+    private function getNbProductExpire(array $expired)
+    {
+        //init nb expired
+        $nbExpired = 0;
+
+        // add each expired in array
+        foreach ($expired as $v) {
+            $nbExpired += $v[1];
+        }
+
+        return $nbExpired;
+    }
+
+    /**
+     * @param QueryBuilder $query
+     * @param string|null  $inDay
+     *
+     * @return QueryBuilder
+     */
+    private function applyFilter(QueryBuilder $query, ?string $inDay): QueryBuilder
+    {
+        switch ($inDay) {
+            case '0':
+                $query
+                    ->andWhere('DATE_DIFF(sp.dateExpire,CURRENT_DATE()) < 0')
+                    ->andWhere('sp.dateExpire IS NOT NULL');
+                break;
+            case '3':
+                $query
+                    ->andWhere('DATE_DIFF(sp.dateExpire,CURRENT_DATE()) >= 0')
+                    ->andWhere('DATE_DIFF(sp.dateExpire,CURRENT_DATE()) <= 3')
+                    ->andWhere('sp.dateExpire IS NOT NULL');
+                break;
+            case '7':
+                $query
+                    ->andWhere('DATE_DIFF( sp.dateExpire,CURRENT_DATE()) > 3')
+                    ->andWhere('DATE_DIFF( sp.dateExpire,CURRENT_DATE()) <= 7')
+                    ->andWhere('sp.dateExpire IS NOT NULL');
+                break;
+        }
+
+        return $query;
+    }
 }

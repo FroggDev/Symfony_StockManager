@@ -33,7 +33,7 @@ class Link extends AbstractTwigExtension
     /**
      * constructor.
      * @param RouterInterface $router
-     * @param Packages $asset
+     * @param Packages        $asset
      */
     public function __construct(RouterInterface $router, Packages $asset)
     {
@@ -42,9 +42,11 @@ class Link extends AbstractTwigExtension
     }
 
     /**
-     * @param string|null $class
+     * @param string      $route
      * @param string|null $text
-     * @param array|null $parameters
+     * @param array|null  $parameters
+     * @param string|null $class
+     *
      * @return string
      */
     public function getLink(
@@ -52,8 +54,7 @@ class Link extends AbstractTwigExtension
         string $text = null,
         array $parameters = null,
         string $class = null
-    ): string
-    {
+    ): string {
         return $this->getATag(
             $this->router->generate($route, $parameters),
             $text,

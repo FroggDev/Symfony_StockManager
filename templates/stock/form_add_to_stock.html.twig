@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="teal lighten-1">
                         <div class="list">
-                            <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"/></div>
+                            <div style="float:left;margin: 1.52rem 1rem 0 0;"><a href="{{ path('stock_product_card',{barcode : product.barcode}) }}"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"/></a></div>
                             <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x {{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4></div>
                                 <div>{{ product.commonname }}</div>
                                 <div class="hide-on-small-only">code bar : {{ product.barcode }}</div>
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="scanBtn">
-                        <a href="{{ path(from) }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
+                        <a href="#" onclick="history.go(-1);" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons left">backspace</i></a>
                         <a href="{{ path('stock_list') }}" class="btn-floating btn-large waves-effect waves-light light-blue darken-1"><i class="material-icons left">assignment</i></a>
                         <a class="btn-floating btn-large green right" id="addproduct"><i class="material-icons">add</i></a>
                         <a class="btn-floating btn-large red right" id="removeproduct"><i class="material-icons">remove</i></a>

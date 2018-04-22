@@ -48,13 +48,13 @@ class UserManager
     /**
      * UserCommand constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
-     * @param EntityManagerInterface $entityManager
-     * @param TranslatorInterface $translator
-     * @param Environment $twig
-     * @param RequestStack $requestStack
-     * @param MailerManager $mailer
-     * @param SessionInterface $session
-     * @param UserChecker $userChecker
+     * @param EntityManagerInterface       $entityManager
+     * @param TranslatorInterface          $translator
+     * @param Environment                  $twig
+     * @param RequestStack                 $requestStack
+     * @param MailerManager                $mailer
+     * @param SessionInterface             $session
+     * @param UserChecker                  $userChecker
      */
     public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, TranslatorInterface $translator, Environment $twig, RequestStack $requestStack, MailerManager $mailer, SessionInterface $session, UserChecker $userChecker)
     {
@@ -97,7 +97,7 @@ class UserManager
                 $user->getEmail(),
                 $this->twig->render('mail/security/register.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/register.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email account validation subject', [], 'security_mail')
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email account validation subject', [], 'security_mail')
             );
 
             // set confirm message
@@ -171,7 +171,7 @@ class UserManager
                 $email,
                 $this->twig->render('mail/security/recover.html.twig', array('data' => $user)),
                 $this->twig->render('mail/security/recover.txt.twig', array('data' => $user)),
-                SiteConfig::SITENAME . ' - ' . $this->translator->trans('email password recovery subject', [], 'security_mail')
+                SiteConfig::SITENAME.' - '.$this->translator->trans('email password recovery subject', [], 'security_mail')
             );
 
             // set register validation ok message
@@ -198,10 +198,11 @@ class UserManager
             $this->userChecker->checkRecoverValidation($user, $this->request->query->get('token'));
         } catch (\Exception $exception) {
             $this->setFlashBagException($exception);
-            return ['ok'=>false,'user'=>$user];
+
+            return ['ok'=>false, 'user'=>$user];
         }
 
-        return ['ok'=>true,'user'=>$user];
+        return ['ok'=>true, 'user'=>$user];
     }
 
     /**

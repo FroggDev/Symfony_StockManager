@@ -19,7 +19,24 @@
 
                 <ul class="collapsible bgItems">
 
-                    <!-- si liste vient de addproduct short alors afficher data d ajout remove_red_eye-->
+                    <li class="{% if (stockProducts|length) > 0 %}empty hide{% endif %}">
+                        <div class="row flash-notice">
+                            <div class="m12 s12 col" style="padding: 0">
+                                <div class="card-panel warning">
+                                    <h6 class="white-text">
+                                        <i class="material-icons left" style="line-height: unset;">warning</i>
+                                        <div>
+                                            {% if from=='stock_del_product' %}
+                                                No product in your stock match your search
+                                            {% else %}
+                                                There is nothing registered in your stock for the moment
+                                            {% endif %}
+                                        </div>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
                     {% for productInfo in stockProducts %}
 
@@ -28,11 +45,11 @@
                     <li>
                         <div class="collapsible-header">
                             <input type="hidden" value="{{ product.id }}" name="productId" class="productId">
-                            <i class="material-icons left imgproduct"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"></i>
+                            <i class="material-icons left imgproduct"><a href="{{ path('stock_product_card',{barcode : product.barcode}) }}"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"></a></i>
                             <h4><span class="nbProduct">{{ nbProduct }}</span> <span class="name">x {{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</span></h4>
                             <div>
                                  <select multiple>
-                                    {{ getExpires( product.id , app.user.stock.id ) | raw  }}
+                                    {{ getDateExpires( product.id , app.user.stock.id,inDay ) | raw  }}
                                     <option value="" disabled></option>
                                 </select>
                                 <label>Expire</label>
@@ -40,8 +57,8 @@
                             <div class="actionbtn">
                                 <div class="left"><img class="nutriscore" src="{{ asset('img/nutriscore/a.svg') }}"></div>
                                 <a class="btnRemove btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
-                                <a class="btn-floating green waves-effect waves-light" href="{{ path('stock_product',{'from' : 'stock_list','barcode' : product.barcode})  }}"><i class="material-icons">add</i></a>
-                                <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="{{ path('stock_product_card',{'from' : 'stock_list','barcode' : product.barcode}) }}"><i class="material-icons">visibility</i></a>
+                                <a class="btn-floating green waves-effect waves-light" href="{{ path('stock_add_product',{barcode : product.barcode})  }}"><i class="material-icons">add</i></a>
+                                <a class="btn-floating light-blue darken-1 waves-effect waves-light" href="{{ path('stock_product_card',{barcode : product.barcode}) }}"><i class="material-icons">visibility</i></a>
                             </div>
                         </div>
                         <div class="collapsible-body">
@@ -66,16 +83,16 @@
                 <div style="clear: both;"></div>
                 <div class="center">
                     <ul class="pagination">
-                    {% if currentPage>1 %}<li class="waves-effect">{{ getLink('stock_list','<i class="material-icons">chevron_left</i>',{ currentPage : currentPage-1 , order : order}) | raw  }}</li>{% endif %}
+                    {% if currentPage>1 %}<li class="waves-effect">{{ getLink(from,'<i class="material-icons">chevron_left</i>',{ currentPage : currentPage-1 , order : order , 'inDay' : inDay , 'barcode' : barcode , 'search' : search }) | raw  }}</li>{% endif %}
                     {% for i in 1..countPagination %}
                         {% if currentPage==i %}
                             {% set paginationClass='active' %}
                         {% else %}
                             {% set paginationClass='' %}
                         {% endif %}
-                        <li class="waves-effect {{ paginationClass }}">{{ getLink('stock_list',i,{ currentPage : i , order : order}) | raw  }}</li>
+                        <li class="waves-effect {{ paginationClass }}">{{ getLink(from,i,{ currentPage : i , order : order , 'inDay' : inDay , 'barcode' : barcode , 'search' : search }) | raw  }}</li>
                     {% endfor %}
-                    {% if currentPage<countPagination %}<li class="waves-effect">{{ getLink('stock_list','<i class="material-icons">chevron_right</i>',{ currentPage : currentPage+1 , order : order}) | raw  }}</li>{% endif %}
+                    {% if currentPage<countPagination %}<li class="waves-effect">{{ getLink(from,'<i class="material-icons">chevron_right</i>',{ currentPage : currentPage+1 , order : order , 'inDay' : inDay , 'barcode' : barcode , 'search' : search }) | raw  }}</li>{% endif %}
                     </ul>
                 </div>
 

@@ -31,11 +31,11 @@ class MailerManager
      * @see https://symfony.com/doc/current/email/dev_environment.html
      * @see  Controller & injection __construct(\Swift_Mailer $mailer)
      *
-     * @param string $from mail from
-     * @param string $to mail to
+     * @param string $from     mail from
+     * @param string $to       mail to
      * @param string $bodyhtml
      * @param string $bodytxt
-     * @param string $subject mail subject
+     * @param string $subject  mail subject
      *
      * @return void
      */
