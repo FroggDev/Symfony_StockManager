@@ -109,7 +109,7 @@ class ProductCommand extends Command
 
     /**
      * Main function
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -145,7 +145,7 @@ class ProductCommand extends Command
                 continue;
             }
 
-            $this->output->success($result->name . " has been added to database from barcode $barcode ");
+            $this->output->success($result->name." has been added to database from barcode $barcode ");
         }
 
         return self::EXITCODE;

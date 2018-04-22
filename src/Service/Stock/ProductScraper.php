@@ -111,16 +111,16 @@ class ProductScraper
         ['#nutriment_sulfates_unit', 'string', 'levelSulfatesUnit'],
 
         ['#nutriment_carbon-footprint', 'float', 'footprint'],
-        ['#nutriment_carbon-footprint_unit', 'string', 'footprintUnit']
+        ['#nutriment_carbon-footprint_unit', 'string', 'footprintUnit'],
     ];
 
     private $imageSelector = '#front_fr_display_url';
 
     /**
      * ProductScraper constructor.
-     * @param Client $client
+     * @param Client                 $client
      * @param EntityManagerInterface $manager
-     * @param TokenStorage $storage
+     * @param TokenStorage           $storage
      */
     public function __construct(Client $client, EntityManagerInterface $manager, TokenStorageInterface $storage)
     {
@@ -142,7 +142,7 @@ class ProductScraper
         $this->barcode = $barcode;
 
         //init product
-        $this->product = new Product((int)$barcode);
+        $this->product = new Product((int) $barcode);
 
         // add user creator product
         $this->product->setUser($this->user);
@@ -183,14 +183,14 @@ class ProductScraper
             SiteConfig::SCRAPLOGINURL,
             [
                 SiteConfig::SCRAPINPUTUSERID => SiteConfig::SCRAPUSERID,
-                SiteConfig::SCRAPINPUTPASSWORD => SiteConfig::SCRAPPASSWORD
+                SiteConfig::SCRAPINPUTPASSWORD => SiteConfig::SCRAPPASSWORD,
             ]
         );
 
         // get the product informations on the website
         $this->crawler = $this->client->request(
             'GET',
-            SiteConfig::SCRAPDATAURL . $this->product->getBarcode()
+            SiteConfig::SCRAPDATAURL.$this->product->getBarcode()
         );
     }
 
@@ -203,19 +203,19 @@ class ProductScraper
         $imageName = $this->crawler->filter($this->imageSelector)->eq(0)->attr('value');
 
         //set target image name
-        $image = $this->barcode . '.' . pathinfo($imageName, PATHINFO_EXTENSION);
+        $image = $this->barcode.'.'.pathinfo($imageName, PATHINFO_EXTENSION);
 
         // get product image path
         $imageFolder = $this->getFolder($this->barcode);
 
         //create the local folder
-        $localFolder = SiteConfig::SITEPATH . SiteConfig::UPLOADPATH . $imageFolder;
+        $localFolder = SiteConfig::SITEPATH.SiteConfig::UPLOADPATH.$imageFolder;
         @mkdir($localFolder, 0777, true);
 
         // get product image full path
         file_put_contents(
-            $localFolder . $image,
-            file_get_contents(SiteConfig::SCRAPIMGURL . $imageFolder . $imageName)
+            $localFolder.$image,
+            file_get_contents(SiteConfig::SCRAPIMGURL.$imageFolder.$imageName)
         );
 
         //set image in product object
@@ -238,7 +238,6 @@ class ProductScraper
     private function fillProduct(): void
     {
         foreach ($this->map as $line) {
-
             //get value from input
             $value = $this->getValue($line);
 
@@ -251,7 +250,7 @@ class ProductScraper
             $value = $this->formatValue($value, $line);
 
             //prepare action (dynamic setter)
-            $action = 'set' . ucfirst($line[2]);
+            $action = 'set'.ucfirst($line[2]);
 
             //Add data to product
             $this->product->$action($value);
@@ -267,19 +266,21 @@ class ProductScraper
     {
         if (false !== strstr($line[0], '_unit')) {
             //get data from a select
-            $node = $this->crawler->filter($line[0] . ' option:selected');
+            $node = $this->crawler->filter($line[0].' option:selected');
+
             return $node->count() ? $node->eq(0)->text() : null;
         }
 
         // get datas from other inputs
         $node = $this->crawler->filter($line[0]);
+
         return $node->count() ? $node->eq(0)->attr('value') : null;
     }
 
     /**
      * Format the value to fit the database specs
      * @param string $value
-     * @param array $line
+     * @param array  $line
      *
      * @return array|float|int|string
      *
@@ -289,7 +290,6 @@ class ProductScraper
     {
         // link to entity
         if (count($line) === 4) {
-
             //get the list of values as string
             $values = array_map('trim', explode(",", $value));
 
@@ -304,17 +304,17 @@ class ProductScraper
             case 'string':
                 return $value;
             case 'int':
-                return (int)$value;
+                return (int) $value;
             case 'float':
-                return (float)$value;
+                return (float) $value;
             default:
-                throw new ProductTypeException('invalid type ' . $line[2]);
+                throw new ProductTypeException('invalid type '.$line[2]);
         }
     }
 
     /**
      * Get or set the linked entities
-     * @param array $values
+     * @param array  $values
      * @param string $entity
      *
      * @return array
@@ -325,7 +325,6 @@ class ProductScraper
         $items = [];
 
         foreach ($values as $value) {
-
             //if no values continues
             if ($value === null || $value === "") {
                 continue;

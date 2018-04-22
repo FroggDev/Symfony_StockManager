@@ -45,8 +45,8 @@ class DatabaseManager
 
     /**
      * ImportDatabase constructor.
-     * @param Application $application
-     * @param KernelInterface $kernel
+     * @param KernelInterface        $kernel
+     * @param EntityManagerInterface $manager
      */
     public function __construct(KernelInterface $kernel, EntityManagerInterface $manager)
     {
@@ -63,6 +63,10 @@ class DatabaseManager
         $this->eManager = $manager;
     }
 
+    /**
+     * Recreate fully the database
+     * @throws \Exception
+     */
     public function create()
     {
         $this->delete();
@@ -71,15 +75,21 @@ class DatabaseManager
         $this->importData();
     }
 
+    /**
+     * remove database
+     */
     public function delete()
     {
         try {
             $this->dropDatabase();
         } catch (\Exception $exception) {
-            echo 'Error while deleting database : ' . $exception->getMessage();
+            echo 'Error while deleting database : '.$exception->getMessage();
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     public function update()
     {
         $this->updateDatabase();
@@ -91,7 +101,7 @@ class DatabaseManager
      */
     private function dropDatabase(): void
     {
-        $this->application->run(new StringInput('doctrine:database:drop --force --env=' . $this->env));
+        $this->application->run(new StringInput('doctrine:database:drop --force --env='.$this->env));
     }
 
     /**
@@ -100,7 +110,7 @@ class DatabaseManager
      */
     private function createDatabase(): void
     {
-        $this->application->run(new StringInput('doctrine:database:create --env=' . $this->env));
+        $this->application->run(new StringInput('doctrine:database:create --env='.$this->env));
     }
 
     /**
@@ -109,18 +119,18 @@ class DatabaseManager
      */
     private function updateDatabase(): void
     {
-        $this->application->run(new StringInput('doctrine:migrations:migrate --no-interaction --env=' . $this->env));
+        $this->application->run(new StringInput('doctrine:migrations:migrate --no-interaction --env='.$this->env));
     }
 
     /**
      * Import countries in database
      * @throws \Exception
      */
-    private function importCountries()
+    private function importData()
     {
         //tester si la table est vide
-        $this->application->run(new StringInput('doctrine:database:import ' . SiteConfig::SQLCOUNTRY . ' --env=' . $this->env));
-        $this->application->run(new StringInput('doctrine:database:import ' . SiteConfig::SQLSTOCK . ' --env=' . $this->env));
-        $this->application->run(new StringInput('doctrine:database:import ' . SiteConfig::SQLUSER . ' --env=' . $this->env));
+        $this->application->run(new StringInput('doctrine:database:import '.SiteConfig::SQLCOUNTRY.' --env='.$this->env));
+        $this->application->run(new StringInput('doctrine:database:import '.SiteConfig::SQLSTOCK.' --env='.$this->env));
+        $this->application->run(new StringInput('doctrine:database:import '.SiteConfig::SQLUSER.' --env='.$this->env));
     }
 }

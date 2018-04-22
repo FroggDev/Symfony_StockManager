@@ -57,13 +57,10 @@ class ProductRepository extends ServiceEntityRepository
     public function findAddSearch(string $search, string $numPage): array
     {
         // Get the min limit to display
-        $limit = ((int)$numPage - 1) * SiteConfig::NBPERPAGE;
-
-        dump($limit);
-        dump( SiteConfig::NBPERPAGE);
+        $limit = ((int) $numPage - 1) * SiteConfig::NBPERPAGE;
 
         //create query
-        $query = $this->createQueryBuilder('p')
+        $products = $this->createQueryBuilder('p')
             ->select('p')
             ->join('p.brands', 'b')
             ->join('p.categories', 'c')
@@ -72,18 +69,10 @@ class ProductRepository extends ServiceEntityRepository
             ->orWhere('b.name LIKE :search')
             ->orWhere('c.name LIKE :search')
             ->setParameter('search', "%$search%")
-            ->setFirstResult($limit)
-            //->setMaxResults(SiteConfig::NBPERPAGE)
             ->orderBy('p.name', 'DESC')
-            ->getQuery();
+            ->getQuery()
+            ->getResult();
 
-        // get products
-        $products = $query->getResult();
-
-        // get nb of products
-        $nbProducts = 1; //$products->select('COUNT(p)')->getQuery()->getSingleScalarResult();
-
-        return [$nbProducts,$products];
-
+        return [count($products), array_slice($products, $limit, SiteConfig::NBPERPAGE)];
     }
 }

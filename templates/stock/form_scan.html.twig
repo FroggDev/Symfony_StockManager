@@ -13,12 +13,12 @@
 
         <div class="section">
 
-            <h1 class="teal-text text-lighten-2">Add a product</h1>
+            <h1 class="teal-text text-lighten-2">{% if type=='add' %}Add product{% else %}Remove product{% endif %}</h1>
 
             <!-- Display bar code scanner -->
             <div class="card toHideWhenOff bgItems">
 
-                <form id="searchProduct" action="{{ path('stock_product_result') }}">
+                <form id="searchProduct" action="{% if type=='add' %}{{ path('stock_product_result') }}{% else %}{{ path('stock_del_product') }}{% endif %}">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">search</i>
                         <input required="required" type="text" name="search" id="autocomplete-input" class="autocomplete speech-input" autocomplete="off" lang="fr" data-instant-submit>
@@ -115,6 +115,13 @@
     <script src="{{ asset('inc/js/product.js') }}" ></script>
     <script src="{{ asset('inc/js/scan.js') }}" ></script>
     <script>
+        {# SPECIAL URL IF SCAN REMOVE FORM #}
+        {% if type=='del' %}
+        document.app.Scan.remove=true;
+        {% endif %}
+        /**
+         * @TODO : AUTO COMPLETE
+         */
         var instance = M.Autocomplete.init(document.querySelector('.autocomplete'), {
             data: {
                 "Volvic": null,
@@ -123,4 +130,6 @@
             }
         });
     </script>
+
+
 {%  endblock %}

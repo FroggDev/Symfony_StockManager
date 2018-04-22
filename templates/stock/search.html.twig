@@ -12,7 +12,7 @@
     <main class="container main">
         <div class="section">
 
-            <a class="waves-effect waves-light btn-large right red" href="#" onclick="history.go(-1)"><i class="material-icons left">backspace</i>Back</a>
+            <a class="waves-effect waves-light btn-large right red buttonBack" href="#" onclick="history.go(-1)"><i class="material-icons left">backspace</i>Back</a>
 
             <h1 class="teal-text text-lighten-2">Product result</h1>
 
@@ -41,13 +41,12 @@
 
                             <input type="hidden" value="3057640234163" class="barcode">
                             <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
-
-                            <i class="material-icons left imgproduct"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"></i>
+                            <i class="material-icons left imgproduct"><a href="{{ path('stock_product_card',{barcode : product.barcode}) }}"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"></a></i>
                             <h4>{{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4>
                             <div>{{ product.commonName }}</div>
                             <div class="actionbtn">
                                 <div class="left"><img class="nutriscore" src="{{ asset('img/nutriscore/a.svg') }}"></div>
-                                <a class="btn-floating green darken-1 waves-effect waves-light" href="{{ path('stock_product',{barcode : product.barcode}) }}"><i class="material-icons">add</i></a>
+                                <a class="btn-floating green darken-1 waves-effect waves-light" href="{{ path('stock_add_product',{barcode : product.barcode}) }}"><i class="material-icons">add</i></a>
                             </div>
                         </div>
                         <div class="collapsible-body">
@@ -65,16 +64,16 @@
                     <div style="clear: both;"></div>
                     <div class="center">
                         <ul class="pagination">
-                            {% if currentPage>1 %}<li class="waves-effect">{{ getLink(from,'<i class="material-icons">chevron_left</i>',{ currentPage : currentPage-1 , search : search}) | raw  }}</li>{% endif %}
+                            {% if currentPage>1 %}<li class="waves-effect">{{ getLink('stock_product_result','<i class="material-icons">chevron_left</i>',{ currentPage : currentPage-1 , search : search}) | raw  }}</li>{% endif %}
                             {% for i in 1..countPagination %}
                                 {% if currentPage==i %}
                                     {% set paginationClass='active' %}
                                 {% else %}
                                     {% set paginationClass='' %}
                                 {% endif %}
-                                <li class="waves-effect {{ paginationClass }}">{{ getLink(from,i,{ currentPage : i , search : search}) | raw  }}</li>
+                                <li class="waves-effect {{ paginationClass }}">{{ getLink('stock_product_result',i,{ currentPage : i , search : search}) | raw  }}</li>
                             {% endfor %}
-                            {% if currentPage<countPagination %}<li class="waves-effect">{{ getLink(from,'<i class="material-icons">chevron_right</i>',{ currentPage : currentPage+1 , search : search}) | raw  }}</li>{% endif %}
+                            {% if currentPage<countPagination %}<li class="waves-effect">{{ getLink('stock_product_result','<i class="material-icons">chevron_right</i>',{ currentPage : currentPage+1 , search : search}) | raw  }}</li>{% endif %}
                         </ul>
                     </div>
 

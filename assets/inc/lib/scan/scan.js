@@ -325,11 +325,11 @@ document.app.Scan = {
 			 * Case found add & remove
              */
 
-			if(data.remove){
-                document.location=document.app.url.displayResult;
+			if(document.app.Scan.remove){
+                document.location=document.app.url.displayDelResult+'/'+data.barcode;
             }
 			else{
-                document.location=document.app.url.displayProduct+'/'+data.barcode+'/stock_add';
+                document.location=document.app.url.displayProduct+'/'+data.barcode;
             }
         }
 	}

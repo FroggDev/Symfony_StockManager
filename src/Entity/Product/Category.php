@@ -99,7 +99,7 @@ class Category
      * Category constructor.
      * @param string $name
      */
-    public function __construct(string $name=null)
+    public function __construct(string $name = null)
     {
         $this->name = $name;
     }

@@ -67,7 +67,7 @@ class UserSubscriber implements EventSubscriberInterface
             $this->user->setLastConnexion();
 
             // remove token if login and have one made but expired
-            if($this->user->isTokenExpired()){
+            if ($this->user->isTokenExpired()) {
                 $this->user->removeToken();
             }
 

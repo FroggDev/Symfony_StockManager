@@ -43,15 +43,15 @@ class UserChecker implements UserCheckerInterface
             throw new AccountTypeException('account is unfindable');
         }
 
-        if (true===$user->isBanned()) {
+        if (true === $user->isBanned()) {
             throw new AccountBannedException('account is banned');
         }
 
-        if (true===$user->isClosed()) {
+        if (true === $user->isClosed()) {
             throw new AccountClosedException('account is closed');
         }
 
-        if (true===$user->isDeleted()) {
+        if (true === $user->isDeleted()) {
             throw new AccountDeletedException('account is unfindable');
         }
 
@@ -78,7 +78,7 @@ class UserChecker implements UserCheckerInterface
             throw new AccountTypeException('internal error');
         }
 
-        if (true===$user->isDisabled()) {
+        if (true === $user->isDisabled()) {
             throw new AccountDisabledException('account is disabled');
         }
     }
@@ -94,7 +94,7 @@ class UserChecker implements UserCheckerInterface
     {
         $this->checkPreAuth($user);
 
-        if (true===$user->isEnabled()) {
+        if (true === $user->isEnabled()) {
             throw new AccountAlreadyActivatedException('account is already activated');
         }
 
@@ -118,18 +118,18 @@ class UserChecker implements UserCheckerInterface
 
     /**
      * Check if token is correct
-     * @param User   $user
+     * @param User        $user
      * @param null|String $token
      *
      * @throws AccountBadTokenException
      */
     private function checkToken(User $user, ?String $token)
     {
-        if ($token===null || $token==="" || $user->getToken() !== $token) {
+        if ($token === null || $token === "" || $user->getToken() !== $token) {
             throw new AccountBadTokenException('account token is not valid');
         }
 
-        if (true===$user->isTokenExpired()) {
+        if (true === $user->isTokenExpired()) {
             throw new AccountExpiredTokenException('account is expired token');
         }
     }

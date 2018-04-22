@@ -144,6 +144,7 @@ class Country
     public function setId(int $id): Country
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -162,6 +163,7 @@ class Country
     public function setCode(int $code): Country
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -180,6 +182,7 @@ class Country
     public function setAlpha2(string $alpha2): Country
     {
         $this->alpha2 = $alpha2;
+
         return $this;
     }
 
@@ -198,6 +201,7 @@ class Country
     public function setAlpha3(string $alpha3): Country
     {
         $this->alpha3 = $alpha3;
+
         return $this;
     }
 
@@ -216,6 +220,7 @@ class Country
     public function setName(string $name): Country
     {
         $this->name = $name;
+
         return $this;
     }
 }

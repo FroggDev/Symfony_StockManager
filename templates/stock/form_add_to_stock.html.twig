@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="teal lighten-1">
                         <div class="list">
-                            <div style="float:left;margin: 1.52rem 1rem 0 0;"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"/></div>
+                            <div style="float:left;margin: 1.52rem 1rem 0 0;"><a href="{{ path('stock_product_card',{barcode : product.barcode}) }}"><img style="height:100px;border-radius:12px;border: 1px solid #fff;" src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"/></a></div>
                             <div style="overflow: hidden;"><div><h4><b id="nbproduct">1</b> x {{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4></div>
                                 <div>{{ product.commonname }}</div>
                                 <div class="hide-on-small-only">code bar : {{ product.barcode }}</div>

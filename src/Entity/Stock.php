@@ -68,6 +68,7 @@ class Stock
     public function setId(int $id): Stock
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -86,6 +87,7 @@ class Stock
     public function setUser(User $user): Stock
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -104,8 +106,7 @@ class Stock
     public function setStockProducts(StockProducts $stockProducts): Stock
     {
         $this->stockProducts = $stockProducts;
+
         return $this;
     }
-
-
 }
