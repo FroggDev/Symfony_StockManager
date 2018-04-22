@@ -253,8 +253,8 @@ class StockController extends Controller
      *
      * @Route(
      *     {
-     *     "fr": "/fiche-produit.html/{barcode<[^/]*>}}",
-     *     "en": "/product-description.html/{barcode<[^/]*>}}"
+     *     "fr": "/fiche-produit.html/{barcode<[^/]*>?}",
+     *     "en": "/product-description.html/{barcode<[^/]*>?}"
      *     },
      *     name="product_card",
      *     methods={"GET","POST"}

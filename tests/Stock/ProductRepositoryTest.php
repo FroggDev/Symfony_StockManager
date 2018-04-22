@@ -53,7 +53,7 @@ class ProductRepositoryTest extends KernelTestCase
         $countryList = self::$emanager->getRepository(Country::class)->findAll();
 
         // check type
-        $this->assertInstanceOf('array',$countryList);
+        $this->assertSame('array',gettype($countryList));
 
         /** @var Country $country */
         foreach($countryList as $country){
@@ -77,7 +77,7 @@ class ProductRepositoryTest extends KernelTestCase
         $productList = self::$emanager->getRepository(Product::class)->findAll();
 
         // check type
-        $this->assertInstanceOf('array',$productList);
+        $this->assertSame('array',gettype($productList));
     }
 
 }

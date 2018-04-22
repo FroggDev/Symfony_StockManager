@@ -2,67 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Controller/StockAjaxController.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/assets/inc/css/style.css" afterPath="$PROJECT_DIR$/assets/inc/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/assets/inc/js/product.js" afterPath="$PROJECT_DIR$/assets/inc/js/product.js" />
-      <change beforePath="$PROJECT_DIR$/assets/inc/lib/scan/scan.js" afterPath="$PROJECT_DIR$/assets/inc/lib/scan/scan.js" />
-      <change beforePath="$PROJECT_DIR$/public/inc/css/main.9f02e407a8b8916cfbd4f7587204c03d.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/inc/js/product.ae7c2ffc0916ec54fa7e.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/inc/js/scan.b5f00fc50e8d192e3e73.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/inc/manifest.json" afterPath="$PROJECT_DIR$/public/inc/manifest.json" />
-      <change beforePath="$PROJECT_DIR$/public/lib/class/ajax.class.js" afterPath="$PROJECT_DIR$/public/lib/class/ajax.class.js" />
-      <change beforePath="$PROJECT_DIR$/src/Command/DatabaseCommand.php" afterPath="$PROJECT_DIR$/src/Command/DatabaseCommand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Command/ProductCommand.php" afterPath="$PROJECT_DIR$/src/Command/ProductCommand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserCommand.php" afterPath="$PROJECT_DIR$/src/Command/UserCommand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Client/BrowserTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Controller/FormCheckTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Controller/FormCheckTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Html/ATagGeneratorTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Html/ATagGeneratorTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Product/FolderTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Product/FolderTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
       <change beforePath="$PROJECT_DIR$/src/Controller/StockController.php" afterPath="$PROJECT_DIR$/src/Controller/StockController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Country.php" afterPath="$PROJECT_DIR$/src/Entity/Country.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" afterPath="$PROJECT_DIR$/src/Entity/Product.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Additive.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Additive.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Alergy.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Alergy.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Brand.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Brand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Category.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Category.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Certification.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Certification.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Origin.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Origin.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Packaging.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Packaging.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Place.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Place.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Trace.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Trace.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stock.php" afterPath="$PROJECT_DIR$/src/Entity/Stock.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/StockProducts.php" afterPath="$PROJECT_DIR$/src/Entity/StockProducts.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" afterPath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Account/AccountAccessDeniedException.php" afterPath="$PROJECT_DIR$/src/Exception/Account/AccountAccessDeniedException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Product/ProductTypeException.php" afterPath="$PROJECT_DIR$/src/Exception/Product/ProductTypeException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Security/UserType.php" afterPath="$PROJECT_DIR$/src/Form/Security/UserType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CountryRepository.php" afterPath="$PROJECT_DIR$/src/Repository/CountryRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" afterPath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/DatabaseManager.php" afterPath="$PROJECT_DIR$/src/Service/DatabaseManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LocaleManager.php" afterPath="$PROJECT_DIR$/src/Service/LocaleManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/MailerManager.php" afterPath="$PROJECT_DIR$/src/Service/MailerManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Security/UserChecker.php" afterPath="$PROJECT_DIR$/src/Service/Security/UserChecker.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Security/UserManager.php" afterPath="$PROJECT_DIR$/src/Service/Security/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Stock/ProductManager.php" afterPath="$PROJECT_DIR$/src/Service/Stock/ProductManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" afterPath="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/AbstractTwigExtension.php" afterPath="$PROJECT_DIR$/src/Service/Twig/AbstractTwigExtension.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" afterPath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Menu.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Menu.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Product.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Product.php" />
-      <change beforePath="$PROJECT_DIR$/src/SiteConfig.php" afterPath="$PROJECT_DIR$/src/SiteConfig.php" />
-      <change beforePath="$PROJECT_DIR$/templates/stock.html.twig" afterPath="$PROJECT_DIR$/templates/stock.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/form_add.html.twig" afterPath="$PROJECT_DIR$/templates/stock/form_scan.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/form_add_to_stock.html.twig" afterPath="$PROJECT_DIR$/templates/stock/form_add_to_stock.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/home.html.twig" afterPath="$PROJECT_DIR$/templates/stock/home.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/list.html.twig" afterPath="$PROJECT_DIR$/templates/stock/list.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/product.html.twig" afterPath="$PROJECT_DIR$/templates/stock/product.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/search.html.twig" afterPath="$PROJECT_DIR$/templates/stock/search.html.twig" />
+      <change beforePath="$PROJECT_DIR$/tests/Stock/ProductRepositoryTest.php" afterPath="$PROJECT_DIR$/tests/Stock/ProductRepositoryTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -106,91 +48,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StockController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProductRepositoryTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Stock/ProductRepositoryTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="82" column="1" lean-forward="false" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site_test.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_DOC/site_test.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phpunit.xml.dist" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/StockController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1623">
-              <caret line="214" column="29" lean-forward="false" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/stock/search.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="48" column="121" lean-forward="false" selection-start-line="48" selection-start-column="121" selection-end-line="48" selection-end-column="121" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/stock/list.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="30" column="54" lean-forward="false" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/stock.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="25" column="69" lean-forward="false" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_scan.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/stock/form_scan.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="155" lean-forward="false" selection-start-line="20" selection-start-column="155" selection-end-line="20" selection-end-column="155" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scan.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/inc/lib/scan/scan.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="325" column="15" lean-forward="false" selection-start-line="325" selection-start-column="15" selection-end-line="325" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/inc/js/product.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2686">
-              <caret line="158" column="64" lean-forward="false" selection-start-line="158" selection-start-column="64" selection-end-line="158" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="site_commands.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="37" column="14" lean-forward="false" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/stock/product.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+            <state relative-caret-position="-746">
+              <caret line="258" column="31" lean-forward="false" selection-start-line="258" selection-start-column="31" selection-end-line="258" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -209,7 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>findOne</find>
       <find>.param</find>
       <find>$this-&gt;data</find>
       <find>findOneBy</find>
@@ -237,8 +128,9 @@
       <find>stock_product</find>
       <find>applyFilter</find>
       <find>getNbProductExpire</find>
-      <find>resultat</find>
       <find>stock_product_</find>
+      <find>resultat</find>
+      <find>fiche-produit.html</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -264,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/Security/UserManagerTest.php" />
         <option value="$PROJECT_DIR$/tests/Security/UserCheckerTest.php" />
         <option value="$PROJECT_DIR$/tests/Security/AccessDeniedHandlerTest.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
@@ -312,9 +203,10 @@
         <option value="$PROJECT_DIR$/templates/stock.html.twig" />
         <option value="$PROJECT_DIR$/templates/stock/list.html.twig" />
         <option value="$PROJECT_DIR$/templates/stock/form_scan.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/StockController.php" />
         <option value="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
         <option value="$PROJECT_DIR$/templates/stock/product.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/StockController.php" />
+        <option value="$PROJECT_DIR$/tests/Stock/ProductRepositoryTest.php" />
       </list>
     </option>
   </component>
@@ -444,7 +336,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="6" />
     <option name="y" value="233" />
     <option name="width" value="1282" />
@@ -497,6 +389,27 @@
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="_DOC" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_SOURCE" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Stock" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -635,10 +548,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="752736000" />
+    <option name="totallyTimeSpent" value="754499000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="233" width="1282" height="807" extended-state="1" />
+    <frame x="6" y="233" width="1282" height="807" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
@@ -688,38 +601,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/AccessDeniedHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/UserCheckerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-969">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Security/FakeClass/UserFake.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-875">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Controller/RouteTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1021,14 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/stock/search.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" column="121" lean-forward="false" selection-start-line="48" selection-start-column="121" selection-end-line="48" selection-end-column="121" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/stock/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
@@ -1070,32 +943,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/ProductRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
+        <state relative-caret-position="722">
           <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="70" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/StockController.php">
+    <entry file="das://table:/8158f521/7504823d-45d6-4849-b078-f658d12abdec/stockmanager.country">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stock/product.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1623">
-          <caret line="214" column="29" lean-forward="false" selection-start-line="214" selection-start-column="29" selection-end-line="214" selection-end-column="29" />
+        <state relative-caret-position="238">
+          <caret line="14" column="69" lean-forward="true" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="37" column="14" lean-forward="false" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+        <state relative-caret-position="59">
+          <caret line="29" column="43" lean-forward="true" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/stock/product.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/stock/search.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        <state relative-caret-position="223">
+          <caret line="48" column="121" lean-forward="false" selection-start-line="48" selection-start-column="121" selection-end-line="48" selection-end-column="121" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_DOC/site_test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Stock/ProductRepositoryTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="82" column="1" lean-forward="false" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/StockController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-746">
+          <caret line="258" column="31" lean-forward="false" selection-start-line="258" selection-start-column="31" selection-end-line="258" selection-end-column="31" />
           <folding />
         </state>
       </provider>
