@@ -48,6 +48,7 @@ $io->progressFinish();
 
 namespace App\Command;
 
+use App\Entity\Product;
 use App\Entity\StockProducts;
 use App\Entity\User;
 use App\Repository\StockProductsRepository;
@@ -67,7 +68,6 @@ use Symfony\Component\HttpKernel\KernelInterface;
  * @author Frogg <admin@frogg.fr>
  *
  *
- * TODO : A REQUEST JUST FOR IT, TO NOT GOUP BY AND JUST DISPLAY BY ORDER ?
  * TODO : MANAGE USER LANG FOR THE MAIL
  * TODO : TRANSLATION
  *
@@ -209,30 +209,36 @@ class AlertExpiresCommand extends Command
                     break;
             }
 
-            $expired = $this->stockProductsRepository->findList($stockId, $day);
+            $stockProducts = $this->stockProductsRepository->findDateExpires(null,$stockId, $day);
             $message .= '<ul>';
-            foreach ($expired[1] as $data) {
-                $product = $data[0]->getProduct();
 
-                $dates = $this->stockProductsRepository->findDateExpires($product->getId(), $stockId, $day);
+            /** @var StockProducts $stockProduct */
+            foreach ($stockProducts as $stockProduct) {
 
-                foreach ($dates as $date) {
+                    /** @var Product $product */
+                    $product = $stockProduct->getProduct();
+
                     $message .= '<li>'
-                        .$date->getDateExpire()->format(SiteConfig::DATELOCALE['en'])
+                        .$stockProduct->getDateExpire()->format(SiteConfig::DATELOCALE['en'])
                         .' - '.$product->getName()
                         .' '.$product->getBrands()[0]->getName()
                         .' '. $product->getQuantity()
                         .'</li>';
                     $nb++;
-                }
-            }
+                 }
             $message .= '</ul>';
         }
 
         return ['nb' => $nb, 'message' => $message];
     }
 
-    private function sendMail(User $user,Array $messageData)
+    /**
+     * @param User $user
+     * @param array $messageData
+     *
+     * @return int
+     */
+    private function sendMail(User $user, Array $messageData) : int
     {
         return $this->mailer->send(
             SiteConfig::SECURITYMAIL,
@@ -242,5 +248,4 @@ class AlertExpiresCommand extends Command
             SiteConfig::SITENAME.' - You have '.$messageData['nb'].' products expiring products'
         );
     }
-
 }

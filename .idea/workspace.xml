@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
       <change beforePath="$PROJECT_DIR$/src/Command/AlertExpiresCommand.php" afterPath="$PROJECT_DIR$/src/Command/AlertExpiresCommand.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Service/MailerManagerTest.php" afterPath="$PROJECT_DIR$/tests/Service/MailerManagerTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Stock/RepositoriesTest.php" afterPath="$PROJECT_DIR$/tests/Stock/RepositoriesTest.php" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" afterPath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/security/recover.html.twig" afterPath="$PROJECT_DIR$/templates/mail/security/recover.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/security/recover.txt.twig" afterPath="$PROJECT_DIR$/templates/mail/security/recover.txt.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/security/register.html.twig" afterPath="$PROJECT_DIR$/templates/mail/security/register.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/security/register.txt.twig" afterPath="$PROJECT_DIR$/templates/mail/security/register.txt.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/stock/expired.html.twig" afterPath="$PROJECT_DIR$/templates/mail/stock/expired.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/stock/expired.txt.twig" afterPath="$PROJECT_DIR$/templates/mail/stock/expired.txt.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,80 +45,30 @@
       <file leaf-file-name="home.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/stock/home.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
+            <state relative-caret-position="611">
               <caret line="42" column="48" lean-forward="false" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlertExpiresCommand.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AlertExpiresCommand.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Command/AlertExpiresCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="221" column="28" lean-forward="false" selection-start-line="221" selection-start-column="28" selection-end-line="221" selection-end-column="28" />
+            <state relative-caret-position="149">
+              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
-                <element signature="e#1379#1408#0#PHP" expanded="true" />
+                <element signature="e#1379#1402#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserManagerTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Security/UserManagerTest.php">
+      <file leaf-file-name="StockProductsRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/StockProductsRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4080">
-              <caret line="258" column="26" lean-forward="false" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Controller/RegisterTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="95" column="19" lean-forward="false" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MailerManagerTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Service/MailerManagerTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="behat.yml.dist" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/behat.yml.dist">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phpunit.xml.dist" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RepositoriesTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Stock/RepositoriesTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="863">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="302">
+              <caret line="44" column="35" lean-forward="false" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -124,8 +77,58 @@
       <file leaf-file-name="expired.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/mail/stock/expired.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="204">
+              <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="expired.txt.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/mail/stock/expired.txt.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.txt.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/mail/security/register.txt.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/mail/security/register.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recover.txt.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/mail/security/recover.txt.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recover.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/mail/security/recover.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -134,8 +137,8 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/mail/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3842">
-              <caret line="226" column="245" lean-forward="false" selection-start-line="226" selection-start-column="245" selection-end-line="226" selection-end-column="245" />
+            <state relative-caret-position="323">
+              <caret line="226" column="202" lean-forward="false" selection-start-line="226" selection-start-column="202" selection-end-line="226" selection-end-column="244" />
               <folding>
                 <marker date="1524509536431" expanded="true" signature="5871:6011" ph="..." />
                 <marker date="1524509536431" expanded="true" signature="5944:6002" ph="{...}" />
@@ -242,9 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/inc/lib/scan/scan.js" />
-        <option value="$PROJECT_DIR$/templates/stock.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/StockController.php" />
         <option value="$PROJECT_DIR$/tests/Stock/ProductRepositoryTest.php" />
         <option value="$PROJECT_DIR$/src/Command/ProductCommand.php" />
         <option value="$PROJECT_DIR$/src/Command/UserCommand.php" />
@@ -282,17 +282,20 @@
         <option value="$PROJECT_DIR$/_DOC/site_test.txt" />
         <option value="$PROJECT_DIR$/src/Command/DatabaseCommand.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7504823d-45d6-4849-b078-f658d12abdec/console.sql" />
-        <option value="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
         <option value="$PROJECT_DIR$/src/Service/MailerManager.php" />
-        <option value="$PROJECT_DIR$/templates/mail/security/register.txt.twig" />
-        <option value="$PROJECT_DIR$/templates/mail/stock/expired.txt.twig" />
-        <option value="$PROJECT_DIR$/templates/mail/stock/expired.html.twig" />
         <option value="$PROJECT_DIR$/src/SiteConfig.php" />
         <option value="$PROJECT_DIR$/templates/mail/base.html.twig" />
         <option value="$PROJECT_DIR$/tests/Service/MailerManagerTest.php" />
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/tests/Stock/RepositoriesTest.php" />
+        <option value="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
         <option value="$PROJECT_DIR$/src/Command/AlertExpiresCommand.php" />
+        <option value="$PROJECT_DIR$/templates/mail/stock/expired.html.twig" />
+        <option value="$PROJECT_DIR$/templates/mail/stock/expired.txt.twig" />
+        <option value="$PROJECT_DIR$/templates/mail/security/register.txt.twig" />
+        <option value="$PROJECT_DIR$/templates/mail/security/register.html.twig" />
+        <option value="$PROJECT_DIR$/templates/mail/security/recover.txt.twig" />
+        <option value="$PROJECT_DIR$/templates/mail/security/recover.html.twig" />
       </list>
     </option>
   </component>
@@ -423,7 +426,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="6" />
     <option name="y" value="23" />
     <option name="width" value="1557" />
@@ -485,13 +488,31 @@
             <path>
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Stock" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mail" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mail" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="security" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -631,15 +652,15 @@
       <workItem from="1524505694511" duration="1783000" />
       <workItem from="1524507502893" duration="1784000" />
       <workItem from="1524509353971" duration="1525000" />
-      <workItem from="1524511361845" duration="22000" />
+      <workItem from="1524511361845" duration="1064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="788699000" />
+    <option name="totallyTimeSpent" value="789741000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13541667" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -724,6 +745,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="840" column="9" lean-forward="false" selection-start-line="840" selection-start-column="9" selection-end-line="840" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -830,17 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/StockProductsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3774">
-          <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#217#0#PHP" expanded="false" />
-            <element signature="e#246#269#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_DOC/site_test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -852,13 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="43" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/security/recover.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -905,96 +909,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/stock/expired.txt.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SiteConfig.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/security/register.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/security/register.txt.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/security/recover.txt.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/stock/home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="48" lean-forward="false" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/stock/expired.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3842">
-          <caret line="226" column="245" lean-forward="false" selection-start-line="226" selection-start-column="245" selection-end-line="226" selection-end-column="245" />
-          <folding>
-            <marker date="1524509536431" expanded="true" signature="5871:6011" ph="..." />
-            <marker date="1524509536431" expanded="true" signature="5944:6002" ph="{...}" />
-            <marker date="1524509536431" expanded="false" signature="6951:6986" ph="..." />
-            <marker date="1524509536431" expanded="true" signature="6987:7517" ph="..." />
-            <marker date="1524509536431" expanded="true" signature="7036:7236" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="7109:7162" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="7176:7182" ph=" " />
-            <marker date="1524509536431" expanded="true" signature="7285:7517" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="7346:7368" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="7370:7376" ph=" " />
-            <marker date="1524509536431" expanded="false" signature="7441:7463" ph="..." />
-            <marker date="1524509536431" expanded="true" signature="7476:7517" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="8233:8255" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="8257:8263" ph=" " />
-            <marker date="1524509536431" expanded="true" signature="8358:8550" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="8427:8480" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="8494:8500" ph=" " />
-            <marker date="1524509536431" expanded="false" signature="8805:8840" ph="..." />
-            <marker date="1524509536431" expanded="true" signature="8841:9371" ph="..." />
-            <marker date="1524509536431" expanded="true" signature="8890:9090" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="8963:9016" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="9030:9036" ph=" " />
-            <marker date="1524509536431" expanded="true" signature="9139:9371" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="9200:9222" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="9224:9230" ph=" " />
-            <marker date="1524509536431" expanded="false" signature="9295:9317" ph="..." />
-            <marker date="1524509536431" expanded="true" signature="9330:9371" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="9776:9798" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="9800:9806" ph=" " />
-            <marker date="1524509536431" expanded="true" signature="9901:10093" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="9970:10023" ph="..." />
-            <marker date="1524509536431" expanded="false" signature="10037:10043" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1046,13 +965,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/StockProductsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="44" column="35" lean-forward="false" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Command/AlertExpiresCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="221" column="28" lean-forward="false" selection-start-line="221" selection-start-column="28" selection-end-line="221" selection-end-column="28" />
+        <state relative-caret-position="149">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
-            <element signature="e#1379#1408#0#PHP" expanded="true" />
+            <element signature="e#1379#1402#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stock/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="42" column="48" lean-forward="false" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="226" column="202" lean-forward="false" selection-start-line="226" selection-start-column="202" selection-end-line="226" selection-end-column="244" />
+          <folding>
+            <marker date="1524509536431" expanded="true" signature="5871:6011" ph="..." />
+            <marker date="1524509536431" expanded="true" signature="5944:6002" ph="{...}" />
+            <marker date="1524509536431" expanded="false" signature="6951:6986" ph="..." />
+            <marker date="1524509536431" expanded="true" signature="6987:7517" ph="..." />
+            <marker date="1524509536431" expanded="true" signature="7036:7236" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="7109:7162" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="7176:7182" ph=" " />
+            <marker date="1524509536431" expanded="true" signature="7285:7517" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="7346:7368" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="7370:7376" ph=" " />
+            <marker date="1524509536431" expanded="false" signature="7441:7463" ph="..." />
+            <marker date="1524509536431" expanded="true" signature="7476:7517" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="8233:8255" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="8257:8263" ph=" " />
+            <marker date="1524509536431" expanded="true" signature="8358:8550" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="8427:8480" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="8494:8500" ph=" " />
+            <marker date="1524509536431" expanded="false" signature="8805:8840" ph="..." />
+            <marker date="1524509536431" expanded="true" signature="8841:9371" ph="..." />
+            <marker date="1524509536431" expanded="true" signature="8890:9090" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="8963:9016" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="9030:9036" ph=" " />
+            <marker date="1524509536431" expanded="true" signature="9139:9371" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="9200:9222" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="9224:9230" ph=" " />
+            <marker date="1524509536431" expanded="false" signature="9295:9317" ph="..." />
+            <marker date="1524509536431" expanded="true" signature="9330:9371" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="9776:9798" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="9800:9806" ph=" " />
+            <marker date="1524509536431" expanded="true" signature="9901:10093" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="9970:10023" ph="..." />
+            <marker date="1524509536431" expanded="false" signature="10037:10043" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/stock/expired.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/stock/expired.txt.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/security/register.txt.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/security/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/security/recover.txt.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/security/recover.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
