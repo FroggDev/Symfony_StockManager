@@ -219,7 +219,7 @@ class ProductManager
             $ids[] = $stockProduct->getId();
         }
 
-        return '{  "result" : "ok" , "ids" : "'.implode(',' , $ids).'" , "name" : "'.$postedData->name.'" }';
+        return '{  "result" : "ok" , "ids" : "'.implode(',', $ids).'" , "name" : "'.$postedData->name.'" }';
     }
 
     /*##########
@@ -249,5 +249,4 @@ class ProductManager
     {
         return DateTime::createFromFormat('Y-m-d H:i:s.u', $date);
     }
-
 }

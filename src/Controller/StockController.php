@@ -94,7 +94,7 @@ class StockController extends Controller
     public function add()
     {
         // Display form view
-        return $this->render('stock/form_scan.html.twig',['type' => 'add']);
+        return $this->render('stock/form_scan.html.twig', ['type' => 'add']);
     }
 
     /**
@@ -113,7 +113,7 @@ class StockController extends Controller
     public function del()
     {
         // Display form view
-        return $this->render('stock/form_scan.html.twig',['type' => 'del']);
+        return $this->render('stock/form_scan.html.twig', ['type' => 'del']);
     }
 
     /**
@@ -204,13 +204,13 @@ class StockController extends Controller
      *
      * @return Response
      */
-    public function showDelProduct(Request $request,EntityManagerInterface $manager,string $currentPage, string $order,?string $barcode)
+    public function showDelProduct(Request $request, EntityManagerInterface $manager, string $currentPage, string $order, ?string $barcode)
     {
         $search = $request->get('search');
 
         $productId = null;
 
-        if(null!==$barcode && ""!==$barcode) {
+        if (null!==$barcode && ""!==$barcode) {
             $product = $manager->getRepository(Product::class)->findOneByBarcode($barcode);
             $productId = $product->getId();
         }

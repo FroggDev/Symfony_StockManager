@@ -85,103 +85,103 @@
                 {% if product.levelFat %}
                 <tr>
                     <td>{{ "fat" | trans }}</td>
-                    <td>{{ product.levelFat }} {{ product.levelFatUnit }}</td>
+                    <td>{{ product.levelFat|number_format(2, ',') }} {{ product.levelFatUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSaturedFat %}
                 <tr>
                     <td>{{ "satured fat" | trans }}</td>
-                    <td>{{ product.levelSaturedFat }} {{ product.levelSaturedFatUnit }}</td>
+                    <td>{{ product.levelSaturedFat|number_format(2, ',') }} {{ product.levelSaturedFatUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelCarbohydrate %}
                 <tr>
                     <td>{{ "carbohydrate" | trans }}</td>
-                    <td>{{ product.levelCarbohydrate }} {{ product.levelCarbohydrateUnit }}</td>
+                    <td>{{ product.levelCarbohydrate|number_format(2, ',') }} {{ product.levelCarbohydrateUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSugar %}
                 <tr>
                     <td>{{ "sugar" | trans }}</td>
-                    <td>{{ product.levelSugar }} {{ product.levelSugarUnit }}</td>
+                    <td>{{ product.levelSugar|number_format(2, ',') }} {{ product.levelSugarUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelDietaryFiber %}
                 <tr>
                     <td>{{ "dietary fiber" | trans }}</td>
-                    <td>{{ product.levelDietaryFiber }} {{ product.levelDietaryFiberUnit }}</td>
+                    <td>{{ product.levelDietaryFiber|number_format(2, ',') }} {{ product.levelDietaryFiberUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelProteins %}
                 <tr>
                     <td>{{ "proteins" | trans }}</td>
-                    <td>{{ product.levelProteins }} {{ product.levelProteinsUnit }}</td>
+                    <td>{{ product.levelProteins|number_format(2, ',') }} {{ product.levelProteinsUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSalt %}
                 <tr>
                     <td>{{ "salt" | trans }}</td>
-                    <td>{{ product.levelSalt }} {{ product.levelSaltUnit }}</td>
+                    <td>{{ product.levelSalt|number_format(2, ',') }} {{ product.levelSaltUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSodium %}
                 <tr>
                     <td>{{ "sodium" | trans }}</td>
-                    <td>{{ product.levelSodium }} {{ product.levelSodiumUnit }}</td>
+                    <td>{{ product.levelSodium|number_format(2, ',') }} {{ product.levelSodiumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelAlcohol %}
                 <tr>
                     <td>{{ "alcohol" | trans }}</td>
-                    <td>{{ product.levelAlcohol }} %</td>
+                    <td>{{ product.levelAlcohol|number_format(2, ',') }} %</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSilica %}
                 <tr>
                     <td>{{ "silica" | trans }}</td>
-                    <td>{{ product.levelSilica }} {{ product.levelSilicaUnit }}</td>
+                    <td>{{ product.levelSilica|number_format(2, ',') }} {{ product.levelSilicaUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelBicarbonate %}
                 <tr>
                     <td>{{ "bicarbonate" | trans }}</td>
-                    <td>{{ product.levelBicarbonate }} {{ product.levelBicarbonateUnit }}</td>
+                    <td>{{ product.levelBicarbonate|number_format(2, ',') }} {{ product.levelBicarbonateUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelPotassium %}
                 <tr>
                     <td>{{ "potassium" | trans }}</td>
-                    <td>{{ product.levelPotassium }} {{ product.levelPotassiumUnit }}</td>
+                    <td>{{ product.levelPotassium|number_format(2, ',') }} {{ product.levelPotassiumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelChloride %}
                 <tr>
                     <td>{{ "chloride" | trans }}</td>
-                    <td>{{ product.levelChloride }} {{ product.levelChlorideUnit }}</td>
+                    <td>{{ product.levelChloride|number_format(2, ',') }} {{ product.levelChlorideUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelCalcium %}
                 <tr>
                     <td>{{ "calcium" | trans }}</td>
-                    <td>{{ product.levelCalcium }} {{ product.levelCalciumUnit }}</td>
+                    <td>{{ product.levelCalcium|number_format(2, ',') }} {{ product.levelCalciumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelMagnesium %}
                 <tr>
                     <td>{{ "magnesium" | trans }}</td>
-                    <td>{{ product.levelMagnesium }} {{ product.levelMagnesiumUnit }}</td>
+                    <td>{{ product.levelMagnesium|number_format(2,  ',') }} {{ product.levelMagnesiumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelNitrates %}
                 <tr>
                     <td>{{ "nitrates" | trans }}</td>
-                    <td>{{ product.levelNitrates }} {{ product.levelNitratesUnit }}</td>
+                    <td>{{ product.levelNitrates|number_format(2,  ',') }} {{ product.levelNitratesUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSulfates %}
                 <tr>
                     <td>{{ "sulfates" | trans }}</td>
-                    <td>{{ product.levelSulfates }} {{ product.levelSulfatesUnit }}</td>
+                    <td>{{ product.levelSulfates|number_format(2, ',') }} {{ product.levelSulfatesUnit }}</td>
                 </tr>
                 {% endif %}
                 </tbody>

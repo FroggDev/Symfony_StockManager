@@ -23,10 +23,10 @@
                 <a href="{{ path('stock_list',{ 'inDay' : 0 }) }}"><span style="margin-left:4px;" class="new badge red" data-badge-caption="{{ "expired" | trans }}">({{ expired }})</span></a>
                 {% endif %}
                 {% if expire3 > 0 %}
-                <a href="{{ path('stock_list',{ 'inDay' : 3 }) }}"><span style="margin-left:4px;" class="new badge orange darken-1" data-badge-caption="{{ "exired in 3 days" | trans }}">({{ expire3 }})</span></a>
+                <a href="{{ path('stock_list',{ 'inDay' : 3 }) }}"><span style="margin-left:4px;" class="new badge orange darken-1" data-badge-caption="{{ "expired in 3 days" | trans }}">({{ expire3 }})</span></a>
                 {% endif %}
                 {% if expire7 > 0 %}
-                <a href="{{ path('stock_list',{ 'inDay' : 7 }) }}"><span style="margin-left:4px;" class="new badge" data-badge-caption="{{ "exired in 7 days" | trans }}">({{ expire7 }})</span></a>
+                <a href="{{ path('stock_list',{ 'inDay' : 7 }) }}"><span style="margin-left:4px;" class="new badge" data-badge-caption="{{ "expired in 7 days" | trans }}">({{ expire7 }})</span></a>
                 {% endif %}
             </div>
 

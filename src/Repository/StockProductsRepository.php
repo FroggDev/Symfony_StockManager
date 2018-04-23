@@ -72,7 +72,7 @@ class StockProductsRepository extends ServiceEntityRepository
             ->where('sp.stock = '.$stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
-            ->orderBy($orderDirection['order'],$orderDirection['direction'])
+            ->orderBy($orderDirection['order'], $orderDirection['direction'])
             ->getQuery()
             ->getResult();
 
@@ -108,20 +108,20 @@ class StockProductsRepository extends ServiceEntityRepository
             ->Where('sp.stock = '.$stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
-            ->orderBy($orderDirection['order'],$orderDirection['direction']);
+            ->orderBy($orderDirection['order'], $orderDirection['direction']);
 
-        if(null!==$productId){
+        if (null!==$productId) {
             $query->andWhere('sp.product = '.$productId);
         }
 
-        if(null!==$search && ""!==$search){
+        if (null!==$search && ""!==$search) {
             $query
                 ->join('p.brands', 'b')
-                ->join('p.categories', 'c')
+                //->join('p.categories', 'c')
                 ->where('p.commonName LIKE :search')
                 ->orWhere('p.name LIKE :search')
                 ->orWhere('b.name LIKE :search')
-                ->orWhere('c.name LIKE :search')
+                //->orWhere('c.name LIKE :search')
                 ->setParameter('search', "%$search%");
         }
 

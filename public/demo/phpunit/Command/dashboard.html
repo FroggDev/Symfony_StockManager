@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\Users\Etudiant\Desktop\Symfony_StockManager\src/Command</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src="../.js/html5shiv.min.js"></script>
+  <script src="../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">C:\Users\Etudiant\Desktop\Symfony_StockManager\src</a></li>
+        <li><a href="index.html">Command</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="UserCommand.php.html#95">App\Command\UserCommand</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#67">App\Command\DatabaseCommand</a></td><td class="text-right">12%</td></tr>
+       <tr><td><a href="ProductCommand.php.html#63">App\Command\ProductCommand</a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="UserCommand.php.html#95">App\Command\UserCommand</a></td><td class="text-right">1299</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#67">App\Command\DatabaseCommand</a></td><td class="text-right">125</td></tr>
+       <tr><td><a href="ProductCommand.php.html#63">App\Command\ProductCommand</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="DatabaseCommand.php.html#114"><abbr title="App\Command\DatabaseCommand::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#144"><abbr title="App\Command\UserCommand::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#450"><abbr title="App\Command\UserCommand::removeUserRole">removeUserRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#381"><abbr title="App\Command\UserCommand::addUserRole">addUserRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#355"><abbr title="App\Command\UserCommand::enableUser">enableUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#301"><abbr title="App\Command\UserCommand::displayUserListNew">displayUserListNew</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#273"><abbr title="App\Command\UserCommand::displayUserListRange">displayUserListRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#224"><abbr title="App\Command\UserCommand::displayUserList">displayUserList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#174"><abbr title="App\Command\UserCommand::displayMainMenu">displayMainMenu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UserCommand.php.html#505"><abbr title="App\Command\UserCommand::askUserId">askUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#153"><abbr title="App\Command\DatabaseCommand::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#257"><abbr title="App\Command\DatabaseCommand::doCommand">doCommand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#224"><abbr title="App\Command\DatabaseCommand::importData">importData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#209"><abbr title="App\Command\DatabaseCommand::updateDatabase">updateDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#196"><abbr title="App\Command\DatabaseCommand::createDatabase">createDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#181"><abbr title="App\Command\DatabaseCommand::dropDatabase">dropDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#172"><abbr title="App\Command\DatabaseCommand::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#164"><abbr title="App\Command\DatabaseCommand::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductCommand.php.html#136"><abbr title="App\Command\ProductCommand::addProducts">addProducts</abbr></a></td><td class="text-right">63%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="UserCommand.php.html#174"><abbr title="App\Command\UserCommand::displayMainMenu">displayMainMenu</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="UserCommand.php.html#381"><abbr title="App\Command\UserCommand::addUserRole">addUserRole</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="UserCommand.php.html#450"><abbr title="App\Command\UserCommand::removeUserRole">removeUserRole</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="UserCommand.php.html#224"><abbr title="App\Command\UserCommand::displayUserList">displayUserList</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="DatabaseCommand.php.html#114"><abbr title="App\Command\DatabaseCommand::execute">execute</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UserCommand.php.html#273"><abbr title="App\Command\UserCommand::displayUserListRange">displayUserListRange</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UserCommand.php.html#301"><abbr title="App\Command\UserCommand::displayUserListNew">displayUserListNew</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UserCommand.php.html#355"><abbr title="App\Command\UserCommand::enableUser">enableUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UserCommand.php.html#505"><abbr title="App\Command\UserCommand::askUserId">askUserId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProductCommand.php.html#136"><abbr title="App\Command\ProductCommand::addProducts">addProducts</abbr></a></td><td class="text-right">4</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.2</a> with <a href="https://xdebug.org/">Xdebug 2.6.0</a> and <a href="https://phpunit.de/">PHPUnit 6.5.8</a> at Mon Apr 23 13:44:45 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,1,1,0,0,0,0,0,0,1,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([18,0,0,0,0,0,0,1,0,0,0,4], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[12.698412698412698,13,"<a href=\"DatabaseCommand.php.html#67\">App\\Command\\DatabaseCommand<\/a>"],[85.71428571428571,6,"<a href=\"ProductCommand.php.html#63\">App\\Command\\ProductCommand<\/a>"],[2.666666666666667,37,"<a href=\"UserCommand.php.html#95\">App\\Command\\UserCommand<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"DatabaseCommand.php.html#92\">App\\Command\\DatabaseCommand::configure<\/a>"],[0,4,"<a href=\"DatabaseCommand.php.html#114\">App\\Command\\DatabaseCommand::execute<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#153\">App\\Command\\DatabaseCommand::create<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#164\">App\\Command\\DatabaseCommand::update<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#172\">App\\Command\\DatabaseCommand::delete<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#181\">App\\Command\\DatabaseCommand::dropDatabase<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#196\">App\\Command\\DatabaseCommand::createDatabase<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#209\">App\\Command\\DatabaseCommand::updateDatabase<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#224\">App\\Command\\DatabaseCommand::importData<\/a>"],[0,1,"<a href=\"DatabaseCommand.php.html#257\">App\\Command\\DatabaseCommand::doCommand<\/a>"],[100,1,"<a href=\"ProductCommand.php.html#85\">App\\Command\\ProductCommand::configure<\/a>"],[100,1,"<a href=\"ProductCommand.php.html#109\">App\\Command\\ProductCommand::execute<\/a>"],[63.63636363636363,4,"<a href=\"ProductCommand.php.html#136\">App\\Command\\ProductCommand::addProducts<\/a>"],[100,1,"<a href=\"UserCommand.php.html#125\">App\\Command\\UserCommand::configure<\/a>"],[0,1,"<a href=\"UserCommand.php.html#144\">App\\Command\\UserCommand::execute<\/a>"],[0,9,"<a href=\"UserCommand.php.html#174\">App\\Command\\UserCommand::displayMainMenu<\/a>"],[0,5,"<a href=\"UserCommand.php.html#224\">App\\Command\\UserCommand::displayUserList<\/a>"],[0,2,"<a href=\"UserCommand.php.html#273\">App\\Command\\UserCommand::displayUserListRange<\/a>"],[0,2,"<a href=\"UserCommand.php.html#301\">App\\Command\\UserCommand::displayUserListNew<\/a>"],[0,2,"<a href=\"UserCommand.php.html#355\">App\\Command\\UserCommand::enableUser<\/a>"],[0,7,"<a href=\"UserCommand.php.html#381\">App\\Command\\UserCommand::addUserRole<\/a>"],[0,6,"<a href=\"UserCommand.php.html#450\">App\\Command\\UserCommand::removeUserRole<\/a>"],[0,2,"<a href=\"UserCommand.php.html#505\">App\\Command\\UserCommand::askUserId<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

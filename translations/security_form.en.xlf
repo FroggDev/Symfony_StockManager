@@ -67,7 +67,7 @@
       </trans-unit>
       <trans-unit id="kE0CLTY" resname="change button">
         <source>change button</source>
-        <target>__change button</target>
+        <target>Change</target>
       </trans-unit>
     </body>
   </file>

@@ -67,15 +67,15 @@
       </trans-unit>
       <trans-unit id="ygD8z7Q" resname="error">
         <source>error</source>
-        <target>__error</target>
+        <target>erreur</target>
       </trans-unit>
       <trans-unit id="FnnSDc4" resname="back to index">
         <source>back to index</source>
-        <target>__back to index</target>
+        <target>Retour à la home</target>
       </trans-unit>
       <trans-unit id="kE0CLTY" resname="change button">
         <source>change button</source>
-        <target>__change button</target>
+        <target>Changer</target>
       </trans-unit>
     </body>
   </file>

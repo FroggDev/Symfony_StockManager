@@ -123,7 +123,7 @@ class DatabaseCommand extends Command
         $this->env = $kernel->getEnvironment();
 
         // INIT STYLES
-        $this->output = new SymfonyStyle($input, $output);
+        $this->output = $output;//new SymfonyStyle($input, $output);
 
         // Get parameters
         $action = $input->getArgument('action');
@@ -141,7 +141,7 @@ class DatabaseCommand extends Command
                 break;
             default:
                 // ERROR COLOR
-                $this->output->warning('The action '.$action.' is not defined... exiting command');
+                //$this->output->warning('The action '.$action.' is not defined... exiting command');
         }
 
         return self::EXITCODE;
@@ -186,7 +186,7 @@ class DatabaseCommand extends Command
             //'--quiet'  => true,
             '--env'  => $this->env,
         );
-        $this->doCommand('doctrine:database:drop',$arguments);
+        $this->doCommand('doctrine:database:drop', $arguments);
     }
 
     /**
@@ -199,7 +199,7 @@ class DatabaseCommand extends Command
             'command' => 'doctrine:database:create',
             '--env'  => $this->env,
         );
-        $this->doCommand('doctrine:database:create',$arguments);
+        $this->doCommand('doctrine:database:create', $arguments);
     }
 
     /**
@@ -214,7 +214,7 @@ class DatabaseCommand extends Command
             '--quiet' => true,
             '--no-interaction' => true
         );
-        $this->doCommand('doctrine:migrations:migrate',$arguments);
+        $this->doCommand('doctrine:migrations:migrate', $arguments);
     }
 
     /**
@@ -228,21 +228,21 @@ class DatabaseCommand extends Command
             '--env'  => $this->env,
             'file' => SiteConfig::SQLCOUNTRY
         );
-        $this->doCommand('doctrine:database:import',$arguments);
+        $this->doCommand('doctrine:database:import', $arguments);
 
         $arguments = array(
             'command' => 'doctrine:database:import',
             '--env'  => $this->env,
             'file' => SiteConfig::SQLSTOCK
         );
-        $this->doCommand('doctrine:database:import',$arguments);
+        $this->doCommand('doctrine:database:import', $arguments);
 
         $arguments = array(
             'command' => 'doctrine:database:import',
             '--env'  => $this->env,
             'file' => SiteConfig::SQLUSER
         );
-        $this->doCommand('doctrine:database:import',$arguments);
+        $this->doCommand('doctrine:database:import', $arguments);
     }
 
 

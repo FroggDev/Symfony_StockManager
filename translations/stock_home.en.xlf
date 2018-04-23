@@ -31,15 +31,15 @@
       </trans-unit>
       <trans-unit id="_mTqHoL" resname="expired">
         <source>expired</source>
-        <target>__expired</target>
+        <target>expired</target>
       </trans-unit>
-      <trans-unit id="7tYUdc4" resname="exired in 3 days">
-        <source>exired in 3 days</source>
-        <target>__exired in 3 days</target>
+      <trans-unit id="7tYUdc4" resname="expired in 3 days">
+        <source>expired in 3 days</source>
+        <target>in 3 days</target>
       </trans-unit>
-      <trans-unit id="BvVGw.d" resname="exired in 7 days">
-        <source>exired in 7 days</source>
-        <target>__exired in 7 days</target>
+      <trans-unit id="BvVGw.d" resname="expired in 7 days">
+        <source>expired in 7 days</source>
+        <target>in 7 days</target>
       </trans-unit>
     </body>
   </file>

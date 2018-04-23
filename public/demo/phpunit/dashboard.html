@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\Users\Etudiant\Desktop\Symfony_StockManager\src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=".css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src=".js/html5shiv.min.js"></script>
+  <script src=".js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">C:\Users\Etudiant\Desktop\Symfony_StockManager\src</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Entity/StockProducts.php.html#22">App\Entity\StockProducts</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CountryRepository.php.html#23">App\Repository\CountryRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#23">App\Service\DatabaseManager</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/AppExtension.php.html#22">App\Service\Twig\AppExtension</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Link.php.html#21">App\Service\Twig\Func\Link</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#25">App\Service\Twig\Func\Product</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Common/Traits/Html/ATagGeneratorTrait.php.html#17">ATagGeneratorTrait</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#95">App\Command\UserCommand</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="Entity/Stock.php.html#23">App\Entity\Stock</a></td><td class="text-right">11%</td></tr>
+       <tr><td><a href="Controller/StockAjaxController.php.html#31">App\Controller\StockAjaxController</a></td><td class="text-right">12%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#67">App\Command\DatabaseCommand</a></td><td class="text-right">12%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#27">App\Service\Stock\ProductManager</a></td><td class="text-right">16%</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#37">App\Controller\StockController</a></td><td class="text-right">38%</td></tr>
+       <tr><td><a href="Common/Traits/Client/BrowserTrait.php.html#15">BrowserTrait</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Command/ProductCommand.php.html#63">App\Command\ProductCommand</a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Command/UserCommand.php.html#95">App\Command\UserCommand</a></td><td class="text-right">1299</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#25">App\Service\Twig\Func\Product</a></td><td class="text-right">650</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#27">App\Service\Stock\ProductManager</a></td><td class="text-right">203</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#22">App\Entity\StockProducts</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#67">App\Command\DatabaseCommand</a></td><td class="text-right">125</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#23">App\Service\DatabaseManager</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#37">App\Controller\StockController</a></td><td class="text-right">52</td></tr>
+       <tr><td><a href="Common/Traits/Html/ATagGeneratorTrait.php.html#17">ATagGeneratorTrait</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Command/ProductCommand.php.html#63">App\Command\ProductCommand</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Common/Traits/Client/BrowserTrait.php.html#15">BrowserTrait</a></td><td class="text-right">4</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Command/DatabaseCommand.php.html#114"><abbr title="App\Command\DatabaseCommand::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CountryRepository.php.html#33"><abbr title="App\Repository\CountryRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#102"><abbr title="App\Service\DatabaseManager::dropDatabase">dropDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#93"><abbr title="App\Service\DatabaseManager::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#81"><abbr title="App\Service\DatabaseManager::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#70"><abbr title="App\Service\DatabaseManager::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#51"><abbr title="App\Service\DatabaseManager::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CountryRepository.php.html#41"><abbr title="App\Repository\CountryRepository::findAll">findAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#343"><abbr title="App\Entity\User::setProducts">setProducts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#120"><abbr title="App\Service\DatabaseManager::updateDatabase">updateDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#334"><abbr title="App\Entity\User::getProducts">getProducts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#171"><abbr title="App\Entity\StockProducts::setProduct">setProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#161"><abbr title="App\Entity\StockProducts::getProduct">getProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#151"><abbr title="App\Entity\StockProducts::setStock">setStock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#141"><abbr title="App\Entity\StockProducts::getStock">getStock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#131"><abbr title="App\Entity\StockProducts::setDateExpire">setDateExpire</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#111"><abbr title="App\Service\DatabaseManager::createDatabase">createDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#129"><abbr title="App\Service\DatabaseManager::importData">importData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#111"><abbr title="App\Entity\StockProducts::setDateCreation">setDateCreation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#44"><abbr title="App\Service\Twig\Func\Product::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#144"><abbr title="App\Service\Twig\Func\Product::getNutritionLine">getNutritionLine</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#125"><abbr title="App\Service\Twig\Func\Product::getNutritionalInfo">getNutritionalInfo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#83"><abbr title="App\Service\Twig\Func\Product::getDateExpires">getDateExpires</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#71"><abbr title="App\Service\Twig\Func\Product::anonymousFunction:71#246">anonymousFunction:71#246</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#67"><abbr title="App\Service\Twig\Func\Product::getFormatedList">getFormatedList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#56"><abbr title="App\Service\Twig\Func\Product::getProductImage">getProductImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Link.php.html#52"><abbr title="App\Service\Twig\Func\Link::getLink">getLink</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#91"><abbr title="App\Service\Stock\ProductManager::doAjaxAdd">doAjaxAdd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/Func/Link.php.html#38"><abbr title="App\Service\Twig\Func\Link::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/AppExtension.php.html#50"><abbr title="App\Service\Twig\AppExtension::getFunctions">getFunctions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#248"><abbr title="App\Service\Stock\ProductManager::stringToDatetime">stringToDatetime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#234"><abbr title="App\Service\Stock\ProductManager::getFormatedData">getFormatedData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#191"><abbr title="App\Service\Stock\ProductManager::doAjaxCancelRemove">doAjaxCancelRemove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#160"><abbr title="App\Service\Stock\ProductManager::doAjaxRemove">doAjaxRemove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#140"><abbr title="App\Service\Stock\ProductManager::doAjaxCancelAdd">doAjaxCancelAdd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#153"><abbr title="App\Command\DatabaseCommand::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#121"><abbr title="App\Entity\StockProducts::getDateExpire">getDateExpire</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#101"><abbr title="App\Entity\StockProducts::getDateCreation">getDateCreation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#174"><abbr title="App\Command\UserCommand::displayMainMenu">displayMainMenu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#450"><abbr title="App\Command\UserCommand::removeUserRole">removeUserRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#381"><abbr title="App\Command\UserCommand::addUserRole">addUserRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#355"><abbr title="App\Command\UserCommand::enableUser">enableUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#301"><abbr title="App\Command\UserCommand::displayUserListNew">displayUserListNew</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#273"><abbr title="App\Command\UserCommand::displayUserListRange">displayUserListRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#224"><abbr title="App\Command\UserCommand::displayUserList">displayUserList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#144"><abbr title="App\Command\UserCommand::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockAjaxController.php.html#82"><abbr title="App\Controller\StockAjaxController::ajaxAdd">ajaxAdd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#257"><abbr title="App\Command\DatabaseCommand::doCommand">doCommand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#224"><abbr title="App\Command\DatabaseCommand::importData">importData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#209"><abbr title="App\Command\DatabaseCommand::updateDatabase">updateDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#196"><abbr title="App\Command\DatabaseCommand::createDatabase">createDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#181"><abbr title="App\Command\DatabaseCommand::dropDatabase">dropDatabase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#172"><abbr title="App\Command\DatabaseCommand::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#164"><abbr title="App\Command\DatabaseCommand::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#91"><abbr title="App\Entity\StockProducts::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#505"><abbr title="App\Command\UserCommand::askUserId">askUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockAjaxController.php.html#106"><abbr title="App\Controller\StockAjaxController::ajaxCancelAdd">ajaxCancelAdd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockAjaxController.php.html#132"><abbr title="App\Controller\StockAjaxController::ajaxRemove">ajaxRemove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#81"><abbr title="App\Entity\StockProducts::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#69"><abbr title="App\Entity\StockProducts::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Stock.php.html#106"><abbr title="App\Entity\Stock::setStockProducts">setStockProducts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Stock.php.html#97"><abbr title="App\Entity\Stock::getStockProducts">getStockProducts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Stock.php.html#87"><abbr title="App\Entity\Stock::setUser">setUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Stock.php.html#78"><abbr title="App\Entity\Stock::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Stock.php.html#68"><abbr title="App\Entity\Stock::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#1140"><abbr title="App\Entity\Product::getLevelSaturedFat">getLevelSaturedFat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#335"><abbr title="App\Controller\StockController::createProduct">createProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#295"><abbr title="App\Controller\StockController::showProductResult">showProductResult</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#269"><abbr title="App\Controller\StockController::showProductCard">showProductCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#207"><abbr title="App\Controller\StockController::showDelProduct">showDelProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#183"><abbr title="App\Controller\StockController::showProduct">showProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StockAjaxController.php.html#152"><abbr title="App\Controller\StockAjaxController::ajaxCancelRemove">ajaxCancelRemove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Common/Traits/Html/ATagGeneratorTrait.php.html#28"><abbr title="ATagGeneratorTrait::getATag">getATag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Command/ProductCommand.php.html#136"><abbr title="App\Command\ProductCommand::addProducts">addProducts</abbr></a></td><td class="text-right">63%</td></tr>
+       <tr><td><a href="Repository/StockProductsRepository.php.html#184"><abbr title="App\Repository\StockProductsRepository::getNbProductExpire">getNbProductExpire</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Common/Traits/Client/BrowserTrait.php.html#25"><abbr title="BrowserTrait::getUserBrowserLangs">getUserBrowserLangs</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Service/Stock/ProductScraper.php.html#289"><abbr title="App\Service\Stock\ProductScraper::formatValue">formatValue</abbr></a></td><td class="text-right">84%</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#61"><abbr title="App\Service\Stock\ProductManager::getProductFromBarcode">getProductFromBarcode</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#144"><abbr title="App\Service\Twig\Func\Product::getNutritionLine">getNutritionLine</abbr></a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#174"><abbr title="App\Command\UserCommand::displayMainMenu">displayMainMenu</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#381"><abbr title="App\Command\UserCommand::addUserRole">addUserRole</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#450"><abbr title="App\Command\UserCommand::removeUserRole">removeUserRole</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#224"><abbr title="App\Command\UserCommand::displayUserList">displayUserList</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Command/DatabaseCommand.php.html#114"><abbr title="App\Command\DatabaseCommand::execute">execute</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/StockController.php.html#207"><abbr title="App\Controller\StockController::showDelProduct">showDelProduct</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#83"><abbr title="App\Service\Twig\Func\Product::getDateExpires">getDateExpires</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#191"><abbr title="App\Service\Stock\ProductManager::doAjaxCancelRemove">doAjaxCancelRemove</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Common/Traits/Html/ATagGeneratorTrait.php.html#28"><abbr title="ATagGeneratorTrait::getATag">getATag</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#91"><abbr title="App\Service\Stock\ProductManager::doAjaxAdd">doAjaxAdd</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Service/Stock/ProductScraper.php.html#289"><abbr title="App\Service\Stock\ProductScraper::formatValue">formatValue</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#505"><abbr title="App\Command\UserCommand::askUserId">askUserId</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/Product.php.html#1140"><abbr title="App\Entity\Product::getLevelSaturedFat">getLevelSaturedFat</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/StockProducts.php.html#121"><abbr title="App\Entity\StockProducts::getDateExpire">getDateExpire</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/DatabaseManager.php.html#81"><abbr title="App\Service\DatabaseManager::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#140"><abbr title="App\Service\Stock\ProductManager::doAjaxCancelAdd">doAjaxCancelAdd</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#160"><abbr title="App\Service\Stock\ProductManager::doAjaxRemove">doAjaxRemove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#355"><abbr title="App\Command\UserCommand::enableUser">enableUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/Twig/Func/Product.php.html#56"><abbr title="App\Service\Twig\Func\Product::getProductImage">getProductImage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#301"><abbr title="App\Command\UserCommand::displayUserListNew">displayUserListNew</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Command/UserCommand.php.html#273"><abbr title="App\Command\UserCommand::displayUserListRange">displayUserListRange</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Command/ProductCommand.php.html#136"><abbr title="App\Command\ProductCommand::addProducts">addProducts</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Common/Traits/Client/BrowserTrait.php.html#25"><abbr title="BrowserTrait::getUserBrowserLangs">getUserBrowserLangs</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Service/Stock/ProductManager.php.html#61"><abbr title="App\Service\Stock\ProductManager::getProductFromBarcode">getProductFromBarcode</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Repository/StockProductsRepository.php.html#184"><abbr title="App\Repository\StockProductsRepository::getNbProductExpire">getNbProductExpire</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.2</a> with <a href="https://xdebug.org/">Xdebug 2.6.0</a> and <a href="https://phpunit.de/">PHPUnit 6.5.8</a> at Mon Apr 23 13:44:45 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src=".js/jquery.min.js" type="text/javascript"></script>
+  <script src=".js/bootstrap.min.js" type="text/javascript"></script>
+  <script src=".js/holder.min.js" type="text/javascript"></script>
+  <script src=".js/d3.min.js" type="text/javascript"></script>
+  <script src=".js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([7,1,4,0,1,0,0,0,0,2,5,42], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([73,0,0,0,0,0,0,1,1,3,4,313], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[12.698412698412698,13,"<a href=\"Command\/DatabaseCommand.php.html#67\">App\\Command\\DatabaseCommand<\/a>"],[85.71428571428571,6,"<a href=\"Command\/ProductCommand.php.html#63\">App\\Command\\ProductCommand<\/a>"],[2.666666666666667,37,"<a href=\"Command\/UserCommand.php.html#95\">App\\Command\\UserCommand<\/a>"],[100,1,"<a href=\"Controller\/AccountController.php.html#33\">App\\Controller\\AccountController<\/a>"],[100,4,"<a href=\"Controller\/IndexController.php.html#62\">App\\Controller\\IndexController<\/a>"],[100,23,"<a href=\"Controller\/SecurityController.php.html#61\">App\\Controller\\SecurityController<\/a>"],[12.5,5,"<a href=\"Controller\/StockAjaxController.php.html#31\">App\\Controller\\StockAjaxController<\/a>"],[38.18181818181819,13,"<a href=\"Controller\/StockController.php.html#37\">App\\Controller\\StockController<\/a>"],[100,10,"<a href=\"Entity\/Country.php.html#93\">App\\Entity\\Country<\/a>"],[99.47368421052632,171,"<a href=\"Entity\/Product.php.html#34\">App\\Entity\\Product<\/a>"],[100,6,"<a href=\"Entity\/Product\/Additive.php.html#84\">App\\Entity\\Product\\Additive<\/a>"],[100,6,"<a href=\"Entity\/Product\/Alergy.php.html#84\">App\\Entity\\Product\\Alergy<\/a>"],[100,6,"<a href=\"Entity\/Product\/Brand.php.html#84\">App\\Entity\\Product\\Brand<\/a>"],[100,6,"<a href=\"Entity\/Product\/Category.php.html#84\">App\\Entity\\Product\\Category<\/a>"],[100,6,"<a href=\"Entity\/Product\/Certification.php.html#19\">App\\Entity\\Product\\Certification<\/a>"],[100,6,"<a href=\"Entity\/Product\/Origin.php.html#84\">App\\Entity\\Product\\Origin<\/a>"],[100,6,"<a href=\"Entity\/Product\/Packaging.php.html#84\">App\\Entity\\Product\\Packaging<\/a>"],[100,6,"<a href=\"Entity\/Product\/Place.php.html#84\">App\\Entity\\Product\\Place<\/a>"],[100,6,"<a href=\"Entity\/Product\/Trace.php.html#84\">App\\Entity\\Product\\Trace<\/a>"],[11.11111111111111,6,"<a href=\"Entity\/Stock.php.html#23\">App\\Entity\\Stock<\/a>"],[0,12,"<a href=\"Entity\/StockProducts.php.html#22\">App\\Entity\\StockProducts<\/a>"],[95.16129032258065,50,"<a href=\"Entity\/User.php.html#39\">App\\Entity\\User<\/a>"],[93.75,7,"<a href=\"EventSubscriber\/UserSubscriber.php.html#27\">App\\EventSubscriber\\UserSubscriber<\/a>"],[100,0,"<a href=\"Exception\/Account\/AccountAccessDeniedException.php.html#18\">App\\Exception\\Account\\AccountAccessDeniedException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountAlreadyActivatedException.php.html#18\">App\\Exception\\Account\\AccountAlreadyActivatedException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountBadTokenException.php.html#18\">App\\Exception\\Account\\AccountBadTokenException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountBannedException.php.html#18\">App\\Exception\\Account\\AccountBannedException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountClosedException.php.html#18\">App\\Exception\\Account\\AccountClosedException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountDeletedException.php.html#18\">App\\Exception\\Account\\AccountDeletedException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountDisabledException.php.html#18\">App\\Exception\\Account\\AccountDisabledException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountExpiredTokenException.php.html#19\">App\\Exception\\Account\\AccountExpiredTokenException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountNotFoundException.php.html#18\">App\\Exception\\Account\\AccountNotFoundException<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountTypeException.php.html#19\">App\\Exception\\Account\\AccountTypeException<\/a>"],[100,1,"<a href=\"Exception\/Product\/ProductTypeException.php.html#19\">App\\Exception\\Product\\ProductTypeException<\/a>"],[100,2,"<a href=\"Form\/Security\/UserPasswordType.php.html#26\">App\\Form\\Security\\UserPasswordType<\/a>"],[100,2,"<a href=\"Form\/Security\/UserRecoverType.php.html#26\">App\\Form\\Security\\UserRecoverType<\/a>"],[100,2,"<a href=\"Form\/Security\/UserType.php.html#24\">App\\Form\\Security\\UserType<\/a>"],[0,2,"<a href=\"Repository\/CountryRepository.php.html#23\">App\\Repository\\CountryRepository<\/a>"],[100,3,"<a href=\"Repository\/ProductRepository.php.html#25\">App\\Repository\\ProductRepository<\/a>"],[97.33333333333334,20,"<a href=\"Repository\/StockProductsRepository.php.html#27\">App\\Repository\\StockProductsRepository<\/a>"],[100,2,"<a href=\"Repository\/UserRepository.php.html#23\">App\\Repository\\UserRepository<\/a>"],[0,9,"<a href=\"Service\/DatabaseManager.php.html#23\">App\\Service\\DatabaseManager<\/a>"],[100,11,"<a href=\"Service\/LocaleManager.php.html#25\">App\\Service\\LocaleManager<\/a>"],[100,2,"<a href=\"Service\/MailerManager.php.html#16\">App\\Service\\MailerManager<\/a>"],[100,15,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#17\">App\\Service\\Security\\AbstractAdvancedUser<\/a>"],[100,1,"<a href=\"Service\/Security\/AccessDeniedHandler.php.html#20\">App\\Service\\Security\\AccessDeniedHandler<\/a>"],[100,22,"<a href=\"Service\/Security\/UserChecker.php.html#29\">App\\Service\\Security\\UserChecker<\/a>"],[100,17,"<a href=\"Service\/Security\/UserManager.php.html#29\">App\\Service\\Security\\UserManager<\/a>"],[16.901408450704224,18,"<a href=\"Service\/Stock\/ProductManager.php.html#27\">App\\Service\\Stock\\ProductManager<\/a>"],[94.5945945945946,30,"<a href=\"Service\/Stock\/ProductScraper.php.html#33\">App\\Service\\Stock\\ProductScraper<\/a>"],[100,0,"<a href=\"Service\/Twig\/AbstractTwigExtension.php.html#15\">App\\Service\\Twig\\AbstractTwigExtension<\/a>"],[0,1,"<a href=\"Service\/Twig\/AppExtension.php.html#22\">App\\Service\\Twig\\AppExtension<\/a>"],[0,2,"<a href=\"Service\/Twig\/Func\/Link.php.html#21\">App\\Service\\Twig\\Func\\Link<\/a>"],[100,3,"<a href=\"Service\/Twig\/Func\/Menu.php.html#18\">App\\Service\\Twig\\Func\\Menu<\/a>"],[0,25,"<a href=\"Service\/Twig\/Func\/Product.php.html#25\">App\\Service\\Twig\\Func\\Product<\/a>"],[100,0,"<a href=\"SiteConfig.php.html#15\">App\\SiteConfig<\/a>"],[80,4,"<a href=\"Common\/Traits\/Client\/BrowserTrait.php.html#15\">BrowserTrait<\/a>"],[100,1,"<a href=\"Common\/Traits\/Client\/ResponseTrait.php.html#17\">ResponseTrait<\/a>"],[100,1,"<a href=\"Common\/Traits\/Client\/UserTrait.php.html#19\">UserTrait<\/a>"],[100,3,"<a href=\"Common\/Traits\/Controller\/FormCheckTrait.php.html#18\">FormCheckTrait<\/a>"],[0,4,"<a href=\"Common\/Traits\/Html\/ATagGeneratorTrait.php.html#17\">ATagGeneratorTrait<\/a>"],[100,1,"<a href=\"Common\/Traits\/Product\/FolderTrait.php.html#16\">FolderTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Command\/DatabaseCommand.php.html#92\">App\\Command\\DatabaseCommand::configure<\/a>"],[0,4,"<a href=\"Command\/DatabaseCommand.php.html#114\">App\\Command\\DatabaseCommand::execute<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#153\">App\\Command\\DatabaseCommand::create<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#164\">App\\Command\\DatabaseCommand::update<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#172\">App\\Command\\DatabaseCommand::delete<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#181\">App\\Command\\DatabaseCommand::dropDatabase<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#196\">App\\Command\\DatabaseCommand::createDatabase<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#209\">App\\Command\\DatabaseCommand::updateDatabase<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#224\">App\\Command\\DatabaseCommand::importData<\/a>"],[0,1,"<a href=\"Command\/DatabaseCommand.php.html#257\">App\\Command\\DatabaseCommand::doCommand<\/a>"],[100,1,"<a href=\"Command\/ProductCommand.php.html#85\">App\\Command\\ProductCommand::configure<\/a>"],[100,1,"<a href=\"Command\/ProductCommand.php.html#109\">App\\Command\\ProductCommand::execute<\/a>"],[63.63636363636363,4,"<a href=\"Command\/ProductCommand.php.html#136\">App\\Command\\ProductCommand::addProducts<\/a>"],[100,1,"<a href=\"Command\/UserCommand.php.html#125\">App\\Command\\UserCommand::configure<\/a>"],[0,1,"<a href=\"Command\/UserCommand.php.html#144\">App\\Command\\UserCommand::execute<\/a>"],[0,9,"<a href=\"Command\/UserCommand.php.html#174\">App\\Command\\UserCommand::displayMainMenu<\/a>"],[0,5,"<a href=\"Command\/UserCommand.php.html#224\">App\\Command\\UserCommand::displayUserList<\/a>"],[0,2,"<a href=\"Command\/UserCommand.php.html#273\">App\\Command\\UserCommand::displayUserListRange<\/a>"],[0,2,"<a href=\"Command\/UserCommand.php.html#301\">App\\Command\\UserCommand::displayUserListNew<\/a>"],[0,2,"<a href=\"Command\/UserCommand.php.html#355\">App\\Command\\UserCommand::enableUser<\/a>"],[0,7,"<a href=\"Command\/UserCommand.php.html#381\">App\\Command\\UserCommand::addUserRole<\/a>"],[0,6,"<a href=\"Command\/UserCommand.php.html#450\">App\\Command\\UserCommand::removeUserRole<\/a>"],[0,2,"<a href=\"Command\/UserCommand.php.html#505\">App\\Command\\UserCommand::askUserId<\/a>"],[100,1,"<a href=\"Controller\/AccountController.php.html#49\">App\\Controller\\AccountController::option<\/a>"],[100,1,"<a href=\"Controller\/IndexController.php.html#77\">App\\Controller\\IndexController::default<\/a>"],[100,2,"<a href=\"Controller\/IndexController.php.html#94\">App\\Controller\\IndexController::index<\/a>"],[100,1,"<a href=\"Controller\/IndexController.php.html#120\">App\\Controller\\IndexController::changeLocale<\/a>"],[100,3,"<a href=\"Controller\/SecurityController.php.html#84\">App\\Controller\\SecurityController::connexion<\/a>"],[100,6,"<a href=\"Controller\/SecurityController.php.html#130\">App\\Controller\\SecurityController::register<\/a>"],[100,1,"<a href=\"Controller\/SecurityController.php.html#176\">App\\Controller\\SecurityController::registerValidation<\/a>"],[100,5,"<a href=\"Controller\/SecurityController.php.html#204\">App\\Controller\\SecurityController::recoverRequest<\/a>"],[100,7,"<a href=\"Controller\/SecurityController.php.html#244\">App\\Controller\\SecurityController::recoverValidation<\/a>"],[100,1,"<a href=\"Controller\/SecurityController.php.html#287\">App\\Controller\\SecurityController::setCookieResponse<\/a>"],[100,1,"<a href=\"Controller\/StockAjaxController.php.html#55\">App\\Controller\\StockAjaxController::ajaxCodeBar<\/a>"],[0,1,"<a href=\"Controller\/StockAjaxController.php.html#82\">App\\Controller\\StockAjaxController::ajaxAdd<\/a>"],[0,1,"<a href=\"Controller\/StockAjaxController.php.html#106\">App\\Controller\\StockAjaxController::ajaxCancelAdd<\/a>"],[0,1,"<a href=\"Controller\/StockAjaxController.php.html#132\">App\\Controller\\StockAjaxController::ajaxRemove<\/a>"],[0,1,"<a href=\"Controller\/StockAjaxController.php.html#152\">App\\Controller\\StockAjaxController::ajaxCancelRemove<\/a>"],[100,1,"<a href=\"Controller\/StockController.php.html#59\">App\\Controller\\StockController::home<\/a>"],[100,1,"<a href=\"Controller\/StockController.php.html#94\">App\\Controller\\StockController::add<\/a>"],[100,1,"<a href=\"Controller\/StockController.php.html#113\">App\\Controller\\StockController::del<\/a>"],[100,2,"<a href=\"Controller\/StockController.php.html#137\">App\\Controller\\StockController::list<\/a>"],[0,1,"<a href=\"Controller\/StockController.php.html#183\">App\\Controller\\StockController::showProduct<\/a>"],[0,4,"<a href=\"Controller\/StockController.php.html#207\">App\\Controller\\StockController::showDelProduct<\/a>"],[0,1,"<a href=\"Controller\/StockController.php.html#269\">App\\Controller\\StockController::showProductCard<\/a>"],[0,1,"<a href=\"Controller\/StockController.php.html#295\">App\\Controller\\StockController::showProductResult<\/a>"],[0,1,"<a href=\"Controller\/StockController.php.html#335\">App\\Controller\\StockController::createProduct<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#135\">App\\Entity\\Country::getId<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#144\">App\\Entity\\Country::setId<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#154\">App\\Entity\\Country::getCode<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#163\">App\\Entity\\Country::setCode<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#173\">App\\Entity\\Country::getAlpha2<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#182\">App\\Entity\\Country::setAlpha2<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#192\">App\\Entity\\Country::getAlpha3<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#201\">App\\Entity\\Country::setAlpha3<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#211\">App\\Entity\\Country::getName<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#220\">App\\Entity\\Country::setName<\/a>"],[100,3,"<a href=\"Entity\/Product.php.html#542\">App\\Entity\\Product::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#560\">App\\Entity\\Product::getId<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#570\">App\\Entity\\Product::setId<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#580\">App\\Entity\\Product::getBarcode<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#590\">App\\Entity\\Product::setBarcode<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#600\">App\\Entity\\Product::getEmbCode<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#610\">App\\Entity\\Product::setEmbCode<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#620\">App\\Entity\\Product::getName<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#630\">App\\Entity\\Product::setName<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#640\">App\\Entity\\Product::getCommonName<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#650\">App\\Entity\\Product::setCommonName<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#660\">App\\Entity\\Product::getDateCreation<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#670\">App\\Entity\\Product::setDateCreation<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#680\">App\\Entity\\Product::getQuantity<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#690\">App\\Entity\\Product::setQuantity<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#700\">App\\Entity\\Product::getPicture<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#710\">App\\Entity\\Product::setPicture<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#720\">App\\Entity\\Product::getProducerPage<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#730\">App\\Entity\\Product::setProducerPage<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#740\">App\\Entity\\Product::getUser<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#750\">App\\Entity\\Product::setUser<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#760\">App\\Entity\\Product::getCountries<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#770\">App\\Entity\\Product::setCountries<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#780\">App\\Entity\\Product::getCertifications<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#790\">App\\Entity\\Product::setCertifications<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#800\">App\\Entity\\Product::getOrigins<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#810\">App\\Entity\\Product::setOrigins<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#820\">App\\Entity\\Product::getPlaces<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#830\">App\\Entity\\Product::setPlaces<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#840\">App\\Entity\\Product::getPackagings<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#850\">App\\Entity\\Product::setPackagings<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#860\">App\\Entity\\Product::getCategories<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#870\">App\\Entity\\Product::setCategories<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#880\">App\\Entity\\Product::getBrands<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#890\">App\\Entity\\Product::setBrands<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#900\">App\\Entity\\Product::getAlergies<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#910\">App\\Entity\\Product::setAlergies<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#920\">App\\Entity\\Product::getTraces<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#930\">App\\Entity\\Product::setTraces<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#940\">App\\Entity\\Product::getAdditives<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#950\">App\\Entity\\Product::setAdditives<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#960\">App\\Entity\\Product::getIngredientPicture<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#970\">App\\Entity\\Product::setIngredientPicture<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#980\">App\\Entity\\Product::getIngredients<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#990\">App\\Entity\\Product::setIngredients<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1000\">App\\Entity\\Product::getNutritionPicture<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1010\">App\\Entity\\Product::setNutritionPicture<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1020\">App\\Entity\\Product::getNutriscore<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1030\">App\\Entity\\Product::setNutriscore<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1040\">App\\Entity\\Product::getServingSize<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1050\">App\\Entity\\Product::setServingSize<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1060\">App\\Entity\\Product::getEnergy<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1070\">App\\Entity\\Product::setEnergy<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1080\">App\\Entity\\Product::getEnergyUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1090\">App\\Entity\\Product::setEnergyUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1100\">App\\Entity\\Product::getLevelFat<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1110\">App\\Entity\\Product::setLevelFat<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1120\">App\\Entity\\Product::getLevelFatUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1130\">App\\Entity\\Product::setLevelFatUnit<\/a>"],[0,2,"<a href=\"Entity\/Product.php.html#1140\">App\\Entity\\Product::getLevelSaturedFat<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1150\">App\\Entity\\Product::setLevelSaturedFat<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1160\">App\\Entity\\Product::getLevelSaturedFatUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1170\">App\\Entity\\Product::setLevelSaturedFatUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1180\">App\\Entity\\Product::getLevelCarbohydrate<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1190\">App\\Entity\\Product::setLevelCarbohydrate<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1200\">App\\Entity\\Product::getLevelCarbohydrateUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1210\">App\\Entity\\Product::setLevelCarbohydrateUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1220\">App\\Entity\\Product::getLevelSugar<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1230\">App\\Entity\\Product::setLevelSugar<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1240\">App\\Entity\\Product::getLevelSugarUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1250\">App\\Entity\\Product::setLevelSugarUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1260\">App\\Entity\\Product::getLevelDietaryFiber<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1270\">App\\Entity\\Product::setLevelDietaryFiber<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1280\">App\\Entity\\Product::getLevelDietaryFiberUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1290\">App\\Entity\\Product::setLevelDietaryFiberUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1300\">App\\Entity\\Product::getLevelProteins<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1310\">App\\Entity\\Product::setLevelProteins<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1320\">App\\Entity\\Product::getLevelProteinsUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1330\">App\\Entity\\Product::setLevelProteinsUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1340\">App\\Entity\\Product::getLevelSalt<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1350\">App\\Entity\\Product::setLevelSalt<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1360\">App\\Entity\\Product::getLevelSaltUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1370\">App\\Entity\\Product::setLevelSaltUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1380\">App\\Entity\\Product::getLevelSodium<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1390\">App\\Entity\\Product::setLevelSodium<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1400\">App\\Entity\\Product::getLevelSodiumUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1410\">App\\Entity\\Product::setLevelSodiumUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1420\">App\\Entity\\Product::getLevelAlcohol<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1430\">App\\Entity\\Product::setLevelAlcohol<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1440\">App\\Entity\\Product::getLevelSilica<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1450\">App\\Entity\\Product::setLevelSilica<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1460\">App\\Entity\\Product::getLevelSilicaUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1470\">App\\Entity\\Product::setLevelSilicaUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1480\">App\\Entity\\Product::getLevelBicarbonate<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1490\">App\\Entity\\Product::setLevelBicarbonate<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1500\">App\\Entity\\Product::getLevelBicarbonateUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1510\">App\\Entity\\Product::setLevelBicarbonateUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1520\">App\\Entity\\Product::getLevelPotassium<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1530\">App\\Entity\\Product::setLevelPotassium<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1540\">App\\Entity\\Product::getLevelPotassiumUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1550\">App\\Entity\\Product::setLevelPotassiumUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1560\">App\\Entity\\Product::getLevelChloride<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1570\">App\\Entity\\Product::setLevelChloride<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1580\">App\\Entity\\Product::getLevelChlorideUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1590\">App\\Entity\\Product::setLevelChlorideUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1600\">App\\Entity\\Product::getLevelCalcium<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1610\">App\\Entity\\Product::setLevelCalcium<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1620\">App\\Entity\\Product::getLevelCalciumUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1630\">App\\Entity\\Product::setLevelCalciumUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1640\">App\\Entity\\Product::getLevelMagnesium<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1650\">App\\Entity\\Product::setLevelMagnesium<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1660\">App\\Entity\\Product::getLevelMagnesiumUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1670\">App\\Entity\\Product::setLevelMagnesiumUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1680\">App\\Entity\\Product::getLevelNitrates<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1690\">App\\Entity\\Product::setLevelNitrates<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1700\">App\\Entity\\Product::getLevelNitratesUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1710\">App\\Entity\\Product::setLevelNitratesUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1720\">App\\Entity\\Product::getLevelSulfates<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1730\">App\\Entity\\Product::setLevelSulfates<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1740\">App\\Entity\\Product::getLevelSulfatesUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1750\">App\\Entity\\Product::setLevelSulfatesUnit<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1760\">App\\Entity\\Product::getFootprint<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1770\">App\\Entity\\Product::setFootprint<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#1780\">App\\Entity\\Product::getFootprintUnit<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#1790\">App\\Entity\\Product::setFootprintUnit<\/a>"],[100,1,"<a href=\"Entity\/Product\/Additive.php.html#103\">App\\Entity\\Product\\Additive::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Additive.php.html#111\">App\\Entity\\Product\\Additive::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Additive.php.html#120\">App\\Entity\\Product\\Additive::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Additive.php.html#130\">App\\Entity\\Product\\Additive::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Additive.php.html#139\">App\\Entity\\Product\\Additive::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Alergy.php.html#103\">App\\Entity\\Product\\Alergy::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Alergy.php.html#111\">App\\Entity\\Product\\Alergy::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Alergy.php.html#120\">App\\Entity\\Product\\Alergy::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Alergy.php.html#130\">App\\Entity\\Product\\Alergy::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Alergy.php.html#139\">App\\Entity\\Product\\Alergy::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Brand.php.html#103\">App\\Entity\\Product\\Brand::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Brand.php.html#111\">App\\Entity\\Product\\Brand::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Brand.php.html#120\">App\\Entity\\Product\\Brand::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Brand.php.html#130\">App\\Entity\\Product\\Brand::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Brand.php.html#139\">App\\Entity\\Product\\Brand::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Category.php.html#102\">App\\Entity\\Product\\Category::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Category.php.html#110\">App\\Entity\\Product\\Category::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Category.php.html#119\">App\\Entity\\Product\\Category::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Category.php.html#129\">App\\Entity\\Product\\Category::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Category.php.html#138\">App\\Entity\\Product\\Category::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Certification.php.html#37\">App\\Entity\\Product\\Certification::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Certification.php.html#45\">App\\Entity\\Product\\Certification::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Certification.php.html#54\">App\\Entity\\Product\\Certification::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Certification.php.html#64\">App\\Entity\\Product\\Certification::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Certification.php.html#73\">App\\Entity\\Product\\Certification::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Origin.php.html#102\">App\\Entity\\Product\\Origin::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Origin.php.html#110\">App\\Entity\\Product\\Origin::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Origin.php.html#119\">App\\Entity\\Product\\Origin::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Origin.php.html#129\">App\\Entity\\Product\\Origin::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Origin.php.html#138\">App\\Entity\\Product\\Origin::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Packaging.php.html#102\">App\\Entity\\Product\\Packaging::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Packaging.php.html#111\">App\\Entity\\Product\\Packaging::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Packaging.php.html#120\">App\\Entity\\Product\\Packaging::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Packaging.php.html#130\">App\\Entity\\Product\\Packaging::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Packaging.php.html#139\">App\\Entity\\Product\\Packaging::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Place.php.html#102\">App\\Entity\\Product\\Place::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Place.php.html#110\">App\\Entity\\Product\\Place::getId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Place.php.html#120\">App\\Entity\\Product\\Place::setId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Place.php.html#130\">App\\Entity\\Product\\Place::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Place.php.html#139\">App\\Entity\\Product\\Place::setName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Trace.php.html#103\">App\\Entity\\Product\\Trace::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product\/Trace.php.html#112\">App\\Entity\\Product\\Trace::setId<\/a>"],[100,1,"<a href=\"Entity\/Product\/Trace.php.html#122\">App\\Entity\\Product\\Trace::getId<\/a>"],[100,2,"<a href=\"Entity\/Product\/Trace.php.html#130\">App\\Entity\\Product\\Trace::getName<\/a>"],[100,1,"<a href=\"Entity\/Product\/Trace.php.html#139\">App\\Entity\\Product\\Trace::setName<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#59\">App\\Entity\\Stock::getId<\/a>"],[0,1,"<a href=\"Entity\/Stock.php.html#68\">App\\Entity\\Stock::setId<\/a>"],[0,1,"<a href=\"Entity\/Stock.php.html#78\">App\\Entity\\Stock::getUser<\/a>"],[0,1,"<a href=\"Entity\/Stock.php.html#87\">App\\Entity\\Stock::setUser<\/a>"],[0,1,"<a href=\"Entity\/Stock.php.html#97\">App\\Entity\\Stock::getStockProducts<\/a>"],[0,1,"<a href=\"Entity\/Stock.php.html#106\">App\\Entity\\Stock::setStockProducts<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#69\">App\\Entity\\StockProducts::__construct<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#81\">App\\Entity\\StockProducts::getId<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#91\">App\\Entity\\StockProducts::setId<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#101\">App\\Entity\\StockProducts::getDateCreation<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#111\">App\\Entity\\StockProducts::setDateCreation<\/a>"],[0,2,"<a href=\"Entity\/StockProducts.php.html#121\">App\\Entity\\StockProducts::getDateExpire<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#131\">App\\Entity\\StockProducts::setDateExpire<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#141\">App\\Entity\\StockProducts::getStock<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#151\">App\\Entity\\StockProducts::setStock<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#161\">App\\Entity\\StockProducts::getProduct<\/a>"],[0,1,"<a href=\"Entity\/StockProducts.php.html#171\">App\\Entity\\StockProducts::setProduct<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#159\">App\\Entity\\User::__construct<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#196\">App\\Entity\\User::getId<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#206\">App\\Entity\\User::setId<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#217\">App\\Entity\\User::getFirstName<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#228\">App\\Entity\\User::setFirstName<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#239\">App\\Entity\\User::getLastName<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#249\">App\\Entity\\User::setLastName<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#260\">App\\Entity\\User::getEmail<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#270\">App\\Entity\\User::setEmail<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#281\">App\\Entity\\User::getPassword<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#292\">App\\Entity\\User::setPassword<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#303\">App\\Entity\\User::getDateInscription<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#314\">App\\Entity\\User::setDateInscription<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#325\">App\\Entity\\User::getStatus<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#334\">App\\Entity\\User::getProducts<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#343\">App\\Entity\\User::setProducts<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#353\">App\\Entity\\User::getStock<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#362\">App\\Entity\\User::setStock<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#372\">App\\Entity\\User::getRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#382\">App\\Entity\\User::setRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#394\">App\\Entity\\User::setAllRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#407\">App\\Entity\\User::hasRole<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#415\">App\\Entity\\User::getLastConnexion<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#424\">App\\Entity\\User::setLastConnexion<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#438\">App\\Entity\\User::getSalt<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#448\">App\\Entity\\User::getUsername<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#461\">App\\Entity\\User::eraseCredentials<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#469\">App\\Entity\\User::getToken<\/a>"],[100,8,"<a href=\"Entity\/User.php.html#478\">App\\Entity\\User::setToken<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#515\">App\\Entity\\User::getTokenValidity<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#526\">App\\Entity\\User::testToSetTokenValidity<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#536\">App\\Entity\\User::isTokenExpired<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#548\">App\\Entity\\User::removeToken<\/a>"],[100,1,"<a href=\"EventSubscriber\/UserSubscriber.php.html#46\">App\\EventSubscriber\\UserSubscriber::__construct<\/a>"],[90,4,"<a href=\"EventSubscriber\/UserSubscriber.php.html#56\">App\\EventSubscriber\\UserSubscriber::onSecurityInteractiveLogin<\/a>"],[100,1,"<a href=\"EventSubscriber\/UserSubscriber.php.html#85\">App\\EventSubscriber\\UserSubscriber::onKernelResponse<\/a>"],[100,1,"<a href=\"EventSubscriber\/UserSubscriber.php.html#108\">App\\EventSubscriber\\UserSubscriber::getSubscribedEvents<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountAlreadyActivatedException.php.html#23\">App\\Exception\\Account\\AccountAlreadyActivatedException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountBadTokenException.php.html#23\">App\\Exception\\Account\\AccountBadTokenException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountBannedException.php.html#23\">App\\Exception\\Account\\AccountBannedException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountClosedException.php.html#23\">App\\Exception\\Account\\AccountClosedException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountDeletedException.php.html#23\">App\\Exception\\Account\\AccountDeletedException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountDisabledException.php.html#23\">App\\Exception\\Account\\AccountDisabledException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountExpiredTokenException.php.html#24\">App\\Exception\\Account\\AccountExpiredTokenException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountNotFoundException.php.html#23\">App\\Exception\\Account\\AccountNotFoundException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Account\/AccountTypeException.php.html#24\">App\\Exception\\Account\\AccountTypeException::getMessageKey<\/a>"],[100,1,"<a href=\"Exception\/Product\/ProductTypeException.php.html#24\">App\\Exception\\Product\\ProductTypeException::getMessageKey<\/a>"],[100,1,"<a href=\"Form\/Security\/UserPasswordType.php.html#32\">App\\Form\\Security\\UserPasswordType::buildForm<\/a>"],[100,1,"<a href=\"Form\/Security\/UserPasswordType.php.html#49\">App\\Form\\Security\\UserPasswordType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/Security\/UserRecoverType.php.html#32\">App\\Form\\Security\\UserRecoverType::buildForm<\/a>"],[100,1,"<a href=\"Form\/Security\/UserRecoverType.php.html#51\">App\\Form\\Security\\UserRecoverType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/Security\/UserType.php.html#30\">App\\Form\\Security\\UserType::buildForm<\/a>"],[100,1,"<a href=\"Form\/Security\/UserType.php.html#42\">App\\Form\\Security\\UserType::configureOptions<\/a>"],[0,1,"<a href=\"Repository\/CountryRepository.php.html#33\">App\\Repository\\CountryRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/CountryRepository.php.html#41\">App\\Repository\\CountryRepository::findAll<\/a>"],[100,1,"<a href=\"Repository\/ProductRepository.php.html#35\">App\\Repository\\ProductRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/ProductRepository.php.html#43\">App\\Repository\\ProductRepository::findAll<\/a>"],[100,1,"<a href=\"Repository\/ProductRepository.php.html#57\">App\\Repository\\ProductRepository::findAddSearch<\/a>"],[100,1,"<a href=\"Repository\/StockProductsRepository.php.html#33\">App\\Repository\\StockProductsRepository::__construct<\/a>"],[100,2,"<a href=\"Repository\/StockProductsRepository.php.html#45\">App\\Repository\\StockProductsRepository::findDateExpires<\/a>"],[100,1,"<a href=\"Repository\/StockProductsRepository.php.html#64\">App\\Repository\\StockProductsRepository::findByGroupedProduct<\/a>"],[95,5,"<a href=\"Repository\/StockProductsRepository.php.html#102\">App\\Repository\\StockProductsRepository::findList<\/a>"],[100,3,"<a href=\"Repository\/StockProductsRepository.php.html#148\">App\\Repository\\StockProductsRepository::getOrderDirection<\/a>"],[100,1,"<a href=\"Repository\/StockProductsRepository.php.html#173\">App\\Repository\\StockProductsRepository::getLimit<\/a>"],[75,2,"<a href=\"Repository\/StockProductsRepository.php.html#184\">App\\Repository\\StockProductsRepository::getNbProductExpire<\/a>"],[100,5,"<a href=\"Repository\/StockProductsRepository.php.html#203\">App\\Repository\\StockProductsRepository::applyFilter<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#33\">App\\Repository\\UserRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#41\">App\\Repository\\UserRepository::findAll<\/a>"],[0,1,"<a href=\"Service\/DatabaseManager.php.html#51\">App\\Service\\DatabaseManager::__construct<\/a>"],[0,1,"<a href=\"Service\/DatabaseManager.php.html#70\">App\\Service\\DatabaseManager::create<\/a>"],[0,2,"<a href=\"Service\/DatabaseManager.php.html#81\">App\\Service\\DatabaseManager::delete<\/a>"],[0,1,"<a href=\"Service\/DatabaseManager.php.html#93\">App\\Service\\DatabaseManager::update<\/a>"],[0,1,"<a href=\"Service\/DatabaseManager.php.html#102\">App\\Service\\DatabaseManager::dropDatabase<\/a>"],[0,1,"<a href=\"Service\/DatabaseManager.php.html#111\">App\\Service\\DatabaseManager::createDatabase<\/a>"],[0,1,"<a href=\"Service\/DatabaseManager.php.html#120\">App\\Service\\DatabaseManager::updateDatabase<\/a>"],[0,1,"<a href=\"Service\/DatabaseManager.php.html#129\">App\\Service\\DatabaseManager::importData<\/a>"],[100,1,"<a href=\"Service\/LocaleManager.php.html#48\">App\\Service\\LocaleManager::__construct<\/a>"],[100,1,"<a href=\"Service\/LocaleManager.php.html#59\">App\\Service\\LocaleManager::changeSelectedLocale<\/a>"],[100,1,"<a href=\"Service\/LocaleManager.php.html#77\">App\\Service\\LocaleManager::changeDefaultLocale<\/a>"],[100,2,"<a href=\"Service\/LocaleManager.php.html#92\">App\\Service\\LocaleManager::setResponse<\/a>"],[100,1,"<a href=\"Service\/LocaleManager.php.html#116\">App\\Service\\LocaleManager::setRedirectUri<\/a>"],[100,1,"<a href=\"Service\/LocaleManager.php.html#141\">App\\Service\\LocaleManager::setCurrentLocale<\/a>"],[100,1,"<a href=\"Service\/LocaleManager.php.html#155\">App\\Service\\LocaleManager::setUserLocale<\/a>"],[100,1,"<a href=\"Service\/LocaleManager.php.html#169\">App\\Service\\LocaleManager::setRequestedLocale<\/a>"],[100,2,"<a href=\"Service\/LocaleManager.php.html#183\">App\\Service\\LocaleManager::setSystemLocale<\/a>"],[100,1,"<a href=\"Service\/MailerManager.php.html#25\">App\\Service\\MailerManager::__construct<\/a>"],[100,1,"<a href=\"Service\/MailerManager.php.html#42\">App\\Service\\MailerManager::send<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#57\">App\\Service\\Security\\AbstractAdvancedUser::setToken<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#62\">App\\Service\\Security\\AbstractAdvancedUser::removeToken<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#73\">App\\Service\\Security\\AbstractAdvancedUser::setDateClosed<\/a>"],[100,2,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#86\">App\\Service\\Security\\AbstractAdvancedUser::getDateClosed<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#97\">App\\Service\\Security\\AbstractAdvancedUser::setDisabled<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#110\">App\\Service\\Security\\AbstractAdvancedUser::setEnabled<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#123\">App\\Service\\Security\\AbstractAdvancedUser::setClosed<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#137\">App\\Service\\Security\\AbstractAdvancedUser::setBanned<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#150\">App\\Service\\Security\\AbstractAdvancedUser::setDeleted<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#167\">App\\Service\\Security\\AbstractAdvancedUser::isBanned<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#177\">App\\Service\\Security\\AbstractAdvancedUser::isClosed<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#187\">App\\Service\\Security\\AbstractAdvancedUser::isEnabled<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#197\">App\\Service\\Security\\AbstractAdvancedUser::isDisabled<\/a>"],[100,1,"<a href=\"Service\/Security\/AbstractAdvancedUser.php.html#208\">App\\Service\\Security\\AbstractAdvancedUser::isDeleted<\/a>"],[100,1,"<a href=\"Service\/Security\/AccessDeniedHandler.php.html#30\">App\\Service\\Security\\AccessDeniedHandler::handle<\/a>"],[100,6,"<a href=\"Service\/Security\/UserChecker.php.html#40\">App\\Service\\Security\\UserChecker::checkPreAuth<\/a>"],[100,3,"<a href=\"Service\/Security\/UserChecker.php.html#75\">App\\Service\\Security\\UserChecker::checkPostAuth<\/a>"],[100,4,"<a href=\"Service\/Security\/UserChecker.php.html#93\">App\\Service\\Security\\UserChecker::checkRegisterValidation<\/a>"],[100,3,"<a href=\"Service\/Security\/UserChecker.php.html#112\">App\\Service\\Security\\UserChecker::checkRecoverValidation<\/a>"],[100,6,"<a href=\"Service\/Security\/UserChecker.php.html#126\">App\\Service\\Security\\UserChecker::checkToken<\/a>"],[100,1,"<a href=\"Service\/Security\/UserManager.php.html#59\">App\\Service\\Security\\UserManager::__construct<\/a>"],[100,2,"<a href=\"Service\/Security\/UserManager.php.html#81\">App\\Service\\Security\\UserManager::register<\/a>"],[100,3,"<a href=\"Service\/Security\/UserManager.php.html#117\">App\\Service\\Security\\UserManager::registerValidation<\/a>"],[100,2,"<a href=\"Service\/Security\/UserManager.php.html#152\">App\\Service\\Security\\UserManager::recover<\/a>"],[100,2,"<a href=\"Service\/Security\/UserManager.php.html#190\">App\\Service\\Security\\UserManager::recoverPreValidation<\/a>"],[100,2,"<a href=\"Service\/Security\/UserManager.php.html#214\">App\\Service\\Security\\UserManager::recoverValidation<\/a>"],[100,3,"<a href=\"Service\/Security\/UserManager.php.html#246\">App\\Service\\Security\\UserManager::getUserFromEmail<\/a>"],[100,2,"<a href=\"Service\/Security\/UserManager.php.html#255\">App\\Service\\Security\\UserManager::setFlashBagException<\/a>"],[100,1,"<a href=\"Service\/Stock\/ProductManager.php.html#47\">App\\Service\\Stock\\ProductManager::__construct<\/a>"],[88.88888888888889,4,"<a href=\"Service\/Stock\/ProductManager.php.html#61\">App\\Service\\Stock\\ProductManager::getProductFromBarcode<\/a>"],[0,3,"<a href=\"Service\/Stock\/ProductManager.php.html#91\">App\\Service\\Stock\\ProductManager::doAjaxAdd<\/a>"],[0,2,"<a href=\"Service\/Stock\/ProductManager.php.html#140\">App\\Service\\Stock\\ProductManager::doAjaxCancelAdd<\/a>"],[0,2,"<a href=\"Service\/Stock\/ProductManager.php.html#160\">App\\Service\\Stock\\ProductManager::doAjaxRemove<\/a>"],[0,4,"<a href=\"Service\/Stock\/ProductManager.php.html#191\">App\\Service\\Stock\\ProductManager::doAjaxCancelRemove<\/a>"],[0,1,"<a href=\"Service\/Stock\/ProductManager.php.html#234\">App\\Service\\Stock\\ProductManager::getFormatedData<\/a>"],[0,1,"<a href=\"Service\/Stock\/ProductManager.php.html#248\">App\\Service\\Stock\\ProductManager::stringToDatetime<\/a>"],[100,2,"<a href=\"Service\/Stock\/ProductScraper.php.html#125\">App\\Service\\Stock\\ProductScraper::__construct<\/a>"],[90.9090909090909,3,"<a href=\"Service\/Stock\/ProductScraper.php.html#138\">App\\Service\\Stock\\ProductScraper::scrap<\/a>"],[100,1,"<a href=\"Service\/Stock\/ProductScraper.php.html#175\">App\\Service\\Stock\\ProductScraper::navigate<\/a>"],[100,1,"<a href=\"Service\/Stock\/ProductScraper.php.html#200\">App\\Service\\Stock\\ProductScraper::getImageProduct<\/a>"],[100,1,"<a href=\"Service\/Stock\/ProductScraper.php.html#229\">App\\Service\\Stock\\ProductScraper::hasResult<\/a>"],[100,4,"<a href=\"Service\/Stock\/ProductScraper.php.html#238\">App\\Service\\Stock\\ProductScraper::fillProduct<\/a>"],[100,5,"<a href=\"Service\/Stock\/ProductScraper.php.html#265\">App\\Service\\Stock\\ProductScraper::getValue<\/a>"],[84.61538461538461,6,"<a href=\"Service\/Stock\/ProductScraper.php.html#289\">App\\Service\\Stock\\ProductScraper::formatValue<\/a>"],[90.9090909090909,6,"<a href=\"Service\/Stock\/ProductScraper.php.html#322\">App\\Service\\Stock\\ProductScraper::getEntityValue<\/a>"],[100,1,"<a href=\"Service\/Stock\/ProductScraper.php.html#357\">App\\Service\\Stock\\ProductScraper::getFirstUser<\/a>"],[0,1,"<a href=\"Service\/Twig\/AppExtension.php.html#50\">App\\Service\\Twig\\AppExtension::getFunctions<\/a>"],[0,1,"<a href=\"Service\/Twig\/Func\/Link.php.html#38\">App\\Service\\Twig\\Func\\Link::__construct<\/a>"],[0,1,"<a href=\"Service\/Twig\/Func\/Link.php.html#52\">App\\Service\\Twig\\Func\\Link::getLink<\/a>"],[100,1,"<a href=\"Service\/Twig\/Func\/Menu.php.html#27\">App\\Service\\Twig\\Func\\Menu::__construct<\/a>"],[100,2,"<a href=\"Service\/Twig\/Func\/Menu.php.html#36\">App\\Service\\Twig\\Func\\Menu::getActiveMenu<\/a>"],[0,1,"<a href=\"Service\/Twig\/Func\/Product.php.html#44\">App\\Service\\Twig\\Func\\Product::__construct<\/a>"],[0,2,"<a href=\"Service\/Twig\/Func\/Product.php.html#56\">App\\Service\\Twig\\Func\\Product::getProductImage<\/a>"],[0,1,"<a href=\"Service\/Twig\/Func\/Product.php.html#67\">App\\Service\\Twig\\Func\\Product::getFormatedList<\/a>"],[0,1,"<a href=\"Service\/Twig\/Func\/Product.php.html#71\">App\\Service\\Twig\\Func\\Product::anonymousFunction:71#246<\/a>"],[0,4,"<a href=\"Service\/Twig\/Func\/Product.php.html#83\">App\\Service\\Twig\\Func\\Product::getDateExpires<\/a>"],[0,1,"<a href=\"Service\/Twig\/Func\/Product.php.html#125\">App\\Service\\Twig\\Func\\Product::getNutritionalInfo<\/a>"],[0,15,"<a href=\"Service\/Twig\/Func\/Product.php.html#144\">App\\Service\\Twig\\Func\\Product::getNutritionLine<\/a>"],[80,4,"<a href=\"Common\/Traits\/Client\/BrowserTrait.php.html#25\">BrowserTrait::getUserBrowserLangs<\/a>"],[100,1,"<a href=\"Common\/Traits\/Client\/ResponseTrait.php.html#25\">ResponseTrait::removeCacheFromResponse<\/a>"],[100,1,"<a href=\"Common\/Traits\/Client\/UserTrait.php.html#28\">UserTrait::getUserCookie<\/a>"],[100,3,"<a href=\"Common\/Traits\/Controller\/FormCheckTrait.php.html#26\">FormCheckTrait::isOk<\/a>"],[0,4,"<a href=\"Common\/Traits\/Html\/ATagGeneratorTrait.php.html#28\">ATagGeneratorTrait::getATag<\/a>"],[100,1,"<a href=\"Common\/Traits\/Product\/FolderTrait.php.html#24\">FolderTrait::getFolder<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

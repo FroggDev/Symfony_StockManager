@@ -67,7 +67,7 @@
       </trans-unit>
       <trans-unit id="T1mKYf7" resname="nutritional">
         <source>nutritional</source>
-        <target>__nutritional</target>
+        <target>Informations nutritionnelles pour</target>
       </trans-unit>
       <trans-unit id="EMIrz0x" resname="for">
         <source>for</source>
@@ -111,7 +111,7 @@
       </trans-unit>
       <trans-unit id="x8frEIf" resname="alcohol">
         <source>alcohol</source>
-        <target>__alcohol</target>
+        <target>Alcool</target>
       </trans-unit>
       <trans-unit id="YD.sRmm" resname="silica">
         <source>silica</source>
