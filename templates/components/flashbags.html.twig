@@ -7,7 +7,7 @@
                     <h6 class="white-text">
                         <i class="material-icons left" style="line-height: unset;">{{ key }}</i>
                         <div>{{ flash | trans | replace({"\n": "<br>"})|raw }}</div>
-                        <!-- nl2br style display \n why ???-->
+                        <!-- nl2br style display \n why | replace({"\n": "<br>"}) ???-->
                     </h6>
                 </div>
             </div>

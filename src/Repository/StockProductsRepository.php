@@ -65,12 +65,14 @@ class StockProductsRepository extends ServiceEntityRepository
     {
         //SELECT COUNT(product_id) FROM stock_products where stock_id=1 GROUP BY product_id ORDER BY date_expire DESC
 
+        $orderDirection = $this->getOrderDirection($order);
+
         $products = $this->createQueryBuilder('sp')
             ->select('sp,count(sp.product)')
             ->where('sp.stock = '.$stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
-            ->orderBy($this->getOrder($order), $this->getDirection($order))
+            ->orderBy($orderDirection['order'],$orderDirection['direction'])
             ->getQuery()
             ->getResult();
 
@@ -99,12 +101,14 @@ class StockProductsRepository extends ServiceEntityRepository
      */
     public function findList(int $stockId, ?string $inDay, int $numPage = 1, string $order = '0', int $productId = null, string $search = null)
     {
+        $orderDirection = $this->getOrderDirection($order);
+
         $query = $this->createQueryBuilder('sp')
             ->select('sp,count(sp.product)')
             ->Where('sp.stock = '.$stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
-            ->orderBy($this->getOrder($order), $this->getDirection($order));
+            ->orderBy($orderDirection['order'],$orderDirection['direction']);
 
         if(null!==$productId){
             $query->andWhere('sp.product = '.$productId);
@@ -137,36 +141,28 @@ class StockProductsRepository extends ServiceEntityRepository
      ###########*/
 
     /**
-     * @param String $order
-     *
-     * @return string
-     */
-    private function getDirection(String $order)
-    {
-        // check order direction
-        return ('p.name' === $order) ? 'ASC' : 'DESC';
-    }
-
-    /**
      * @param string $order
      *
      * @return string
      */
-    private function getOrder(string $order)
+    private function getOrderDirection(string $order)
     {
         // get the selected request order
         switch ($order) {
             case '2':
                 $order = 'sp.dateCreation';
+                $direction = 'DESC';
                 break;
             case '3':
                 $order = 'p.name';
+                $direction = 'ASC';
                 break;
             default:
                 $order = 'sp.dateExpire';
+                $direction = 'ASC';
         }
 
-        return $order;
+        return ['order'=>$order,'direction'=>$direction];
     }
 
     /**

@@ -16,7 +16,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../src/{Entity,Migrations,Tests,EventSubscriber,Form,Exception,Kernel.php}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -56,10 +56,10 @@ services:
     ############
     # LISTNERS #
     ############
+
     App\EventSubscriber\UserSubscriber:
         tags:
             - { name: 'kernel.event_listener', event: 'security.interactive_login' }
-
 
     ############
     # SERVICES #
@@ -67,9 +67,21 @@ services:
 
     app.service.client:
        class: Goutte\Client
-
+       # IMPORTANT : ONLY IN CONTROLLER
+       public: false
     Goutte\Client: '@app.service.client'
 
+    app.service.product_manager:
+       class: App\Service\Stock\ProductManager
+       # IMPORTANT : VISIBILITY IN CONTAINER
+       public: true
+    App\Service\Stock\ProductManager: '@app.service.product_manager'
+
+    app.service.database_manager:
+       class: App\Service\DatabaseManager
+       # IMPORTANT : VISIBILITY IN CONTAINER
+       public: true
+    App\Service\DatabaseManager: '@app.service.database_manager'
 
     # =======================================
     # ! NO MORE NEEDED WITH 4.1 !

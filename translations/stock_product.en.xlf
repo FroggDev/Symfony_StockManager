@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="NxhnZXd" resname="stock product detail title">
+        <source>stock product detail title</source>
+        <target>Product detail</target>
+      </trans-unit>
+      <trans-unit id="6Ps5Q51" resname="product details">
+        <source>product details</source>
+        <target>Product details</target>
+      </trans-unit>
+      <trans-unit id="36dVZux" resname="product features">
+        <source>product features</source>
+        <target>Product features</target>
+      </trans-unit>
+      <trans-unit id="kMFVEQV" resname="barcode">
+        <source>barcode</source>
+        <target>Barcode</target>
+      </trans-unit>
+      <trans-unit id="b_X4BGb" resname="product name">
+        <source>product name</source>
+        <target>Product name</target>
+      </trans-unit>
+      <trans-unit id="MUZ0UxY" resname="generic name">
+        <source>generic name</source>
+        <target>Generic name</target>
+      </trans-unit>
+      <trans-unit id="GnswjY3" resname="quantity">
+        <source>quantity</source>
+        <target>Quantity</target>
+      </trans-unit>
+      <trans-unit id="cWaWkcs" resname="packaging">
+        <source>packaging</source>
+        <target>Packaging</target>
+      </trans-unit>
+      <trans-unit id="OIwQWL2" resname="brands">
+        <source>brands</source>
+        <target>Brands</target>
+      </trans-unit>
+      <trans-unit id="dNzif0b" resname="producer page">
+        <source>producer page</source>
+        <target>Producer page</target>
+      </trans-unit>
+      <trans-unit id="piFuoD5" resname="categories">
+        <source>categories</source>
+        <target>Categories</target>
+      </trans-unit>
+      <trans-unit id="_r0VMN2" resname="ingredients">
+        <source>ingredients</source>
+        <target>Ingredients</target>
+      </trans-unit>
+      <trans-unit id="lRH8hCM" resname="alergies">
+        <source>alergies</source>
+        <target>Alergies</target>
+      </trans-unit>
+      <trans-unit id="_hX2J0I" resname="nutritional informations">
+        <source>nutritional informations</source>
+        <target>Nutritional informations</target>
+      </trans-unit>
+      <trans-unit id="SEXvhRQ" resname="nutrient levels">
+        <source>nutrient levels</source>
+        <target>Nutrient levels for</target>
+      </trans-unit>
+      <trans-unit id="T1mKYf7" resname="nutritional">
+        <source>nutritional</source>
+        <target>Nutritional</target>
+      </trans-unit>
+      <trans-unit id="EMIrz0x" resname="for">
+        <source>for</source>
+        <target>For</target>
+      </trans-unit>
+      <trans-unit id="OBz7bh5" resname="energy">
+        <source>energy</source>
+        <target>Energy</target>
+      </trans-unit>
+      <trans-unit id="vgf1E5p" resname="fat">
+        <source>fat</source>
+        <target>Fat</target>
+      </trans-unit>
+      <trans-unit id="BOL9zR7" resname="satured fat">
+        <source>satured fat</source>
+        <target>Satured fat</target>
+      </trans-unit>
+      <trans-unit id="kPAsy.r" resname="carbohydrate">
+        <source>carbohydrate</source>
+        <target>Carbohydrate</target>
+      </trans-unit>
+      <trans-unit id="zHZ.scb" resname="sugar">
+        <source>sugar</source>
+        <target>Sugar</target>
+      </trans-unit>
+      <trans-unit id="W_BDp.N" resname="dietary fiber">
+        <source>dietary fiber</source>
+        <target>Dietary fiber</target>
+      </trans-unit>
+      <trans-unit id="yDDLjz." resname="proteins">
+        <source>proteins</source>
+        <target>Proteins</target>
+      </trans-unit>
+      <trans-unit id="Y0ea1po" resname="salt">
+        <source>salt</source>
+        <target>Salt</target>
+      </trans-unit>
+      <trans-unit id="7p1id4y" resname="sodium">
+        <source>sodium</source>
+        <target>Sodium</target>
+      </trans-unit>
+      <trans-unit id="x8frEIf" resname="alcohol">
+        <source>alcohol</source>
+        <target>Alcohol</target>
+      </trans-unit>
+      <trans-unit id="YD.sRmm" resname="silica">
+        <source>silica</source>
+        <target>Silica</target>
+      </trans-unit>
+      <trans-unit id="aDWBIV3" resname="bicarbonate">
+        <source>bicarbonate</source>
+        <target>Bicarbonate</target>
+      </trans-unit>
+      <trans-unit id="p_prCrM" resname="potassium">
+        <source>potassium</source>
+        <target>Potassium</target>
+      </trans-unit>
+      <trans-unit id="uM8RaHj" resname="chloride">
+        <source>chloride</source>
+        <target>Chloride</target>
+      </trans-unit>
+      <trans-unit id="wHE2p5X" resname="calcium">
+        <source>calcium</source>
+        <target>Calcium</target>
+      </trans-unit>
+      <trans-unit id="kEG9ZRB" resname="magnesium">
+        <source>magnesium</source>
+        <target>Magnesium</target>
+      </trans-unit>
+      <trans-unit id="tCchWTc" resname="nitrates">
+        <source>nitrates</source>
+        <target>Nitrates</target>
+      </trans-unit>
+      <trans-unit id="EjY3pU8" resname="sulfates">
+        <source>sulfates</source>
+        <target>Sulfates</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

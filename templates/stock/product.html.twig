@@ -2,7 +2,7 @@
 
 {% trans_default_domain 'stock_product' %}
 
-{% block page_title "stock add title" | trans %}
+{% block page_title "stock product detail title" | trans %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
@@ -12,56 +12,56 @@
     <main class="container main">
         <div class="section productdetail">
 
-            <h1 class="teal-text text-lighten-2">Product details</h1>
+            <h1 class="teal-text text-lighten-2">{{ "product details" | trans }}</h1>
 
             <a class="waves-effect waves-light btn-large right red buttonBack" href="#" onclick="history.go(-1)"><i class="material-icons left">backspace</i>Back</a>
 
-            <h2>Product Features</h2>
+            <h2>{{ "product features" | trans }}</h2>
 
             <i class="material-icons right"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}" class="materialboxed"></i>
 
-            <p><b>Code-barres :</b> {{ product.barcode }}</p>
+            <p><b>{{ "barcode" | trans}} :</b> {{ product.barcode }}</p>
 
-            <p><b>nom du produit :</b> {{ product.name }}</p>
+            <p><b>{{ "product name" | trans }} :</b> {{ product.name }}</p>
 
             {% if product.commonName %}
-            <p><b>Dénomination générique :</b> {{ product.commonName }}</p>
+            <p><b>{{ "generic name" | trans }} :</b> {{ product.commonName }}</p>
             {% endif %}
 
             {% if product.quantity %}
-            <p><b>Quantité :</b> {{ product.quantity }}</p>
+            <p><b>{{ "quantity" | trans }} :</b> {{ product.quantity }}</p>
             {% endif %}
 
             {% if product.packagings is not empty %}
-            <p><b>Conditionnement :</b> {{ getFormatedList( product.packagings ) }}</p>
+            <p><b>{{ "packaging" | trans }} :</b> {{ getFormatedList( product.packagings ) }}</p>
             {% endif %}
 
             {% if product.brands is not empty %}
-            <p><b>Marques :</b> {{ getFormatedList( product.brands ) }}</p>
+            <p><b>{{ "brands" | trans }} :</b> {{ getFormatedList( product.brands ) }}</p>
             {% endif %}
 
             {% if product.producerpage %}
-            <p><b>Site internet du fabriquant :</b> <a href="{{  product.producerpage  }}" target="_blank">{{  product.producerpage  }}</a></p>
+            <p><b>{{ "producer page" | trans }} :</b> <a href="{{  product.producerpage  }}" target="_blank">{{  product.producerpage  }}</a></p>
             {% endif %}
 
             {% if product.categories is not empty %}
-            <p><b>Catégories :</b> {{ getFormatedList( product.categories ) }}</p>
+            <p><b>{{ "categories" | trans }} :</b> {{ getFormatedList( product.categories ) }}</p>
             {% endif %}
 
             {% if product.ingredients is not empty %}
-            <p><b>Liste des ingrédients :</b> {{ product.ingredients }}</p>
+            <p><b>{{ "ingredients" | trans }} :</b> {{ product.ingredients }}</p>
             {% endif %}
 
             {% if product.alergies is not empty %}
-            <p><b> Substances ou produits provoquant des allergies ou intolérances :</b> {{ getFormatedList( product.alergies ) }}</p>
+            <p><b> {{ "alergies" | trans }} :</b> {{ getFormatedList( product.alergies ) }}</p>
             {% endif %}
 
-            <h2>Informations nutritionnelles</h2>
+            <h2>{{ "nutritional informations" | trans }}</h2>
 
             <img src="{{ asset('img/nutriscore/a.svg') }}">
 
             <div>
-                <h3>Repères nutritionnels pour 100 g ({{ product.energy }} {{ product.energyUnit }})</h3>
+                <h3>{{ "nutrient levels" | trans }} 100 g ({{ product.energy }} {{ product.energyUnit }})</h3>
                 {{ getNutritionalInfo(product) | raw }}
             </div>
 
@@ -70,117 +70,117 @@
             <table class="highlight">
                 <thead>
                 <tr>
-                    <th>Info. nutritionnelles</th>
-                    <th>Pour 100 g / 100 ml</th>
+                    <th>{{ "nutritional" | trans }}</th>
+                    <th>{{ "for" | trans }} 100 g / 100 ml</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 {% if product.energy %}
                 <tr>
-                    <td>Énergie</td>
+                    <td>{{ "energy" | trans }}</td>
                     <td>{{ product.energy }} {{ product.energyUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelFat %}
                 <tr>
-                    <td>Matières grasses / Lipides</td>
+                    <td>{{ "fat" | trans }}</td>
                     <td>{{ product.levelFat }} {{ product.levelFatUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSaturedFat %}
                 <tr>
-                    <td>dont Acides gras saturés</td>
+                    <td>{{ "satured fat" | trans }}</td>
                     <td>{{ product.levelSaturedFat }} {{ product.levelSaturedFatUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelCarbohydrate %}
                 <tr>
-                    <td>Glucides</td>
+                    <td>{{ "carbohydrate" | trans }}</td>
                     <td>{{ product.levelCarbohydrate }} {{ product.levelCarbohydrateUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSugar %}
                 <tr>
-                    <td>dont Sucres</td>
+                    <td>{{ "sugar" | trans }}</td>
                     <td>{{ product.levelSugar }} {{ product.levelSugarUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelDietaryFiber %}
                 <tr>
-                    <td>Fibres alimentaires</td>
+                    <td>{{ "dietary fiber" | trans }}</td>
                     <td>{{ product.levelDietaryFiber }} {{ product.levelDietaryFiberUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelProteins %}
                 <tr>
-                    <td>Protéines</td>
+                    <td>{{ "proteins" | trans }}</td>
                     <td>{{ product.levelProteins }} {{ product.levelProteinsUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSalt %}
                 <tr>
-                    <td>Sel</td>
+                    <td>{{ "salt" | trans }}</td>
                     <td>{{ product.levelSalt }} {{ product.levelSaltUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSodium %}
                 <tr>
-                    <td>Sodium</td>
+                    <td>{{ "sodium" | trans }}</td>
                     <td>{{ product.levelSodium }} {{ product.levelSodiumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelAlcohol %}
                 <tr>
-                    <td>Alcohol</td>
+                    <td>{{ "alcohol" | trans }}</td>
                     <td>{{ product.levelAlcohol }} %</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSilica %}
                 <tr>
-                    <td>Silice</td>
+                    <td>{{ "silica" | trans }}</td>
                     <td>{{ product.levelSilica }} {{ product.levelSilicaUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelBicarbonate %}
                 <tr>
-                    <td>Bicarbonate</td>
+                    <td>{{ "bicarbonate" | trans }}</td>
                     <td>{{ product.levelBicarbonate }} {{ product.levelBicarbonateUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelPotassium %}
                 <tr>
-                    <td>Potassium</td>
+                    <td>{{ "potassium" | trans }}</td>
                     <td>{{ product.levelPotassium }} {{ product.levelPotassiumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelChloride %}
                 <tr>
-                    <td>Chloride</td>
+                    <td>{{ "chloride" | trans }}</td>
                     <td>{{ product.levelChloride }} {{ product.levelChlorideUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelCalcium %}
                 <tr>
-                    <td>Calcium</td>
+                    <td>{{ "calcium" | trans }}</td>
                     <td>{{ product.levelCalcium }} {{ product.levelCalciumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelMagnesium %}
                 <tr>
-                    <td>Magnesium</td>
+                    <td>{{ "magnesium" | trans }}</td>
                     <td>{{ product.levelMagnesium }} {{ product.levelMagnesiumUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelNitrates %}
                 <tr>
-                    <td>Nitrates</td>
+                    <td>{{ "nitrates" | trans }}</td>
                     <td>{{ product.levelNitrates }} {{ product.levelNitratesUnit }}</td>
                 </tr>
                 {% endif %}
                 {% if product.levelSulfates %}
                 <tr>
-                    <td>Sulfates</td>
+                    <td>{{ "sulfates" | trans }}</td>
                     <td>{{ product.levelSulfates }} {{ product.levelSulfatesUnit }}</td>
                 </tr>
                 {% endif %}

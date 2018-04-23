@@ -17,7 +17,7 @@
         <source>login</source>
         <target>Login</target>
       </trans-unit>
-      <trans-unit id="QoghNQ6-en" resname="register">
+      <trans-unit id="h3gPpd5" resname="register">
         <source>register</source>
         <target>Register</target>
       </trans-unit>
@@ -45,11 +45,11 @@
         <source>log out</source>
         <target>Log out</target>
       </trans-unit>
-      <trans-unit id="jxOdfgdfgOEj" resname="main title">
+      <trans-unit id="jxOgOEj" resname="main title">
         <source>main title</source>
         <target>Online Stock Manager</target>
       </trans-unit>
-      <trans-unit id="KA1Esdfsdfqx6" resname="welcome">
+      <trans-unit id="KA1Eqx6" resname="welcome">
         <source>welcome</source>
         <target>Welcome %user%</target>
       </trans-unit>

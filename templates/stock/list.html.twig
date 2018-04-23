@@ -13,7 +13,7 @@
 
         <div class="section">
 
-            <h1 class="teal-text text-lighten-2">My Stock products</h1>
+            <h1 class="teal-text text-lighten-2">{{ "my stock product" | trans }}</h1>
 
             <div class="productList">
 
@@ -27,9 +27,9 @@
                                         <i class="material-icons left" style="line-height: unset;">warning</i>
                                         <div>
                                             {% if from=='stock_del_product' %}
-                                                No product in your stock match your search
+                                                {{ "no product match your search" | trans}}
                                             {% else %}
-                                                There is nothing registered in your stock for the moment
+                                                {{ "no product in tour stock" | trans }}
                                             {% endif %}
                                         </div>
                                     </h6>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="collapsible-body">
-                            <h5>Repères nutritionnels pour 100 g ({{ product.energy }} {{ product.energyUnit }})</h5>
+                            <h5>{{ "nutrient levels" | trans}} 100 g ({{ product.energy }} {{ product.energyUnit }})</h5>
                             {{ getNutritionalInfo(product) | raw }}
                         </div>
                     </li>
