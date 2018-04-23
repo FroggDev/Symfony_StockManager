@@ -219,7 +219,7 @@ class AlertExpiresCommand extends Command
                 foreach ($dates as $date) {
                     $message .= '<li>'
                         .$date->getDateExpire()->format(SiteConfig::DATELOCALE['en'])
-                        .' 1 x '.$product->getName()
+                        .' - '.$product->getName()
                         .' '.$product->getBrands()[0]->getName()
                         .' '. $product->getQuantity()
                         .'</li>';

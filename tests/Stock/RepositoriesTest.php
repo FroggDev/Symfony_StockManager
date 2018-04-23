@@ -84,12 +84,9 @@ class RepositoriesTest extends KernelTestCase
 
         $expired = $repository->findDateExpires(1, 1);
 
-        $grouped = $repository->findByGroupedProduct(1, 1, '2');
-
         $listed = $repository->findList(1, 1, 1, '3', null, 'a');
 
         $this->assertCount(0,$expired);
-        $this->assertCount(3,$grouped);
         $this->assertCount(3,$listed);
     }
 }
