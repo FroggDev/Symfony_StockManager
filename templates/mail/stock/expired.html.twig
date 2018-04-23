@@ -1,0 +1,17 @@
+{% trans_default_domain 'security_mail' %}
+
+{% extends "mail/base.html.twig" %}
+
+{% block main_title 'Expiring products' | trans %}
+
+{% block title 'Expiring products' | trans %}
+
+{% block message message | raw %}
+
+{% block validation_button %}
+
+<a href="{{ url('stock_list.en') }}" class="sm_auto_width sm_block button_link" style="min-width: 234px; border: 13px solid #53B987; border-radius: 4px; background-color: #53B987; font-size: 20px; color: #ffffff; display: inline-block; text-align: center; vertical-align: top; font-weight: 900; text-decoration: none !important; ">
+    {{ "go to my stock" | trans }}
+</a>
+
+{% endblock %}

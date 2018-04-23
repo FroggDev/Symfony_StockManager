@@ -101,12 +101,18 @@ class StockProductsRepository extends ServiceEntityRepository
      *
      * @return array
      *
+     * TODO CHANGE ARGUMENTS AS AN OBJECT WITH DEFAULT VALUES
+     *
      * @see http://doctrine-orm.readthedocs.io/en/latest/reference/dql-doctrine-query-language.html#id3
      */
     public function findList(int $stockId, ?string $inDay, int $numPage = 1, string $order = '0', int $productId = null, string $search = null, bool $fullList = false)
     {
         $orderDirection = $this->getOrderDirection($order);
 
+        /**
+         * TODO ADD  min(sp.dateExpire); / max(sp.dateCreation)
+         * to have the good order date
+         */
         $query = $this->createQueryBuilder('sp')
             ->select('sp,count(sp.product)')
             ->Where('sp.stock = '.$stockId)
@@ -147,9 +153,9 @@ class StockProductsRepository extends ServiceEntityRepository
     /**
      * @param string $order
      *
-     * @return string
+     * @return array
      */
-    private function getOrderDirection(string $order)
+    private function getOrderDirection(string $order) : array
     {
         // get the selected request order
         switch ($order) {
@@ -165,6 +171,7 @@ class StockProductsRepository extends ServiceEntityRepository
                 $order = 'sp.dateExpire';
                 $direction = 'ASC';
         }
+
 
         return ['order'=>$order,'direction'=>$direction];
     }
