@@ -123,7 +123,7 @@ class DatabaseCommand extends Command
         $this->env = $kernel->getEnvironment();
 
         // INIT STYLES
-        $this->output = $output;//new SymfonyStyle($input, $output);
+        $this->output = new SymfonyStyle($input, $output);
 
         // Get parameters
         $action = $input->getArgument('action');
@@ -141,7 +141,7 @@ class DatabaseCommand extends Command
                 break;
             default:
                 // ERROR COLOR
-                //$this->output->warning('The action '.$action.' is not defined... exiting command');
+                $this->output->warning('The action '.$action.' is not defined... exiting command');
         }
 
         return self::EXITCODE;

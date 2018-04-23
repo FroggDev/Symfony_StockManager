@@ -2,285 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a554a-d230-447e-beb7-de9476634a50" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.css/nv.d3.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.css/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.fonts/glyphicons-halflings-regular.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.fonts/glyphicons-halflings-regular.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.fonts/glyphicons-halflings-regular.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.fonts/glyphicons-halflings-regular.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.fonts/glyphicons-halflings-regular.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/bootstrap.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/d3.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/file.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/holder.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/html5shiv.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/nv.d3.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/.js/respond.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Command/UserManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Command/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Command/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Client/BrowserTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Client/ResponseTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Client/UserTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Client/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Client/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Controller/FormCheckTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Controller/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/Controller/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/Traits/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Common/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Controller/AccountController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Controller/IndexController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Controller/SecurityController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Controller/StockController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Controller/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Controller/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Entity/User.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Entity/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Entity/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/EventSubscriber/UserSubscriber.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/EventSubscriber/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/EventSubscriber/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountAccessDeniedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountAlreadyActivatedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountBadTokenException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountBannedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountClosedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountDeletedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountDisabledException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountExpiredTokenException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountNotFoundException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/AccountTypeException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/Account/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/AccountBannedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/AccountClosedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/AccountDeletedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/AccountDisabledException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/AccountInactiveException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/AccountTypeException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Exception/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Form/Security/UserPasswordType.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Form/Security/UserRecoverType.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Form/Security/UserType.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Form/Security/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Form/Security/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Form/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Form/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Kernel.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Migrations/Version20180409085449.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Migrations/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Migrations/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Repository/UserRepository.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Repository/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Repository/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Security/AbstractAdvancedUser.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Security/AccessDeniedHandler.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Security/UserChecker.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Security/UserManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Security/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Security/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/LocaleManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/MailerManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/Twig/AbstractTwigExtension.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/Twig/AppExtension.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/Twig/Func/Menu.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/Twig/Func/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/Twig/Func/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/Twig/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/Twig/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/UserManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/Service/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/SiteConfig.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/behat/assets/Twig/css/callout.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/behat/assets/Twig/css/callout.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/behat/assets/Twig/css/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/behat/assets/Twig/css/style.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/behat/assets/Twig/js/Chart.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/behat/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/jdepend.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpmetrics.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.css/nv.d3.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.css/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.fonts/glyphicons-halflings-regular.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.fonts/glyphicons-halflings-regular.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.fonts/glyphicons-halflings-regular.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.fonts/glyphicons-halflings-regular.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.fonts/glyphicons-halflings-regular.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/bootstrap.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/d3.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/file.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/holder.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/html5shiv.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/nv.d3.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/.js/respond.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Command/UserManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Command/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Command/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Client/BrowserTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Client/ResponseTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Client/UserTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Client/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Client/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Controller/FormCheckTrait.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Controller/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/Controller/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/Traits/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Common/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Controller/AccountController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Controller/IndexController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Controller/SecurityController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Controller/StockController.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Controller/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Controller/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Country.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Additive.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Alergy.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Brand.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Category.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Certification.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Origin.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Packaging.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Place.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/Trace.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/Product/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/User.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Entity/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/EventSubscriber/UserSubscriber.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/EventSubscriber/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/EventSubscriber/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountAccessDeniedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountAlreadyActivatedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountBadTokenException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountBannedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountClosedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountDeletedException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountDisabledException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountExpiredTokenException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountNotFoundException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/AccountTypeException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Account/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Product/ProductTypeException.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Product/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/Product/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Exception/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Form/Security/UserPasswordType.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Form/Security/UserRecoverType.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Form/Security/UserType.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Form/Security/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Form/Security/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Form/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Form/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Repository/CountryRepository.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Repository/ProductRepository.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Repository/UserRepository.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Repository/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Repository/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Security/AbstractAdvancedUser.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Security/AccessDeniedHandler.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Security/UserChecker.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Security/UserManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Security/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Security/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Databasemanager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/LocaleManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/MailerManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Twig/AbstractTwigExtension.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Twig/AppExtension.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Twig/Func/Menu.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Twig/Func/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Twig/Func/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Twig/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/Twig/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Service/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/SiteConfig.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Stock/ProductManager.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Stock/ProductScraper.php.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Stock/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/Stock/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/dashboard.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/phpunit/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/pyramid.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/demo/summary.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Command/CommandsTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Stock/RepositoriesTest.php" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/Symfony_StockManager.iml" afterPath="$PROJECT_DIR$/.idea/Symfony_StockManager.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/7504823d-45d6-4849-b078-f658d12abdec.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Command/AlertExpiresCommand.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_DOC/site_test.txt" afterPath="$PROJECT_DIR$/_DOC/site_test.txt" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
       <change beforePath="$PROJECT_DIR$/src/Command/DatabaseCommand.php" afterPath="$PROJECT_DIR$/src/Command/DatabaseCommand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Command/ProductCommand.php" afterPath="$PROJECT_DIR$/src/Command/ProductCommand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserCommand.php" afterPath="$PROJECT_DIR$/src/Command/UserCommand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Html/ATagGeneratorTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Html/ATagGeneratorTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Traits/Product/FolderTrait.php" afterPath="$PROJECT_DIR$/src/Common/Traits/Product/FolderTrait.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StockAjaxController.php" afterPath="$PROJECT_DIR$/src/Controller/StockAjaxController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StockController.php" afterPath="$PROJECT_DIR$/src/Controller/StockController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Country.php" afterPath="$PROJECT_DIR$/src/Entity/Country.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" afterPath="$PROJECT_DIR$/src/Entity/Product.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Additive.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Additive.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Alergy.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Alergy.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Brand.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Brand.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Category.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Category.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Certification.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Certification.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Origin.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Origin.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Packaging.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Packaging.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Place.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Place.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product/Trace.php" afterPath="$PROJECT_DIR$/src/Entity/Product/Trace.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stock.php" afterPath="$PROJECT_DIR$/src/Entity/Stock.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/StockProducts.php" afterPath="$PROJECT_DIR$/src/Entity/StockProducts.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" afterPath="$PROJECT_DIR$/src/EventSubscriber/UserSubscriber.php" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/Product/ProductTypeException.php" afterPath="$PROJECT_DIR$/src/Exception/Product/ProductTypeException.php" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20180421161606.php" afterPath="$PROJECT_DIR$/src/Migrations/Version20180421161606.php" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20180421180232.php" afterPath="$PROJECT_DIR$/src/Migrations/Version20180421180232.php" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" />
       <change beforePath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" afterPath="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/DatabaseManager.php" afterPath="$PROJECT_DIR$/src/Service/DatabaseManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LocaleManager.php" afterPath="$PROJECT_DIR$/src/Service/LocaleManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/MailerManager.php" afterPath="$PROJECT_DIR$/src/Service/MailerManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Security/AbstractAdvancedUser.php" afterPath="$PROJECT_DIR$/src/Service/Security/AbstractAdvancedUser.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Security/AccessDeniedHandler.php" afterPath="$PROJECT_DIR$/src/Service/Security/AccessDeniedHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Security/UserChecker.php" afterPath="$PROJECT_DIR$/src/Service/Security/UserChecker.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Security/UserManager.php" afterPath="$PROJECT_DIR$/src/Service/Security/UserManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Stock/ProductManager.php" afterPath="$PROJECT_DIR$/src/Service/Stock/ProductManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" afterPath="$PROJECT_DIR$/src/Service/Stock/ProductScraper.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" afterPath="$PROJECT_DIR$/src/Service/Twig/AppExtension.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Twig/Func/Product.php" afterPath="$PROJECT_DIR$/src/Service/Twig/Func/Product.php" />
-      <change beforePath="$PROJECT_DIR$/src/SiteConfig.php" afterPath="$PROJECT_DIR$/src/SiteConfig.php" />
-      <change beforePath="$PROJECT_DIR$/templates/components/common/nav.html.twig" afterPath="$PROJECT_DIR$/templates/components/common/nav.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/home.html.twig" afterPath="$PROJECT_DIR$/templates/stock/home.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/product.html.twig" afterPath="$PROJECT_DIR$/templates/stock/product.html.twig" />
-      <change beforePath="$PROJECT_DIR$/tests/Twig/AbstractExtensionTest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/translations/nav.en.xlf" afterPath="$PROJECT_DIR$/translations/nav.en.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/nav.fr.xlf" afterPath="$PROJECT_DIR$/translations/nav.fr.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/security_form.en.xlf" afterPath="$PROJECT_DIR$/translations/security_form.en.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/security_form.fr.xlf" afterPath="$PROJECT_DIR$/translations/security_form.fr.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/stock_home.en.xlf" afterPath="$PROJECT_DIR$/translations/stock_home.en.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/stock_home.fr.xlf" afterPath="$PROJECT_DIR$/translations/stock_home.fr.xlf" />
-      <change beforePath="$PROJECT_DIR$/translations/stock_product.fr.xlf" afterPath="$PROJECT_DIR$/translations/stock_product.fr.xlf" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -330,34 +55,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StockController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/StockController.php">
+      <file leaf-file-name="StockProductsRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Repository/StockProductsRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="288" column="45" lean-forward="false" selection-start-line="288" selection-start-column="45" selection-end-line="288" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="site_test.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_DOC/site_test.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RepositoriesTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Stock/RepositoriesTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="105" column="57" lean-forward="false" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="57" />
               <folding>
-                <element signature="e#249#272#0#PHP" expanded="true" />
+                <marker date="1524497078199" expanded="true" signature="2365:2390" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlertExpiresCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Command/AlertExpiresCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="669">
+              <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+              <folding>
+                <element signature="e#1379#1408#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/stock/list.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="48" column="100" lean-forward="true" selection-start-line="48" selection-start-column="100" selection-end-line="48" selection-end-column="170" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockProducts.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/StockProducts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-153">
+              <caret line="120" column="33" lean-forward="false" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_DOC/database.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site_commands.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="129" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -375,12 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cancelCurrent</find>
-      <find>'in'</find>
-      <find>getFormatedData</find>
-      <find>&quot;</find>
-      <find>cancel</find>
-      <find>lastRemoved</find>
       <find>.parentNode.parentNode.attributes('class</find>
       <find>result</find>
       <find>produit</find>
@@ -405,6 +156,12 @@
       <find>__</find>
       <find>getNbProductExpire</find>
       <find>findAddSearch</find>
+      <find>-&gt;getContainer()-&gt;get</find>
+      <find>respos</find>
+      <find>reposi</find>
+      <find>findByGroupedProduct</find>
+      <find>duct-&gt;getName()</find>
+      <find>getName</find>
     </findStrings>
     <replaceStrings>
       <replace>#</replace>
@@ -430,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Repository/ProductRepository.php" />
         <option value="$PROJECT_DIR$/assets/inc/css/style.css" />
         <option value="$PROJECT_DIR$/public/lib/class/ajax.class.js" />
         <option value="$PROJECT_DIR$/src/Service/Twig/Func/Link.php" />
@@ -474,13 +230,14 @@
         <option value="$PROJECT_DIR$/tests/Util/AbstractUserFixture.php" />
         <option value="$PROJECT_DIR$/tests/Command/ProductManagerTest.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7504823d-45d6-4849-b078-f658d12abdec/console.sql" />
-        <option value="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
-        <option value="$PROJECT_DIR$/src/Command/DatabaseCommand.php" />
         <option value="$PROJECT_DIR$/tests/Command/CommandsTest.php" />
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/tests/Stock/RepositoriesTest.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/_DOC/site_test.txt" />
+        <option value="$PROJECT_DIR$/src/Command/DatabaseCommand.php" />
+        <option value="$PROJECT_DIR$/src/Repository/StockProductsRepository.php" />
+        <option value="$PROJECT_DIR$/src/Command/AlertExpiresCommand.php" />
       </list>
     </option>
   </component>
@@ -667,7 +424,29 @@
             <path>
               <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_SOURCE" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Symfony_StockManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony_StockManager" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="stock" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -688,11 +467,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Command" />
       <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\public" />
       <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\tests\Stock" />
       <recent name="C:\Users\Etudiant\Desktop\Symfony_StockManager\tests\Command" />
       <recent name="C:\symfony\Symfony_StockManager\src\Controller" />
-      <recent name="C:\symfony\Symfony_StockManager\templates\stock" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\symfony\Symfony_StockManager\src\Service" />
@@ -803,21 +582,20 @@
       <workItem from="1524128353355" duration="22822000" />
       <workItem from="1524164100865" duration="7818000" />
       <workItem from="1524210688851" duration="17820000" />
-      <workItem from="1524470399467" duration="23117000" />
+      <workItem from="1524470399467" duration="27316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="777616000" />
+    <option name="totallyTimeSpent" value="781815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28148147" sideWeight="0.50208336" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3809524" sideWeight="0.49791667" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3809524" sideWeight="0.49791667" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6266234" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1359275" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -849,63 +627,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/components/loader.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="57" lean-forward="false" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/security/recover.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mail/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1523868778054" expanded="true" signature="5871:6011" ph="..." />
-            <marker date="1523868778054" expanded="true" signature="5944:6002" ph="{...}" />
-            <marker date="1523868778054" expanded="false" signature="6951:6986" ph="..." />
-            <marker date="1523868778054" expanded="true" signature="6987:7517" ph="..." />
-            <marker date="1523868778054" expanded="true" signature="7036:7236" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="7109:7162" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="7176:7182" ph=" " />
-            <marker date="1523868778054" expanded="true" signature="7285:7517" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="7346:7368" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="7370:7376" ph=" " />
-            <marker date="1523868778054" expanded="false" signature="7441:7463" ph="..." />
-            <marker date="1523868778054" expanded="true" signature="7476:7517" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="8217:8239" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="8241:8247" ph=" " />
-            <marker date="1523868778054" expanded="true" signature="8342:8534" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="8411:8464" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="8478:8484" ph=" " />
-            <marker date="1523868778054" expanded="false" signature="8789:8824" ph="..." />
-            <marker date="1523868778054" expanded="true" signature="8825:9355" ph="..." />
-            <marker date="1523868778054" expanded="true" signature="8874:9074" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="8947:9000" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="9014:9020" ph=" " />
-            <marker date="1523868778054" expanded="true" signature="9123:9355" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="9184:9206" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="9208:9214" ph=" " />
-            <marker date="1523868778054" expanded="false" signature="9279:9301" ph="..." />
-            <marker date="1523868778054" expanded="true" signature="9314:9355" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="9760:9782" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="9784:9790" ph=" " />
-            <marker date="1523868778054" expanded="true" signature="9885:10077" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="9954:10007" ph="..." />
-            <marker date="1523868778054" expanded="false" signature="10021:10027" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/security/connexion.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-663">
@@ -926,14 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/stock/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="95" column="25" lean-forward="false" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1098,14 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_DOC/database.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -1145,44 +850,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command/ProductCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="125" column="36" lean-forward="false" selection-start-line="125" selection-start-column="27" selection-end-line="125" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/console/Command/Command.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
           <caret line="119" column="20" lean-forward="false" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/StockProductsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="123" column="18" lean-forward="false" selection-start-line="123" selection-start-column="18" selection-end-line="123" selection-end-column="18" />
-          <folding>
-            <marker date="1524491879244" expanded="true" signature="2257:2282" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command/DatabaseCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="258" column="33" lean-forward="false" selection-start-line="258" selection-start-column="33" selection-end-line="258" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1210,16 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Stock/RepositoriesTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#249#272#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1240,14 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1286,9 +939,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_DOC/site_test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        <state relative-caret-position="442">
+          <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Stock/RepositoriesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/UserCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="48" column="12" lean-forward="false" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/ProductCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="129" column="29" lean-forward="true" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/DatabaseCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="109" column="20" lean-forward="true" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_DOC/database.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_DOC/site_commands.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stock/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="48" column="100" lean-forward="true" selection-start-line="48" selection-start-column="100" selection-end-line="48" selection-end-column="170" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/StockProducts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="120" column="33" lean-forward="false" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/AlertExpiresCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding>
+            <element signature="e#1379#1408#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/StockProductsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="105" column="57" lean-forward="false" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="57" />
+          <folding>
+            <marker date="1524497078199" expanded="true" signature="2365:2390" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

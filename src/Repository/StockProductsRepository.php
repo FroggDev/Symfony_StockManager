@@ -44,12 +44,14 @@ class StockProductsRepository extends ServiceEntityRepository
      */
     public function findDateExpires(int $productId, int $stockId, ?int $inDay = null)
     {
+        $orderDirection = $this->getOrderDirection('sp.dateExpire');
+
         //prepare query
         $query = $this->createQueryBuilder('sp')
             ->select('sp')
             ->where('sp.product = '.$productId)
             ->andWhere('sp.stock = '.$stockId)
-            ->orderBy('sp.dateExpire', 'DESC');
+            ->orderBy($orderDirection['order'], $orderDirection['direction']);
 
         return $this->applyFilter($query, $inDay)->getQuery()->getResult();
     }
@@ -61,6 +63,7 @@ class StockProductsRepository extends ServiceEntityRepository
      *
      * @return array
      */
+    /*
     public function findByGroupedProduct(int $stockId, int $numPage = 1, string $order = '0'): array
     {
         //SELECT COUNT(product_id) FROM stock_products where stock_id=1 GROUP BY product_id ORDER BY date_expire DESC
@@ -88,6 +91,7 @@ class StockProductsRepository extends ServiceEntityRepository
             $nbExpired,
         ];
     }
+    */
 
     /**
      * @param int         $stockId
@@ -99,7 +103,7 @@ class StockProductsRepository extends ServiceEntityRepository
      *
      * @see http://doctrine-orm.readthedocs.io/en/latest/reference/dql-doctrine-query-language.html#id3
      */
-    public function findList(int $stockId, ?string $inDay, int $numPage = 1, string $order = '0', int $productId = null, string $search = null)
+    public function findList(int $stockId, ?string $inDay, int $numPage = 1, string $order = '0', int $productId = null, string $search = null, bool $fullList = false)
     {
         $orderDirection = $this->getOrderDirection($order);
 
@@ -131,7 +135,7 @@ class StockProductsRepository extends ServiceEntityRepository
 
         return [
             count($products),
-            array_slice($products, $this->getLimit($numPage), SiteConfig::NBPERPAGE),
+            $fullList ? $products :array_slice($products, $this->getLimit($numPage), SiteConfig::NBPERPAGE),
             $nbExpired,
         ];
     }
