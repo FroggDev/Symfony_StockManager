@@ -17,7 +17,7 @@
         <source>login</source>
         <target>Connexion</target>
       </trans-unit>
-      <trans-unit id="QoghNQ6-fr" resname="register">
+      <trans-unit id="h3gPpd5" resname="register">
         <source>register</source>
         <target>S'inscrire</target>
       </trans-unit>
@@ -45,13 +45,45 @@
         <source>log out</source>
         <target>Se déconnecter</target>
       </trans-unit>
-      <trans-unit id="jxOgOEdfsdfj" resname="main title">
+      <trans-unit id="jxOgOEj" resname="main title">
         <source>main title</source>
         <target>Gestionnaire de stock en ligne</target>
       </trans-unit>
-      <trans-unit id="KA1sdfsdfEqx6" resname="welcome">
+      <trans-unit id="KA1Eqx6" resname="welcome">
         <source>welcome</source>
         <target>Bienvenu(e) %user%</target>
+      </trans-unit>
+      <trans-unit id="6VgvQCe" resname="Sort by date expire">
+        <source>Sort by date expire</source>
+        <target>Trier par date d'expiration</target>
+      </trans-unit>
+      <trans-unit id="2Jq6bpX" resname="Sort by date added">
+        <source>Sort by date added</source>
+        <target>Trier par date d'ajout</target>
+      </trans-unit>
+      <trans-unit id="WIoII2x" resname="Sort by name">
+        <source>Sort by name</source>
+        <target>Trier par nom de produit</target>
+      </trans-unit>
+      <trans-unit id="uC1UeWh" resname="my profile">
+        <source>my profile</source>
+        <target>Mon compte</target>
+      </trans-unit>
+      <trans-unit id="9XCQDE4" resname="add a product">
+        <source>add a product</source>
+        <target>Ajouter u produit</target>
+      </trans-unit>
+      <trans-unit id="SDPsdDt" resname="remove a product">
+        <source>remove a product</source>
+        <target>Supprimer un produit</target>
+      </trans-unit>
+      <trans-unit id="SBYbSF7" resname="product list">
+        <source>product list</source>
+        <target>Liste des produits</target>
+      </trans-unit>
+      <trans-unit id="8JkW.ps" resname="my account">
+        <source>my account</source>
+        <target>Mon compte</target>
       </trans-unit>
     </body>
   </file>

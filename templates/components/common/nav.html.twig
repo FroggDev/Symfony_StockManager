@@ -20,9 +20,9 @@
 
 {% if app.request.get('_route')=='stock_list' %}
 <ul id="dropdownsort" class="dropdown-content" >
-    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':1}) }}">Sort by date expire</a></li>
-    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':2}) }}">Sort by date added</a></li>
-    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':3}) }}">Sort by name</a></li>
+    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':1}) }}">{{ "Sort by date expire" | trans }}</a></li>
+    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':2}) }}">{{ "Sort by date added" | trans }}</a></li>
+    <li><a href="{{ path('stock_list',{'currentPage':currentPage,'order':3}) }}">{{ "Sort by name" | trans }}</a></li>
 </ul>
 {% endif %}
 
@@ -36,7 +36,7 @@
 
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             {# getActiveMenu for each in dropdownprofile #}
-            <li class="{{ getActiveMenu('account_option') }}right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownprofile"><i class="material-icons left">account_circle</i> My profile</a></li>
+            <li class="{{ getActiveMenu('account_option') }}right hide-on-med-and-down"><a class="dropdown-trigger" href="#" data-target="dropdownprofile"><i class="material-icons left">account_circle</i> {{ "my profile" | trans }}</a></li>
             {% else %}
             <li class="{{ getActiveMenu('security_connexion') }}right hide-on-med-and-down"><a id="security_connexion_large" href="{{ path('security_connexion') }}"><i class="material-icons left">account_circle</i>{{ "login" | trans }}</a></li>
             {% endif %}
@@ -68,11 +68,11 @@
             <li><a class="{{ getActiveMenu('index') }}{{ getActiveMenu('stock_home') }}" href="{{ path('index') }}"><i class="material-icons left">home</i>{{ "home" | trans }}</a></li>
             <li class="divider"></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <li><a class="{{ getActiveMenu('stock_add') }}" href="{{ path('stock_add') }}"><i class="material-icons left">add_circle_outline</i>Add a product</a></li>
-            <li><a class="{{ getActiveMenu('stock_del') }}" href="{{ path('stock_del') }}"><i class="material-icons left">remove_circle_outline</i>Remove a product</a></li>
-            <li><a class="{{ getActiveMenu('stock_list') }}" href="{{ path('stock_list') }}"><i class="material-icons left">assignment</i>Product list</a></li>
+            <li><a class="{{ getActiveMenu('stock_add') }}" href="{{ path('stock_add') }}"><i class="material-icons left">add_circle_outline</i>{{ "add a product" | trans }}</a></li>
+            <li><a class="{{ getActiveMenu('stock_del') }}" href="{{ path('stock_del') }}"><i class="material-icons left">remove_circle_outline</i>{{ "remove a product" | trans }}</a></li>
+            <li><a class="{{ getActiveMenu('stock_list') }}" href="{{ path('stock_list') }}"><i class="material-icons left">assignment</i>{{ "product list" | trans }}</a></li>
             <li class="divider"></li>
-            <li><a href="#"><i class="material-icons left">account_circle</i>My Account</a></li>
+            <li><a href="#"><i class="material-icons left">account_circle</i>{{ "my account" | trans }}</a></li>
             <li><a class="{{ getActiveMenu('account_option') }}" href="{{ path('account_option') }}"><i class="material-icons left">settings</i>{{ "stock option" | trans }}</a></li>
             <li class="divider"></li>
             <li><a href="{{ getActiveMenu('security_logout') }}"><i class="material-icons left">exit_to_app</i>{{ "log out" | trans }}</a></li>

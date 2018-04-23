@@ -1,8 +1,8 @@
 {% extends "stock.html.twig" %}
 
-{% trans_default_domain 'stock_add' %}
+{% trans_default_domain 'stock_search' %}
 
-{% block page_title "stock add title" | trans %}
+{% block page_title "stock search title" | trans %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
@@ -14,7 +14,7 @@
 
             <a class="waves-effect waves-light btn-large right red buttonBack" href="#" onclick="history.go(-1)"><i class="material-icons left">backspace</i>Back</a>
 
-            <h1 class="teal-text text-lighten-2">Product result</h1>
+            <h1 class="teal-text text-lighten-2">{{ "product result" | trans }}</h1>
 
             <div class="productList">
 
@@ -27,7 +27,7 @@
                                 <div class="card-panel warning">
                                     <h6 class="white-text">
                                         <i class="material-icons left" style="line-height: unset;">warning</i>
-                                        <div>No result found for the search "{{ search }}"</div>
+                                        <div>{{ "no result found for the search" | trans }} "{{ search }}"</div>
                                     </h6>
                                 </div>
                             </div>
@@ -38,9 +38,10 @@
                     {% for product in products %}
                     <li>
                         <div class="collapsible-header">
-
-                            <input type="hidden" value="3057640234163" class="barcode">
-                            <input type="hidden" value="11/02/202" name="expire" class="select-dropdown">
+                            <!--
+                            TODO : NO MORE USED .???
+                            input type="hidden" value="3057640234163" class="barcode">
+                            <input type="hidden" value="11/02/202" name="expire" class="select-dropdown"-->
                             <i class="material-icons left imgproduct"><a href="{{ path('stock_product_card',{barcode : product.barcode}) }}"><img src="{{ asset( getProductImage(product.barcode,product.picture) ) }}"></a></i>
                             <h4>{{ product.name }} {{ product.brands[0].name }} {{ product.quantity }}</h4>
                             <div>{{ product.commonName }}</div>
@@ -50,7 +51,7 @@
                             </div>
                         </div>
                         <div class="collapsible-body">
-                            <h5>Repères nutritionnels pour 100 g ({{ product.energy }} {{ product.energyUnit }})</h5>
+                            <h5>{{ "nutrient levels" | trans }} 100 g ({{ product.energy }} {{ product.energyUnit }})</h5>
                             {{ getNutritionalInfo(product) | raw }}
                         </div>
                     </li>

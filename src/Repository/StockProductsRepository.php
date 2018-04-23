@@ -44,12 +44,14 @@ class StockProductsRepository extends ServiceEntityRepository
      */
     public function findDateExpires(int $productId, int $stockId, ?int $inDay = null)
     {
+        $orderDirection = $this->getOrderDirection('sp.dateExpire');
+
         //prepare query
         $query = $this->createQueryBuilder('sp')
             ->select('sp')
             ->where('sp.product = '.$productId)
             ->andWhere('sp.stock = '.$stockId)
-            ->orderBy('sp.dateExpire', 'DESC');
+            ->orderBy($orderDirection['order'], $orderDirection['direction']);
 
         return $this->applyFilter($query, $inDay)->getQuery()->getResult();
     }
@@ -61,16 +63,19 @@ class StockProductsRepository extends ServiceEntityRepository
      *
      * @return array
      */
+    /*
     public function findByGroupedProduct(int $stockId, int $numPage = 1, string $order = '0'): array
     {
         //SELECT COUNT(product_id) FROM stock_products where stock_id=1 GROUP BY product_id ORDER BY date_expire DESC
+
+        $orderDirection = $this->getOrderDirection($order);
 
         $products = $this->createQueryBuilder('sp')
             ->select('sp,count(sp.product)')
             ->where('sp.stock = '.$stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
-            ->orderBy($this->getOrder($order), $this->getDirection($order))
+            ->orderBy($orderDirection['order'], $orderDirection['direction'])
             ->getQuery()
             ->getResult();
 
@@ -86,6 +91,7 @@ class StockProductsRepository extends ServiceEntityRepository
             $nbExpired,
         ];
     }
+    */
 
     /**
      * @param int         $stockId
@@ -97,27 +103,29 @@ class StockProductsRepository extends ServiceEntityRepository
      *
      * @see http://doctrine-orm.readthedocs.io/en/latest/reference/dql-doctrine-query-language.html#id3
      */
-    public function findList(int $stockId, ?string $inDay, int $numPage = 1, string $order = '0', int $productId = null, string $search = null)
+    public function findList(int $stockId, ?string $inDay, int $numPage = 1, string $order = '0', int $productId = null, string $search = null, bool $fullList = false)
     {
+        $orderDirection = $this->getOrderDirection($order);
+
         $query = $this->createQueryBuilder('sp')
             ->select('sp,count(sp.product)')
             ->Where('sp.stock = '.$stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
-            ->orderBy($this->getOrder($order), $this->getDirection($order));
+            ->orderBy($orderDirection['order'], $orderDirection['direction']);
 
-        if(null!==$productId){
+        if (null!==$productId) {
             $query->andWhere('sp.product = '.$productId);
         }
 
-        if(null!==$search && ""!==$search){
+        if (null!==$search && ""!==$search) {
             $query
                 ->join('p.brands', 'b')
-                ->join('p.categories', 'c')
+                //->join('p.categories', 'c')
                 ->where('p.commonName LIKE :search')
                 ->orWhere('p.name LIKE :search')
                 ->orWhere('b.name LIKE :search')
-                ->orWhere('c.name LIKE :search')
+                //->orWhere('c.name LIKE :search')
                 ->setParameter('search', "%$search%");
         }
 
@@ -127,7 +135,7 @@ class StockProductsRepository extends ServiceEntityRepository
 
         return [
             count($products),
-            array_slice($products, $this->getLimit($numPage), SiteConfig::NBPERPAGE),
+            $fullList ? $products :array_slice($products, $this->getLimit($numPage), SiteConfig::NBPERPAGE),
             $nbExpired,
         ];
     }
@@ -137,36 +145,28 @@ class StockProductsRepository extends ServiceEntityRepository
      ###########*/
 
     /**
-     * @param String $order
-     *
-     * @return string
-     */
-    private function getDirection(String $order)
-    {
-        // check order direction
-        return ('p.name' === $order) ? 'ASC' : 'DESC';
-    }
-
-    /**
      * @param string $order
      *
      * @return string
      */
-    private function getOrder(string $order)
+    private function getOrderDirection(string $order)
     {
         // get the selected request order
         switch ($order) {
             case '2':
                 $order = 'sp.dateCreation';
+                $direction = 'DESC';
                 break;
             case '3':
                 $order = 'p.name';
+                $direction = 'ASC';
                 break;
             default:
                 $order = 'sp.dateExpire';
+                $direction = 'ASC';
         }
 
-        return $order;
+        return ['order'=>$order,'direction'=>$direction];
     }
 
     /**

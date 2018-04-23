@@ -17,7 +17,7 @@
         <source>login</source>
         <target>Login</target>
       </trans-unit>
-      <trans-unit id="QoghNQ6-en" resname="register">
+      <trans-unit id="h3gPpd5" resname="register">
         <source>register</source>
         <target>Register</target>
       </trans-unit>
@@ -45,13 +45,45 @@
         <source>log out</source>
         <target>Log out</target>
       </trans-unit>
-      <trans-unit id="jxOdfgdfgOEj" resname="main title">
+      <trans-unit id="jxOgOEj" resname="main title">
         <source>main title</source>
         <target>Online Stock Manager</target>
       </trans-unit>
-      <trans-unit id="KA1Esdfsdfqx6" resname="welcome">
+      <trans-unit id="KA1Eqx6" resname="welcome">
         <source>welcome</source>
         <target>Welcome %user%</target>
+      </trans-unit>
+      <trans-unit id="6VgvQCe" resname="Sort by date expire">
+        <source>Sort by date expire</source>
+        <target>__Sort by date expire</target>
+      </trans-unit>
+      <trans-unit id="2Jq6bpX" resname="Sort by date added">
+        <source>Sort by date added</source>
+        <target>__Sort by date added</target>
+      </trans-unit>
+      <trans-unit id="WIoII2x" resname="Sort by name">
+        <source>Sort by name</source>
+        <target>Sort by name</target>
+      </trans-unit>
+      <trans-unit id="uC1UeWh" resname="my profile">
+        <source>my profile</source>
+        <target>My account</target>
+      </trans-unit>
+      <trans-unit id="9XCQDE4" resname="add a product">
+        <source>add a product</source>
+        <target>Add a product</target>
+      </trans-unit>
+      <trans-unit id="SDPsdDt" resname="remove a product">
+        <source>remove a product</source>
+        <target>Remove a product</target>
+      </trans-unit>
+      <trans-unit id="SBYbSF7" resname="product list">
+        <source>product list</source>
+        <target>Product list</target>
+      </trans-unit>
+      <trans-unit id="8JkW.ps" resname="my account">
+        <source>my account</source>
+        <target>My account</target>
       </trans-unit>
     </body>
   </file>

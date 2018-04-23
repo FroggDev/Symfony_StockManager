@@ -51,7 +51,6 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -74,16 +73,9 @@ class ProductCommand extends Command
     private $productManager;
 
     /**
-     * UserRoleManager constructor.
-     * @param \App\Service\Stock\ProductManager $productManager
+     * /!\        DO NOT USE CONTRUCTOR IN COMMANDS      /!\
+     * /!\ IT WILL BE CALL ON CONSOLE LOAD WHE CONFIGURE /!\
      */
-    public function __construct(\App\Service\Stock\ProductManager $productManager)
-    {
-        // parent constructor
-        parent::__construct();
-
-        $this->productManager = $productManager;
-    }
 
     /**
      * Set the command name/description/help
@@ -109,11 +101,21 @@ class ProductCommand extends Command
 
     /**
      * Main function
-     * @param InputInterface  $input
+     * @param InputInterface $input
      * @param OutputInterface $output
+     *
+     * @throws \App\Exception\Product\ProductTypeException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        // Getting the product manager
+        $this->productManager = $this
+            ->getApplication()
+            ->getKernel()
+            ->getContainer()
+            ->get('app.service.product_manager');
+
+
         // INIT STYLES
         $this->output = new SymfonyStyle($input, $output);
 
@@ -126,6 +128,9 @@ class ProductCommand extends Command
 
     /**
      * @param array $barcodes
+     *
+     * @return int
+     *
      * @throws \App\Exception\Product\ProductTypeException
      */
     private function addProducts(array $barcodes)
@@ -135,17 +140,17 @@ class ProductCommand extends Command
 
             $result = json_decode($resultString);
 
-            if ("ok" !== $result->result) {
-                $this->output->error("An error occured while trying to scrap $barcode");
+            if ('ok' !== $result->result) {
+                $this->output->error('An error occured while trying to scrap '.$barcode);
                 continue;
             }
 
             if (!isset($result->name)) {
-                $this->output->warning("$barcode cannot be found");
+                $this->output->warning($barcode.' cannot be found');
                 continue;
             }
 
-            $this->output->success($result->name." has been added to database from barcode $barcode ");
+            $this->output->success($result->name.' has been added to database from barcode '.$barcode);
         }
 
         return self::EXITCODE;

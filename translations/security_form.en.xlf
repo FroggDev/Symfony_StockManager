@@ -37,8 +37,8 @@
         <source>changepassword title</source>
         <target>Password change</target>
       </trans-unit>
-      <trans-unit id="nJahiSs-en" resname="password button validation">
-        <source>change button</source>
+      <trans-unit id="Eync4eo" resname="password button validation">
+        <source>password button validation</source>
         <target>Change password</target>
       </trans-unit>
       <trans-unit id="dczWwOv" resname="recover title">
@@ -64,6 +64,10 @@
       <trans-unit id="DsWIJZK" resname="register button">
         <source>register button</source>
         <target>Register</target>
+      </trans-unit>
+      <trans-unit id="kE0CLTY" resname="change button">
+        <source>change button</source>
+        <target>Change</target>
       </trans-unit>
     </body>
   </file>

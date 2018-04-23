@@ -33,8 +33,8 @@
         <source>recover title</source>
         <target>Récupération du mot de passe</target>
       </trans-unit>
-      <trans-unit id="nJahiSs-fr" resname="password button validation">
-        <source>change button</source>
+      <trans-unit id="Eync4eo" resname="password button validation">
+        <source>password button validation</source>
         <target>Valider</target>
       </trans-unit>
       <trans-unit id="ywRGf7q" resname="label email">
@@ -67,11 +67,15 @@
       </trans-unit>
       <trans-unit id="ygD8z7Q" resname="error">
         <source>error</source>
-        <target>__error</target>
+        <target>erreur</target>
       </trans-unit>
       <trans-unit id="FnnSDc4" resname="back to index">
         <source>back to index</source>
-        <target>__back to index</target>
+        <target>Retour à la home</target>
+      </trans-unit>
+      <trans-unit id="kE0CLTY" resname="change button">
+        <source>change button</source>
+        <target>Changer</target>
       </trans-unit>
     </body>
   </file>

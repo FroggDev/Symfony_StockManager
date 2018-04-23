@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="2VW3lvm" resname="stock search title">
+        <source>stock search title</source>
+        <target>Rechercher dans le stock</target>
+      </trans-unit>
+      <trans-unit id="3FVsmaR" resname="product result">
+        <source>product result</source>
+        <target>Resultat des produits</target>
+      </trans-unit>
+      <trans-unit id="wHlUQ3E" resname="no result found for the search">
+        <source>no result found for the search</source>
+        <target>Aucun résultat trouvé pour votre recherche</target>
+      </trans-unit>
+      <trans-unit id="SEXvhRQ" resname="nutrient levels">
+        <source>nutrient levels</source>
+        <target>Repères nutritionnelles pour</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -29,6 +29,18 @@
         <source>stock list</source>
         <target>Stock list</target>
       </trans-unit>
+      <trans-unit id="_mTqHoL" resname="expired">
+        <source>expired</source>
+        <target>expired</target>
+      </trans-unit>
+      <trans-unit id="7tYUdc4" resname="expired in 3 days">
+        <source>expired in 3 days</source>
+        <target>in 3 days</target>
+      </trans-unit>
+      <trans-unit id="BvVGw.d" resname="expired in 7 days">
+        <source>expired in 7 days</source>
+        <target>in 7 days</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

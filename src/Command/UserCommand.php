@@ -113,45 +113,9 @@ class UserCommand extends Command
     private $roles;
 
     /**
-     * UserRoleManager constructor.
-     * @param EntityManagerInterface $eManager
+     * /!\        DO NOT USE CONTRUCTOR IN COMMANDS      /!\
+     * /!\ IT WILL BE CALL ON CONSOLE LOAD WHE CONFIGURE /!\
      */
-    public function __construct(EntityManagerInterface $eManager) //, RoleHierarchy $rolesHierarchy
-    {
-        // parent constructor
-        parent::__construct();
-
-        // get doctrine entity manager
-        $this->eManager = $eManager;
-
-        // get all available roles
-        $this->roles = SiteConfig::SECURITYROLES;
-
-        /*
-         * $this->roles = $rolesHierarchy->getRoles();
-         * REQUIRE method public getRoles()
-         * in Symfony\Component\Security\Core\Role\RoleHierarchy;
-         *
-         *  public function getRoles()
-         *  {
-         *   $roles = array();
-         *
-         *   foreach ($this->map as $role => $hierarchy) {
-         *       $roles[] = $role;
-         *
-         *       foreach ($hierarchy as $role) {
-         *           $roles[] = $role;
-         *       }
-         *   }
-         *
-         *   return array_unique($roles);
-         *   }
-         *
-         * require to inject role_hierarchy in services.yaml :
-         * ---------------------------------------------------
-         * Symfony\Component\Security\Core\Role\RoleHierarchyInterface: '@security.role_hierarchy'
-         */
-    }
 
     /**
      * Set the command name/description/help
@@ -187,6 +151,16 @@ class UserCommand extends Command
 
         // DISPLAY TITLE
         $this->output->title("Welcome to User Role Manager");
+
+        // get doctrine entity manager
+        $this->eManager = $this
+            ->getApplication()
+            ->getKernel()
+            ->getContainer()
+            ->get('doctrine.orm.entity_manager');
+
+        // get all available roles
+        $this->roles = SiteConfig::SECURITYROLES;
 
         // DISPLAY MAIN MENU
         $this->displayMainMenu();

@@ -1,0 +1,125 @@
+<html><body> 
+<h1>PHP Metrics</h1> 
+<a href="/output/phpmetrics.html">PHP Metrics results</a> 
+<h1>PHP CodeSniffer</h1> 
+<pre> 
+
+PHP CODE SNIFFER REPORT SUMMARY
+----------------------------------------------------------------------
+FILE                                                  ERRORS  WARNINGS
+----------------------------------------------------------------------
+...fony_StockManager\src\Command\DatabaseCommand.php  6       0
+...mfony_StockManager\src\Command\ProductCommand.php  1       0
+...\Symfony_StockManager\src\Command\UserCommand.php  7       0
+...ger\src\Common\Traits\Html\ATagGeneratorTrait.php  2       0
+...y_StockManager\src\Controller\IndexController.php  1       0
+...tockManager\src\Controller\SecurityController.php  2       0
+...y_StockManager\src\Controller\StockController.php  9       0
+...sktop\Symfony_StockManager\src\Entity\Country.php  5       2
+...fony_StockManager\src\Entity\Product\Additive.php  2       0
+...ymfony_StockManager\src\Entity\Product\Alergy.php  2       0
+...Symfony_StockManager\src\Entity\Product\Brand.php  2       0
+...fony_StockManager\src\Entity\Product\Category.php  2       0
+...StockManager\src\Entity\Product\Certification.php  2       0
+...ymfony_StockManager\src\Entity\Product\Origin.php  2       0
+...ony_StockManager\src\Entity\Product\Packaging.php  3       0
+...Symfony_StockManager\src\Entity\Product\Place.php  2       0
+...Symfony_StockManager\src\Entity\Product\Trace.php  2       0
+...Desktop\Symfony_StockManager\src\Entity\Stock.php  5       0
+...Symfony_StockManager\src\Entity\StockProducts.php  3       0
+...\Desktop\Symfony_StockManager\src\Entity\User.php  7       0
+...tockManager\src\Form\Security\UserRecoverType.php  1       0
+...diant\Desktop\Symfony_StockManager\src\Kernel.php  6       1
+...kManager\src\Migrations\Version20180421161606.php  2       1
+...kManager\src\Migrations\Version20180421180232.php  2       1
+...anager\src\Repository\StockProductsRepository.php  8       0
+...StockManager\src\Service\Security\UserChecker.php  2       0
+...StockManager\src\Service\Security\UserManager.php  6       0
+...StockManager\src\Service\Stock\ProductManager.php  4       0
+...StockManager\src\Service\Stock\ProductScraper.php  7       0
+...mfony_StockManager\src\Service\Twig\Func\Link.php  1       0
+...t\Desktop\Symfony_StockManager\src\SiteConfig.php  3       0
+----------------------------------------------------------------------
+A TOTAL OF 109 ERRORS AND 5 WARNINGS WERE FOUND IN 31 FILES
+----------------------------------------------------------------------
+PHPCBF CAN FIX 16 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 5.32 secs; Memory: 14Mb
+
+</pre> 
+<h1>PHP CopyPasteDetector</h1> 
+<pre> 
+
+phpcpd 4.0.0 by Sebastian Bergmann.
+
+0.00% duplicated lines out of 9719 total lines of code.
+
+Time: 418 ms, Memory: 8.00MB
+</pre> 
+<h1>PHP MessDetector</h1> 
+<pre> 
+
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Common\Traits\Client\BrowserTrait.php:25	getUserBrowserLangs accesses the super-global variable $_SERVER.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Common\Traits\Client\BrowserTrait.php:25	getUserBrowserLangs accesses the super-global variable $_SERVER.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Common\Traits\Client\BrowserTrait.php:25	getUserBrowserLangs accesses the super-global variable $_SERVER.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Common\Traits\Html\ATagGeneratorTrait.php:34	The method getATag has a boolean flag argument $notADownload, which is a certain sign of a Single Responsibility Principle violation.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Controller\SecurityController.php:176	Avoid unused parameters such as '$session'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Country.php:102	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Country.php:144	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:34	The class Product has 1763 lines of code. Current threshold is 1000. Avoid really long classes.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:34	The class Product has 125 public methods and attributes. Consider reducing the number of public items to less than 45.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:34	The class Product has 63 fields. Consider redesigning Product to keep the number of fields under 15.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:34	The class Product has an overall complexity of 126 which is very high. The configured complexity threshold is 50.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:43	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:135	Avoid unused private fields such as '$stockProducts'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:570	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:1210	Avoid excessively long variable names like $levelCarbohydrateUnit. Keep variable name length under 20.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product.php:1290	Avoid excessively long variable names like $levelDietaryFiberUnit. Keep variable name length under 20.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Additive.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Additive.php:120	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Alergy.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Alergy.php:120	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Brand.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Brand.php:120	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Category.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Category.php:119	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Certification.php:26	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Certification.php:54	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Origin.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Origin.php:119	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Packaging.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Packaging.php:120	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Place.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Place.php:120	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Trace.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Product\Trace.php:112	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Stock.php:32	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\Stock.php:68	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\StockProducts.php:32	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\StockProducts.php:91	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\User.php:58	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Entity\User.php:206	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Form\Security\UserPasswordType.php:32	Avoid unused parameters such as '$options'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Form\Security\UserType.php:30	Avoid unused parameters such as '$options'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Migrations\Version20180421161606.php:13	Avoid using short method names like Version20180421161606::up(). The configured minimum method name length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Migrations\Version20180421161606.php:13	Avoid unused parameters such as '$schema'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Migrations\Version20180421161606.php:68	Avoid unused parameters such as '$schema'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Migrations\Version20180421180232.php:13	Avoid using short method names like Version20180421180232::up(). The configured minimum method name length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Migrations\Version20180421180232.php:13	Avoid unused parameters such as '$schema'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Migrations\Version20180421180232.php:22	Avoid unused parameters such as '$schema'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Repository\ProductRepository.php:29	Avoid unused private fields such as '$allProduct'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Service\MailerManager.php:42	Avoid variables with short names like $to. Configured minimum length is 3.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Service\Security\AccessDeniedHandler.php:30	Avoid excessively long variable names like $accessDeniedException. Keep variable name length under 20.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Service\Security\AccessDeniedHandler.php:30	Avoid unused parameters such as '$accessDeniedException'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Service\Security\UserManager.php:29	The class UserManager has a coupling between objects value of 13. Consider to reduce the number of dependencies under 13.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Service\Stock\ProductManager.php:108	Avoid using static access to class '\DateTime' in method 'doAjaxAdd'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Service\Stock\ProductManager.php:250	Avoid using static access to class '\DateTime' in method 'stringToDatetime'.
+C:\Users\Etudiant\Desktop\Symfony_StockManager\src\Service\Twig\Func\Product.php:144	The method getNutritionLine() has a Cyclomatic Complexity of 15. The configured cyclomatic complexity threshold is 10.
+</pre> 
+<h1>PHP Depend</h1> 
+<h2>Depend</h2> 
+<img src="/output/jdepend.svg"/> 
+<h2>Pyramid</h2> 
+<img src="/output/pyramid.svg"/> 
+</body></html> 

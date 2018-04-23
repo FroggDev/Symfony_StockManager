@@ -48,7 +48,9 @@ $io->progressFinish();
 
 namespace App\Command;
 
+use App\SiteConfig;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -59,6 +61,8 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  *
  * Symfony console
  * @see https://symfony.com/doc/current/console.html
+ *
+ * TODO : MANAGE RETURN CODE WHEN ERROR
  */
 class DatabaseCommand extends Command
 {
@@ -69,20 +73,16 @@ class DatabaseCommand extends Command
     /** @var SymfonyStyle */
     private $output;
 
+    /** @var string */
+    private $env;
+
     /** @var \App\Service\DatabaseManager */
     private $databaseManager;
 
     /**
-     * UserRoleManager constructor.
-     * @param \App\Service\DatabaseManager $databaseManager
+     * /!\        DO NOT USE CONTRUCTOR IN COMMANDS      /!\
+     * /!\ IT WILL BE CALL ON CONSOLE LOAD WHE CONFIGURE /!\
      */
-    public function __construct(\App\Service\DatabaseManager $databaseManager)
-    {
-        // parent constructor
-        parent::__construct();
-
-        $this->databaseManager = $databaseManager;
-    }
 
     /**
      * Set the command name/description/help
@@ -113,6 +113,15 @@ class DatabaseCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        // INIT VARS
+        $kernel = $this->getApplication()->getKernel();
+
+        $this->databaseManager = $kernel
+            ->getContainer()
+            ->get('app.service.database_manager');
+
+        $this->env = $kernel->getEnvironment();
+
         // INIT STYLES
         $this->output = new SymfonyStyle($input, $output);
 
@@ -122,46 +131,135 @@ class DatabaseCommand extends Command
         // DO MAIN SCRIPT
         switch ($action) {
             case 'create':
-                $this->createDatabase();
+                $this->create();
                 break;
             case 'update':
-                $this->updateDatabase();
+                $this->update();
                 break;
             case 'delete':
-                $this->deleteDatabase();
+                $this->delete();
                 break;
             default:
-                // error action not defined
+                // ERROR COLOR
+                $this->output->warning('The action '.$action.' is not defined... exiting command');
         }
-    }
-
-    /**
-     * @return int
-     */
-    private function createDatabase()
-    {
-        $this->databaseManager->create();
 
         return self::EXITCODE;
     }
 
     /**
-     * @return int
+     * @throws \Exception
      */
-    private function updateDatabase()
+    private function create()
     {
-        $this->databaseManager->update();
-
-        return self::EXITCODE;
+        $this->delete();
+        $this->createDatabase();
+        $this->updateDatabase();
+        $this->importData();
     }
 
     /**
-     * @return int
+     * @throws \Exception
      */
-    private function deleteDatabase()
+    private function update()
     {
-        $this->databaseManager->delete();
+        $this->updateDatabase();
+    }
 
-        return self::EXITCODE;
+    /**
+     * @throws \Exception
+     */
+    private function delete()
+    {
+        $this->dropDatabase();
+    }
+
+    /**
+     * Drop the database
+     * @throws \Exception
+     */
+    private function dropDatabase(): void
+    {
+        $arguments = array(
+            'command' => 'doctrine:database:drop',
+            '--force'    => true,
+            //'--quiet'  => true,
+            '--env'  => $this->env,
+        );
+        $this->doCommand('doctrine:database:drop', $arguments);
+    }
+
+    /**
+     * Create the database
+     * @throws \Exception
+     */
+    private function createDatabase(): void
+    {
+        $arguments = array(
+            'command' => 'doctrine:database:create',
+            '--env'  => $this->env,
+        );
+        $this->doCommand('doctrine:database:create', $arguments);
+    }
+
+    /**
+     * Update the database
+     * @throws \Exception
+     */
+    private function updateDatabase(): void
+    {
+        $arguments = array(
+            'command' => 'doctrine:migrations:migrate',
+            '--env'  => $this->env,
+            '--quiet' => true,
+            '--no-interaction' => true
+        );
+        $this->doCommand('doctrine:migrations:migrate', $arguments);
+    }
+
+    /**
+     * Import countries in database
+     * @throws \Exception
+     */
+    private function importData()
+    {
+        $arguments = array(
+            'command' => 'doctrine:database:import',
+            '--env'  => $this->env,
+            'file' => SiteConfig::SQLCOUNTRY
+        );
+        $this->doCommand('doctrine:database:import', $arguments);
+
+        $arguments = array(
+            'command' => 'doctrine:database:import',
+            '--env'  => $this->env,
+            'file' => SiteConfig::SQLSTOCK
+        );
+        $this->doCommand('doctrine:database:import', $arguments);
+
+        $arguments = array(
+            'command' => 'doctrine:database:import',
+            '--env'  => $this->env,
+            'file' => SiteConfig::SQLUSER
+        );
+        $this->doCommand('doctrine:database:import', $arguments);
+    }
+
+
+    /**
+     * @param string $commandString
+     * @param array $arguments
+     *
+     * @return int
+     *
+     * @throws \Exception
+     */
+    private function doCommand(string $commandString, array $arguments)
+    {
+        $command = $this->getApplication()->find($commandString);
+
+        $commandInput = new ArrayInput($arguments);
+
+        return $command->run($commandInput, $this->output);
     }
 }

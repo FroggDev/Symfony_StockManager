@@ -17,7 +17,7 @@
         <source>password should not be blank</source>
         <target>Merci de saisir votre mot de passe.</target>
       </trans-unit>
-      <trans-unit id="fu4uM9r-fr" resname="email should not be blank">
+      <trans-unit id="3gSxKKl" resname="email should not be blank">
         <source>email should not be blank</source>
         <target>Merci de saisir votre addresse de messagerie.</target>
       </trans-unit>
@@ -29,19 +29,19 @@
         <source>email already in use</source>
         <target>Cette addresse de messagerie est déjà utilisé.</target>
       </trans-unit>
-      <trans-unit id="first-too-long-fr" resname="firstname is too long">
+      <trans-unit id="kiasYzb" resname="firstname is too long">
         <source>firstname is too long</source>
         <target>Votre nom est trop long.</target>
       </trans-unit>
-      <trans-unit id="last-too-long-fr" resname="lastname is too long">
+      <trans-unit id="BIkU6LF" resname="lastname is too long">
         <source>lastname is too long</source>
         <target>Votre prénom est trop long.</target>
       </trans-unit>
-      <trans-unit id="password-too-long-fr" resname="password is too long">
+      <trans-unit id="DwZkC3P" resname="password is too long">
         <source>password is too long</source>
         <target>Votre mot de passe est trop long.</target>
       </trans-unit>
-      <trans-unit id="email-too-long-fr" resname="email is too long">
+      <trans-unit id="x63VgMi" resname="email is too long">
         <source>email is too long</source>
         <target>Votre addresse de messagerie de passe est trop long.</target>
       </trans-unit>

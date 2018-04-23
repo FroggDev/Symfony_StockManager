@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="qvIyBkY" resname="title">
+        <source>title</source>
+        <target>Scan a product</target>
+      </trans-unit>
+      <trans-unit id="3KitmpX" resname="add product">
+        <source>add product</source>
+        <target>Add a product</target>
+      </trans-unit>
+      <trans-unit id="LtaRoRq" resname="remove product">
+        <source>remove product</source>
+        <target>Remove a product</target>
+      </trans-unit>
+      <trans-unit id="iei5UY2" resname="camera">
+        <source>camera</source>
+        <target>Camera</target>
+      </trans-unit>
+      <trans-unit id="N7p0B_t" resname="no product found for the barcode">
+        <source>no product found for the barcode</source>
+        <target>No product found for the barcode</target>
+      </trans-unit>
+      <trans-unit id="zMRpQ9J" resname="no product match the barcode">
+        <source>no product match the barcode</source>
+        <target>No product has been found matching the bar code, maybe it is just an error while scanning, you can retry to scan another time or you can add the product manually.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

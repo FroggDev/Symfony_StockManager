@@ -18,6 +18,7 @@ yarn-error.log
 
 ###> Stats export ###
 /public/output
+/public/demo
 ###< Stats export ###
 ###> symfony/phpunit-bridge ###
 .phpunit

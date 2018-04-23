@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="HzOUInL" resname="stock add stock title">
+        <source>stock add stock title</source>
+        <target>Add to stock</target>
+      </trans-unit>
+      <trans-unit id="9XCQDE4" resname="add a product">
+        <source>add a product</source>
+        <target>Add a product</target>
+      </trans-unit>
+      <trans-unit id="kMFVEQV" resname="barcode">
+        <source>barcode</source>
+        <target>Barcode</target>
+      </trans-unit>
+      <trans-unit id="GnswjY3" resname="quantity">
+        <source>quantity</source>
+        <target>Quantity</target>
+      </trans-unit>
+      <trans-unit id="6jGn9jr" resname="expire date">
+        <source>expire date</source>
+        <target>Expire date</target>
+      </trans-unit>
+      <trans-unit id="KURpLZd" resname="rescan">
+        <source>rescan</source>
+        <target>Rescan</target>
+      </trans-unit>
+      <trans-unit id="Fyr1Akj" resname="stock add title">
+        <source>stock add title</source>
+        <target>Add to stock</target>
+      </trans-unit>
+      <trans-unit id="BechTrm" resname="my stock product">
+        <source>my stock product</source>
+        <target>My stock</target>
+      </trans-unit>
+      <trans-unit id="5UwVGx_" resname="no product match your search">
+        <source>no product match your search</source>
+        <target>No product match your search</target>
+      </trans-unit>
+      <trans-unit id="nfpEskI" resname="no product in tour stock">
+        <source>no product in tour stock</source>
+        <target>There is no product in your stock</target>
+      </trans-unit>
+      <trans-unit id="SEXvhRQ" resname="nutrient levels">
+        <source>nutrient levels</source>
+        <target>Nutrient levels for</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

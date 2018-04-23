@@ -1,8 +1,8 @@
 {% extends "stock.html.twig" %}
 
-{% trans_default_domain 'stock_add' %}
+{% trans_default_domain 'stock_scan' %}
 
-{% block page_title "stock add title" | trans %}
+{% block page_title "stock "~type~" title" | trans %}
 
 {# NO CONTENT SHOULD BE OUTSIDE BLOCK IN A EXTENDS TWIG !! #}
 
@@ -13,7 +13,7 @@
 
         <div class="section">
 
-            <h1 class="teal-text text-lighten-2">{% if type=='add' %}Add product{% else %}Remove product{% endif %}</h1>
+            <h1 class="teal-text text-lighten-2">{% if type=='add' %}{{ "add product" | trans }}{% else %}{{ "remove product" | trans }}{% endif %}</h1>
 
             <!-- Display bar code scanner -->
             <div class="card toHideWhenOff bgItems">
@@ -48,24 +48,13 @@
                     <a id="cameraTorch" class="btn-floating btn-large waves-effect waves-light right "><i class="material-icons left">wb_incandescent</i></a>
                     <a onclick="document.app.Util.doAjax(document.app.url.barcode,{ barcode: 3178530412925 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right orange accent-2"></a>
                     <a onclick="document.app.Util.doAjax(document.app.url.barcode,{ barcode: 305640234163 },document.app.Scan.displayResult);" class="btn-floating btn-large waves-effect waves-light right red accent-2"></a>
-               {#
-               3250390779100
-               3273220081204
-               3256224398264
-               8002270015786
-               7613035530799
-               4062300126664
-               3178530412925
-               3240930514025
-               #}
-
                 </div>
 
                 <div class="card-content" style="padding: 0 30px 5px 30px;margin-top: -20px;">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">aspect_ratio</i>
                         <select name="input-stream_constraints" id="deviceSelection"></select>
-                        <label for="deviceSelection">Camera</label>
+                        <label for="deviceSelection">{{ "camera" | trans }}</label>
                     </div>
                 </div>
             </div>
@@ -75,7 +64,7 @@
                 <div class="card bgItems">
                     <div class="teal lighten-1">
                         <div class="list">
-                            <h4>No product found for the barcode : <span id="notfoundbarcode" class="text-accent-2 orange-text right"></span></h4>
+                            <h4>{{ "no product found for the barcode" | trans }} : <span id="notfoundbarcode" class="text-accent-2 orange-text right"></span></h4>
                         </div>
                     </div>
 
@@ -84,7 +73,7 @@
                     </div>
 
                     <div class="card-content">
-                        No product has been found matching the bar code, maybe it is just an error while scanning, you can retry to scan another time or you can add the product manually.
+                        {{ "no product match the barcode" | trans }}
                     </div>
                 </div>
 
