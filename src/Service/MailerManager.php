@@ -37,9 +37,9 @@ class MailerManager
      * @param string $bodytxt
      * @param string $subject  mail subject
      *
-     * @return void
+     * @return int
      */
-    public function send(string $from, string $to, string $bodyhtml, string $bodytxt, string $subject): void
+    public function send(string $from, string $to, string $bodyhtml, string $bodytxt, string $subject) : int
     {
         $message = (new \Swift_Message($subject))
             ->setFrom($from)
@@ -47,6 +47,6 @@ class MailerManager
             ->setBody($bodyhtml, 'text/html')
             ->addPart($bodytxt, 'text/plain');
 
-        $this->mailer->send($message);
+        return $this->mailer->send($message);
     }
 }

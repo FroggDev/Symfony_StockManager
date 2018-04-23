@@ -10,7 +10,7 @@
 
 {% block validation_button %}
 
-<a href="{{ url('security_recover_validation') }}?email={{ data.email }}&token={{ data.token }}" class="sm_auto_width sm_block button_link" style="min-width: 234px; border: 13px solid #53B987; border-radius: 4px; background-color: #53B987; font-size: 20px; color: #ffffff; display: inline-block; text-align: center; vertical-align: top; font-weight: 900; text-decoration: none !important; ">
+<a href="{{ constant('App\\SiteConfig::SITEURL') }}{{ path('security_recover_validation') }}?email={{ data.email }}&token={{ data.token }}" class="sm_auto_width sm_block button_link" style="min-width: 234px; border: 13px solid #53B987; border-radius: 4px; background-color: #53B987; font-size: 20px; color: #ffffff; display: inline-block; text-align: center; vertical-align: top; font-weight: 900; text-decoration: none !important; ">
     {{ "recover button validation" | trans }}
 </a>
 

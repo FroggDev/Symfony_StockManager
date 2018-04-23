@@ -48,9 +48,12 @@ $io->progressFinish();
 
 namespace App\Command;
 
+use App\Entity\Product;
 use App\Entity\StockProducts;
 use App\Entity\User;
+use App\Repository\StockProductsRepository;
 use App\Repository\UserRepository;
+use App\Service\MailerManager;
 use App\SiteConfig;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Command\Command;
@@ -63,6 +66,10 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * @author Frogg <admin@frogg.fr>
+ *
+ *
+ * TODO : MANAGE USER LANG FOR THE MAIL
+ * TODO : TRANSLATION
  *
  * Symfony console
  * @see https://symfony.com/doc/current/console.html
@@ -87,7 +94,20 @@ class AlertExpiresCommand extends Command
     /** @var ContainerInterface */
     private $container;
 
+    /** @var array day to alert */
+    private $days = [0, 3];
+
+    /** @var StockProductsRepository */
+    private $stockProductsRepository;
+
+    /** @var UserRepository */
+    private $userRepository;
+
     private $doctrine;
+
+    private $mailer;
+
+    private $twig;
 
     /**
      * /!\        DO NOT USE CONTRUCTOR IN COMMANDS      /!\
@@ -124,8 +144,12 @@ class AlertExpiresCommand extends Command
         $this->application = $this->getApplication();
         $this->kernel = $this->application->getKernel();
         $this->container = $this->kernel->getContainer();
+        $this->twig = $this->container->get('twig');
         $this->doctrine = $this->container->get('doctrine');
+        $this->mailer = new MailerManager($this->container->get('mailer'));
         $this->productManager = $this->container->get('app.service.product_manager');
+        $this->stockProductsRepository = $this->doctrine->getRepository(StockProducts::class);
+        $this->userRepository = $this->doctrine->getRepository(User::class);
 
         // INIT STYLES
         $this->output = new SymfonyStyle($input, $output);
@@ -135,36 +159,93 @@ class AlertExpiresCommand extends Command
     }
 
 
+    /**
+     * Main script
+     *
+     * @return int
+     */
     private function alertExpires()
     {
-        /** @var StockProducts $stockProductsRepository */
-        $stockProductsRepository = $this->doctrine->getRepository(StockProducts::class);
 
+        $users = $this->userRepository->findAll();
 
-        $stockId = 1;
+        /** @var User $user */
+        foreach ($users as $user) {
 
-        $expired = $stockProductsRepository->findList($stockId, '0', 1, '0', null, null, true);
+            $messageData = $this->getMessage($user->getStock()->getId());
 
-        $expire3 = $stockProductsRepository->findList($stockId, '3', 1, '0', null, null, true);
+            if ($messageData['nb'] > 0) {
+                $result = $this->sendMail($user, $messageData);
 
-        $all = [$expired,$expire3];
-
-        foreach($all as $expire){
-             foreach($expire[1] as $data){
-
-                $product = $data[0]->getProduct();
-
-                $dates = $stockProductsRepository->findDateExpires($product->getId(),$stockId,'0');
-
-                foreach($dates as $date){
-                    dump('1 x ' . $product->getName(). ' '.$product->getBrands()[0]->getName().' '.$product->getQuantity().' '.$date->getDateExpire()->format(SiteConfig::DATELOCALE['en']));
+                if(1===$result){
+                    $this->output->success("Mail has been sent to ".$user->getEmail());
+                }else{
+                    $this->output->error("An error ocured while sending mail to ".$user->getEmail());
                 }
-
             }
         }
-
-
         return self::EXITCODE;
+    }
 
+
+    /**
+     * @param int $stockId
+     *
+     * @return array
+     */
+    private function getMessage(int $stockId)
+    {
+        $message = '<div>Some of your products are expiring, here is the list of products concerned : <br/><br/></div>';
+        $nb = 0;
+
+        foreach ($this->days as $day) {
+
+            switch ($day) {
+                case 0:
+                    $message .= '<h2>Product expired</h2>';
+                    break;
+                case 3:
+                    $message .= '<h2>Product that will expire in 3 days</h2>';
+                    break;
+            }
+
+            $stockProducts = $this->stockProductsRepository->findDateExpires(null,$stockId, $day);
+            $message .= '<ul>';
+
+            /** @var StockProducts $stockProduct */
+            foreach ($stockProducts as $stockProduct) {
+
+                    /** @var Product $product */
+                    $product = $stockProduct->getProduct();
+
+                    $message .= '<li>'
+                        .$stockProduct->getDateExpire()->format(SiteConfig::DATELOCALE['en'])
+                        .' - '.$product->getName()
+                        .' '.$product->getBrands()[0]->getName()
+                        .' '. $product->getQuantity()
+                        .'</li>';
+                    $nb++;
+                 }
+            $message .= '</ul>';
+        }
+
+        return ['nb' => $nb, 'message' => $message];
+    }
+
+    /**
+     * @param User $user
+     * @param array $messageData
+     *
+     * @return int
+     */
+    private function sendMail(User $user, Array $messageData) : int
+    {
+        return $this->mailer->send(
+            SiteConfig::SECURITYMAIL,
+            $user->getEmail(),
+            $this->twig->render('mail/stock/expired.html.twig', array('message' => $messageData['message'])),
+            $this->twig->render('mail/stock/expired.txt.twig', array('message' => $messageData['message'])),
+            SiteConfig::SITENAME.' - You have '.$messageData['nb'].' products expiring products'
+        );
     }
 }

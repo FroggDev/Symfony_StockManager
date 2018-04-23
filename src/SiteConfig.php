@@ -28,7 +28,8 @@ class SiteConfig
      * website url
      * @const string
      */
-    const SITEURL = 'https://stock.frogg.fr';
+    //const SITEURL = 'https://stock.frogg.fr';
+    const SITEURL = 'http://127.0.0.1:8000';
 
     /**
      * website copyright

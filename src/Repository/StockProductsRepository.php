@@ -36,70 +36,38 @@ class StockProductsRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param int      $productId
-     * @param int      $stockId
+     * @param int|null $productId
+     * @param int $stockId
      * @param int|null $inDay
      *
      * @return array
      */
-    public function findDateExpires(int $productId, int $stockId, ?int $inDay = null)
+    public function findDateExpires(?int $productId, int $stockId, ?int $inDay = null)
     {
         $orderDirection = $this->getOrderDirection('sp.dateExpire');
 
         //prepare query
         $query = $this->createQueryBuilder('sp')
             ->select('sp')
-            ->where('sp.product = '.$productId)
-            ->andWhere('sp.stock = '.$stockId)
+            ->Where('sp.stock = ' . $stockId)
             ->orderBy($orderDirection['order'], $orderDirection['direction']);
+
+        if ($productId) {
+            $query->Andwhere('sp.product = ' . $productId);
+        }
 
         return $this->applyFilter($query, $inDay)->getQuery()->getResult();
     }
 
     /**
-     * @param int    $stockId
-     * @param int    $numPage
+     * @param int $stockId
+     * @param null|string $inDay
+     * @param int $numPage
      * @param string $order
      *
      * @return array
-     */
-    /*
-    public function findByGroupedProduct(int $stockId, int $numPage = 1, string $order = '0'): array
-    {
-        //SELECT COUNT(product_id) FROM stock_products where stock_id=1 GROUP BY product_id ORDER BY date_expire DESC
-
-        $orderDirection = $this->getOrderDirection($order);
-
-        $products = $this->createQueryBuilder('sp')
-            ->select('sp,count(sp.product)')
-            ->where('sp.stock = '.$stockId)
-            ->join('sp.product', 'p')
-            ->groupBy('sp.product')
-            ->orderBy($orderDirection['order'], $orderDirection['direction'])
-            ->getQuery()
-            ->getResult();
-
-        $nbExpired = $this->getNbProductExpire($products);
-
-        return [
-            count($products),
-            array_slice(
-                $products,
-                $this->getLimit($numPage),
-                SiteConfig::NBPERPAGE
-            ),
-            $nbExpired,
-        ];
-    }
-    */
-
-    /**
-     * @param int         $stockId
-     * @param null|string $inDay
-     * @param int         $numPage
-     * @param string      $order
      *
-     * @return array
+     * TODO CHANGE ARGUMENTS AS AN OBJECT WITH DEFAULT VALUES
      *
      * @see http://doctrine-orm.readthedocs.io/en/latest/reference/dql-doctrine-query-language.html#id3
      */
@@ -107,18 +75,22 @@ class StockProductsRepository extends ServiceEntityRepository
     {
         $orderDirection = $this->getOrderDirection($order);
 
+        /**
+         * TODO ADD  min(sp.dateExpire); / max(sp.dateCreation)
+         * to have the good order date
+         */
         $query = $this->createQueryBuilder('sp')
             ->select('sp,count(sp.product)')
-            ->Where('sp.stock = '.$stockId)
+            ->Where('sp.stock = ' . $stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
             ->orderBy($orderDirection['order'], $orderDirection['direction']);
 
-        if (null!==$productId) {
-            $query->andWhere('sp.product = '.$productId);
+        if (null !== $productId) {
+            $query->andWhere('sp.product = ' . $productId);
         }
 
-        if (null!==$search && ""!==$search) {
+        if (null !== $search && "" !== $search) {
             $query
                 ->join('p.brands', 'b')
                 //->join('p.categories', 'c')
@@ -135,7 +107,7 @@ class StockProductsRepository extends ServiceEntityRepository
 
         return [
             count($products),
-            $fullList ? $products :array_slice($products, $this->getLimit($numPage), SiteConfig::NBPERPAGE),
+            $fullList ? $products : array_slice($products, $this->getLimit($numPage), SiteConfig::NBPERPAGE),
             $nbExpired,
         ];
     }
@@ -147,9 +119,9 @@ class StockProductsRepository extends ServiceEntityRepository
     /**
      * @param string $order
      *
-     * @return string
+     * @return array
      */
-    private function getOrderDirection(string $order)
+    private function getOrderDirection(string $order): array
     {
         // get the selected request order
         switch ($order) {
@@ -166,7 +138,8 @@ class StockProductsRepository extends ServiceEntityRepository
                 $direction = 'ASC';
         }
 
-        return ['order'=>$order,'direction'=>$direction];
+
+        return ['order' => $order, 'direction' => $direction];
     }
 
     /**
@@ -200,7 +173,7 @@ class StockProductsRepository extends ServiceEntityRepository
 
     /**
      * @param QueryBuilder $query
-     * @param string|null  $inDay
+     * @param string|null $inDay
      *
      * @return QueryBuilder
      */

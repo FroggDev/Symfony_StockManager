@@ -18,9 +18,6 @@
     </php>
 
     <testsuites>
-        <testsuite name="Command Test Suite">
-            <directory>tests/Command</directory>
-        </testsuite>
         <testsuite name="Controller Test Suite">
             <directory>tests/Controller</directory>
         </testsuite>
@@ -38,6 +35,9 @@
         </testsuite>
         <testsuite name="Twig Test Suite">
             <directory>tests/Twig</directory>
+        </testsuite>
+        <testsuite name="Command Test Suite">
+            <directory>tests/Command</directory>
         </testsuite>
     </testsuites>
 
