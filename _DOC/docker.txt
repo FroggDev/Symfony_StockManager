@@ -1,0 +1,17 @@
+dockerstart
+
+dockerlist
+
+dockerrun [ID] bash
+
+
+cd /opt/web/Symfony_StockManager/
+
+php bin/console app:database create
+php bin/console app:product:add 3250390779100 3256224398264 8002270015786 7613035530799 3178530412925
+
+
+
+Cleanning
+https://bobcares.com/blog/how-to-clear-docker-cache-and-save-disk-space/1/
+docker system prune -a -f

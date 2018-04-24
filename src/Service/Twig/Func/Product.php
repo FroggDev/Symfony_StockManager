@@ -18,6 +18,7 @@ use App\SiteConfig;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @author Frogg <admin@frogg.fr>
@@ -35,16 +36,22 @@ class Product extends AbstractTwigExtension
      * @var Request
      */
     private $request;
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
 
     /**
      * Product constructor.
      * @param EntityManagerInterface $manager
-     * @param RequestStack           $requestStack
+     * @param RequestStack $requestStack
+     * @param TranslatorInterface $translator
      */
-    public function __construct(EntityManagerInterface $manager, RequestStack $requestStack)
+    public function __construct(EntityManagerInterface $manager, RequestStack $requestStack,TranslatorInterface $translator)
     {
         $this->manager = $manager;
         $this->request = $requestStack->getMasterRequest();
+        $this->translator = $translator;
     }
 
     /**
@@ -100,7 +107,7 @@ class Product extends AbstractTwigExtension
             $expireDate = $product->getDateExpire();
 
             //date as string for display
-            $dateString = "no expire data set";
+            $dateString = $this->translator->trans('no expire date set', [], 'stock_add');
 
             // create the related option
             if (null !== $expireDate) {
@@ -210,6 +217,11 @@ class Product extends AbstractTwigExtension
                 break;
         }
 
-        return '<div><a class="btn-floating '.SiteConfig::PRODUCTGRADE[$grade]['color'].' waves-effect waves-light mini"></a>'.$levelData.' '.$unitData.'  (TODO TRAD)'.$type.' '.SiteConfig::PRODUCTGRADE[$grade]['text'].'</div>';
+        return '<div><a class="btn-floating '
+            .SiteConfig::PRODUCTGRADE[$grade]['color']
+            .' waves-effect waves-light mini"></a>'
+            .$levelData.' '.$unitData.'  (TODO TRAD)'.$type.' '
+            .$this->translator->trans(SiteConfig::PRODUCTGRADE[$grade]['text'], [], 'stock_add')
+            .'</div>';
     }
 }

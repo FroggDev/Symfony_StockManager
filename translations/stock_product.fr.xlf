@@ -5,6 +5,10 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
+      <trans-unit id="SEdsffgbsdfsdfsdXvhRQ" resname="back">
+        <source>back</source>
+        <target>Retour</target>
+      </trans-unit>
       <trans-unit id="NxhnZXd" resname="stock product detail title">
         <source>stock product detail title</source>
         <target>Détail du produit</target>
@@ -135,7 +139,7 @@
       </trans-unit>
       <trans-unit id="kEG9ZRB" resname="magnesium">
         <source>magnesium</source>
-        <target>Magnesium</target>
+        <target>Magnésium</target>
       </trans-unit>
       <trans-unit id="tCchWTc" resname="nitrates">
         <source>nitrates</source>

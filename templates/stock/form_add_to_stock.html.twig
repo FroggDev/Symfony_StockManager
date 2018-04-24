@@ -59,7 +59,7 @@
 
                 <div class="center mainBtn">
                     <a href="{{ path('stock_add') }}" class="waves-effect waves-light btn-large orange accent-2"><i class="material-icons left">crop_rotate</i>{{ "rescan" | trans }}</a>
-                    <a onclick="document.app.Util.doAjax(document.app.url.addToStock,new FormData(document.querySelector('#addProductForm')),document.app.Product.addToStock,'POST')" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>Add</a>
+                    <a onclick="document.app.Util.doAjax(document.app.url.addToStock,new FormData(document.querySelector('#addProductForm')),document.app.Product.addToStock,'POST')" class="waves-effect waves-light btn-large"><i class="material-icons left">library_add</i>{{ "add" | trans }}</a>
                 </div>
             </div>
 

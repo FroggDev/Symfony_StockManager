@@ -71,7 +71,7 @@
       </trans-unit>
       <trans-unit id="9XCQDE4" resname="add a product">
         <source>add a product</source>
-        <target>Ajouter u produit</target>
+        <target>Ajouter un produit</target>
       </trans-unit>
       <trans-unit id="SDPsdDt" resname="remove a product">
         <source>remove a product</source>
