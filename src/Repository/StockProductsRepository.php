@@ -75,15 +75,12 @@ class StockProductsRepository extends ServiceEntityRepository
     {
         $orderDirection = $this->getOrderDirection($order);
 
-        /**
-         * TODO ADD  min(sp.dateExpire); / max(sp.dateCreation)
-         * to have the good order date
-         */
         $query = $this->createQueryBuilder('sp')
-            ->select('sp,count(sp.product)')
+            ->select('sp,count(sp.product),min(sp.dateExpire) as minExpire')
             ->Where('sp.stock = ' . $stockId)
             ->join('sp.product', 'p')
             ->groupBy('sp.product')
+            //->orderBy('minExpire', 'asc');
             ->orderBy($orderDirection['order'], $orderDirection['direction']);
 
         if (null !== $productId) {
@@ -125,6 +122,10 @@ class StockProductsRepository extends ServiceEntityRepository
     {
         // get the selected request order
         switch ($order) {
+            case 'sp.dateExpire':
+                $order = 'sp.dateExpire';
+                $direction = 'ASC';
+                break;
             case '2':
                 $order = 'sp.dateCreation';
                 $direction = 'DESC';
@@ -134,10 +135,9 @@ class StockProductsRepository extends ServiceEntityRepository
                 $direction = 'ASC';
                 break;
             default:
-                $order = 'sp.dateExpire';
+                $order = 'minExpire';//'sp.dateExpire';
                 $direction = 'ASC';
         }
-
 
         return ['order' => $order, 'direction' => $direction];
     }
