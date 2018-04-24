@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    # local : docker
+    php:
+        build: dockerTest
+        image: frogg/php:7.2-fpm
+        command: php -S 0.0.0.0:8000 -t /opt/web/Symfony_StockManager/public
+        ports:
+            - "8000:8000"        
+            
+    # can be use as domain name to reach it
+    database:
+        image: mysql:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=root

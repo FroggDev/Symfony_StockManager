@@ -1,0 +1,47 @@
+IP host 51.15.151.100
+IP Esxi 163.172.25.176
+
+> change gateway
+nano /etc/network/interfaces
+gateway 163.172.25.1
+
+> Change dns
+nano /etc/resolv.conf
+nameserver 62.210.16.6
+nameserver 62.210.16.7
+> Apt source list 
+/etc/apt/source.list
+deb http://mirrors.kernel.org/debian/ stretch main
+deb-src http://mirrors.kernel.org/debian/ stretch main
+
+deb http://security.debian.org/debian-security stretch/updates main
+deb-src http://security.debian.org/debian-security stretch/updates main
+
+> install packages
+- apt-get install docker-compose
+- apt-get install openssh-server (with permit root login)
+- apt-get install apt-transport-https
+- apt-get install software-properties-common
+- apt-get install curl
+
+> Ajouter le depot docker dans /etc/apt/source.list
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+
+- apt-get update
+- apt-get install docker-ce
+
+> Lancer le docker test
+cd /opt/docker/test/
+docker-compose up -d
+
+======> AT WORK FROM HERE
+
+clone https://github.com/FroggDev/Symfony_StockManager.git
+
+
+DANS LE DOCKER !
+Mise en prod :
+cd /opt/web/
+composer install --no-dev -o
+

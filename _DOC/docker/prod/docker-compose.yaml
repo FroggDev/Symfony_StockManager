@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+    php:
+        build: dockerProd
+        image: froggDock/php:7.2-fpm
+	# local : docker
+        volumes: 
+            - /opt/web/:/opt/web
+        command: php -S 0.0.0.0:8000 -t /opt/web/Stock_Manager/public
+        ports:
+            - "80:8000"        
+            
+    # can be use as domain name to reach it
+    database:
+        image: mysql:5.7
+        #Volume must be in first else not create folder
+        volumes:
+            - /opt/sql/prod/mysql.db:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
