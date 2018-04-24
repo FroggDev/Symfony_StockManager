@@ -86,9 +86,9 @@ class SiteConfig
     # SQL #
     ######*/
 
-    const SQLCOUNTRY = 'sql\country.sql';
-    const SQLSTOCK = 'sql\stock.sql';
-    const SQLUSER = 'sql\user.sql';
+    const SQLCOUNTRY = 'sql/country.sql';
+    const SQLSTOCK = 'sql/stock.sql';
+    const SQLUSER = 'sql/user.sql';
 
     /*##########
     # SECURITY #
@@ -155,6 +155,8 @@ class SiteConfig
     /**
      * Grade product information
      * @const array
+     *
+     * TODO TRAD THIS
      */
     const PRODUCTGRADE = [
         0 => [
