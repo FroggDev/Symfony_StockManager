@@ -27,7 +27,7 @@
       </trans-unit>
       <trans-unit id="zMRpQ9J" resname="no product match the barcode">
         <source>no product match the barcode</source>
-        <target>Aucun produit ne correspond au code-barres saisie, peut-être ce n'est qu'une erreur de scan, vous pouvez essayer de scanner à nouveau, sinon vous pouvez saisir le produit manuellement.</target>
+        <target>Aucun produit ne correspond au code-barres saisi, il s'agit peut-être d'une erreur de scan, vous pouvez essayer de scanner à nouveau ou saisir le produit manuellement.</target>
       </trans-unit>
     </body>
   </file>

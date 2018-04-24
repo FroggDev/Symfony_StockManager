@@ -11,7 +11,7 @@
       </trans-unit>
       <trans-unit id="3FVsmaR" resname="product result">
         <source>product result</source>
-        <target>Resultat des produits</target>
+        <target>Resultat</target>
       </trans-unit>
       <trans-unit id="wHlUQ3E" resname="no result found for the search">
         <source>no result found for the search</source>
@@ -19,7 +19,11 @@
       </trans-unit>
       <trans-unit id="SEXvhRQ" resname="nutrient levels">
         <source>nutrient levels</source>
-        <target>Repères nutritionnelles pour</target>
+        <target>Repères nutritionnels pour</target>
+      </trans-unit>
+      <trans-unit id="SEdsfgfdfsdfsdfsdXvhRQ" resname="back">
+        <source>back</source>
+        <target>Retour</target>
       </trans-unit>
     </body>
   </file>

@@ -5,6 +5,10 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
+      <trans-unit id="SEssdXvfdfhRQ" resname="back">
+        <source>back</source>
+        <target>Back</target>
+      </trans-unit>
       <trans-unit id="HzOUInL" resname="stock add stock title">
         <source>stock add stock title</source>
         <target>Add to stock</target>
@@ -29,6 +33,10 @@
         <source>rescan</source>
         <target>Rescan</target>
       </trans-unit>
+      <trans-unit id="KURfgdfgfdgdfgdfdfgpLZd" resname="add">
+        <source>add</source>
+        <target>Add</target>
+      </trans-unit>
       <trans-unit id="Fyr1Akj" resname="stock add title">
         <source>stock add title</source>
         <target>Add to stock</target>
@@ -48,6 +56,22 @@
       <trans-unit id="SEXvhRQ" resname="nutrient levels">
         <source>nutrient levels</source>
         <target>Nutrient levels for</target>
+      </trans-unit>
+      <trans-unit id="SEsdfsdXvhRQ" resname="no expire date set">
+        <source>no expire date set</source>
+        <target>No date set</target>
+      </trans-unit>
+      <trans-unit id="popdsdnsdf" resname="low quantity">
+        <source>low quantity</source>
+        <target>in low quantity</target>
+      </trans-unit>
+      <trans-unit id="popdsfddsdnsdf" resname="medium quantity">
+        <source>medium quantity</source>
+        <target>in medium quantity</target>
+      </trans-unit>
+      <trans-unit id="popdsdfsdsfddsdnsdf" resname="high quantity">
+        <source>high quantity</source>
+        <target>in high quantity</target>
       </trans-unit>
     </body>
   </file>

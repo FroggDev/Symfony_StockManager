@@ -19,15 +19,15 @@
       </trans-unit>
       <trans-unit id="3gSxKKl" resname="email should not be blank">
         <source>email should not be blank</source>
-        <target>Merci de saisir votre addresse de messagerie.</target>
+        <target>Merci de saisir votre adresse de messagerie.</target>
       </trans-unit>
       <trans-unit id="fu4uM9r" resname="email is not valid">
         <source>email is not valid</source>
-        <target>Cette addresse de messagerie n'est pas valide.</target>
+        <target>Cette adresse de messagerie n'est pas valide.</target>
       </trans-unit>
       <trans-unit id="dJeMHTI" resname="email already in use">
         <source>email already in use</source>
-        <target>Cette addresse de messagerie est déjà utilisé.</target>
+        <target>Cette adresse de messagerie est déjà utilisée.</target>
       </trans-unit>
       <trans-unit id="kiasYzb" resname="firstname is too long">
         <source>firstname is too long</source>
@@ -43,7 +43,7 @@
       </trans-unit>
       <trans-unit id="x63VgMi" resname="email is too long">
         <source>email is too long</source>
-        <target>Votre addresse de messagerie de passe est trop long.</target>
+        <target>Votre adresse de messagerie est trop longue.</target>
       </trans-unit>
     </body>
   </file>

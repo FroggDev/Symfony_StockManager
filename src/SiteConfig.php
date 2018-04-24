@@ -132,7 +132,7 @@ class SiteConfig
      * nb product to display per page
      * @const int
      */
-    const NBPERPAGE = 2;
+    const NBPERPAGE = 4;
 
     /**
      * Energie Unit list
@@ -161,18 +161,17 @@ class SiteConfig
     const PRODUCTGRADE = [
         0 => [
             'color' => 'green',
-            'text' => 'en faible quantité',
+            'text' => 'low quantity',
         ],
         1 => [
             'color' => 'orange darken-1',
-            'text' => 'en quantité modérée',
+            'text' => 'medium quantity',
         ],
         2 => [
             'color' => 'red',
-            'text' => 'en quantité élevée',
+            'text' => 'high quantity',
         ],
     ];
-
 
     /*#######
     # SCRAP #

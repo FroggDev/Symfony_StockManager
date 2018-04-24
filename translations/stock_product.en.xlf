@@ -5,6 +5,10 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
+      <trans-unit id="SEdsfgsdfsdfdfsdfsdfsdXvhRQ" resname="back">
+        <source>back</source>
+        <target>Back</target>
+      </trans-unit>
       <trans-unit id="NxhnZXd" resname="stock product detail title">
         <source>stock product detail title</source>
         <target>Product detail</target>
