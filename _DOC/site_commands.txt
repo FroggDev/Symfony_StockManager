@@ -2,7 +2,7 @@ User Manager
 ------------
 php bin/console app:userManager
 php bin/console app:database create
-php bin/console app:product:add 3250390779100 3256224398264 8002270015786 7613035530799 4062300126664 3178530412925 3240930514025
+php bin/console app:product:add 3250390779100 3256224398264 8002270015786 7613035530799 4062300126664 3178530412925 3240930514025 7613035040700 3502110008459 3330720237798 3228886043714 7311070330687
 
 Css/js Compilation
 ------------------
@@ -36,9 +36,9 @@ php bin/console doctrine:mapping:convert annotation ./src/ExportedEntity --from-
 php bin/console doctrine:make:entity Origin
 
 - import datas
-php bin/console doctrine:database:import sql\country.sql
-php bin/console doctrine:database:import sql\stock.sql
-php bin/console doctrine:database:import sql\user.sql
+php bin/console doctrine:database:import sql/country.sql
+php bin/console doctrine:database:import sql/stock.sql
+php bin/console doctrine:database:import sql/user.sql
 
 Translation
 -----------
