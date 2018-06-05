@@ -675,9 +675,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getQuantity(): string
+    public function getQuantity(): ?string
     {
         return $this->quantity;
     }
